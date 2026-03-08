@@ -1,4 +1,4 @@
-<div style="background-color: rgb(16, 57, 110); color: white;">
+<div style="background-color: #05384B; color: white;">
     <div class="container">
         <header class="d-flex flex-wrap justify-content-center mb-0">
             <div class="nav me-auto">
@@ -11,7 +11,7 @@
 </div>
 
 <!-- Desktop / Large Devices -->
-<div style="background-color: rgb(16, 57, 110); color: white;">
+<div style="background-color: #05384B; color: white;">
     <div class="container">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-0">
 
@@ -50,7 +50,7 @@
 </div>
 
 <!-- Mobile Navigation -->
-<div class="d-lg-none" style="background-color: rgb(16, 57, 110); color: white;">
+<div class="d-lg-none" style="background-color: #05384B; color: white;">
     <div>
         <div class="col-lg-12 col-sm-12 o-hidden">
             <div class="nav scrollable nav-fill small position-relative flex-nowrap fixturesTextSize pb-2 pt-2" id="scrollable-nav">
