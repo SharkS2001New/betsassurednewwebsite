@@ -1,0 +1,33 @@
+User-agent: *
+Disallow: /*?
+Disallow: /*?c=
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: bingbot
+Allow: /
+
+User-agent: Googlebot-Mobile
+Allow: /
+
+User-agent: YahooSeeker/M1A1-R2D2
+Allow: /
+
+User-agent: MSNBOT_Mobile
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: baiduspider
+Allow: /
+
+User-agent: Yandex
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
