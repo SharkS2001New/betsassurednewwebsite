@@ -1,6 +1,6 @@
-# Enable rewrite engine
+<!-- # Enable rewrite engine
 RewriteEngine On
-RewriteBase /
+RewriteBase / -->
 
 <!-- # 1. Canonical redirect to https://www.betsassured.com
 # If host is not the canonical host, redirect immediately to canonical https URL
@@ -13,7 +13,7 @@ RewriteCond %{HTTP:X-Forwarded-Proto} !https
 RewriteRule ^ https://www.betsassured.com%{REQUEST_URI} [R=301,L]
 -->
 
-# 2. Custom 404 page
+<!-- # 2. Custom 404 page
 ErrorDocument 404 /404.php
 
 # 3. Allow clean URLs without .php (only if .php file exists)
@@ -29,4 +29,4 @@ RewriteRule ^ index.php [QSA,L]
 # 5. Restrict access to sensitive files
 <FilesMatch "\.(htaccess|htpasswd|env|config\.php|private)$">
     Require all denied
-</FilesMatch>
+</FilesMatch> -->
