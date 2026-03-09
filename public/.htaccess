@@ -1,3 +1,21 @@
 # Enable rewrite engine
 RewriteEngine On
 RewriteBase /
+
+# 2. Custom 404 page
+ErrorDocument 404 /404.php
+
+# 3. Allow clean URLs without .php (only if .php file exists)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.+)$ $1.php [NC,L]
+
+# 4. Front controller: route other requests to index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]
+
+# 5. Restrict access to sensitive files
+<FilesMatch "\.(htaccess|htpasswd|env|config\.php|private)$">
+    Require all denied
+</FilesMatch>
