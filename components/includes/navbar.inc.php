@@ -439,12 +439,6 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="/all-predictions" class="nav-link">
-                            <i class="fas fa-list-ul"></i>
-                            <span>All Predictions</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
                         <a href="/jackpot-predictions" class="nav-link">
                             <i class="fas fa-trophy"></i>
                             <span>Jackpot Tips</span>
@@ -482,10 +476,6 @@
                 <a href="/yesterdays-predictions" class="mobile-nav-link">
                     <i class="fas fa-calendar-check"></i>
                     <span>Yesterday</span>
-                </a>
-                <a href="/all-predictions" class="mobile-nav-link">
-                    <i class="fas fa-list-ul"></i>
-                    <span>All Tips</span>
                 </a>
                 <a href="/jackpot-predictions" class="mobile-nav-link">
                     <i class="fas fa-trophy"></i>

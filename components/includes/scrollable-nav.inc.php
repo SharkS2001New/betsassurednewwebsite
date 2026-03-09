@@ -11,6 +11,7 @@
     <a href="/over-under-15-goals" class="tab-link">O/U 1.5 Goals</a>
     <a href="/over-under-25-goals" class="tab-link">O/U 2.5 Goals</a>
     <a href="/double-chance" class="tab-link">Double Chance</a>
+    <a href="/all-predictions" class="tab-link">All Predictions</a>
   </div>
 
   <button class="scroll-button" onclick="scrollTabs(200)">&#x276F;</button>

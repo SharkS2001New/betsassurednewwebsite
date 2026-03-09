@@ -87,6 +87,10 @@ $router->get('/contact-us', function() {
     include __DIR__ . '/../pages/contact.php'; 
 });
 
+$router->get('/partners', function() {
+    include __DIR__ . '/../pages/partners.php'; 
+});
+
 $router->get('/about-us', function() {
     include __DIR__ . '/../pages/about.php'; 
 });
