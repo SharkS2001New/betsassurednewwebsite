@@ -1,6 +1,6 @@
-<!-- # Enable rewrite engine
+# Enable rewrite engine
 RewriteEngine On
-RewriteBase / -->
+RewriteBase /
 
 <!-- # 1. Canonical redirect to https://www.betsassured.com
 # If host is not the canonical host, redirect immediately to canonical https URL
