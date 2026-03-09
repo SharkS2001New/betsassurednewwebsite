@@ -18,72 +18,7 @@ HTML;
 // Preloader & Header
 include_once BASE_PATH . "/components/includes/header.inc.php";
 ?>
- <!-- Schema: BreadcrumbList -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.accuratestakes.com/"},
-        {"@type": "ListItem", "position": 2, "name": "Jackpot Predictions", "item": "https://www.accuratestakes.com/jackpot-predictions"},
-        {"@type": "ListItem", "position": 3, "name": "Sportpesa Midweek Jackpot"}
-      ]
-    }
-    </script>
-    <!-- Schema: SportsEvent -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SportsEvent",
-      "name": "Sportpesa Midweek Jackpot - Week of February 19, 2026",
-      "description": "13-game midweek football jackpot competition",
-      "startDate": "2026-02-19T18:00:00+03:00",
-      "endDate": "2026-02-20T23:00:00+03:00",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
-      "location": {
-        "@type": "Place",
-        "name": "SportPesa Kenya",
-        "address": {"@type": "PostalAddress", "addressCountry": "KE"}
-      },
-      "organizer": {
-        "@type": "Organization",
-        "name": "SportPesa",
-        "url": "https://www.sportpesa.co.ke"
-      },
-      "offers": {
-        "@type": "Offer",
-        "price": "99",
-        "priceCurrency": "KES",
-        "availability": "https://schema.org/InStock"
-      }
-    }
-    </script>
-    <!-- Schema: FAQPage -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How many games are in Sportpesa Midweek Jackpot?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The Sportpesa Midweek Jackpot consists of 13 pre-selected football matches. You must correctly predict the outcome (1X2) of all 13 games to win the grand prize, though bonus prizes are awarded for 10, 11, and 12 correct predictions."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "When does Sportpesa Midweek Jackpot run?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The Sportpesa Midweek Jackpot typically runs from Wednesday evening through Thursday night, covering midweek matches from European leagues including Premier League, La Liga, Serie A, and others."
-          }
-        }
-      ]
-    }
-    </script>
+
 <?php
 include_once BASE_PATH . "/components/shared/preloader.shared.php";
 include_once BASE_PATH . "/components/includes/navbar.inc.php";
@@ -100,12 +35,13 @@ $encodedName = urlencode($jackpotName);
 $apiUrl = "https://api.alljackpotpredictions.com/api/fetch_jackpot_fixtures_by_name?jackpot_name=$encodedName";
 $token = "q2LsJ9FmT6XvRaCbHuYdK8ZwN4";
 
-// Make cURL request with Authorization and Origin headers
+
+// Make cURL request
 $ch = curl_init($apiUrl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
     "Partner-Authorization: $token",
-    "Origin: https://www.accuratestakes.com"
+    "Origin: https://www.betsassured.com"
 ]);
 
 $response = curl_exec($ch);
@@ -130,10 +66,8 @@ function get1X2Tip($tip) {
     $percentDraw = percentToInt($tip['percent_pred_draw'] ?? '0');
     $percentAway = percentToInt($tip['percent_pred_away'] ?? '0');
     
-    // Find the highest percentage
     $maxPercent = max($percentHome, $percentDraw, $percentAway);
     
-    // Return 1, X, or 2 based on highest percentage
     if ($maxPercent === $percentHome) {
         return '1';
     } elseif ($maxPercent === $percentDraw) {
@@ -171,92 +105,254 @@ if ($response) {
     }
 }
 ?>
-<main class="desktop-container" style="width: 100%; background-color: white; border: 1px solid #ddd">
-    <div class="container-md-fluid mt-4">
-        <h1 id="jackpot-name" class="responsive-title text-center">
-            Free Sportpesa Midweek Jackpot Predictions - This Week's 13 Games
-        </h1>
-        <h2 id="jackpot-dates" class="text-center">
-            <?php if ($startDate && $endDate): ?>
-                (Starts At: <?= $startDate ?> - Ends At: <?= $endDate ?>)
-            <?php endif; ?>
-        </h2>
 
-        <p>Looking for expert <strong>Sportpesa Midweek Jackpot predictions</strong> for this week's 13 games?
-            AccurateStakes provides free, comprehensive analysis with confidence ratings,
-            match breakdowns, and winning strategies to help you target the bonus brackets and grand prize.
-        </p>
-        <p>
-        Unlike the 17-game Mega Jackpot, the Sportpesa Midweek Jackpot offers a more manageable 13-game format with midweek matches
-            making it ideal for hitting bonus prizes consistently.
-        </p>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-        <div class="table-responsive">
-            <?php if (count($predictions) > 0): ?>
-                <table id="tips-table" class="table">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>#</th>
-                            <th>Date</th>
-                            <th>Match</th>
-                            <th class="d-none d-md-table-cell">Tip</th>
-                            <th class="d-md-none text-center">Tip</th>
-                            <th>Scores</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($predictions as $index => $tip): ?>
-                            <?php
-                                // Get 1X2 tip based on percentages
-                                $prediction = get1X2Tip($tip);
-                                
-                                $score = ($tip['goals_home'] === null || $tip['goals_away'] === null)
-                                    ? '-'
-                                    : "{$tip['goals_home']} - {$tip['goals_away']}";
-                                $matchDate = isset($tip['date']) 
-                                    ? (new DateTime($tip['date']))->modify('+3 hours')->format('d/m/Y H:i') 
-                                    : '-';
-                                
-                                // Get win/loss status
-                                $winningStatus = DetermineWinningOrLost($prediction, $tip['goals_home'] ?? null, $tip['goals_away'] ?? null);
-                            ?>
-                            <tr class="align-middle">
-                                <td><?= $index + 1 ?>.</td>
-                                <td><?= $matchDate ?></td>
-                                <td>
-                                    <?= htmlspecialchars($tip['home_team_name'] ?? '') ?> 
-                                    <span class="text-danger">vs</span> 
-                                    <?= htmlspecialchars($tip['away_team_name'] ?? '') ?>
-                                </td>
-                                <td class="d-none d-md-table-cell">
-                                    <strong><?= $prediction ?></strong>                                   
-                                    <?= $winningStatus ?>
-                                </td>
-                                <td class="d-md-none text-center">
-                                    <strong><?= $prediction ?></strong>
-                                    <br><br>
-                                    <?= $winningStatus ?>
-                                </td>
-                                <td class="fw-bold"><?= $score ?></td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            <?php else: ?>
-                <div class="text-center py-4 text-muted">
-                    No predictions available for today.
-                </div>
-            <?php endif; ?>
+<main class="container py-4">
+    <?php include_once BASE_PATH . "/components/includes/scrollable-nav.inc.php"; ?>
+
+    <!-- Page Header -->
+    <div class="section-title-bar">
+        <h2>Sportpesa Midweek Jackpot Predictions</h2>
+        <span class="today-date-tag">Week <?php echo date('W'); ?></span>
+    </div>
+
+    <!-- Description -->
+    <p style="color: #4b5563; margin-bottom: 20px;">
+        Looking for expert Sportpesa Midweek Jackpot predictions this week? 
+        Our comprehensive analysis covers all 17 games with detailed match breakdowns 
+        and winning strategies.
+    </p>
+
+    <!-- Jackpot Stats Bar -->
+    <?php if ($startDate && $endDate): ?>
+    <div class="jackpot-stats-bar">
+        <div class="stat-item">
+            <span class="stat-value">13 Games</span>
+            <span class="stat-label">This Week</span>
         </div>
+        <div class="stat-item">
+            <span class="stat-value">KES 24M+</span>
+            <span class="stat-label">Prize Pool</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value"><?= date('d M', strtotime($startDate)) ?></span>
+            <span class="stat-label">Starts</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value"><?= date('d M', strtotime($endDate)) ?></span>
+            <span class="stat-label">Ends</span>
+        </div>
+    </div>
+    <?php endif; ?>
+
+    <!-- Column Headers (same as homepage) -->
+    <div class="preds-table-header">
+        <span>Time</span>
+        <span>Match</span>
+        <span style="text-align:center">Odds</span>
+        <span style="text-align:center">Probability</span>
+        <span style="text-align:center">Prediction</span>
+        <span style="text-align:center">Score</span>
+    </div>
+
+    <!-- Predictions Wrapper -->
+    <div class="preds-wrapper">
+        <?php if (count($predictions) === 0): ?>
+            <div class="state-msg">
+                No predictions available at the moment. Check back soon!
+            </div>
+        <?php else: ?>
+
+        <?php foreach ($predictions as $index => $tip): 
+            $prediction = get1X2Tip($tip);
+            $homeScore = $tip['goals_home'] ?? null;
+            $awayScore = $tip['goals_away'] ?? null;
+            $scoreDisplay = ($homeScore === null || $awayScore === null) ? '—' : "{$homeScore} – {$awayScore}";
+            
+            $matchDate = isset($tip['date']) 
+                ? (new DateTime($tip['date']))->modify('+3 hours') 
+                : null;
+            $formattedTime = $matchDate ? $matchDate->format('H:i') : '—';
+            $formattedDate = $matchDate ? $matchDate->format('d/m') : '';
+            
+            $winningStatus = DetermineWinningOrLost($prediction, $homeScore, $awayScore);
+            
+            // Get percentages
+            $homePercent = percentToInt($tip['percent_pred_home'] ?? '0');
+            $drawPercent = percentToInt($tip['percent_pred_draw'] ?? '0');
+            $awayPercent = percentToInt($tip['percent_pred_away'] ?? '0');
+            
+            // SVG ring calculations
+            $circ = 106.76; // 2πr with r=17
+            $dashHome = round(($homePercent / 100) * $circ, 2);
+            $dashDraw = round(($drawPercent / 100) * $circ, 2);
+            $dashAway = round(($awayPercent / 100) * $circ, 2);
+            
+            // Team initials
+            $homeInitial = strtoupper(substr(trim($tip['home_team_name'] ?? 'H'), 0, 2));
+            $awayInitial = strtoupper(substr(trim($tip['away_team_name'] ?? 'A'), 0, 2));
+            
+            // League info
+            $leagueFull = $tip['league_name'] ?? 'Sportpesa Mega';
+            $leagueCountry = $tip['league_country'] ?? '';
+            
+            // Prediction chip class
+            $chipClass = 'chip-draw';
+            $displayPrediction = $prediction;
+            if ($prediction === "1") { $displayPrediction = "Home"; $chipClass = 'chip-home'; }
+            if ($prediction === "2") { $displayPrediction = "Away"; $chipClass = 'chip-away'; }
+            if ($prediction === "X") { $displayPrediction = "Draw"; $chipClass = 'chip-draw'; }
+            
+            // Odds (simplified for jackpot)
+            $oddsDisplay = '—';
+            if (!empty($tip['bets_home']) && $prediction === '1') $oddsDisplay = $tip['bets_home'];
+            elseif (!empty($tip['bets_draw']) && $prediction === 'X') $oddsDisplay = $tip['bets_draw'];
+            elseif (!empty($tip['bets_away']) && $prediction === '2') $oddsDisplay = $tip['bets_away'];
+        ?>
+
+        <div class="match-card">
+            <!-- Time -->
+            <div class="mc-time">
+                <span><?php echo $formattedTime; ?></span>
+                <?php if ($formattedDate): ?>
+                <span style="font-size: 11px; color: #6c757d; display: block;"><?php echo $formattedDate; ?></span>
+                <?php endif; ?>
+            </div>
+
+            <!-- Match -->
+            <div class="mc-match">
+                <span class="league-tag"><?php echo $leagueCountry ?: 'Mega'; ?> · Match <?php echo $index + 1; ?></span>
+                <div class="teams-inline">
+                    <div class="team-crest home-crest"><?php echo $homeInitial; ?></div>
+                    <span class="team-name-text"><?php echo htmlspecialchars($tip['home_team_name'] ?? ''); ?></span>
+                    <span class="vs-badge">VS</span>
+                    <div class="team-crest"><?php echo $awayInitial; ?></div>
+                    <span class="team-name-text"><?php echo htmlspecialchars($tip['away_team_name'] ?? ''); ?></span>
+                </div>
+            </div>
+
+            <!-- Odds -->
+            <div class="mc-odds">
+                <div class="odds-value"><?php echo htmlspecialchars($oddsDisplay); ?></div>
+                <div class="odds-label">Odds</div>
+            </div>
+
+            <!-- Probability Rings -->
+            <div class="mc-prob">
+                <div class="prob-item">
+                    <div class="prob-ring">
+                        <svg viewBox="0 0 40 40">
+                            <circle class="track" cx="20" cy="20" r="17"/>
+                            <circle class="fill-home" cx="20" cy="20" r="17"
+                                stroke-dasharray="<?php echo $dashHome; ?> <?php echo $circ; ?>"/>
+                        </svg>
+                        <div class="prob-ring-value"><?php echo $homePercent; ?></div>
+                    </div>
+                    <span class="prob-label">Home</span>
+                </div>
+                <div class="prob-sep"></div>
+                <div class="prob-item">
+                    <div class="prob-ring">
+                        <svg viewBox="0 0 40 40">
+                            <circle class="track" cx="20" cy="20" r="17"/>
+                            <circle class="fill-draw" cx="20" cy="20" r="17"
+                                stroke-dasharray="<?php echo $dashDraw; ?> <?php echo $circ; ?>"/>
+                        </svg>
+                        <div class="prob-ring-value"><?php echo $drawPercent; ?></div>
+                    </div>
+                    <span class="prob-label">Draw</span>
+                </div>
+                <div class="prob-sep"></div>
+                <div class="prob-item">
+                    <div class="prob-ring">
+                        <svg viewBox="0 0 40 40">
+                            <circle class="track" cx="20" cy="20" r="17"/>
+                            <circle class="fill-away" cx="20" cy="20" r="17"
+                                stroke-dasharray="<?php echo $dashAway; ?> <?php echo $circ; ?>"/>
+                        </svg>
+                        <div class="prob-ring-value"><?php echo $awayPercent; ?></div>
+                    </div>
+                    <span class="prob-label">Away</span>
+                </div>
+            </div>
+
+            <!-- Prediction -->
+            <div class="mc-prediction">
+                <span class="pred-chip <?php echo $chipClass; ?>">
+                    <?php echo $displayPrediction; ?>
+                </span>
+                <?php if ($scoreDisplay !== '—'): ?>
+                <span style="font-size: 10px; display: block; color: <?php echo ($winningStatus === 'Won') ? '#10b981' : '#dc3545'; ?>; margin-top: 4px;">
+                    <?php echo $winningStatus; ?>
+                </span>
+                <?php endif; ?>
+            </div>
+
+            <!-- Score -->
+            <div class="mc-score">
+                <div class="score-display"><?php echo $scoreDisplay; ?></div>
+                <?php if ($scoreDisplay !== '—'): ?>
+                <div class="score-status">FT</div>
+                <?php else: ?>
+                <div class="score-status" style="color: #f59e0b;">UPCOMING</div>
+                <?php endif; ?>
+            </div>
+        </div>
+        <?php endforeach; ?>
+
+        <?php endif; ?>
+    </div>
+
+    <!-- Performance Summary (if there are results) -->
+    <?php 
+    if (count($predictions) > 0):
+        $won = 0;
+        $lost = 0;
+        foreach ($predictions as $tip) {
+            $pred = get1X2Tip($tip);
+            $status = DetermineWinningOrLost($pred, $tip['goals_home'] ?? null, $tip['goals_away'] ?? null);
+            if ($status === 'Won') $won++;
+            elseif ($status === 'Lost') $lost++;
+        }
+        $total = $won + $lost;
+        if ($total > 0):
+    ?>
+    <div class="perf-summary">
+        <div class="perf-item">
+            <span class="perf-label">Correct Tips</span>
+            <span class="perf-value"><?php echo $won; ?>/<?php echo $total; ?></span>
+        </div>
+        <div class="perf-item">
+            <span class="perf-label">Success Rate</span>
+            <span class="perf-value"><?php echo $total > 0 ? round(($won/$total)*100) : 0; ?>%</span>
+        </div>
+        <div class="perf-item">
+            <span class="perf-label">Jackpot Games</span>
+            <span class="perf-value">17</span>
+        </div>
+    </div>
+    <?php endif; endif; ?>
+
+    <!-- Winning Tips Box -->
+    <div class="tips-box">
+        <h3>💡 How to Win Sportpesa Midweek Jackpot</h3>
+        <p>• Use multiple systems — create at least 3-5 different combinations</p>
+        <p>• Identify 5-6 strong bankers with high confidence (80%+)</p>
+        <p>• Include 2-3 draw predictions where odds are favorable</p>
+        <p>• Mix home wins, away wins, and draws strategically</p>
     </div>
 
     <!-- SEO Content -->
-    <section class="container py-3 py-md-4 d-flex">
-        <div class="row">
-            <div class="blog-2 col-md-12 seo-content">
-                <?= $htmlContent ?>
-            </div>
+    <section class="seo-section mt-4">
+        <div class="blog-2 seo-content">
+            <?php echo $htmlContent; ?>
         </div>
     </section>
 </main>
-<?php include_once BASE_PATH . "/components/includes/footer.inc.php"; ?>
+
+<?php
+include_once BASE_PATH . "/components/includes/footer.inc.php";
+?>

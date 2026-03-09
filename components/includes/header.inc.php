@@ -44,4 +44,5 @@
   <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="/css/global.css?v=213">
+  <!-- <link rel="stylesheet" href="/css/populartips.css?v=213"> -->
 </head>

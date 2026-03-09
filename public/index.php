@@ -13,6 +13,54 @@ $router->get('/', function() {
     include __DIR__ . '/../pages/homepage.php'; 
 });
 
+$router->get('/free-football-betting-tips', function() {
+    include __DIR__ . '/../pages/accumulator-tips.php'; 
+});
+
+$router->get('/todays-predictions', function() {
+    include __DIR__ . '/../pages/todays-predictions.php'; 
+});
+
+$router->get('/tomorrows-predictions', function() { 
+    include __DIR__ . '/../pages/tomorrows-predictions.php'; 
+});
+
+$router->get('/yesterdays-predictions', function() {
+    include __DIR__ . '/../pages/yesterdays-predictions.php'; 
+});
+
+$router->get('/all-predictions', function() {
+    include __DIR__ . '/../pages/all-predictions.php'; 
+}); 
+
+$router->get('/both-teams-to-score', function() {
+    include __DIR__ . '/../pages/both-teams-to-score.php'; 
+}); 
+
+$router->get('/home-win-tips', function() {
+    include __DIR__ . '/../pages/home-win-tips.php'; 
+});
+
+$router->get('/away-win-tips', function() {
+    include __DIR__ . '/../pages/away-win-tips.php';  
+});
+
+$router->get('/over-under-15-goals', function() {
+    include __DIR__ . '/../pages/over-under-15-goals.php'; 
+});
+
+$router->get('/over-under-25-goals', function() {
+    include __DIR__ . '/../pages/over-under-25-goals.php'; 
+});
+
+$router->get('/draws', function() {
+    include __DIR__ . '/../pages/draws.php'; 
+});
+
+$router->get('/double-chance', function() {
+    include __DIR__ . '/../pages/double-chance.php'; 
+});
+
 $router->get('/jackpot-predictions', function() {
     include __DIR__ . '/../pages/jackpot-predictions.php'; 
 });

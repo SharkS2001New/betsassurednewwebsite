@@ -28,7 +28,7 @@ include_once BASE_PATH . "/components/shared/DetermineWinningOrLost.shared.php";
 include_once BASE_PATH . "/components/includes/navbar.inc.php";
 
 $Parsedown = new Parsedown();
-$markdownContent = file_get_contents(BASE_PATH.'/components/seo-content/free-football-betting-tips.content.md');
+$markdownContent = file_get_contents(BASE_PATH.'/components/seo-content/today-predictions.content.md');
 $htmlContent = $Parsedown->text($markdownContent);
 
 function percentToInt($percent) {
@@ -36,7 +36,7 @@ function percentToInt($percent) {
 }
 
 // API fetch
-$apiUrl = "https://api.pitchpredictions.com/api/fetch_tipster_preds_match_tips";
+$apiUrl = "https://api.pitchpredictions.com/api/fetch_free_tips_by_date_fixtures";
 $token = "R9TxV3PbOEu7qZnJKgydC5LmX2";
 $currentDate = date('Y-m-d');
 
