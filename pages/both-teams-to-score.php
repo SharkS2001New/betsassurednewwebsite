@@ -1,18 +1,21 @@
 <?php
 $metaTags= <<<HTML
 <!-- Primary Meta Tags -->
-<title>BTTS Predictions Today - Both Teams to Score Tips | AccurateStakes</title>
-<meta name="title" content="BTTS Predictions - Both Teams to Score Tips">
-<meta name="description" content="Free BTTS predictions today. Both Teams to Score tips with confidence ratings and odds. Best BTTS tips for football betting.">
-<meta name="keywords" content="btts predictions, both teams to score tips, btts tips, both teams to score predictions, bttts, btts today">
+<title>BTTS Predictions Today - Both Teams to Score Tips | Betnumbers</title>
+<meta name="title" content="BTTS Predictions Today - Both Teams to Score Tips | Betnumbers">
+<meta name="description" content="Get free BTTS predictions today on Betnumbers. Discover both teams to score tips with confidence ratings, odds analysis, and expert football insights updated daily.">
+<meta name="keywords" content="btts predictions, both teams to score tips, btts tips today, soccer btts predictions, football betting tips btts, betnumbers predictions">
 
 <!-- Open Graph -->
-<meta property="og:title" content="BTTS Predictions Today - Both Teams to Score Tips">
-<meta property="og:description" content="Free BTTS predictions with confidence ratings and odds. Updated daily.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="BTTS Predictions Today - Both Teams to Score Tips | Betnumbers">
+<meta property="og:description" content="Free BTTS predictions with confidence ratings and betting insights. Updated daily on Betnumbers.">
+<meta property="og:url" content="https://www.betnumbers.com/btts-predictions">
 
 <!-- Twitter -->
-<meta property="twitter:title" content="BTTS Predictions Today - Both Teams to Score Tips">
-<meta property="twitter:description" content="Free BTTS predictions with confidence ratings and odds. Updated daily.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BTTS Predictions Today - Both Teams to Score Tips | Betnumbers">
+<meta name="twitter:description" content="Get today's best BTTS predictions with expert analysis and confidence ratings on Betnumbers.">
 HTML;
 
 include_once BASE_PATH . "/components/includes/header.inc.php";

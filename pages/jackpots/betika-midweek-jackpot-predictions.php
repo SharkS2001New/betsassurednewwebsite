@@ -1,29 +1,38 @@
 <?php
-// Preloader & Header
-include_once BASE_PATH . "/components/shared/getJackpotFilterName.php";
-
-$jackpot_name = returnJackpotNameSavedInDB($_SERVER['REQUEST_URI']);
-
 $metaTags = <<<HTML
-<title>{$jackpot_name} Predictions & Free Tips</title>
-<meta name="description" content="Get the latest {$jackpot_name} predictions and free tips. Smart analysis to help you make better betting choices on Betsassured.">
-<meta name="keywords" content="{$jackpot_name}, jackpot predictions, free jackpot tips, betting tips, football jackpot">
+<!-- Primary Meta Tags -->
+<title>Betika Midweek jackpot predictions | Kenya</title>
+<meta name="title" content="SportPesa Mega Jackpot Predictions">
+<meta name="description" content="Free Sportpesa Mega Jackpot predictions for this week's 17 games. Expert analysis, winning strategies, and tips to help you hit the bonus brackets. Updated weekly.">
+<meta name="keywords" content="sportpesa mega jackpot predictions, sportpesa jackpot tips, sportpesa mega jackpot this week, how to win sportpesa jackpot, sportpesa 17 games predictions">
 
-<meta property="og:title" content="{$jackpot_name} Predictions & Free Tips">
-<meta property="og:description" content="Get the latest {$jackpot_name} predictions and free tips. Smart analysis to help you make better betting choices on Betsassured.">
+<!-- Open Graph -->
+<meta property="og:title" content="SportPesa Mega Jackpot Predictions">
+<meta property="og:description" content="Find trusted SportPesa Mega Jackpot predictions and tips to boost your chances in the big prize pool.">
 
-<meta property="twitter:title" content="{$jackpot_name} Predictions & Free Tips">
-<meta property="twitter:description" content="Get the latest {$jackpot_name} predictions and free tips. Smart analysis to help you make better betting choices on Betsassured.">
+<!-- Twitter -->
+<meta property="twitter:title" content="SportPesa Mega Jackpot Predictions">
+<meta property="twitter:description" content="Find trusted SportPesa Mega Jackpot predictions and tips to boost your chances in the big prize pool.">
 HTML;
 
+// Preloader & Header
 include_once BASE_PATH . "/components/includes/header.inc.php";
+?>
+
+<?php
 include_once BASE_PATH . "/components/shared/preloader.shared.php";
 include_once BASE_PATH . "/components/includes/navbar.inc.php";
-include_once BASE_PATH . "/components/shared/getJackpotFilterName.php";
+include_once BASE_PATH . "/components/shared/DateTimeToUsersTimezone.shared.php";
 include_once BASE_PATH . "/components/shared/DetermineWinningOrLost.shared.php";
 
+// Parse SEO content
+$Parsedown = new Parsedown();
+$markdownContent = file_get_contents(BASE_PATH . '/components/seo-content/betika-midweek-jackpot.content.md');
+$htmlContent = $Parsedown->text($markdownContent);
+
 // Prepare API request
-$encodedName = urlencode($jackpot_name);
+$jackpotName = "Betika Midweek Jackpot";
+$encodedName = urlencode($jackpotName);
 $apiUrl = "https://api.alljackpotpredictions.com/api/fetch_jackpot_fixtures_by_name?jackpot_name=$encodedName";
 $token = "q2LsJ9FmT6XvRaCbHuYdK8ZwN4";
 
@@ -32,7 +41,7 @@ $ch = curl_init($apiUrl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
     "Partner-Authorization: $token",
-    "Origin: https://www.betsassured.com"
+    "Origin: https://www.betsasured.com"
 ]);
 
 $response = curl_exec($ch);
@@ -102,20 +111,28 @@ if ($response) {
 
     <!-- Page Header -->
     <div class="section-title-bar">
-        <h1>Free <?= htmlspecialchars($jackpot_name) ?> Predictions</h1>
+        <h1>Betika Midweek Jackpot Predictions</h1>
         <span class="today-date-tag">Week <?php echo date('W'); ?></span>
     </div>
 
     <!-- Description -->
     <p style="color: #4b5563; margin-bottom: 20px;">
-        Looking for expert <?= htmlspecialchars($jackpot_name) ?> predictions this week? 
+        Looking for expert Betika Midweek Jackpot predictions this week? 
         Our comprehensive analysis covers all 17 games with detailed match breakdowns 
         and winning strategies.
     </p>
 
     <!-- Jackpot Stats Bar -->
     <?php if ($startDate && $endDate): ?>
-    <div class="jackpot-stats-bar">       
+    <div class="jackpot-stats-bar">
+        <div class="stat-item">
+            <span class="stat-value">17 Games</span>
+            <span class="stat-label">This Week</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value">KES 150M+</span>
+            <span class="stat-label">Prize Pool</span>
+        </div>
         <div class="stat-item">
             <span class="stat-value"><?= date('d M', strtotime($startDate)) ?></span>
             <span class="stat-label">Starts</span>
@@ -315,12 +332,21 @@ if ($response) {
     </div>
     <?php endif; endif; ?>
 
+    <!-- Winning Tips Box -->
+    <div class="tips-box">
+        <h3>💡 How to Win Sportpesa Mega Jackpot</h3>
+        <p>• Use multiple systems — create at least 3-5 different combinations</p>
+        <p>• Identify 5-6 strong bankers with high confidence (80%+)</p>
+        <p>• Include 2-3 draw predictions where odds are favorable</p>
+        <p>• Mix home wins, away wins, and draws strategically</p>
+    </div>
+
     <!-- SEO Content -->
-    <!-- <section class="seo-section mt-4">
+    <section class="seo-section mt-4">
         <div class="blog-2 seo-content">
             <?php echo $htmlContent; ?>
         </div>
-    </section> -->
+    </section>
 </main>
 
 <?php

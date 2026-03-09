@@ -105,6 +105,10 @@ $router->get('/sportpesa-midweek-jackpot-predictions', function() {
     include __DIR__ . '/../pages/jackpots/sportpesa-midweek-jackpot-predictions.php'; 
 });
 
+$router->get('/betika-midweek-jackpot-predictions', function() {
+    include __DIR__ . '/../pages/jackpots/betika-midweek-jackpot-predictions.php'; 
+});
+
 // Include `other-jackpot-predictions.php` for the listed jackpot routes
 $jackpotRoutes =  getJackpotRoutes();
 

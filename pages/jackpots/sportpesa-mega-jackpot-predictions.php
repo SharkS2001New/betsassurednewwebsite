@@ -106,16 +106,12 @@ if ($response) {
 }
 ?>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-
 <main class="container py-4">
     <?php include_once BASE_PATH . "/components/includes/scrollable-nav.inc.php"; ?>
 
     <!-- Page Header -->
     <div class="section-title-bar">
-        <h2>Sportpesa Mega Jackpot Predictions</h2>
+        <h1>Sportpesa Mega Jackpot Predictions</h1>
         <span class="today-date-tag">Week <?php echo date('W'); ?></span>
     </div>
 

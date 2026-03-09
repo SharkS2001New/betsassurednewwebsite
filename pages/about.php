@@ -1,20 +1,22 @@
 <?php
 $metaTags = <<<HTML
 <!-- Primary Meta Tags -->
-<title>About BetAssured - Football Predictions You Can Trust</title>
-<meta name="title" content="About BetAssured - Football Predictions You Can Trust">
-<meta name="description" content="Learn about BetAssured, your trusted source for football predictions. We provide data-driven insights to help you make smarter betting decisions.">
-<meta name="keywords" content="about us, football predictions, betassured, betting tips">
+<title>About BetAssured | Trusted Football Predictions & Betting Tips</title>
+<meta name="title" content="About BetAssured | Trusted Football Predictions & Betting Tips">
+<meta name="description" content="Discover BetAssured, a trusted football prediction platform providing free daily betting tips, expert analysis, and data-driven match insights to help bettors make smarter decisions.">
+<meta name="keywords" content="about betassured, football prediction site, betting tips experts, soccer predictions, free football tips, trusted prediction site">
 
-<!-- Open Graph -->
-<meta property="og:title" content="About BetAssured - Football Predictions You Can Trust">
-<meta property="og:description" content="Learn about BetAssured, your trusted source for football predictions.">
+<!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
+<meta property="og:title" content="About BetAssured | Trusted Football Predictions & Betting Tips">
+<meta property="og:description" content="Learn about BetAssured, a reliable source for free football predictions, betting tips, and expert match analysis.">
 <meta property="og:url" content="https://www.betassured.com/about-us">
+<meta property="og:site_name" content="BetAssured">
 
 <!-- Twitter -->
-<meta property="twitter:title" content="About BetAssured - Football Predictions You Can Trust">
-<meta property="twitter:description" content="Learn about BetAssured, your trusted source for football predictions.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About BetAssured | Trusted Football Predictions & Betting Tips">
+<meta name="twitter:description" content="Learn about BetAssured and how we provide reliable football predictions, betting tips, and match insights for smarter betting.">
 HTML;
 
 // Preloader & Header

@@ -1,18 +1,18 @@
 <?php
-$metaTags= <<<HTML
+$metaTags = <<<HTML
 <!-- Primary Meta Tags -->
-<title>Accurate Stakes: Best Prediction Site - Free Football Tips</title>
-<meta name="title" content="Accurate Football Predictions & Sure Tips">
-<meta name="description" content="Get the edge with reliable predictions, daily free tips, and expert insights tailored for consistent football betting success.">
-<meta name="keywords" content="free prediction site, daily predictions, successful soccer prediction  accurate football predictions, best football prediction site, accurate predictions, daily soccer tips, sure tips, accurate tip">
+<title>Cheerplex: Free Football Predictions & Expert Tips</title>
+<meta name="title" content="Cheerplex - Daily Free Football Predictions">
+<meta name="description" content="Cheerplex delivers accurate football predictions, free daily tips, and expert insights to boost your betting success.">
+<meta name="keywords" content="Cheerplex, free football predictions, daily football tips, expert soccer predictions, sure tips, accurate betting tips, football betting insights">
 
 <!-- Open Graph -->
-<meta property="og:title" content="AccurateStakes - Accurate Prediction Site">
-<meta property="og:description" content="AccurateStakes provides free football predictions daily from experienced tipsters.">
+<meta property="og:title" content="Cheerplex - Reliable Football Predictions">
+<meta property="og:description" content="Get daily free football predictions and expert betting tips from Cheerplex. Boost your betting success with our accurate insights.">
 
 <!-- Twitter -->
-<meta property="twitter:title" content="AccurateStakes - Accurate Prediction Site ">
-<meta property="twitter:description" content="AccurateStakes provides free football predictions daily from experienced tipsters.">
+<meta property="twitter:title" content="Cheerplex - Reliable Football Predictions">
+<meta property="twitter:description" content="Get daily free football predictions and expert betting tips from Cheerplex. Boost your betting success with our accurate insights.">
 HTML;
 
 include_once BASE_PATH . "/components/includes/header.inc.php";

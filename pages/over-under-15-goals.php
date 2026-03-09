@@ -1,7 +1,7 @@
 <?php
 $metaTags= <<<HTML
 <!-- Primary Meta Tags -->
-<title>Over/Under 1.5 Goals Predictions Today - Total Goals Tips | AccurateStakes</title>
+<title>Over/Under 1.5 Goals Predictions Today - Total Goals Tips | Betsassured</title>
 <meta name="title" content="Over/Under 1.5 Goals Predictions - Total Goals Tips">
 <meta name="description" content="Free Over/Under 1.5 goals predictions today. Total goals tips with confidence ratings and odds. Best over/under tips for football betting.">
 <meta name="keywords" content="over 1.5 goals, under 1.5 goals, total goals predictions, over under tips, football goals predictions">

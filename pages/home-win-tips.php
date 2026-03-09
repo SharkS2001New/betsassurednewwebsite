@@ -1,7 +1,7 @@
 <?php
 $metaTags= <<<HTML
 <!-- Primary Meta Tags -->
-<title>Home Win Predictions Today - 1X2 Football Tips | AccurateStakes</title>
+<title>Home Win Predictions Today - 1X2 Football Tips</title>
 <meta name="title" content="Home Win Predictions - 1X2 Football Tips">
 <meta name="description" content="Free home win predictions today. 1X2 football tips with confidence ratings and odds. Best home win tips for football betting.">
 <meta name="keywords" content="home win predictions, 1x2 tips, football predictions, home win tips, 1x2 betting, soccer home wins">

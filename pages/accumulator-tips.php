@@ -1,18 +1,22 @@
 <?php
-$metaTags= <<<HTML
+$metaTags = <<<HTML
 <!-- Primary Meta Tags -->
-<title>Accurate Stakes: Best Prediction Site - Free Football Tips</title>
-<meta name="title" content="Accurate Football Predictions & Sure Tips">
-<meta name="description" content="Get the edge with reliable predictions, daily free tips, and expert insights tailored for consistent football betting success.">
-<meta name="keywords" content="free prediction site, daily predictions, successful soccer prediction  accurate football predictions, best football prediction site, accurate predictions, daily soccer tips, sure tips, accurate tip">
+<title>BetAssured - Best Free Football Predictions & Daily Betting Tips</title>
+<meta name="title" content="BetAssured - Accurate Football Predictions & Sure Betting Tips">
+<meta name="description" content="BetAssured delivers reliable football predictions, free daily betting tips, and expert match analysis. Get today's winning tips, high-probability predictions, and jackpot picks to bet smarter.">
+<meta name="keywords" content="betassured, football predictions, free football tips, daily betting tips, accurate soccer predictions, best prediction site, jackpot predictions, correct score tips, over under predictions">
 
-<!-- Open Graph -->
-<meta property="og:title" content="AccurateStakes - Accurate Prediction Site">
-<meta property="og:description" content="AccurateStakes provides free football predictions daily from experienced tipsters.">
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="BetAssured - Best Free Football Predictions & Betting Tips">
+<meta property="og:description" content="Get reliable football predictions, daily betting tips, and expert match analysis on BetAssured. Make smarter betting decisions with data-driven insights.">
+<meta property="og:url" content="https://www.betassured.com/">
+<meta property="og:site_name" content="BetAssured">
 
 <!-- Twitter -->
-<meta property="twitter:title" content="AccurateStakes - Accurate Prediction Site ">
-<meta property="twitter:description" content="AccurateStakes provides free football predictions daily from experienced tipsters.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="BetAssured - Free Daily Football Predictions">
+<meta name="twitter:description" content="BetAssured provides accurate football predictions, daily betting tips, and expert match analysis to help you win more bets.">
 HTML;
 
 include_once BASE_PATH . "/components/includes/header.inc.php";
@@ -79,7 +83,7 @@ curl_close($ch);
     <?php include_once BASE_PATH . "/components/includes/scrollable-nav.inc.php"; ?>
 
     <div class="section-title-bar">
-        <h2>Today's Predictions</h2>
+        <h1>Today's Predictions</h1>
         <span class="today-date-tag"><?php echo date('D, d M Y'); ?></span>
     </div>
 

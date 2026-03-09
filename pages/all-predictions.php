@@ -1,18 +1,20 @@
 <?php
 $metaTags= <<<HTML
 <!-- Primary Meta Tags -->
-<title>Accurate Stakes: Best Prediction Site - Free Football Tips</title>
-<meta name="title" content="Accurate Football Predictions & Sure Tips">
-<meta name="description" content="Get the edge with reliable predictions, daily free tips, and expert insights tailored for consistent football betting success.">
-<meta name="keywords" content="free prediction site, daily predictions, successful soccer prediction  accurate football predictions, best football prediction site, accurate predictions, daily soccer tips, sure tips, accurate tip">
+<title>BetAssured: Best Prediction Site - Free Football Tips</title>
+<meta name="title" content="BetAssured - Accurate Football Predictions & Sure Tips">
+<meta name="description" content="Get the edge with BetAssured's reliable football predictions, daily free betting tips, and expert insights designed to help you make smarter betting decisions.">
+<meta name="keywords" content="betassured, free football predictions, daily soccer predictions, accurate football predictions, best football prediction site, daily betting tips, sure tips, soccer tips today">
 
 <!-- Open Graph -->
-<meta property="og:title" content="AccurateStakes - Accurate Prediction Site">
-<meta property="og:description" content="AccurateStakes provides free football predictions daily from experienced tipsters.">
+<meta property="og:title" content="BetAssured - Accurate Football Prediction Site">
+<meta property="og:description" content="BetAssured provides free football predictions daily with expert analysis and reliable betting tips.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.betassured.com/">
 
 <!-- Twitter -->
-<meta property="twitter:title" content="AccurateStakes - Accurate Prediction Site ">
-<meta property="twitter:description" content="AccurateStakes provides free football predictions daily from experienced tipsters.">
+<meta name="twitter:title" content="BetAssured - Accurate Football Prediction Site">
+<meta name="twitter:description" content="BetAssured provides free football predictions daily with expert analysis and reliable betting tips.">
 HTML;
 
 include_once BASE_PATH . "/components/includes/header.inc.php";
@@ -79,7 +81,7 @@ curl_close($ch);
     <?php include_once BASE_PATH . "/components/includes/scrollable-nav.inc.php"; ?>
 
     <div class="section-title-bar">
-        <h2>Today's Predictions</h2>
+        <h1>Today's Predictions</h1>
         <span class="today-date-tag"><?php echo date('D, d M Y'); ?></span>
     </div>
 

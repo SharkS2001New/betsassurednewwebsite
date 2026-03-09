@@ -1,7 +1,7 @@
 <?php
 $metaTags = <<<HTML
 <!-- Primary Meta Tags -->
-<title>Sportpesa Midweek Jackpot Predictions This Week - Free 13 Games Tips | AccurateStakes</title>
+<title>Sportpesa Midweek Jackpot Predictions This Week - Free 13 Games Tips | Betsassured</title>
 <meta name="title" content="SportPesa Midweek Jackpot Predictions">
 <meta name="description" content="Free Sportpesa Midweek Jackpot predictions for this week's 13 games. Expert analysis, confidence ratings, winning strategies, and tips to hit bonus brackets. Updated every Wednesday.">
 <meta name="keywords" content="sportpesa midweek jackpot predictions, sportpesa midweek jackpot, sportpesa midweek jackpot tips, sportpesa 13 games predictions, midweek jackpot predictions kenya">
@@ -106,16 +106,12 @@ if ($response) {
 }
 ?>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-
 <main class="container py-4">
     <?php include_once BASE_PATH . "/components/includes/scrollable-nav.inc.php"; ?>
 
     <!-- Page Header -->
     <div class="section-title-bar">
-        <h2>Sportpesa Midweek Jackpot Predictions</h2>
+        <h1>Sportpesa Midweek Jackpot Predictions</h1>
         <span class="today-date-tag">Week <?php echo date('W'); ?></span>
     </div>
 

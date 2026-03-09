@@ -1,7 +1,7 @@
 <?php
 $metaTags= <<<HTML
 <!-- Primary Meta Tags -->
-<title>Double Chance Predictions Today - 1X, X2 & 12 Tips | AccurateStakes</title>
+<title>Double Chance Predictions Today - 1X, X2 & 12 Tips</title>
 <meta name="title" content="Double Chance Predictions - 1X, X2 & 12 Tips">
 <meta name="description" content="Free double chance predictions today. 1X, X2 and 12 tips with confidence ratings and odds. Best double chance tips for football betting.">
 <meta name="keywords" content="double chance predictions, 1x tips, x2 tips, 12 tips, double chance betting, football predictions">

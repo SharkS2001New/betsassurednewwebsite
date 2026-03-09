@@ -1,18 +1,21 @@
 <?php
 $metaTags= <<<HTML
 <!-- Primary Meta Tags -->
-<title>Away Win Predictions Today - 1X2 Football Tips | AccurateStakes</title>
-<meta name="title" content="Away Win Predictions - 1X2 Football Tips">
-<meta name="description" content="Free home win predictions today. 1X2 football tips with confidence ratings and odds. Best home win tips for football betting.">
-<meta name="keywords" content="home win predictions, 1x2 tips, football predictions, home win tips, 1x2 betting, soccer home wins">
+<title>Away Win Predictions Today - 1X2 Football Tips | BetAssured</title>
+<meta name="title" content="Away Win Predictions Today - 1X2 Football Tips | BetAssured">
+<meta name="description" content="Get free away win predictions today with 1X2 football tips, confidence ratings, and expert match analysis. Discover the best away win betting tips updated daily on BetAssured.">
+<meta name="keywords" content="away win predictions, 1x2 predictions, football away win tips, soccer predictions today, betting tips away win, betassured predictions">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Away Win Predictions Today - 1X2 Football Tips">
-<meta property="og:description" content="Free home win predictions with confidence ratings and odds. Updated daily.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Away Win Predictions Today - 1X2 Football Tips | BetAssured">
+<meta property="og:description" content="Free away win predictions with confidence ratings and expert football analysis. Updated daily on BetAssured.">
+<meta property="og:url" content="https://www.betassured.com/away-win-predictions">
 
 <!-- Twitter -->
-<meta property="twitter:title" content="Away Win Predictions Today - 1X2 Football Tips">
-<meta property="twitter:description" content="Free home win predictions with confidence ratings and odds. Updated daily.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Away Win Predictions Today - 1X2 Football Tips | BetAssured">
+<meta name="twitter:description" content="Get today's best away win football predictions with confidence ratings and expert betting insights on BetAssured.">
 HTML;
 
 include_once BASE_PATH . "/components/includes/header.inc.php";
@@ -588,7 +591,7 @@ function findOddFromMarket($allBets, $marketName, $value) {
 
     <!-- Page Header -->
     <div class="section-title-bar">
-        <h2>1X2 Predictions - Home, Draw & Away Tips</h2>
+        <h1>1X2 Predictions - Home, Draw & Away Tips</h1>
         <span class="today-date-tag"><?php echo date('D, d M Y'); ?></span>
     </div>
 

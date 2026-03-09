@@ -1,18 +1,18 @@
 <?php
 $metaTags= <<<HTML
 <!-- Primary Meta Tags -->
-<title>Accurate Stakes: Best Prediction Site - Free Football Tips</title>
-<meta name="title" content="Accurate Football Predictions & Sure Tips">
-<meta name="description" content="Get the edge with reliable predictions, daily free tips, and expert insights tailored for consistent football betting success.">
-<meta name="keywords" content="free prediction site, daily predictions, successful soccer prediction  accurate football predictions, best football prediction site, accurate predictions, daily soccer tips, sure tips, accurate tip">
+<title>Betnumbers: Best Prediction Site - Free Football Tips</title>
+<meta name="title" content="Betnumbers - Accurate Football Predictions & Sure Tips">
+<meta name="description" content="Get the edge with Betnumbers reliable football predictions, daily free betting tips, and expert insights tailored for consistent football betting success.">
+<meta name="keywords" content="betnumbers, free prediction site, daily football predictions, accurate football predictions, best football prediction site, daily soccer tips, betting tips today, sure tips">
 
 <!-- Open Graph -->
-<meta property="og:title" content="AccurateStakes - Accurate Prediction Site">
-<meta property="og:description" content="AccurateStakes provides free football predictions daily from experienced tipsters.">
+<meta property="og:title" content="Betnumbers - Accurate Football Prediction Site">
+<meta property="og:description" content="Betnumbers provides free football predictions daily from experienced tipsters.">
 
 <!-- Twitter -->
-<meta property="twitter:title" content="AccurateStakes - Accurate Prediction Site ">
-<meta property="twitter:description" content="AccurateStakes provides free football predictions daily from experienced tipsters.">
+<meta name="twitter:title" content="Betnumbers - Accurate Football Prediction Site">
+<meta name="twitter:description" content="Betnumbers provides free football predictions daily from experienced tipsters.">
 HTML;
 
 include_once BASE_PATH . "/components/includes/header.inc.php";

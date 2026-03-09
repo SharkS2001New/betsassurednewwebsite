@@ -1,18 +1,18 @@
 <?php
-$metaTags= <<<HTML
+$metaTags = <<<HTML
 <!-- Primary Meta Tags -->
-<title>Accurate Stakes: Best Prediction Site - Free Football Tips</title>
-<meta name="title" content="Accurate Football Predictions & Sure Tips">
-<meta name="description" content="Get the edge with reliable predictions, daily free tips, and expert insights tailored for consistent football betting success.">
-<meta name="keywords" content="free prediction site, daily predictions, successful soccer prediction  accurate football predictions, best football prediction site, accurate predictions, daily soccer tips, sure tips, accurate tip">
+<title>Cheerplex: Direct Win Football Predictions & Free Tips</title>
+<meta name="title" content="Cheerplex - Direct Win Predictions & Expert Tips">
+<meta name="description" content="Get accurate direct win predictions, daily free football tips, and expert insights from Cheerplex to boost your betting success.">
+<meta name="keywords" content="direct win predictions, football predictions, free football tips, daily soccer tips, expert football tips, accurate betting tips, sure predictions">
 
 <!-- Open Graph -->
-<meta property="og:title" content="AccurateStakes - Accurate Prediction Site">
-<meta property="og:description" content="AccurateStakes provides free football predictions daily from experienced tipsters.">
+<meta property="og:title" content="Cheerplex - Direct Win Football Predictions">
+<meta property="og:description" content="Cheerplex provides accurate direct win predictions and free football tips daily from experienced tipsters.">
 
 <!-- Twitter -->
-<meta property="twitter:title" content="AccurateStakes - Accurate Prediction Site ">
-<meta property="twitter:description" content="AccurateStakes provides free football predictions daily from experienced tipsters.">
+<meta property="twitter:title" content="Cheerplex - Direct Win Football Predictions">
+<meta property="twitter:description" content="Cheerplex provides accurate direct win predictions and free football tips daily from experienced tipsters.">
 HTML;
 
 include_once BASE_PATH . "/components/includes/header.inc.php";

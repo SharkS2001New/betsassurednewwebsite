@@ -1,7 +1,7 @@
 <?php
 $metaTags = <<<HTML
 <!-- Primary Meta Tags -->
-<title>Weekly Jackpot Predictions for 30+ Betting Sites | AccurateStakes Kenya</title>
+<title>Weekly Jackpot Predictions for 30+ Betting Sites</title>
 <meta name="title" content="All Jackpot Prediction – Daily Tips for 30+ Jackpots">
 <meta name="description" content="Free weekly jackpot predictions for Sportpesa, Betika, Betway, Mozzart and 25+ betting sites. Expert analysis for Mega Jackpot, Midweek Jackpot and daily jackpots across africa.">
 <meta name="keywords" content="jackpot predictions, free jackpot tips, sportpesa mega jackpot, betika jackpot, jackpot analysis, kenya jackpot predictions">
@@ -557,7 +557,7 @@ $jackpotCategories = [
     <!-- Hero Section -->
     <section class="jackpot-hero">
         <div class="hero-content">
-            <h1 class="hero-title">Weekly Jackpot Predictions</h1>
+            <h1 class="hero-title">Jackpot Predictions</h1>
             <p class="hero-subtitle">
                 Your ultimate destination for free, expert jackpot predictions across 30+ betting sites in Africa. 
                 Boost your chances of winning big with our carefully analyzed tips.
