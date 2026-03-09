@@ -332,15 +332,6 @@ if ($response) {
     </div>
     <?php endif; endif; ?>
 
-    <!-- Winning Tips Box -->
-    <div class="tips-box">
-        <h3>💡 How to Win Sportpesa Mega Jackpot</h3>
-        <p>• Use multiple systems — create at least 3-5 different combinations</p>
-        <p>• Identify 5-6 strong bankers with high confidence (80%+)</p>
-        <p>• Include 2-3 draw predictions where odds are favorable</p>
-        <p>• Mix home wins, away wins, and draws strategically</p>
-    </div>
-
     <!-- SEO Content -->
     <section class="seo-section mt-4">
         <div class="blog-2 seo-content">

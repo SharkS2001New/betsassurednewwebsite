@@ -808,16 +808,6 @@ foreach ($tipsData as $tip) {
     </div>
     <?php endif; endif; ?>
 
-    <!-- Over/Under Tips Box -->
-    <div class="tips-box">
-        <h3>⚽ Understanding Over/Under 2.5 Goals</h3>
-        <p><span style="color: #10b981; font-weight: 600;">Over 2.5</span> - Bet wins if there are 3 or more total goals in the match (2-1, 3-0, 1-2, 3-1, etc.)</p>
-        <p><span style="color: #f59e0b; font-weight: 600;">Under 2.5</span> - Bet wins if there are 0, 1, or 2 total goals in the match (0-0, 1-0, 0-1, 1-1, 2-0, 0-2)</p>
-        <p>Predictions are based on average goals per game from team performance data</p>
-        <p>Confidence percentages (50-95%) indicate the strength of each prediction</p>
-        <p>Only matches with clear trends (avg goals > 2.3 or < 1.7) are included</p>
-    </div>
-
     <!-- SEO Content -->
     <section class="seo-section">
         <div class="blog-2 seo-content">

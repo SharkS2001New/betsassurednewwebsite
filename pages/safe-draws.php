@@ -857,17 +857,7 @@ function findOddFromMarket($allBets, $marketName, $value) {
         </div>
     </div>
     <?php endif; endif; ?>
-
-    <!-- 1X2 Tips Box -->
-    <div class="tips-box">
-        <h3>⚽ Understanding 1X2 Betting</h3>
-        <p><span style="color: #05384B; font-weight: 600;">Home Win (1)</span> - The home team wins the match</p>
-        <p><span style="color: #6c757d; font-weight: 600;">Draw (X)</span> - The match ends in a draw</p>
-        <p><span style="color: #dc3545; font-weight: 600;">Away Win (2)</span> - The away team wins the match</p>
-        <p>Confidence percentages (50-95%) indicate the strength of each prediction based on our analysis</p>
-        <p>Higher confidence (80%+) suggests very strong probability for the predicted outcome</p>
-    </div>
-
+    
     <!-- SEO Content -->
     <section class="seo-section">
         <div class="blog-2 seo-content">

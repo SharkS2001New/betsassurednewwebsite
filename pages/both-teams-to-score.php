@@ -911,17 +911,7 @@ function getBttsDisplayText($prediction) {
         </div>
     </div>
     <?php endif; endif; ?>
-
-    <!-- BTTS Tips Box -->
-    <div class="tips-box">
-        <h3>⚽ Understanding BTTS Confidence Ratings</h3>
-        <p><span style="color: #8b5cf6; font-weight: 600;">BTTS Yes</span> - Higher confidence when draw % is high, goals are expected, and odds are favorable</p>
-        <p><span style="color: #f59e0b; font-weight: 600;">BTTS No</span> - Higher confidence when a team is heavily favored, defensive records are strong, and odds are low</p>
-        <p><span class="confidence-high">80-95%</span> - Very strong confidence in the prediction</p>
-        <p><span class="confidence-medium">61-79%</span> - Good confidence in the prediction</p>
-        <p><span class="confidence-low">50-60%</span> - Moderate confidence, still a solid selection</p>
-    </div>
-
+    
     <!-- SEO Content -->
     <section class="seo-section">
         <div class="blog-2 seo-content">

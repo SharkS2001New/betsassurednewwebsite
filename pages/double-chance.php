@@ -777,16 +777,6 @@ function findDoubleChanceOdd($allBets, $prediction) {
     </div>
     <?php endif; endif; ?>
 
-    <!-- Double Chance Tips Box -->
-    <div class="tips-box">
-        <h3>⚽ Understanding Double Chance Betting</h3>
-        <p><span style="color: #ec4899; font-weight: 600;">1X (Home or Draw)</span> - Bet wins if home team wins OR match ends in a draw</p>
-        <p><span style="color: #ec4899; font-weight: 600;">X2 (Draw or Away)</span> - Bet wins if match ends in a draw OR away team wins</p>
-        <p><span style="color: #ec4899; font-weight: 600;">12 (Home or Away - No Draw)</span> - Bet wins if either home or away team wins (draw loses)</p>
-        <p>Confidence percentages are calculated by combining the probabilities of the two selected outcomes</p>
-        <p>Higher confidence (80%+) suggests very strong probability for the predicted combination</p>
-    </div>
-
     <!-- SEO Content -->
     <section class="seo-section">
         <div class="blog-2 seo-content">
