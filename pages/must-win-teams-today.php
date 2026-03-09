@@ -28,7 +28,7 @@ include_once BASE_PATH . "/components/shared/DetermineWinningOrLost.shared.php";
 include_once BASE_PATH . "/components/includes/navbar.inc.php";
 
 $Parsedown = new Parsedown();
-$markdownContent = file_get_contents(BASE_PATH.'/components/seo-content/homepage.content.md');
+$markdownContent = file_get_contents(BASE_PATH.'/components/seo-content/must-win-teams-today.content.md');
 $htmlContent = $Parsedown->text($markdownContent);
 
 function percentToInt($percent) {
@@ -78,7 +78,7 @@ curl_close($ch);
 <main class="container py-4">
     <?php include_once BASE_PATH . "/components/includes/scrollable-nav.inc.php"; ?>
 
-    <?php include_once BASE_PATH . "/components/shared/accumulator_tips.shared.php"; ?>
+    <?php include_once BASE_PATH . "/components/shared/popular-tips.shared.php"; ?>
 
     <div class="section-title-bar">
         <h2>Today's Predictions</h2>

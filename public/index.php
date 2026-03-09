@@ -53,12 +53,44 @@ $router->get('/over-under-25-goals', function() {
     include __DIR__ . '/../pages/over-under-25-goals.php'; 
 });
 
-$router->get('/draws', function() {
-    include __DIR__ . '/../pages/draws.php'; 
+$router->get('/safe-draws', function() {
+    include __DIR__ . '/../pages/safe-draws.php'; 
 });
 
 $router->get('/double-chance', function() {
     include __DIR__ . '/../pages/double-chance.php'; 
+});
+
+$router->get('/betnumbers-predictions', function() {
+    include __DIR__ . '/../pages/betnumbers-predictions.php'; 
+});
+
+$router->get('/cheerplex-tips', function() {
+    include __DIR__ . '/../pages/cheerplex-tips.php'; 
+});
+
+$router->get('/direct-win-predictions', function() {
+    include __DIR__ . '/../pages/direct-win-predictions.php'; 
+});
+
+$router->get('/must-win-teams-today', function() {
+    include __DIR__ . '/../pages/must-win-teams-today.php'; 
+});
+
+$router->get('/mwanasoka-tips', function() {
+    include __DIR__ . '/../pages/mwanasoka-tips.php'; 
+});
+
+$router->get('/sokafans-tips', function() {
+    include __DIR__ . '/../pages/sokafans-tips.php'; 
+});
+
+$router->get('/sunpel-tips', function() {
+    include __DIR__ . '/../pages/sunpel-tips.php'; 
+});
+
+$router->get('/sure-win-prediction-today', function() {
+    include __DIR__ . '/../pages/sure-win-prediction-today.php'; 
 });
 
 $router->get('/jackpot-predictions', function() {

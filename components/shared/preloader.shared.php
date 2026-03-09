@@ -1,4 +1,4 @@
-<link rel="icon" href="/accuratestakes.ico" type="image/x-icon">
+<link rel="icon" href="/betsassured-icon.ico" type="image/x-icon">
 
 <!-- Preloader -->
 <div id="preloaderMain">
