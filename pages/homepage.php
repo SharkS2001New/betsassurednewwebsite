@@ -80,7 +80,7 @@ curl_close($ch);
 
 
 <main class="container py-4">
-    <h1">Football Tips Today | Expert Match Predictions and Betting Tips</h1>
+    <h1 class="page-hero-title">Football Tips Today | Expert Match Predictions and Betting Tips</h1>
 
     <?php include_once BASE_PATH . "/components/includes/scrollable-nav.inc.php"; ?>
 
