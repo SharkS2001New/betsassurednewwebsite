@@ -1,18 +1,22 @@
 <?php
-$metaTags= <<<HTML
+$metaTags = <<<HTML
 <!-- Primary Meta Tags -->
-<title>Betsassured: Best Prediction Site - Free Football Tips</title>
-<meta name="title" content="Accurate Football Predictions & Sure Tips">
-<meta name="description" content="Get the edge with reliable predictions, daily free tips, and expert insights tailored for consistent football betting success.">
-<meta name="keywords" content="free prediction site, daily predictions, successful soccer prediction  accurate football predictions, best football prediction site, accurate predictions, daily soccer tips, sure tips, accurate tip">
+<title>Football Predictions Today | Free Tips & Expert Picks</title>
+<meta name="title" content="Football Predictions Today | Free Tips & Expert Picks">
+<meta name="description" content="Get today's football predictions from expert tipsters. Free daily tips, match analysis, and betting insights for top leagues worldwide.">
+<meta name="keywords" content="football predictions today, free football tips today, today soccer predictions, daily betting tips, match predictions, accurate football tips, best prediction site today">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Betsassured - Accurate Prediction Site">
-<meta property="og:description" content="Betsassured provides free football predictions daily from experienced tipsters.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Football Predictions Today | Free Tips & Expert Picks">
+<meta property="og:description" content="Get today's football predictions from expert tipsters. Free daily tips, match analysis, and betting insights for top leagues worldwide.">
+<meta property="og:url" content="https://betassured.com/today-predictions">
+<meta property="og:site_name" content="BetAssured">
 
 <!-- Twitter -->
-<meta property="twitter:title" content="Betsassured - Accurate Prediction Site ">
-<meta property="twitter:description" content="Betsassured provides free football predictions daily from experienced tipsters.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Football Predictions Today | Free Tips & Expert Picks">
+<meta name="twitter:description" content="Get today's football predictions from expert tipsters. Free daily tips, match analysis, and betting insights for top leagues worldwide.">
 HTML;
 
 include_once BASE_PATH . "/components/includes/header.inc.php";
@@ -76,6 +80,8 @@ curl_close($ch);
 
 
 <main class="container py-4">
+    <h1 class="page-hero-title">Football Predictions Today | Free Tips & Expert Picks</h1>
+
     <?php include_once BASE_PATH . "/components/includes/scrollable-nav.inc.php"; ?>
 
     <div class="section-title-bar">
