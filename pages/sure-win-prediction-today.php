@@ -1,18 +1,22 @@
 <?php
 $metaTags= <<<HTML
 <!-- Primary Meta Tags -->
-<title>Betsassured: Best Prediction Site - Free Football Tips</title>
-<meta name="title" content="Accurate Football Predictions & Sure Tips">
-<meta name="description" content="Get the edge with reliable predictions, daily free tips, and expert insights tailored for consistent football betting success.">
-<meta name="keywords" content="free prediction site, daily predictions, successful soccer prediction  accurate football predictions, best football prediction site, accurate predictions, daily soccer tips, sure tips, accurate tip">
+<title>Sure Win Prediction Today | Highest Confidence Football Tips</title>
+<meta name="title" content="Sure Win Prediction Today | Highest Confidence Football Tips">
+<meta name="description" content="Today's sure win football predictions — high probability tips selected where statistical confidence is strongest. Free daily picks with odds and probability ratings.">
+<meta name="keywords" content="sure win prediction today, sure win football tips today, sure prediction today, sure wins today football, sure win tips free, 100 sure win prediction today, sure football tips today, high confidence football predictions">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Betsassured - Accurate Prediction Site">
-<meta property="og:description" content="Betsassured provides free football predictions daily from experienced tipsters.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sure Win Prediction Today | Highest Confidence Football Tips">
+<meta property="og:description" content="Today's sure win football predictions — high probability tips selected where statistical confidence is strongest. Free daily picks with odds and probability ratings.">
+<meta property="og:url" content="https://www.betsassured.com/sure-win-prediction-today">
+<meta property="og:site_name" content="Betsassured">
 
 <!-- Twitter -->
-<meta property="twitter:title" content="Betsassured - Accurate Prediction Site ">
-<meta property="twitter:description" content="Betsassured provides free football predictions daily from experienced tipsters.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sure Win Prediction Today | Highest Confidence Football Tips">
+<meta name="twitter:description" content="Today's sure win football predictions — high probability tips selected where statistical confidence is strongest. Free daily picks with odds and probability ratings.">
 HTML;
 
 include_once BASE_PATH . "/components/includes/header.inc.php";
@@ -36,13 +40,13 @@ function percentToInt($percent) {
 }
 
 // API fetch
-$apiUrl = "https://api.pitchpredictions.com/api/fetch_homepage_preds_match_tips";
-$token = "R9TxV3PbOEu7qZnJKgydC5LmX2";
+$apiUrl      = "https://api.pitchpredictions.com/api/fetch_homepage_preds_match_tips";
+$token       = "R9TxV3PbOEu7qZnJKgydC5LmX2";
 $currentDate = date('Y-m-d');
 
 $tipsData = [];
-$error = null;
-$empty = false;
+$error    = null;
+$empty    = false;
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $apiUrl . "?fixture_date=" . $currentDate);
@@ -62,7 +66,7 @@ if (curl_errno($ch)) {
     $data = json_decode($response, true);
     if (isset($data['data']) && is_array($data['data'])) {
         $tipsData = $data['data'];
-        $empty = count($tipsData) === 0;
+        $empty    = count($tipsData) === 0;
     } else {
         $error = 'Invalid data format received';
     }
@@ -74,14 +78,15 @@ curl_close($ch);
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-
 <main class="container py-4">
+    <h1 class="page-hero-title">Sure Win Prediction Today | Highest Confidence Football Tips</h1>
+
     <?php include_once BASE_PATH . "/components/includes/scrollable-nav.inc.php"; ?>
 
     <?php include_once BASE_PATH . "/components/shared/popular-tips.shared.php"; ?>
 
     <div class="section-title-bar">
-        <h2>Today's Predictions</h2>
+        <h2>Today's Sure Win Predictions</h2>
         <span class="today-date-tag"><?php echo date('D, d M Y'); ?></span>
     </div>
 
@@ -98,21 +103,21 @@ curl_close($ch);
     <div class="preds-wrapper">
         <?php if ($error): ?>
             <div class="state-msg">
-                Our experts are working on the predictions — please check back in a few minutes!
+                Our analysts are working on today's sure win predictions — please check back in a few minutes!
             </div>
         <?php elseif ($empty): ?>
             <div class="state-msg">
-                Working on today's predictions. Check back later!
+                Today's sure win predictions are being prepared. Check back shortly!
             </div>
         <?php else: ?>
 
         <?php foreach ($tipsData as $tip):
 
-            /* ---- Prediction logic (unchanged from original) ---- */
+            /* ---- Prediction logic ---- */
             $fixturesAverage = ComputeFixtureAverage(
-                $tip['teams_perfomance_home_for']    ?? null,
+                $tip['teams_perfomance_home_for']     ?? null,
                 $tip['teams_perfomance_home_aganist'] ?? $tip['teams_perfomance_home_against'] ?? null,
-                $tip['teams_perfomance_away_for']    ?? null,
+                $tip['teams_perfomance_away_for']     ?? null,
                 $tip['teams_perfomance_away_aganist'] ?? $tip['teams_perfomance_away_against'] ?? null,
                 $tip['teams_games_played_home'] ?? null,
                 $tip['teams_games_played_away'] ?? null
@@ -168,11 +173,11 @@ curl_close($ch);
             /* ---- Friendly label & chip class ---- */
             $displayPrediction = $predictionValue;
             $chipClass = 'chip-dc';
-            if ($predictionValue === "1")         { $displayPrediction = "Home";     $chipClass = 'chip-home'; }
-            if ($predictionValue === "2")         { $displayPrediction = "Away";     $chipClass = 'chip-away'; }
-            if ($predictionValue === "X")         { $displayPrediction = "Draw";     $chipClass = 'chip-draw'; }
-            if (strpos($predictionValue,'Over')  === 0) { $chipClass = 'chip-over'; }
-            if (strpos($predictionValue,'Under') === 0) { $chipClass = 'chip-under'; }
+            if ($predictionValue === "1")                 { $displayPrediction = "Home Win"; $chipClass = 'chip-home'; }
+            if ($predictionValue === "2")                 { $displayPrediction = "Away Win"; $chipClass = 'chip-away'; }
+            if ($predictionValue === "X")                 { $displayPrediction = "Draw";     $chipClass = 'chip-draw'; }
+            if (strpos($predictionValue, 'Over')  === 0) { $chipClass = 'chip-over';  }
+            if (strpos($predictionValue, 'Under') === 0) { $chipClass = 'chip-under'; }
 
             /* ---- Odds ---- */
             $oddsDisplay = '—';
@@ -222,12 +227,15 @@ curl_close($ch);
                 } catch (Exception $e) { /* keep default */ }
             }
 
-            /* ---- Score ---- */
-            $homeScore = $tip['goals_home'] ?? null;
-            $awayScore = $tip['goals_away'] ?? null;
+            /* ---- Score & match status ---- */
+            $homeScore    = $tip['goals_home'] ?? null;
+            $awayScore    = $tip['goals_away'] ?? null;
             $scoreDisplay = '—';
+            $matchStatus  = 'UPCOMING';
+
             if ($homeScore !== null && $awayScore !== null && $homeScore !== '' && $awayScore !== '') {
                 $scoreDisplay = htmlspecialchars($homeScore . ' – ' . $awayScore);
+                $matchStatus  = 'FT';
             }
 
             /* ---- Probabilities ---- */
@@ -235,29 +243,23 @@ curl_close($ch);
             $drawPercent = percentToInt($tip['percent_pred_draw'] ?? '0');
             $awayPercent = percentToInt($tip['percent_pred_away'] ?? '0');
 
-            /* SVG ring circumference = 2π×r, r=20, circ≈125.66 */
-            $circ = 125.66;
+            /* SVG ring circumference r=17, circ≈106.81 */
+            $circ     = 106.81;
             $dashHome = round(($homePercent / 100) * $circ, 2);
             $dashDraw = round(($drawPercent / 100) * $circ, 2);
             $dashAway = round(($awayPercent / 100) * $circ, 2);
 
             /* ---- Team initials & league ---- */
-            $homeInitial = strtoupper(substr(trim($tip['home_team_name'] ?? 'H'), 0, 2));
-            $awayInitial = strtoupper(substr(trim($tip['away_team_name'] ?? 'A'), 0, 2));
-
-            /* ---- League: split country / name ---- */
-            $leagueFull = $tip['league_name'] ?? '';
+            $homeInitial   = strtoupper(substr(trim($tip['home_team_name'] ?? 'H'), 0, 2));
+            $awayInitial   = strtoupper(substr(trim($tip['away_team_name'] ?? 'A'), 0, 2));
+            $leagueFull    = $tip['league_name'] ?? '';
             $leagueCountry = $tip['league_country'] ?? '';
-            /* Try to detect "Country: League" format */
             if (strpos($leagueFull, ':') !== false) {
                 [$leagueCountry, $leagueFull] = array_map('trim', explode(':', $leagueFull, 2));
             }
-        ?>
 
-        <?php
             /* ---- Time display ---- */
             $formattedTime = '—';
-            $formattedDate = '';
             if (!empty($tip['date'])) {
                 $formattedTime = DateTimeToUsersTimezone($tip['date']);
             }
@@ -265,15 +267,10 @@ curl_close($ch);
 
         <div class="match-card">
 
-            <!-- Col 1: Time -->
             <div class="mc-time">
                 <span class="time-val"><?php echo htmlspecialchars($formattedTime); ?></span>
-                <?php if ($formattedDate): ?>
-                <span class="date-val"><?php echo htmlspecialchars($formattedDate); ?></span>
-                <?php endif; ?>
             </div>
 
-            <!-- Col 2: Match — league small above, teams inline -->
             <div class="mc-match">
                 <span class="league-tag">
                     <?php echo htmlspecialchars($leagueCountry ? $leagueCountry . ' · ' . $leagueFull : $leagueFull); ?>
@@ -281,20 +278,17 @@ curl_close($ch);
                 <div class="teams-inline">
                     <div class="team-crest home-crest"><?php echo $homeInitial; ?></div>
                     <span class="team-name-text"><?php echo htmlspecialchars($tip['home_team_name'] ?? ''); ?></span>
-                    <span class="vs-badge" style="text-align:left;">VS</span>
+                    <span class="vs-badge">VS</span>
                     <div class="team-crest"><?php echo $awayInitial; ?></div>
                     <span class="team-name-text"><?php echo htmlspecialchars($tip['away_team_name'] ?? ''); ?></span>
                 </div>
             </div>
 
-            <!-- Col 3: Odds -->
             <div class="mc-odds">
                 <div class="odds-value"><?php echo htmlspecialchars($oddsDisplay); ?></div>
                 <div class="odds-label">Odds</div>
             </div>
 
-            <!-- Col 4: Probability rings -->
-           <!-- Probability Rings -->
             <div class="mc-prob">
                 <div class="prob-item">
                     <div class="prob-ring">
@@ -333,17 +327,19 @@ curl_close($ch);
                 </div>
             </div>
 
-            <!-- Col 5: Prediction chip -->
             <div class="mc-prediction">
                 <span class="pred-chip <?php echo $chipClass; ?>">
                     <?php echo htmlspecialchars($displayPrediction); ?>
                 </span>
             </div>
 
-            <!-- Col 6: Score -->
             <div class="mc-score">
                 <div class="score-display"><?php echo $scoreDisplay; ?></div>
-                <div class="score-status">FT</div>
+                <?php if ($scoreDisplay !== '—'): ?>
+                <div class="score-status"><?php echo $matchStatus; ?></div>
+                <?php else: ?>
+                <div class="score-status upcoming"><?php echo $matchStatus; ?></div>
+                <?php endif; ?>
             </div>
 
         </div>
