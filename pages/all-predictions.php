@@ -30,7 +30,7 @@ include_once BASE_PATH . "/components/shared/DetermineWinningOrLost.shared.php";
 include_once BASE_PATH . "/components/includes/navbar.inc.php";
 
 $Parsedown = new Parsedown();
-$markdownContent = file_get_contents(BASE_PATH.'/components/seo-content/today-predictions.content.md');
+$markdownContent = file_get_contents(BASE_PATH.'/components/seo-content/all-predictions.content.md');
 $htmlContent = $Parsedown->text($markdownContent);
 
 function percentToInt($percent) {
