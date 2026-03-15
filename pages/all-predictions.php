@@ -32,7 +32,7 @@ include_once BASE_PATH . "/components/shared/DetermineWinningOrLost.shared.php";
 include_once BASE_PATH . "/components/includes/navbar.inc.php";
 
 $Parsedown = new Parsedown();
-$markdownContent = file_get_contents(BASE_PATH.'/components/seo-content/all-predictions.content.md');
+$markdownContent = file_get_contents(BASE_PATH . '/components/seo-content/all-predictions.content.md');
 $htmlContent = $Parsedown->text($markdownContent);
 
 function percentToInt($percent) {
@@ -85,7 +85,7 @@ curl_close($ch);
     justify-content: space-between;
     margin: 30px 0 15px;
 }
-.section-title-bar h1 {
+.section-title-bar h2 {
     font-size: 24px;
     font-weight: 700;
     color: #1a1a1a;
@@ -248,6 +248,9 @@ curl_close($ch);
     text-transform: uppercase;
     font-weight: 600;
 }
+.score-status.upcoming {
+    color: #f59e0b;
+}
 .state-msg {
     text-align: center;
     padding: 60px 20px;
@@ -268,10 +271,12 @@ curl_close($ch);
 </style>
 
 <main class="container py-4">
+    <h1 class="page-hero-title">All Football Predictions Today</h1>
+
     <?php include_once BASE_PATH . "/components/includes/scrollable-nav.inc.php"; ?>
 
     <div class="section-title-bar">
-        <h1>All Football Predictions Today</h1>
+        <h2>Today's Football Predictions</h2>
         <span class="today-date-tag"><?php echo date('D, d M Y'); ?></span>
     </div>
 
@@ -279,7 +284,6 @@ curl_close($ch);
         Explore our <strong>all football predictions</strong> for today, including <strong>1X2 tips</strong>, <strong>double chance picks</strong>, and <strong>over/under predictions</strong>. Every match comes with probability ratings, odds insight, and expert analysis to help you make better betting decisions.
     </p>
 
-    <!-- Column headers -->
     <div class="preds-table-header">
         <span>Time</span>
         <span>Match</span>
@@ -302,7 +306,6 @@ curl_close($ch);
 
         <?php foreach ($tipsData as $tip):
 
-            /* ---- Prediction logic (unchanged from original) ---- */
             $fixturesAverage = ComputeFixtureAverage(
                 $tip['teams_perfomance_home_for'] ?? null,
                 $tip['teams_perfomance_home_aganist'] ?? $tip['teams_perfomance_home_against'] ?? null,
@@ -338,9 +341,11 @@ curl_close($ch);
                     $homeP = percentToInt($tip['percent_pred_home'] ?? '0');
                     $drawP = percentToInt($tip['percent_pred_draw'] ?? '0');
                     $awayP = percentToInt($tip['percent_pred_away'] ?? '0');
-                    if (($winningtip['winning_team'] === "1" && $homeP < 49) ||
+                    if (
+                        ($winningtip['winning_team'] === "1" && $homeP < 49) ||
                         ($winningtip['winning_team'] === "X" && $drawP < 49) ||
-                        ($winningtip['winning_team'] === "2" && $awayP < 49)) {
+                        ($winningtip['winning_team'] === "2" && $awayP < 49)
+                    ) {
                         $predictionValue = $doubleChancewinningTip['winning_team'];
                     } else {
                         $predictionValue = $winningtip['winning_team'];
@@ -350,16 +355,17 @@ curl_close($ch);
                 $homeP = percentToInt($tip['percent_pred_home'] ?? '0');
                 $drawP = percentToInt($tip['percent_pred_draw'] ?? '0');
                 $awayP = percentToInt($tip['percent_pred_away'] ?? '0');
-                if (($winningtip['winning_team'] === "1" && $homeP < 49) ||
+                if (
+                    ($winningtip['winning_team'] === "1" && $homeP < 49) ||
                     ($winningtip['winning_team'] === "X" && $drawP < 49) ||
-                    ($winningtip['winning_team'] === "2" && $awayP < 49)) {
+                    ($winningtip['winning_team'] === "2" && $awayP < 49)
+                ) {
                     $predictionValue = $doubleChancewinningTip['winning_team'];
                 } else {
                     $predictionValue = $winningtip['winning_team'];
                 }
             }
 
-            /* ---- Friendly label & chip class ---- */
             $displayPrediction = $predictionValue;
             $chipClass = 'chip-dc';
             if ($predictionValue === "1") { $displayPrediction = "Home"; $chipClass = 'chip-home'; }
@@ -368,7 +374,6 @@ curl_close($ch);
             if (strpos($predictionValue, 'Over') === 0) { $chipClass = 'chip-over'; }
             if (strpos($predictionValue, 'Under') === 0) { $chipClass = 'chip-under'; }
 
-            /* ---- Odds ---- */
             $oddsDisplay = '—';
             if (!empty($tip['all_bets_odds'])) {
                 try {
@@ -413,20 +418,23 @@ curl_close($ch);
                             }
                         }
                     }
-                } catch (Exception $e) { /* keep default */ }
+                } catch (Exception $e) {
+                    /* keep default */
+                }
             }
 
-            /* ---- Score ---- */
             $homeScore = $tip['goals_home'] ?? null;
             $awayScore = $tip['goals_away'] ?? null;
             $scoreDisplay = '—';
             $scoreStatus = 'UPCOMING';
+            $scoreStatusClass = 'upcoming';
+
             if ($homeScore !== null && $awayScore !== null && $homeScore !== '' && $awayScore !== '') {
                 $scoreDisplay = htmlspecialchars($homeScore . ' – ' . $awayScore);
                 $scoreStatus = 'FT';
+                $scoreStatusClass = '';
             }
 
-            /* ---- Probabilities ---- */
             $homePercent = percentToInt($tip['percent_pred_home'] ?? '0');
             $drawPercent = percentToInt($tip['percent_pred_draw'] ?? '0');
             $awayPercent = percentToInt($tip['percent_pred_away'] ?? '0');
@@ -436,7 +444,6 @@ curl_close($ch);
             $dashDraw = round(($drawPercent / 100) * $circ, 2);
             $dashAway = round(($awayPercent / 100) * $circ, 2);
 
-            /* ---- Team initials & league ---- */
             $homeInitial = strtoupper(substr(trim($tip['home_team_name'] ?? 'H'), 0, 2));
             $awayInitial = strtoupper(substr(trim($tip['away_team_name'] ?? 'A'), 0, 2));
 
@@ -446,11 +453,17 @@ curl_close($ch);
                 [$leagueCountry, $leagueFull] = array_map('trim', explode(':', $leagueFull, 2));
             }
 
-            /* ---- Time display ---- */
             $formattedTime = '—';
             $formattedDate = '';
             if (!empty($tip['date'])) {
-                $formattedTime = DateTimeToUsersTimezone($tip['date']);
+                $dateTime = DateTimeToUsersTimezone($tip['date']);
+                if (strpos($dateTime, ' ') !== false) {
+                    $parts = explode(' ', $dateTime, 2);
+                    $formattedDate = $parts[0];
+                    $formattedTime = $parts[1];
+                } else {
+                    $formattedTime = $dateTime;
+                }
             }
         ?>
 
@@ -527,7 +540,7 @@ curl_close($ch);
 
             <div class="mc-score">
                 <div class="score-display"><?php echo $scoreDisplay; ?></div>
-                <div class="score-status"><?php echo $scoreStatus; ?></div>
+                <div class="score-status <?php echo $scoreStatusClass; ?>"><?php echo $scoreStatus; ?></div>
             </div>
 
         </div>
@@ -541,7 +554,6 @@ curl_close($ch);
             <?php echo $htmlContent; ?>
         </div>
     </section>
-
 </main>
 
 <?php
