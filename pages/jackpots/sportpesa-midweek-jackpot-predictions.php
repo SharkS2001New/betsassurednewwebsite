@@ -15,7 +15,6 @@ $metaTags = <<<HTML
 <meta property="twitter:description" content="Get accurate tips and predictions for the SportPesa Midweek Jackpot. All you need for a successful ticket.">
 HTML;
 
-// Preloader & Header
 include_once BASE_PATH . "/components/includes/header.inc.php";
 ?>
 
@@ -34,7 +33,6 @@ $jackpotName = "Sportpesa Midweek Jackpot";
 $encodedName = urlencode($jackpotName);
 $apiUrl = "https://api.alljackpotpredictions.com/api/fetch_jackpot_fixtures_by_name?jackpot_name=$encodedName";
 $token = "q2LsJ9FmT6XvRaCbHuYdK8ZwN4";
-
 
 // Make cURL request
 $ch = curl_init($apiUrl);
@@ -65,9 +63,9 @@ function get1X2Tip($tip) {
     $percentHome = percentToInt($tip['percent_pred_home'] ?? '0');
     $percentDraw = percentToInt($tip['percent_pred_draw'] ?? '0');
     $percentAway = percentToInt($tip['percent_pred_away'] ?? '0');
-    
+
     $maxPercent = max($percentHome, $percentDraw, $percentAway);
-    
+
     if ($maxPercent === $percentHome) {
         return '1';
     } elseif ($maxPercent === $percentDraw) {
@@ -106,23 +104,260 @@ if ($response) {
 }
 ?>
 
+<style>
+.section-title-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px 0 15px;
+}
+.section-title-bar h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+}
+.today-date-tag {
+    background: #f0f0f0;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+.jackpot-stats-bar {
+    display: flex;
+    gap: 20px;
+    margin: 15px 0 20px;
+    padding: 15px 20px;
+    background: linear-gradient(135deg, #05384B 0%, #0a4a60 100%);
+    border-radius: 10px;
+    color: white;
+}
+.stat-item { display: flex; flex-direction: column; }
+.stat-value { font-size: 22px; font-weight: 700; line-height: 1.2; }
+.stat-label { font-size: 12px; opacity: 0.9; }
+
+.preds-table-header {
+    display: grid;
+    grid-template-columns: 10% 30% 10% 22% 12% 10%;
+    gap: 10px;
+    background: #f8f9fa;
+    padding: 12px 15px;
+    border-radius: 8px 8px 0 0;
+    font-weight: 600;
+    color: #495057;
+    border: 1px solid #dee2e6;
+    border-bottom: none;
+    font-size: 14px;
+}
+.preds-wrapper {
+    border: 1px solid #dee2e6;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+.match-card {
+    display: grid;
+    grid-template-columns: 10% 30% 10% 22% 12% 10%;
+    gap: 10px;
+    padding: 15px;
+    border-bottom: 1px solid #dee2e6;
+    background: white;
+    align-items: center;
+    font-family: 'DM Sans', sans-serif;
+}
+.match-card:last-child { border-bottom: none; }
+.match-card:hover { background: #f8f9fa; }
+
+.mc-time { font-weight: 500; color: #333; font-size: 14px; }
+.time-val { display: block; }
+.date-val { font-size: 11px; color: #6c757d; display: block; }
+
+.mc-match { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.league-tag {
+    font-size: 11px;
+    font-weight: 500;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.teams-inline { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.team-crest {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, #05384B, #0a4a60);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 12px;
+    color: white;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+.home-crest { background: linear-gradient(135deg, #05384B, #0a4a60); }
+.team-name-text {
+    font-weight: 500;
+    font-size: 14px;
+    color: #212529;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+    min-width: 0;
+}
+.vs-badge {
+    color: #dc3545;
+    font-weight: 600;
+    font-size: 12px;
+    margin: 0 2px;
+    flex-shrink: 0;
+}
+
+.mc-odds { text-align: center; }
+.odds-value {
+    font-weight: 700;
+    font-size: 16px;
+    color: #f59e0b;
+    background: rgba(251,191,36,.08);
+    border: 1px solid rgba(251,191,36,.2);
+    border-radius: 6px;
+    padding: 4px 8px;
+    display: inline-block;
+    line-height: 1;
+}
+.odds-label {
+    font-size: 10px;
+    color: #6c757d;
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+.mc-prob { display: flex; align-items: center; justify-content: space-between; gap: 5px; }
+.prob-item { text-align: center; flex: 1; }
+.prob-ring { position: relative; width: 40px; height: 40px; margin: 0 auto 4px; }
+.prob-ring svg { width: 40px; height: 40px; transform: rotate(-90deg); }
+.prob-ring circle { fill: none; stroke-width: 3; }
+.prob-ring .track { stroke: #e9ecef; }
+.prob-ring .fill-home { stroke: #05384B; stroke-linecap: round; }
+.prob-ring .fill-draw { stroke: #6c757d; stroke-linecap: round; }
+.prob-ring .fill-away { stroke: #dc3545; stroke-linecap: round; }
+.prob-ring-value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10px;
+    font-weight: 600;
+    font-family: 'DM Mono', monospace;
+}
+.prob-label {
+    font-size: 9px;
+    color: #6c757d;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.prob-sep { width: 1px; height: 25px; background: #dee2e6; }
+
+.mc-prediction { text-align: center; }
+.pred-chip {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 13px;
+    min-width: 60px;
+    text-align: center;
+}
+.chip-home  { background: #05384B; color: white; }
+.chip-away  { background: #dc3545; color: white; }
+.chip-draw  { background: #6c757d; color: white; }
+
+.result-badge-small {
+    font-size: 10px;
+    font-weight: 600;
+    display: block;
+    margin-top: 4px;
+}
+.result-won  { color: #10b981; }
+.result-lost { color: #dc3545; }
+
+.mc-score { text-align: center; }
+.score-display {
+    font-weight: 700;
+    font-size: 16px;
+    color: #212529;
+    font-family: 'DM Mono', monospace;
+}
+.score-status {
+    font-size: 10px;
+    color: #10b981;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.score-status.upcoming {
+    color: #f59e0b;
+}
+
+.state-msg {
+    text-align: center;
+    padding: 60px 20px;
+    color: #6c757d;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+}
+.perf-summary {
+    display: flex;
+    gap: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin: 20px 0 30px;
+    border: 1px solid #dee2e6;
+}
+.perf-item { display: flex; flex-direction: column; }
+.perf-label { font-size: 13px; color: #6c757d; }
+.perf-value { font-size: 24px; font-weight: 700; color: #05384B; }
+
+@media (max-width: 992px) {
+    .preds-table-header { display: none; }
+    .match-card {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+    .jackpot-stats-bar,
+    .perf-summary {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+</style>
+
 <main class="container py-4">
+    <h1 class="page-hero-title">Sportpesa Midweek Jackpot Predictions</h1>
+
     <?php include_once BASE_PATH . "/components/includes/scrollable-nav.inc.php"; ?>
 
-    <!-- Page Header -->
     <div class="section-title-bar">
-        <h1>Sportpesa Midweek Jackpot Predictions</h1>
+        <h2>This Week's Midweek Jackpot Tips</h2>
         <span class="today-date-tag">Week <?php echo date('W'); ?></span>
     </div>
 
-    <!-- Description -->
     <p style="color: #4b5563; margin-bottom: 20px;">
-        Looking for expert Sportpesa Midweek Jackpot predictions this week? 
-        Our comprehensive analysis covers all 17 games with detailed match breakdowns 
-        and winning strategies.
+        Looking for expert <strong>Sportpesa Midweek Jackpot predictions</strong> this week?
+        Our comprehensive analysis covers all 13 games with detailed match breakdowns,
+        confidence ratings, and jackpot strategy insights.
     </p>
 
-    <!-- Jackpot Stats Bar -->
     <?php if ($startDate && $endDate): ?>
     <div class="jackpot-stats-bar">
         <div class="stat-item">
@@ -134,17 +369,16 @@ if ($response) {
             <span class="stat-label">Prize Pool</span>
         </div>
         <div class="stat-item">
-            <span class="stat-value"><?= date('d M', strtotime($startDate)) ?></span>
+            <span class="stat-value"><?= date('d M', strtotime(str_replace('/', '-', explode(' ', $startDate)[0]))) ?></span>
             <span class="stat-label">Starts</span>
         </div>
         <div class="stat-item">
-            <span class="stat-value"><?= date('d M', strtotime($endDate)) ?></span>
+            <span class="stat-value"><?= date('d M', strtotime(str_replace('/', '-', explode(' ', $endDate)[0]))) ?></span>
             <span class="stat-label">Ends</span>
         </div>
     </div>
     <?php endif; ?>
 
-    <!-- Column Headers (same as homepage) -->
     <div class="preds-table-header">
         <span>Time</span>
         <span>Match</span>
@@ -154,7 +388,6 @@ if ($response) {
         <span style="text-align:center">Score</span>
     </div>
 
-    <!-- Predictions Wrapper -->
     <div class="preds-wrapper">
         <?php if (count($predictions) === 0): ?>
             <div class="state-msg">
@@ -162,65 +395,71 @@ if ($response) {
             </div>
         <?php else: ?>
 
-        <?php foreach ($predictions as $index => $tip): 
+        <?php foreach ($predictions as $index => $tip):
             $prediction = get1X2Tip($tip);
+
             $homeScore = $tip['goals_home'] ?? null;
             $awayScore = $tip['goals_away'] ?? null;
-            $scoreDisplay = ($homeScore === null || $awayScore === null) ? '—' : "{$homeScore} – {$awayScore}";
-            
-            $matchDate = isset($tip['date']) 
-                ? (new DateTime($tip['date']))->modify('+3 hours') 
+
+            $scoreDisplay = '—';
+            $scoreStatus = 'UPCOMING';
+            $scoreStatusClass = 'upcoming';
+
+            if ($homeScore !== null && $awayScore !== null && $homeScore !== '' && $awayScore !== '') {
+                $scoreDisplay = htmlspecialchars($homeScore . ' – ' . $awayScore);
+                $scoreStatus = 'FT';
+                $scoreStatusClass = '';
+            }
+
+            $matchDate = isset($tip['date'])
+                ? (new DateTime($tip['date']))->modify('+3 hours')
                 : null;
             $formattedTime = $matchDate ? $matchDate->format('H:i') : '—';
             $formattedDate = $matchDate ? $matchDate->format('d/m') : '';
-            
+
             $winningStatus = DetermineWinningOrLost($prediction, $homeScore, $awayScore);
-            
-            // Get percentages
+
             $homePercent = percentToInt($tip['percent_pred_home'] ?? '0');
             $drawPercent = percentToInt($tip['percent_pred_draw'] ?? '0');
             $awayPercent = percentToInt($tip['percent_pred_away'] ?? '0');
-            
-            // SVG ring calculations
-            $circ = 106.76; // 2πr with r=17
+
+            $circ = 106.76;
             $dashHome = round(($homePercent / 100) * $circ, 2);
             $dashDraw = round(($drawPercent / 100) * $circ, 2);
             $dashAway = round(($awayPercent / 100) * $circ, 2);
-            
-            // Team initials
+
             $homeInitial = strtoupper(substr(trim($tip['home_team_name'] ?? 'H'), 0, 2));
             $awayInitial = strtoupper(substr(trim($tip['away_team_name'] ?? 'A'), 0, 2));
-            
-            // League info
-            $leagueFull = $tip['league_name'] ?? 'Sportpesa Mega';
+
+            $leagueFull = $tip['league_name'] ?? 'Sportpesa Midweek Jackpot';
             $leagueCountry = $tip['league_country'] ?? '';
-            
-            // Prediction chip class
+
             $chipClass = 'chip-draw';
             $displayPrediction = $prediction;
             if ($prediction === "1") { $displayPrediction = "Home"; $chipClass = 'chip-home'; }
             if ($prediction === "2") { $displayPrediction = "Away"; $chipClass = 'chip-away'; }
             if ($prediction === "X") { $displayPrediction = "Draw"; $chipClass = 'chip-draw'; }
-            
-            // Odds (simplified for jackpot)
+
             $oddsDisplay = '—';
-            if (!empty($tip['bets_home']) && $prediction === '1') $oddsDisplay = $tip['bets_home'];
-            elseif (!empty($tip['bets_draw']) && $prediction === 'X') $oddsDisplay = $tip['bets_draw'];
-            elseif (!empty($tip['bets_away']) && $prediction === '2') $oddsDisplay = $tip['bets_away'];
+            if (!empty($tip['bets_home']) && $prediction === '1') {
+                $oddsDisplay = $tip['bets_home'];
+            } elseif (!empty($tip['bets_draw']) && $prediction === 'X') {
+                $oddsDisplay = $tip['bets_draw'];
+            } elseif (!empty($tip['bets_away']) && $prediction === '2') {
+                $oddsDisplay = $tip['bets_away'];
+            }
         ?>
 
         <div class="match-card">
-            <!-- Time -->
             <div class="mc-time">
-                <span><?php echo $formattedTime; ?></span>
+                <span class="time-val"><?php echo htmlspecialchars($formattedTime); ?></span>
                 <?php if ($formattedDate): ?>
-                <span style="font-size: 11px; color: #6c757d; display: block;"><?php echo $formattedDate; ?></span>
+                <span class="date-val"><?php echo htmlspecialchars($formattedDate); ?></span>
                 <?php endif; ?>
             </div>
 
-            <!-- Match -->
             <div class="mc-match">
-                <span class="league-tag"><?php echo $leagueCountry ?: 'Mega'; ?> · Match <?php echo $index + 1; ?></span>
+                <span class="league-tag"><?php echo htmlspecialchars(($leagueCountry ?: 'Kenya') . ' · Match ' . ($index + 1)); ?></span>
                 <div class="teams-inline">
                     <div class="team-crest home-crest"><?php echo $homeInitial; ?></div>
                     <span class="team-name-text"><?php echo htmlspecialchars($tip['home_team_name'] ?? ''); ?></span>
@@ -230,13 +469,11 @@ if ($response) {
                 </div>
             </div>
 
-            <!-- Odds -->
             <div class="mc-odds">
                 <div class="odds-value"><?php echo htmlspecialchars($oddsDisplay); ?></div>
                 <div class="odds-label">Odds</div>
             </div>
 
-            <!-- Probability Rings -->
             <div class="mc-prob">
                 <div class="prob-item">
                     <div class="prob-ring">
@@ -275,26 +512,20 @@ if ($response) {
                 </div>
             </div>
 
-            <!-- Prediction -->
             <div class="mc-prediction">
                 <span class="pred-chip <?php echo $chipClass; ?>">
-                    <?php echo $displayPrediction; ?>
+                    <?php echo htmlspecialchars($displayPrediction); ?>
                 </span>
-                <?php if ($scoreDisplay !== '—'): ?>
-                <span style="font-size: 10px; display: block; color: <?php echo ($winningStatus === 'Won') ? '#10b981' : '#dc3545'; ?>; margin-top: 4px;">
-                    <?php echo $winningStatus; ?>
+                <?php if ($scoreDisplay !== '—' && $winningStatus): ?>
+                <span class="result-badge-small <?php echo ($winningStatus === 'Won') ? 'result-won' : 'result-lost'; ?>">
+                    <?php echo htmlspecialchars($winningStatus); ?>
                 </span>
                 <?php endif; ?>
             </div>
 
-            <!-- Score -->
             <div class="mc-score">
                 <div class="score-display"><?php echo $scoreDisplay; ?></div>
-                <?php if ($scoreDisplay !== '—'): ?>
-                <div class="score-status">FT</div>
-                <?php else: ?>
-                <div class="score-status" style="color: #f59e0b;">UPCOMING</div>
-                <?php endif; ?>
+                <div class="score-status <?php echo $scoreStatusClass; ?>"><?php echo $scoreStatus; ?></div>
             </div>
         </div>
         <?php endforeach; ?>
@@ -302,17 +533,18 @@ if ($response) {
         <?php endif; ?>
     </div>
 
-    <!-- Performance Summary (if there are results) -->
-    <?php 
+    <?php
     if (count($predictions) > 0):
         $won = 0;
         $lost = 0;
+
         foreach ($predictions as $tip) {
             $pred = get1X2Tip($tip);
             $status = DetermineWinningOrLost($pred, $tip['goals_home'] ?? null, $tip['goals_away'] ?? null);
             if ($status === 'Won') $won++;
             elseif ($status === 'Lost') $lost++;
         }
+
         $total = $won + $lost;
         if ($total > 0):
     ?>
@@ -323,16 +555,15 @@ if ($response) {
         </div>
         <div class="perf-item">
             <span class="perf-label">Success Rate</span>
-            <span class="perf-value"><?php echo $total > 0 ? round(($won/$total)*100) : 0; ?>%</span>
+            <span class="perf-value"><?php echo round(($won / $total) * 100); ?>%</span>
         </div>
         <div class="perf-item">
             <span class="perf-label">Jackpot Games</span>
-            <span class="perf-value">17</span>
+            <span class="perf-value">13</span>
         </div>
     </div>
     <?php endif; endif; ?>
 
-    <!-- SEO Content -->
     <section class="seo-section mt-4">
         <div class="blog-2 seo-content">
             <?php echo $htmlContent; ?>
