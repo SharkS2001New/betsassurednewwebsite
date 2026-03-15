@@ -1,20 +1,22 @@
 <?php
 $metaTags= <<<HTML
 <!-- Primary Meta Tags -->
-<title>BetAssured: Best Prediction Site - Free Football Tips</title>
-<meta name="title" content="BetAssured - Accurate Football Predictions & Sure Tips">
-<meta name="description" content="Get the edge with BetAssured's reliable football predictions, daily free betting tips, and expert insights designed to help you make smarter betting decisions.">
-<meta name="keywords" content="betassured, free football predictions, daily soccer predictions, accurate football predictions, best football prediction site, daily betting tips, sure tips, soccer tips today">
+<title>All Football Predictions Today | Free Daily Soccer Tips</title>
+<meta name="title" content="All Football Predictions Today | Free Daily Soccer Tips">
+<meta name="description" content="Get all football predictions today with free daily soccer tips, expert match analysis, 1X2 picks, over under predictions, and reliable betting insights across top leagues worldwide.">
+<meta name="keywords" content="all football predictions, football predictions today, free football predictions, daily soccer tips, 1x2 football predictions, over under predictions, today football tips, expert football predictions">
 
 <!-- Open Graph -->
-<meta property="og:title" content="BetAssured - Accurate Football Prediction Site">
-<meta property="og:description" content="BetAssured provides free football predictions daily with expert analysis and reliable betting tips.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.betassured.com/">
+<meta property="og:title" content="All Football Predictions Today | Free Daily Soccer Tips">
+<meta property="og:description" content="Get all football predictions today with free daily soccer tips, expert match analysis, 1X2 picks, over under predictions, and reliable betting insights across top leagues worldwide.">
+<meta property="og:url" content="https://www.betassured.com/all-predictions">
+<meta property="og:site_name" content="BetAssured">
 
 <!-- Twitter -->
-<meta name="twitter:title" content="BetAssured - Accurate Football Prediction Site">
-<meta name="twitter:description" content="BetAssured provides free football predictions daily with expert analysis and reliable betting tips.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="All Football Predictions Today | Free Daily Soccer Tips">
+<meta name="twitter:description" content="Get all football predictions today with free daily soccer tips, expert match analysis, 1X2 picks, over under predictions, and reliable betting insights across top leagues worldwide.">
 HTML;
 
 include_once BASE_PATH . "/components/includes/header.inc.php";
@@ -76,14 +78,206 @@ curl_close($ch);
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 
+<style>
+.section-title-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px 0 15px;
+}
+.section-title-bar h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+}
+.today-date-tag {
+    background: #f0f0f0;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+.preds-table-header {
+    display: grid;
+    grid-template-columns: 10% 30% 10% 22% 12% 10%;
+    gap: 10px;
+    background: #f8f9fa;
+    padding: 12px 15px;
+    border-radius: 8px 8px 0 0;
+    font-weight: 600;
+    color: #495057;
+    border: 1px solid #dee2e6;
+    border-bottom: none;
+    font-size: 14px;
+}
+.preds-wrapper {
+    border: 1px solid #dee2e6;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+.match-card {
+    display: grid;
+    grid-template-columns: 10% 30% 10% 22% 12% 10%;
+    gap: 10px;
+    padding: 15px;
+    border-bottom: 1px solid #dee2e6;
+    background: white;
+    align-items: center;
+    font-family: 'DM Sans', sans-serif;
+}
+.match-card:last-child { border-bottom: none; }
+.match-card:hover { background: #f8f9fa; }
+.mc-time { font-weight: 500; color: #333; font-size: 14px; }
+.mc-match { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.league-tag {
+    font-size: 11px;
+    font-weight: 500;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.teams-inline { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.team-crest {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, #05384B, #0a4a60);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 12px;
+    color: white;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+.home-crest { background: linear-gradient(135deg, #05384B, #0a4a60); }
+.team-name-text {
+    font-weight: 500;
+    font-size: 14px;
+    color: #212529;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+    min-width: 0;
+}
+.vs-badge {
+    color: #dc3545;
+    font-weight: 600;
+    font-size: 12px;
+    margin: 0 2px;
+    flex-shrink: 0;
+}
+.mc-odds { text-align: center; }
+.odds-value {
+    font-weight: 700;
+    font-size: 16px;
+    color: #f59e0b;
+    background: rgba(251,191,36,.08);
+    border: 1px solid rgba(251,191,36,.2);
+    border-radius: 6px;
+    padding: 4px 8px;
+    display: inline-block;
+    line-height: 1;
+}
+.odds-label {
+    font-size: 10px;
+    color: #6c757d;
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+.mc-prob { display: flex; align-items: center; justify-content: space-between; gap: 5px; }
+.prob-item { text-align: center; flex: 1; }
+.prob-ring { position: relative; width: 40px; height: 40px; margin: 0 auto 4px; }
+.prob-ring svg { width: 40px; height: 40px; transform: rotate(-90deg); }
+.prob-ring circle { fill: none; stroke-width: 3; }
+.prob-ring .track { stroke: #e9ecef; }
+.prob-ring .fill-home { stroke: #05384B; stroke-linecap: round; }
+.prob-ring .fill-draw { stroke: #6c757d; stroke-linecap: round; }
+.prob-ring .fill-away { stroke: #dc3545; stroke-linecap: round; }
+.prob-ring-value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10px;
+    font-weight: 600;
+    font-family: 'DM Mono', monospace;
+}
+.prob-label {
+    font-size: 9px;
+    color: #6c757d;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+.prob-sep { width: 1px; height: 25px; background: #dee2e6; }
+.mc-prediction { text-align: center; }
+.pred-chip {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 13px;
+    min-width: 60px;
+    text-align: center;
+}
+.chip-home  { background: #05384B; color: white; }
+.chip-away  { background: #dc3545; color: white; }
+.chip-draw  { background: #6c757d; color: white; }
+.chip-over  { background: #10b981; color: white; }
+.chip-under { background: #f59e0b; color: white; }
+.chip-dc    { background: #ec4899; color: white; }
+.mc-score { text-align: center; }
+.score-display {
+    font-weight: 700;
+    font-size: 16px;
+    color: #212529;
+    font-family: 'DM Mono', monospace;
+}
+.score-status {
+    font-size: 10px;
+    color: #10b981;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.state-msg {
+    text-align: center;
+    padding: 60px 20px;
+    color: #6c757d;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+}
+@media (max-width: 992px) {
+    .preds-table-header { display: none; }
+    .match-card {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        margin-bottom: 10px;
+    }
+}
+</style>
 
 <main class="container py-4">
     <?php include_once BASE_PATH . "/components/includes/scrollable-nav.inc.php"; ?>
 
     <div class="section-title-bar">
-        <h1>Today's Predictions</h1>
+        <h1>All Football Predictions Today</h1>
         <span class="today-date-tag"><?php echo date('D, d M Y'); ?></span>
     </div>
+
+    <p style="color: #4b5563; margin-bottom: 20px;">
+        Explore our <strong>all football predictions</strong> for today, including <strong>1X2 tips</strong>, <strong>double chance picks</strong>, and <strong>over/under predictions</strong>. Every match comes with probability ratings, odds insight, and expert analysis to help you make better betting decisions.
+    </p>
 
     <!-- Column headers -->
     <div class="preds-table-header">
@@ -110,9 +304,9 @@ curl_close($ch);
 
             /* ---- Prediction logic (unchanged from original) ---- */
             $fixturesAverage = ComputeFixtureAverage(
-                $tip['teams_perfomance_home_for']    ?? null,
+                $tip['teams_perfomance_home_for'] ?? null,
                 $tip['teams_perfomance_home_aganist'] ?? $tip['teams_perfomance_home_against'] ?? null,
-                $tip['teams_perfomance_away_for']    ?? null,
+                $tip['teams_perfomance_away_for'] ?? null,
                 $tip['teams_perfomance_away_aganist'] ?? $tip['teams_perfomance_away_against'] ?? null,
                 $tip['teams_games_played_home'] ?? null,
                 $tip['teams_games_played_away'] ?? null
@@ -168,11 +362,11 @@ curl_close($ch);
             /* ---- Friendly label & chip class ---- */
             $displayPrediction = $predictionValue;
             $chipClass = 'chip-dc';
-            if ($predictionValue === "1")         { $displayPrediction = "Home";     $chipClass = 'chip-home'; }
-            if ($predictionValue === "2")         { $displayPrediction = "Away";     $chipClass = 'chip-away'; }
-            if ($predictionValue === "X")         { $displayPrediction = "Draw";     $chipClass = 'chip-draw'; }
-            if (strpos($predictionValue,'Over')  === 0) { $chipClass = 'chip-over'; }
-            if (strpos($predictionValue,'Under') === 0) { $chipClass = 'chip-under'; }
+            if ($predictionValue === "1") { $displayPrediction = "Home"; $chipClass = 'chip-home'; }
+            if ($predictionValue === "2") { $displayPrediction = "Away"; $chipClass = 'chip-away'; }
+            if ($predictionValue === "X") { $displayPrediction = "Draw"; $chipClass = 'chip-draw'; }
+            if (strpos($predictionValue, 'Over') === 0) { $chipClass = 'chip-over'; }
+            if (strpos($predictionValue, 'Under') === 0) { $chipClass = 'chip-under'; }
 
             /* ---- Odds ---- */
             $oddsDisplay = '—';
@@ -226,8 +420,10 @@ curl_close($ch);
             $homeScore = $tip['goals_home'] ?? null;
             $awayScore = $tip['goals_away'] ?? null;
             $scoreDisplay = '—';
+            $scoreStatus = 'UPCOMING';
             if ($homeScore !== null && $awayScore !== null && $homeScore !== '' && $awayScore !== '') {
                 $scoreDisplay = htmlspecialchars($homeScore . ' – ' . $awayScore);
+                $scoreStatus = 'FT';
             }
 
             /* ---- Probabilities ---- */
@@ -235,7 +431,6 @@ curl_close($ch);
             $drawPercent = percentToInt($tip['percent_pred_draw'] ?? '0');
             $awayPercent = percentToInt($tip['percent_pred_away'] ?? '0');
 
-            /* SVG ring circumference = 2π×r, r=20, circ≈125.66 */
             $circ = 125.66;
             $dashHome = round(($homePercent / 100) * $circ, 2);
             $dashDraw = round(($drawPercent / 100) * $circ, 2);
@@ -245,16 +440,12 @@ curl_close($ch);
             $homeInitial = strtoupper(substr(trim($tip['home_team_name'] ?? 'H'), 0, 2));
             $awayInitial = strtoupper(substr(trim($tip['away_team_name'] ?? 'A'), 0, 2));
 
-            /* ---- League: split country / name ---- */
             $leagueFull = $tip['league_name'] ?? '';
             $leagueCountry = $tip['league_country'] ?? '';
-            /* Try to detect "Country: League" format */
             if (strpos($leagueFull, ':') !== false) {
                 [$leagueCountry, $leagueFull] = array_map('trim', explode(':', $leagueFull, 2));
             }
-        ?>
 
-        <?php
             /* ---- Time display ---- */
             $formattedTime = '—';
             $formattedDate = '';
@@ -265,7 +456,6 @@ curl_close($ch);
 
         <div class="match-card">
 
-            <!-- Col 1: Time -->
             <div class="mc-time">
                 <span class="time-val"><?php echo htmlspecialchars($formattedTime); ?></span>
                 <?php if ($formattedDate): ?>
@@ -273,7 +463,6 @@ curl_close($ch);
                 <?php endif; ?>
             </div>
 
-            <!-- Col 2: Match — league small above, teams inline -->
             <div class="mc-match">
                 <span class="league-tag">
                     <?php echo htmlspecialchars($leagueCountry ? $leagueCountry . ' · ' . $leagueFull : $leagueFull); ?>
@@ -287,14 +476,11 @@ curl_close($ch);
                 </div>
             </div>
 
-            <!-- Col 3: Odds -->
             <div class="mc-odds">
                 <div class="odds-value"><?php echo htmlspecialchars($oddsDisplay); ?></div>
                 <div class="odds-label">Odds</div>
             </div>
 
-            <!-- Col 4: Probability rings -->
-           <!-- Probability Rings -->
             <div class="mc-prob">
                 <div class="prob-item">
                     <div class="prob-ring">
@@ -333,17 +519,15 @@ curl_close($ch);
                 </div>
             </div>
 
-            <!-- Col 5: Prediction chip -->
             <div class="mc-prediction">
                 <span class="pred-chip <?php echo $chipClass; ?>">
                     <?php echo htmlspecialchars($displayPrediction); ?>
                 </span>
             </div>
 
-            <!-- Col 6: Score -->
             <div class="mc-score">
                 <div class="score-display"><?php echo $scoreDisplay; ?></div>
-                <div class="score-status">FT</div>
+                <div class="score-status"><?php echo $scoreStatus; ?></div>
             </div>
 
         </div>
@@ -352,7 +536,6 @@ curl_close($ch);
         <?php endif; ?>
     </div>
 
-    <!-- SEO Content -->
     <section class="seo-section">
         <div class="blog-2 seo-content">
             <?php echo $htmlContent; ?>
