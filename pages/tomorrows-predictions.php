@@ -21,6 +21,30 @@ HTML;
 
 include_once BASE_PATH . "/components/includes/header.inc.php";
 ?>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are high confidence football predictions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "High confidence predictions are football tips with statistical probability ratings of 70% or higher, based on comprehensive data analysis including team form, head-to-head records, and tactical matchups."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate are high confidence predictions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our high confidence predictions (90%+ probability) achieve approximately 78% accuracy based on verified historical results. However, no prediction is guaranteed and all betting carries risk."
+      }
+    }
+  ]
+}
+</script>
 <?php
 include_once BASE_PATH . "/components/shared/preloader.shared.php";
 include_once BASE_PATH . "/components/shared/DateTimeToUsersTimezone.shared.php";
@@ -234,6 +258,13 @@ curl_close($ch);
             if ($homeScore !== null && $awayScore !== null && $homeScore !== '' && $awayScore !== '') {
                 $scoreDisplay = htmlspecialchars($homeScore . ' – ' . $awayScore);
                 $matchStatus  = 'FT';
+            }
+
+            $winningStatus = '';
+
+            if ($homeScore !== null && $awayScore !== null && $homeScore !== '' && $awayScore !== '') {
+                $scoreDisplay  = htmlspecialchars($homeScore . ' – ' . $awayScore);
+                $winningStatus = DetermineWinningOrLost($predictionValue, $homeScore, $awayScore);
             }
 
             /* ---- Probabilities ---- */

@@ -266,7 +266,7 @@ $hasEnoughMatches = count($uniqueAccumulatorMatches) >= 8;
 .accu-row {
     display: grid;
     grid-template-columns: 1fr 100px 70px;
-    padding: 12px 16px;
+    padding: 8px 10px;
     border-bottom: 1px solid var(--border);
     align-items: center;
     transition: background 0.2s;
@@ -334,7 +334,7 @@ $hasEnoughMatches = count($uniqueAccumulatorMatches) >= 8;
 .accu-odd {
     font-family: var(--font-mono);
     font-weight: 700;
-    color: var(--amber);
+    /* color: var(--amber); */
     font-size: 12px;
     text-align: right;
     background: rgba(251,191,36,0.1);

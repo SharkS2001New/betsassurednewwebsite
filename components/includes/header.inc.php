@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+  <meta name="google-site-verification" content="TbLw7IrsYxEQTyYxPbLy2iiazfNLV1h1OARcrGq5DlQ" />
+
   <!-- Global SEO + Branding -->
   <meta name="author" content="BetAssured">
   <meta name="language" content="en">
@@ -29,7 +30,8 @@
   <meta name="ai-content-declaration" content="human-written, data-driven">
   <meta name="content-language" content="en">
   <meta name="robots" content="index, follow, max-image-preview:large">
-  
+  <meta name="google-adsense-account" content="ca-pub-5665711413000284">
+
   <!-- Favicons -->
   <link rel="icon" href="/betsassured-icon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" sizes="180x180" href="/betsassured.png">

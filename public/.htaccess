@@ -2,6 +2,16 @@
 RewriteEngine On
 RewriteBase /
 
+# 1. Canonical redirect to https://www.betsassured.com
+# If host is not the canonical host, redirect immediately to canonical https URL
+RewriteCond %{HTTP_HOST} !^www\.betsassured\.com$ [NC]
+RewriteRule ^ https://www.betsassured.com%{REQUEST_URI} [R=301,L]
+
+# If request is not HTTPS (and proxy didn't already indicate https), redirect to canonical https host
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^ https://www.betsassured.com%{REQUEST_URI} [R=301,L]
+
 # 2. Custom 404 page
 ErrorDocument 404 /404.php
 
