@@ -14,7 +14,7 @@ function returnJackpotNameSavedInDB($current_url) {
         return "Odibet Laki Tatu Jackpot";
     } elseif ($current_url === '/mozzart-daily-jackpot-predictions') {
         return "Mozzart Super Daily Jackpot";
-    } elseif ($current_url === '/mozzart-super-grand-jackpot-predictions') {
+    } elseif ($current_url === '/mozzart-bet-grand-jackpot-predictions') {
         return "Mozzart Bet Grand Jackpot";
     } elseif ($current_url === '/shabiki-jackpot-predictions') {
         return "Shabiki Midweek Jackpot";
@@ -24,7 +24,7 @@ function returnJackpotNameSavedInDB($current_url) {
         return "Betlion Daily Jackpot";
     } elseif ($current_url === '/betlion-goliath-jackpot-predictions') {
         return "Betlion Goliath Jackpot";
-    } elseif ($current_url === '/betika-kitonga-jackpot-tz') {
+    } elseif ($current_url === '/betika-kitonga-tanzania-predictions') {
         return "Betika Kitonga Tanzania";
     } elseif ($current_url === '/sportpesa-supa-jackpot-13-predictions-tz') {
         return "Sportpesa Midweek Tanzania Jackpot";
