@@ -199,7 +199,7 @@
     <!-- Mobile Navigation -->
     <div class="mobile-nav">
         <div class="mobile-nav-items">
-            <a href="/" class="<?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>">Home</a>
+            <a href="/" class="<?php echo strpos($_SERVER['REQUEST_URI'], 'index.php') !== false ? 'active' : ''; ?>">Home</a>
             <a href="/todays-predictions" class="<?php echo strpos($_SERVER['REQUEST_URI'], 'todays-predictions') !== false ? 'active' : ''; ?>">Today's Tips</a>
             <a href="/tomorrows-predictions" class="<?php echo strpos($_SERVER['REQUEST_URI'], 'tomorrows-predictions') !== false ? 'active' : ''; ?>">Tomorrow's Tips</a>
             <a href="/yesterdays-predictions" class="<?php echo strpos($_SERVER['REQUEST_URI'], 'yesterdays-predictions') !== false ? 'active' : ''; ?>">Yesterday's Tips</a>
