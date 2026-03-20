@@ -12,7 +12,7 @@ function returnJackpotNameSavedInDB($current_url) {
         return "Betika Sababisha Jackpot";
     } elseif ($current_url === '/odibet-laki-tatu-daily-jackpot-predictions') {
         return "Odibet Laki Tatu Jackpot";
-    } elseif ($current_url === '/mozzart-super-daily-jackpot-predictions') {
+    } elseif ($current_url === '/mozzart-daily-jackpot-predictions') {
         return "Mozzart Super Daily Jackpot";
     } elseif ($current_url === '/mozzart-super-grand-jackpot-predictions') {
         return "Mozzart Bet Grand Jackpot";

@@ -342,9 +342,6 @@ $jackpotArticle = '
                 <span class="pred-chip <?php echo $chipClass; ?>">
                     <?php echo htmlspecialchars($displayPrediction); ?>
                 </span>
-                <span class="result-badge-small <?php echo ($winningStatus === 'Won') ? 'result-won' : 'result-lost'; ?>">
-                    <?php echo $winningStatus; ?>
-                </span>
             </div>
 
             <div class="mc-prob">

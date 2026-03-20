@@ -104,7 +104,7 @@ $jackpotCategories = [
         ["title" => "Sportpesa Midweek Jackpot",      "url" => "/sportpesa-midweek-jackpot-predictions",       "type" => "Midweek"],
         ["title" => "Betika Midweek Jackpot",         "url" => "/betika-midweek-jackpot-predictions",          "type" => "Midweek"],
         ["title" => "Betika Mega Jackpot",            "url" => "/betika-grand-jackpot-predictions",            "type" => "Mega"],
-        ["title" => "Mozzart Super Daily Jackpot",    "url" => "/mozzart-super-daily-jackpot-predictions",     "type" => "Daily"],
+        ["title" => "Mozzart Super Daily Jackpot",    "url" => "/mozzart-daily-jackpot-predictions",            "type" => "Daily"],
         ["title" => "Mozzart Super Grand Jackpot",    "url" => "/mozzart-super-grand-jackpot-predictions",     "type" => "Grand"],
         ["title" => "Shabiki Midweek Jackpot",        "url" => "/shabiki-jackpot-predictions",                 "type" => "Midweek"],
         ["title" => "Odibet Laki Tatu Daily Jackpot", "url" => "/odibet-laki-tatu-daily-jackpot-predictions",  "type" => "Daily"],

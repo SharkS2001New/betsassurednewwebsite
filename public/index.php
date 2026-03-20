@@ -65,7 +65,7 @@ $router->get('/double-chance', function() {
     include __DIR__ . '/../pages/double-chance.php'; 
 });
 
-$router->get('/betnumbers-predictions', function() {
+$router->get('/betnumbers-tips', function() {
     include __DIR__ . '/../pages/betnumbers-predictions.php'; 
 });
 
@@ -135,11 +135,11 @@ $router->get('/about-us', function() {
     include __DIR__ . '/../pages/about.php'; 
 });
 
-$router->get('/privacy-policy', function() {
+$router->get('/our-privacy-policy', function() {
     include __DIR__ . '/../pages/privacy-policy.php'; 
 });
 
-$router->get('/terms-and-conditions', function() {
+$router->get('/our-terms-and-conditions', function() {
     include __DIR__ . '/../pages/terms-and-conditions.php'; 
 });
 

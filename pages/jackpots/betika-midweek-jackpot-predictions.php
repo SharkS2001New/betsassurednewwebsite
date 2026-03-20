@@ -250,7 +250,7 @@ $gameCount = count($predictions);
             <div class="mc-time">
                 <span class="time-val"><?php echo htmlspecialchars($formattedTime); ?></span>
                 <?php if ($formattedDate): ?>
-                <span style="font-size:11px;color:#6c757d;display:block;"><?php echo htmlspecialchars($formattedDate); ?></span>
+                <span class="date-val"><?php echo htmlspecialchars($formattedDate); ?></span>
                 <?php endif; ?>
             </div>
 

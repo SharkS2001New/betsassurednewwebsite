@@ -30,8 +30,8 @@
       <div class="footer-links">
         <h3 class="footer-title">Useful Links</h3>
         <ul class="footer-menu">
-          <li><a href="/terms-and-conditions">Terms and Conditions</a></li>
-          <li><a href="/privacy-policy">Privacy Policy</a></li>
+          <li><a href="/our-terms-and-conditions">Terms and Conditions</a></li>
+          <li><a href="/our-privacy-policy">Privacy Policy</a></li>
           <li><a href="/about-us">About Us</a></li>
           <li><a href="/contact-us">Contact Us</a></li>
           <li><a href="/partners">Partners</a></li>

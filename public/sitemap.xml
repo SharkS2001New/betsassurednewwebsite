@@ -1,7 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<url>
-<loc>https://www.betsassured.com/</loc>
-<lastmod>2026-03-0807:16:02+00:00</lastmod>
-<priority>1.00</priority>
-</url>
+    <!-- Main Pages -->
+    <url>
+        <loc>https://www.betsassured.com/</loc>
+        <lastmod>2026-03-20T07:16:02+00:00</lastmod>
+        <priority>1.00</priority>
+        <changefreq>daily</changefreq>
+    </url>
+    
+    <url>
+        <loc>https://www.betsassured.com/free-football-betting-tips</loc>
+        <lastmod>2026-03-20T07:16:02+00:00</lastmod>
+        <priority>0.90</priority>
+        <changefreq>daily</changefreq>
+    </url>
+    
+    <url>
+        <loc>https://www.betsassured.com/todays-predictions</loc>
+        <lastmod>2026-03-20T07:16:02+00:00</lastmod>
+        <priority>0.95</priority>
+        <changefreq>daily</changefreq>
+    </url>
+    
+    <url>
+        <loc>https://www.betsassured.com/tomorrows-predictions</loc>
+        <lastmod>2026-03-20T07:16:02+00:00</lastmod>
+        <priority>0.85</priority>
+        <changefreq>daily</changefreq>
+    </url>
+    
+    <url>
+        <loc>https://www.betsassured.com/yesterdays-predictions</loc>
+        <lastmod>2026-03-20T07:16:02+00:00</lastmod>
+        <priority>0.80</priority>
+        <changefreq>daily</changefreq>
+    </url>
+    
+    <url>
+        <loc>https://www.betsassured.com/all-predictions</loc>
+        <lastmod>2026-03-20T07:16:02+00:00</lastmod>
+        <priority>0.88</priority>
+        <changefreq>daily</changefreq>
+    </url>
+    
+    <!-- Betting Tips Categories -->
+    <url>
+        <loc>https://www.betsassured.com/both-teams-to-score</loc>
+        <lastmod>2026-03-20T07:16:02+00:00</lastmod>
+        <priority>0.85</priority>
+        <changefreq>daily</changefreq>
+    </url>
+    
+    <url>
+        <loc>https://www.betsassured.com/home-win-tips</loc>
+        <lastmod>2026-03-20T07:16:02+00:00</lastmod>
+        <priority>0.85</priority>
+        <changefreq>daily</changefreq>
+    </url>
+    
+    <url>
+        <loc>https://www.betsassured.com/away-win-tips</loc>
+        <lastmod>2026-03-20T07:16:02+00:00</lastmod>
+        <priority>0.85</priority>
+        <changefreq>daily</changefreq>
+    </url>
+    
+    <url>
+        <loc>https://www.betsassured.com/over-under-15-goals</loc>
+        <lastmod>2026-03-20T07:16:02+00:00</lastmod>
+        <priority>0.80</priority>
+        <changefreq>daily</changefreq>
+    </url>
+    
+    <url>
+        <loc>https://www.betsassured.com/over-under-25-goals</loc>
+        <lastmod>2026-03-20T07:16:02+00:00</lastmod>
+        <priority>0.80</priority>
+        <changefreq>daily</changefreq>
+    </url>
+    
+    <url>
+        <loc>https://www.betsassured.com/safe-draws</loc>
+        <lastmod>2026-03-20T07:16:02+00:00</lastmod>
+        <priority>0.80</priority>
+        <changefreq>daily</changefreq>
+    </url>
+    
+    <url>
+        <loc>https://www.betsassured.com/double-chance</loc>
+        <lastmod>2026-03-20T07:16:02+00:00</lastmod>
+        <priority>0.80</priority>
+        <changefreq>daily</changefreq>
+    </url>
+    
+    <!-- Prediction Partners -->
+    <url>
+        <loc>https://www.betsassured.com/betnumbers-tips</loc>
+        <lastmod>2026-03-20T07:16:02+00:00</lastmod>
+        <priority>0.75</priority>
+        <changefreq>daily</changefreq>
+    </url>
+    
+    <url>
+        <loc>https://www.betsassured.com/cheerplex-tips</loc>
+        <lastmod>2026-03-20T07:16:02+00:00</lastmod>
+        <priority>0.75</priority>
+        <changefreq>daily</changefreq>
+    </url>
+    
+    <url>
+        <loc>https://www.betsassured.com/direct-win-predictions</loc>
+        <lastmod>2026-03-20T07:16:02+00:00</lastmod>
+        <priority>0.75</priority>
+        <changefreq>daily</changefreq>
+    </url>
+    
+    <url>
+        <loc>https://www.betsassured.com/must-win-teams-today</loc>
+        <lastmod>2026-03-20T07:16:02+00:00</lastmod>
+        <priority>0.75</priority>
+        <changefreq>daily</changefreq>
+    </url>
+    
+    <url>
+        <loc>https://www.betsassured.com/mwanasoka-tips</loc>
+        <lastmod>2026-03-20T07:16:02+00:00</lastmod>
+        <priority>0.75</priority>
+        <changefreq>daily</changefreq>
+    </url>
+    
+    <url>
+        <loc>https://www.betsassured.com/sokafans-tips</loc>
+        <lastmod>2026-03-20T07:16:02+00:00</lastmod>
+        <priority>0.75</priority>
+        <changefreq>daily</changefreq>
+    </url>
+    
+    <url>
+        <loc>https://www.betsassured.com/sunpel-tips</loc>
+        <lastmod>2026-03-20T07:16:02+00:00</lastmod>
+        <priority>0.75</priority>
+        <changefreq>daily</changefreq>
+    </url>
+    
+    <url>
+        <loc>https://www.betsassured.com/sure-win-prediction-today</loc>
+        <lastmod>2026-03-20T07:16:02+00:00</lastmod>
+        <priority>0.75</priority>
+        <changefreq>daily</changefreq>
+    </url>
+    
+    <!-- Jackpot Predictions -->
+    <url>
+        <loc>https://www.betsassured.com/jackpot-predictions</loc>
+        <lastmod>2026-03-20T07:16:02+00:00</lastmod>
+        <priority>0.90</priority>
+        <changefreq>daily</changefreq>
+    </url>
+    
+    <url>
+        <loc>https://www.betsassured.com/sportpesa-mega-jackpot-predictions</loc>
+        <lastmod>2026-03-20T07:16:02+00:00</lastmod>
+        <priority>0.85</priority>
+        <changefreq>daily</changefreq>
+    </url>
+    
+    <url>
+        <loc>https://www.betsassured.com/sportpesa-midweek-jackpot-predictions</loc>
+        <lastmod>2026-03-20T07:16:02+00:00</lastmod>
+        <priority>0.85</priority>
+        <changefreq>daily</changefreq>
+    </url>
+    
+    <url>
+        <loc>https://www.betsassured.com/betika-midweek-jackpot-predictions</loc>
+        <lastmod>2026-03-20T07:16:02+00:00</lastmod>
+        <priority>0.85</priority>
+        <changefreq>daily</changefreq>
+    </url>
+    
+    <!-- Dynamic Jackpot Routes -->
+    <url>
+        <loc>https://www.betsassured.com/mozzart-super-grand-jackpot-predictions</loc>
+        <lastmod>2026-03-20T07:16:02+00:00</lastmod>
+        <priority>0.80</priority>
+        <changefreq>daily</changefreq>
+    </url>
+    
+    <url>
+        <loc>https://www.betsassured.com/odibet-laki-tatu-daily-jackpot-predictions</loc>
+        <lastmod>2026-03-20T07:16:02+00:00</lastmod>
+        <priority>0.80</priority>
+        <changefreq>daily</changefreq>
+    </url>
+    
+    
+    <!-- Static Pages -->
+    <url>
+        <loc>https://www.betsassured.com/contact-us</loc>
+        <lastmod>2026-03-20T07:16:02+00:00</lastmod>
+        <priority>0.60</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    
+    <url>
+        <loc>https://www.betsassured.com/partners</loc>
+        <lastmod>2026-03-20T07:16:02+00:00</lastmod>
+        <priority>0.50</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    
+    <url>
+        <loc>https://www.betsassured.com/about-us</loc>
+        <lastmod>2026-03-20T07:16:02+00:00</lastmod>
+        <priority>0.60</priority>
+        <changefreq>monthly</changefreq>
+    </url>
+    
+    <url>
+        <loc>https://www.betsassured.com/our-privacy-policy</loc>
+        <lastmod>2026-03-20T07:16:02+00:00</lastmod>
+        <priority>0.40</priority>
+        <changefreq>yearly</changefreq>
+    </url>
+    
+    <url>
+        <loc>https://www.betsassured.com/our-terms-and-conditions</loc>
+        <lastmod>2026-03-20T07:16:02+00:00</lastmod>
+        <priority>0.40</priority>
+        <changefreq>yearly</changefreq>
+    </url>
+    
 </urlset>

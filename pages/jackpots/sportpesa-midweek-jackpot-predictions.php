@@ -227,8 +227,19 @@ if ($response) {
         <?php foreach ($predictions as $index => $tip):
             $prediction = get1X2Tip($tip);
 
-            $homeScore = $tip['goals_home'] ?? null;
-            $awayScore = $tip['goals_away'] ?? null;
+            // Score & match status
+            $homeScore    = $tip['goals_home'] ?? null;
+            $awayScore    = $tip['goals_away'] ?? null;
+            $scoreDisplay = ($homeScore !== null && $awayScore !== null && $homeScore !== '' && $awayScore !== '')
+                ? htmlspecialchars($homeScore . ' – ' . $awayScore)
+                : '—';
+            $matchStatus   = $tip['status_short'] ?? null;
+
+            // Won/lost
+            $winningStatus = ($scoreDisplay !== '—')
+                ? DetermineWinningOrLost($prediction, $homeScore, $awayScore)
+                : '';
+
 
             $scoreDisplay = '—';
             $scoreStatus = 'UPCOMING';
@@ -338,11 +349,6 @@ if ($response) {
                 <span class="pred-chip <?php echo $chipClass; ?>">
                     <?php echo htmlspecialchars($displayPrediction); ?>
                 </span>
-                <?php if ($scoreDisplay !== '—' && $winningStatus): ?>
-                <span class="result-badge-small <?php echo ($winningStatus === 'Won') ? 'result-won' : 'result-lost'; ?>">
-                    <?php echo htmlspecialchars($winningStatus); ?>
-                </span>
-                <?php endif; ?>
             </div>
 
             <div class="mc-prob">
@@ -388,9 +394,15 @@ if ($response) {
                 <div class="odds-label">Odds</div>
             </div>
 
+            <!-- Col 6: Score -->
             <div class="mc-score">
+                <div class="score-status upcoming"><?php echo $matchStatus; ?></div>
                 <div class="score-display"><?php echo $scoreDisplay; ?></div>
-                <div class="score-status <?php echo $scoreStatusClass; ?>"><?php echo $scoreStatus; ?></div>
+                 <?php if ($scoreDisplay !== ''): ?>
+                <span class="result-badge-small <?php echo ($winningStatus === 'Won') ? 'result-won' : 'result-lost'; ?>">
+                    <?php echo $winningStatus; ?>
+                </span>
+                <?php endif; ?>
             </div>
         </div>
         <?php endforeach; ?>

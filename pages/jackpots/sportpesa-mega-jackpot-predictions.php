@@ -276,7 +276,7 @@ $gameCount = count($predictions);
             <div class="mc-time">
                 <span class="time-val"><?php echo htmlspecialchars($formattedTime); ?></span>
                 <?php if ($formattedDate): ?>
-                <span style="font-size:11px;color:#6c757d;display:block;"><?php echo htmlspecialchars($formattedDate); ?></span>
+                <span class="date-val"><?php echo htmlspecialchars($formattedDate); ?></span>
                 <?php endif; ?>
             </div>
 
@@ -328,11 +328,6 @@ $gameCount = count($predictions);
                 <span class="pred-chip <?php echo $chipClass; ?>">
                     <?php echo htmlspecialchars($displayPrediction); ?>
                 </span>
-                <?php if ($winningStatus !== ''): ?>
-                <span class="result-badge-small <?php echo ($winningStatus === 'Won') ? 'result-won' : 'result-lost'; ?>">
-                    <?php echo $winningStatus; ?>
-                </span>
-                <?php endif; ?>
             </div>
 
 

@@ -10,7 +10,7 @@ function getJackpotRoutes() {
         'betika-grand-jackpot-predictions',
         'betika-kitonga-jackpot-tz',
         'mozzart-super-grand-jackpot-predictions',
-        'mozzart-super-daily-jackpot-predictions',
+        'mozzart-daily-jackpot-predictions',
         'shabiki-jackpot-predictions',
         'odibet-laki-tatu-daily-jackpot-predictions',
         'sportybet-jackpot-predictions',
