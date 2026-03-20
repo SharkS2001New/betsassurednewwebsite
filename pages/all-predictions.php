@@ -74,7 +74,7 @@ if (curl_errno($ch)) {
 curl_close($ch);
 ?>
 
-<main class="container py-4">
+<main class="container">
     <h1 class="page-hero-title">All Football Predictions Today</h1>
 
     <?php include_once BASE_PATH . "/components/includes/scrollable-nav.inc.php"; ?>
@@ -232,7 +232,7 @@ curl_close($ch);
             $homeScore     = $tip['goals_home'] ?? null;
             $awayScore     = $tip['goals_away'] ?? null;
             $scoreDisplay  = '—';
-            $matchStatus   = 'FT';
+            $matchStatus   = $tip['status_short'] ?? null;
             $winningStatus = '';
 
             if ($homeScore !== null && $awayScore !== null && $homeScore !== '' && $awayScore !== '') {

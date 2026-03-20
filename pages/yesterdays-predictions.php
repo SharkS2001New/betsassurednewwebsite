@@ -240,7 +240,7 @@ curl_close($ch);
             $homeScore     = $tip['goals_home'] ?? null;
             $awayScore     = $tip['goals_away'] ?? null;
             $scoreDisplay  = '—';
-            $matchStatus   = 'FT';
+            $matchStatus   = $tip['status_short'] ?? null;
             $winningStatus = '';
 
             if ($homeScore !== null && $awayScore !== null && $homeScore !== '' && $awayScore !== '') {

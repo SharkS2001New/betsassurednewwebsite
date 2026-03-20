@@ -74,11 +74,6 @@ if (curl_errno($ch)) {
 curl_close($ch);
 ?>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-
 <main class="container">
     <h1 class="page-hero-title">Football Predictions Today | Free Tips & Expert Picks</h1>
 
@@ -377,7 +372,7 @@ curl_close($ch);
             <!-- Col 6: Score -->
             <div class="mc-score">
                 <div class="score-display"><?php echo $scoreDisplay; ?></div>
-                <div class="score-status">FT</div>
+                <div class="score-status"><?php echo $statusShort; ?></div>
             </div>
 
         </div>

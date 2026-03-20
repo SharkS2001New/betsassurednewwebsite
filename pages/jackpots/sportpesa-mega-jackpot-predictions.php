@@ -150,7 +150,7 @@ $gameCount = count($predictions);
             $scoreDisplay = ($homeScore !== null && $awayScore !== null && $homeScore !== '' && $awayScore !== '')
                 ? htmlspecialchars($homeScore . ' – ' . $awayScore)
                 : '—';
-            $matchStatus  = ($scoreDisplay !== '—') ? 'FT' : 'UPCOMING';
+            $matchStatus   = $tip['status_short'] ?? null;
 
             // Won/lost
             $winningStatus = ($scoreDisplay !== '—')

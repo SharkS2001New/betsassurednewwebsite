@@ -169,7 +169,7 @@ if ($response) {
 
             if ($homeScore !== null && $awayScore !== null && $homeScore !== '' && $awayScore !== '') {
                 $scoreDisplay = htmlspecialchars($homeScore . ' – ' . $awayScore);
-                $scoreStatus = 'FT';
+                $scoreStatus =  $tip['status_short'] ?? null;
                 $scoreStatusClass = '';
             }
 

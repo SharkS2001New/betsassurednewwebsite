@@ -231,7 +231,7 @@ foreach ($tipsData as $tip) {
 
             if ($homeScore !== null && $awayScore !== null && $homeScore !== '' && $awayScore !== '') {
                 $scoreDisplay  = htmlspecialchars($homeScore . ' – ' . $awayScore);
-                $matchStatus   = 'FT';
+                $matchStatus   = $tip['status_short'] ?? null;
                 $totalGoals    = $homeScore + $awayScore;
                 $actualResult  = ($totalGoals >= 3) ? 'Over 2.5' : 'Under 2.5';
                 $winningStatus = ($actualResult === $prediction) ? 'Won' : 'Lost';

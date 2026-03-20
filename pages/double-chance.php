@@ -225,7 +225,7 @@ function findDoubleChanceOdd($allBets, $prediction) {
 
             if ($homeScore !== null && $awayScore !== null && $homeScore !== '' && $awayScore !== '') {
                 $scoreDisplay  = htmlspecialchars($homeScore . ' – ' . $awayScore);
-                $matchStatus   = 'FT';
+                $matchStatus   = $tip['status_short'] ?? null;
                 $winningStatus = DetermineWinningOrLost($prediction, $homeScore, $awayScore);
             }
 

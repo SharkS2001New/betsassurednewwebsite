@@ -222,7 +222,7 @@ function findOverUnderOdd($goalsOverUnder, $value) {
 
             if ($homeScore !== null && $awayScore !== null && $homeScore !== '' && $awayScore !== '') {
                 $scoreDisplay  = htmlspecialchars($homeScore . ' – ' . $awayScore);
-                $matchStatus   = 'FT';
+                $matchStatus   = $tip['status_short'] ?? null;
                 $totalGoals    = $homeScore + $awayScore;
                 $actualResult  = ($totalGoals >= 2) ? 'Over 1.5' : 'Under 1.5';
                 $winningStatus = ($actualResult === $prediction) ? 'Won' : 'Lost';
