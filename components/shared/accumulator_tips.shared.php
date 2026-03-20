@@ -200,137 +200,255 @@ $hasEnoughMatches = count($uniqueAccumulatorMatches) >= 8;
 .accu-section {
     background: #fff;
     border: 1px solid #dde3ef;
-    border-radius: 10px;
-    padding: 22px 24px 18px;
-    margin-top: 16px;
-    margin-bottom: 24px;
+    border-radius: 12px;
+    padding: 24px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .accu-title {
-    font-size: 1.05rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    color: #1a2e8a;
-    margin-bottom: 16px;
-    letter-spacing: 0.01em;
+    color: var(--navy-light);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--lime);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-/* Tables */
-.accu-table {
-    width: 100%;
-    border-collapse: collapse;
-    border: 1px solid #dde3ef;
-    border-radius: 6px;
+.accu-title .accu-date {
+    color: var(--text-2);
+    font-size: 0.9rem;
+    font-weight: 400;
+    background: var(--surface-2);
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+/* Two column layout */
+.accu-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Match container */
+.accu-container {
+    background: #f8fafc;
+    border-radius: 10px;
+    border: 1px solid var(--border);
     overflow: hidden;
-    font-size: 0.875rem;
 }
 
-.accu-row {
-    border-bottom: 1px solid #edf0f7;
-    transition: background 0.15s;
+/* Header row */
+.accu-header {
+    display: grid;
+    grid-template-columns: 1fr 100px 70px;
+    background: var(--navy);
+    color: rgba(255,255,255,0.7);
+    padding: 10px 16px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
-.accu-row:last-child { border-bottom: none; }
-.accu-row:hover { background: #f5f7fb; }
+
+.accu-header span:last-child {
+    text-align: right;
+}
+
+/* Match row */
+.accu-row {
+    display: grid;
+    grid-template-columns: 1fr 100px 70px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    align-items: center;
+    transition: background 0.2s;
+}
+
+.accu-row:last-child {
+    border-bottom: none;
+}
+
+.accu-row:hover {
+    background: #fff;
+}
 
 /* Match cell */
-.accu-match-cell {
-    padding: 9px 12px;
+.accu-match {
     display: flex;
     align-items: center;
-    gap: 9px;
-    color: #2c3e50;
-    font-weight: 400;
-    white-space: nowrap;
+    gap: 12px;
 }
 
 .accu-logo {
-    border-radius: 3px;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
     object-fit: contain;
+    background: #fff;
+    border: 1px solid var(--border);
     flex-shrink: 0;
 }
 
 .accu-teams {
     display: flex;
     align-items: center;
-    gap: 4px;
-    flex-wrap: nowrap;
+    gap: 6px;
+    flex-wrap: wrap;
 }
 
 .accu-home, .accu-away {
-    color: #1a1a2e;
-    font-weight: 500;
+    font-weight: 600;
+    color: var(--text-1);
+    font-size: 0.9rem;
+    white-space: nowrap;
 }
 
 .accu-vs {
-    color: #8892b0;
-    font-size: 0.78rem;
-    font-weight: 400;
-    margin: 0 2px;
+    color: var(--text-3);
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    background: var(--surface-2);
+    padding: 2px 6px;
+    border-radius: 4px;
 }
 
 /* Market cell */
-.accu-market-cell {
-    padding: 9px 10px;
-    text-align: right;
-    color: #1a2e8a;
-    font-weight: 700;
+.accu-market {
+    font-weight: 600;
+    color: var(--navy-light);
+    font-size: 0.85rem;
     white-space: nowrap;
-    font-size: 0.82rem;
+    padding-right: 10px;
 }
 
 /* Odd cell */
-.accu-odd-cell {
-    padding: 9px 14px 9px 6px;
+.accu-odd {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    color: var(--amber);
+    font-size: 1rem;
     text-align: right;
-    color: #2c3e50;
-    font-weight: 500;
-    min-width: 42px;
-    font-variant-numeric: tabular-nums;
+    background: rgba(251,191,36,0.1);
+    padding: 4px 8px;
+    border-radius: 6px;
+    border: 1px solid rgba(251,191,36,0.2);
+    display: inline-block;
+    justify-self: end;
 }
 
 /* Total row */
-.accu-total-row {
-    background: #f7f9fc;
-    border-top: 2px solid #dde3ef !important;
+.accu-total {
+    display: grid;
+    grid-template-columns: 1fr 100px 70px;
+    padding: 14px 16px;
+    background: linear-gradient(135deg, var(--navy-light), var(--navy));
+    color: white;
+    font-weight: 700;
+    border-top: 2px solid var(--lime);
 }
 
 .accu-total-label {
-    padding: 10px 12px;
-    font-weight: 700;
-    color: #1a2e8a;
-    font-size: 0.875rem;
+    grid-column: 2;
+    text-align: right;
+    font-size: 0.9rem;
+    opacity: 0.9;
 }
 
 .accu-total-value {
-    padding: 10px 14px 10px 6px;
     text-align: right;
-    font-weight: 700;
-    color: #1a2e8a;
-    font-size: 0.9rem;
-    font-variant-numeric: tabular-nums;
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
 }
 
 /* Error state */
 .accu-error {
     text-align: center;
-    color: #dc3545;
-    padding: 18px 0;
-    font-size: 0.9rem;
+    padding: 40px 20px;
+    background: #fff1f0;
+    border: 1px solid #ffccc7;
+    border-radius: 10px;
+    color: #f5222d;
 }
 
-/* Responsive column layout */
-.accu-cols {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
+.accu-error p {
+    margin-top: 8px;
+    color: var(--text-2);
 }
 
-@media (max-width: 768px) {
+/* Responsive */
+@media (max-width: 900px) {
+    .accu-section {
+        padding: 16px;
+    }
+    
     .accu-cols {
         grid-template-columns: 1fr;
-        gap: 14px;
+        gap: 16px;
     }
-    .accu-section {
-        padding: 16px 14px;
+    
+    .accu-title {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 600px) {
+    .accu-row {
+        grid-template-columns: 1fr 80px 60px;
+        padding: 10px 12px;
+    }
+    
+    .accu-header {
+        grid-template-columns: 1fr 80px 60px;
+        font-size: 0.7rem;
+    }
+    
+    .accu-match {
+        gap: 8px;
+    }
+    
+    .accu-logo {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .accu-home, .accu-away {
+        font-size: 0.8rem;
+        max-width: 100px;
+        /* overflow: hidden; */
+        text-overflow: ellipsis;
+    }
+    
+    .accu-market {
+        font-size: 0.75rem;
+        padding-right: 5px;
+    }
+    
+    .accu-odd {
+        font-size: 0.9rem;
+        padding: 3px 6px;
+    }
+    
+    .accu-total {
+        grid-template-columns: 1fr 80px 60px;
+        padding: 12px;
+    }
+    
+    .accu-total-label {
+        font-size: 0.8rem;
+    }
+    
+    .accu-total-value {
+        font-size: 1rem;
     }
 }
 </style>
@@ -340,32 +458,127 @@ $hasEnoughMatches = count($uniqueAccumulatorMatches) >= 8;
 
     <?php if ($accumulatorError || !$hasEnoughMatches): ?>
         <div class="accu-error">
-            <?php echo $accumulatorError
-                ? 'Failed to fetch accumulator tips.'
-                : 'Not enough matches available for accumulator tips.'; ?>
+            <strong>⚠️ Accumulator Tips Unavailable</strong>
+            <p><?php echo $accumulatorError 
+                ? 'Unable to fetch accumulator tips at the moment.' 
+                : 'Not enough qualifying matches for today\'s accumulator.'; ?></p>
         </div>
     <?php else: ?>
 
         <div class="accu-title">
-            Free Accumulator Tips: <?php echo formatAccumulatorDate(); ?>
+            <span>🎯 Free Accumulator Tips</span>
+            <span class="accu-date"><?php echo formatAccumulatorDate(); ?></span>
         </div>
 
         <div class="accu-cols">
-            <!-- Left table: matches 0–4 -->
-            <table class="accu-table" id="accumulator-table-1">
-                <tbody>
-                    <?php echo renderAccumulatorRows($uniqueAccumulatorMatches, 0, 5); ?>
-                </tbody>
-            </table>
+            <!-- Left column: matches 0–4 -->
+            <div class="accu-container">
+                <div class="accu-header">
+                    <span>Match</span>
+                    <span>Tip</span>
+                    <span>Odds</span>
+                </div>
+                
+                <?php 
+                $totalOdds1 = 1;
+                $validCount1 = 0;
+                $slice1 = array_slice($uniqueAccumulatorMatches, 0, 5);
+                
+                foreach ($slice1 as $match):
+                    $market = getAccumulatorBettingMarket($match);
+                    if (!$market) continue;
+                    
+                    $validCount1++;
+                    $totalOdds1 *= $market['odd'];
+                    
+                    $leagueLogo = !empty($match['downloaded_league_logo'])
+                        ? htmlspecialchars($match['downloaded_league_logo'])
+                        : 'data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Crect%20width%3D%2224%22%20height%3D%2224%22%20rx%3D%224%22%20fill%3D%22%23e8eaf0%22%2F%3E%3Ctext%20x%3D%2212%22%20y%3D%2216%22%20font-size%3D%2212%22%20text-anchor%3D%22middle%22%20fill%3D%22%23aaa%22%3E%3F%3C%2Ftext%3E%3C%2Fsvg%3E';
+                    
+                    $homeTeam = htmlspecialchars($match['home_team_name'] ?? 'Home');
+                    $awayTeam = htmlspecialchars($match['away_team_name'] ?? 'Away');
+                    $marketName = htmlspecialchars($market['market']);
+                    $oddValue = number_format($market['odd'], 2);
+                ?>
+                
+                <div class="accu-row">
+                    <div class="accu-match">
+                        <img src="<?php echo $leagueLogo; ?>" class="accu-logo" alt="">
+                        <div class="accu-teams">
+                            <span class="accu-home"><?php echo $homeTeam; ?></span>
+                            <span class="accu-vs">vs</span>
+                            <span class="accu-away"><?php echo $awayTeam; ?></span>
+                        </div>
+                    </div>
+                    <div class="accu-market"><?php echo $marketName; ?></div>
+                    <div class="accu-odd"><?php echo $oddValue; ?></div>
+                </div>
+                
+                <?php endforeach; ?>
+                
+                <?php if ($validCount1 > 0): ?>
+                <div class="accu-total">
+                    <div></div>
+                    <div class="accu-total-label">Total Odds:</div>
+                    <div class="accu-total-value"><?php echo number_format($totalOdds1, 2); ?></div>
+                </div>
+                <?php endif; ?>
+            </div>
 
-            <!-- Right table: matches 5–8 -->
-            <table class="accu-table" id="accumulator-table-2">
-                <tbody>
-                    <?php echo renderAccumulatorRows($uniqueAccumulatorMatches, 5, 4); ?>
-                </tbody>
-            </table>
+            <!-- Right column: matches 5–8 -->
+            <div class="accu-container">
+                <div class="accu-header">
+                    <span>Match</span>
+                    <span>Tip</span>
+                    <span>Odds</span>
+                </div>
+                
+                <?php 
+                $totalOdds2 = 1;
+                $validCount2 = 0;
+                $slice2 = array_slice($uniqueAccumulatorMatches, 5, 4);
+                
+                foreach ($slice2 as $match):
+                    $market = getAccumulatorBettingMarket($match);
+                    if (!$market) continue;
+                    
+                    $validCount2++;
+                    $totalOdds2 *= $market['odd'];
+                    
+                    $leagueLogo = !empty($match['downloaded_league_logo'])
+                        ? htmlspecialchars($match['downloaded_league_logo'])
+                        : 'data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Crect%20width%3D%2224%22%20height%3D%2224%22%20rx%3D%224%22%20fill%3D%22%23e8eaf0%22%2F%3E%3Ctext%20x%3D%2212%22%20y%3D%2216%22%20font-size%3D%2212%22%20text-anchor%3D%22middle%22%20fill%3D%22%23aaa%22%3E%3F%3C%2Ftext%3E%3C%2Fsvg%3E';
+                    
+                    $homeTeam = htmlspecialchars($match['home_team_name'] ?? 'Home');
+                    $awayTeam = htmlspecialchars($match['away_team_name'] ?? 'Away');
+                    $marketName = htmlspecialchars($market['market']);
+                    $oddValue = number_format($market['odd'], 2);
+                ?>
+                
+                <div class="accu-row">
+                    <div class="accu-match">
+                        <img src="<?php echo $leagueLogo; ?>" class="accu-logo" alt="">
+                        <div class="accu-teams">
+                            <span class="accu-home"><?php echo $homeTeam; ?></span>
+                            <span class="accu-vs">vs</span>
+                            <span class="accu-away"><?php echo $awayTeam; ?></span>
+                        </div>
+                    </div>
+                    <div class="accu-market"><?php echo $marketName; ?></div>
+                    <div class="accu-odd"><?php echo $oddValue; ?></div>
+                </div>
+                
+                <?php endforeach; ?>
+                
+                <?php if ($validCount2 > 0): ?>
+                <div class="accu-total">
+                    <div></div>
+                    <div class="accu-total-label">Total Odds:</div>
+                    <div class="accu-total-value"><?php echo number_format($totalOdds2, 2); ?></div>
+                </div>
+                <?php endif; ?>
+            </div>
         </div>
-
     <?php endif; ?>
 
 </div>

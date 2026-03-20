@@ -54,7 +54,7 @@ function DetermineWinningOrLost($tip, $goals_home, $goals_away) {
 }
 
 function wonSpan() {
-    return '<span style="font-weight:bold;border-radius:20px;padding:5px;background-color:green;border:1px solid green;color:white;font-size:12px;">Won</span>';
+    return '<span style="font-weight:bold;border-radius:10px;padding:2px;background-color:green;border:1px solid green;color:white;font-size:11px;">Won</span>';
 }
 
 ?>

@@ -86,43 +86,7 @@ if ($response) {
 $gameCount = count($predictions);
 ?>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-<style>
-.jackpot-stats-bar {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin: 15px 0 20px;
-    padding: 15px 20px;
-    background: linear-gradient(135deg, #05384B 0%, #0a4a60 100%);
-    border-radius: 10px;
-    color: white;
-}
-.jackpot-stats-bar .stat-item { display: flex; flex-direction: column; }
-.jackpot-stats-bar .stat-value { font-size: 20px; font-weight: 700; line-height: 1.2; }
-.jackpot-stats-bar .stat-label { font-size: 12px; opacity: 0.85; }
-.perf-summary {
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-    padding: 20px;
-    background: #f8f9fa;
-    border-radius: 8px;
-    margin: 20px 0 30px;
-    border: 1px solid #dee2e6;
-}
-.perf-item { display: flex; flex-direction: column; }
-.perf-label { font-size: 13px; color: #6c757d; }
-.perf-value { font-size: 24px; font-weight: 700; color: #05384B; }
-.result-won  { color: #10b981; }
-.result-lost { color: #dc3545; }
-.result-badge-small { font-size: 10px; font-weight: 600; display: block; margin-top: 3px; }
-</style>
-
-<main class="container py-4">
+<main class="container">
     <h1 class="page-hero-title">Betika Midweek Jackpot Predictions This Week | Kenya</h1>
 
     <?php include_once BASE_PATH . "/components/includes/scrollable-nav.inc.php"; ?>
@@ -165,9 +129,9 @@ $gameCount = count($predictions);
     <div class="preds-table-header">
         <span>Time</span>
         <span>Match</span>
-        <span style="text-align:center">Odds</span>
-        <span style="text-align:center">Probability</span>
         <span style="text-align:center">Prediction</span>
+        <span style="text-align:center">Probability</span>
+        <span style="text-align:center">Odds</span>
         <span style="text-align:center">Score</span>
     </div>
 
@@ -216,6 +180,13 @@ $gameCount = count($predictions);
 
             // League
             $leagueCountry = $tip['league_country'] ?? '';
+            /* ---- League: split country / name ---- */
+            $leagueFull = $tip['league_name'] ?? '';
+            $leagueCountry = $tip['league_country'] ?? '';
+            /* Try to detect "Country: League" format */
+            if (strpos($leagueFull, ':') !== false) {
+                [$leagueCountry, $leagueFull] = array_map('trim', explode(':', $leagueFull, 2));
+            }            
 
             // Chip
             $chipClass         = 'chip-draw';
@@ -229,6 +200,9 @@ $gameCount = count($predictions);
             if (!empty($tip['bets_home'])  && $prediction === '1') $oddsDisplay = $tip['bets_home'];
             elseif (!empty($tip['bets_draw'])  && $prediction === 'X') $oddsDisplay = $tip['bets_draw'];
             elseif (!empty($tip['bets_away'])  && $prediction === '2') $oddsDisplay = $tip['bets_away'];
+
+            $hasScore = ($homeScore !== null && $awayScore !== null && $homeScore !== '' && $awayScore !== '');
+            $statusShort = htmlspecialchars($tip['status_short'] ?? '');   // e.g. "FT", "HT", "1H", "NS"
         ?>
 
         <div class="match-card">
@@ -240,24 +214,55 @@ $gameCount = count($predictions);
                 <?php endif; ?>
             </div>
 
-            <!-- Match -->
+           <!-- Match Column - Desktop shows VS, Mobile shows score -->
             <div class="mc-match">
                 <span class="league-tag">
-                    <?php echo htmlspecialchars($leagueCountry ?: 'Betika'); ?> · Game <?php echo $index + 1; ?>
+                    <?php echo htmlspecialchars($leagueCountry ? $leagueCountry . ' · ' . $leagueFull : $leagueFull); ?>
                 </span>
                 <div class="teams-inline">
-                    <div class="team-crest home-crest"><?php echo $homeInitial; ?></div>
-                    <span class="team-name-text"><?php echo htmlspecialchars($tip['home_team_name'] ?? ''); ?></span>
-                    <span class="vs-badge">VS</span>
-                    <div class="team-crest"><?php echo $awayInitial; ?></div>
-                    <span class="team-name-text"><?php echo htmlspecialchars($tip['away_team_name'] ?? ''); ?></span>
+                    <!-- Home team section - fixed position on left -->
+                    <div class="team-home">
+                        <div class="team-crest home-crest"><?php echo $homeInitial; ?></div>
+                        <span class="team-name-text home-name"><?php echo htmlspecialchars($tip['home_team_name'] ?? ''); ?></span>
+                    </div>
+                    
+                    <!-- VS badge - centered -->
+                    <div class="vs-container">
+                        <?php if ($hasScore && $statusShort !== '' && $statusShort !== 'NS'): ?>
+                            <!-- Show score on mobile (VS hidden on mobile via CSS) -->    
+                            <div class="score-stack">
+                                <?php if ($winningStatus !== ''): ?>
+                                    <span class="result-badge-small mb-2 <?php echo ($winningStatus === 'Won') ? 'result-won' : 'result-lost'; ?>">
+                                        <?php echo $winningStatus; ?>
+                                    </span>
+                                <?php endif; ?>
+
+                                <span class="vs-badge vs-badge--score">
+                                    <?php echo htmlspecialchars($homeScore . ' - ' . $awayScore); ?>
+                                </span>
+                            </div>
+                            <!-- VS badge (hidden on mobile via CSS) -->
+                            <span class="vs-badge vs-badge--desktop" style="text-align:center;">VS</span>
+                        <?php else: ?>
+                            <!-- No score yet, show VS and time -->
+                            <span class="vs-badge vs-badge--desktop" style="text-align:center;">VS</span>
+                            <span class="vs-badge vs-badge--score"><?php echo htmlspecialchars($formattedTime); ?></span>
+                        <?php endif; ?>
+                    </div>
+                    
+                    <!-- Away team section - fixed position on right -->
+                     <div class="team-home">
+                        <div class="team-crest home-crest"><?php echo $awayInitial; ?></div>
+                        <span class="team-name-text home-name"><?php echo htmlspecialchars($tip['away_team_name'] ?? ''); ?></span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Odds -->
-            <div class="mc-odds">
-                <div class="odds-value"><?php echo htmlspecialchars($oddsDisplay); ?></div>
-                <div class="odds-label">Odds</div>
+            <!-- Prediction + won/lost -->
+            <div class="mc-prediction">
+                <span class="pred-chip <?php echo $chipClass; ?>">
+                    <?php echo htmlspecialchars($displayPrediction); ?>
+                </span>
             </div>
 
             <!-- Probability Rings -->
@@ -299,63 +304,26 @@ $gameCount = count($predictions);
                 </div>
             </div>
 
-            <!-- Prediction + won/lost -->
-            <div class="mc-prediction">
-                <span class="pred-chip <?php echo $chipClass; ?>">
-                    <?php echo htmlspecialchars($displayPrediction); ?>
-                </span>
-                <?php if ($winningStatus !== ''): ?>
+             <!-- Odds -->
+            <div class="mc-odds">
+                <div class="odds-value"><?php echo htmlspecialchars($oddsDisplay); ?></div>
+                <div class="odds-label">Odds</div>
+            </div>
+
+            <!-- Col 6: Score -->
+            <div class="mc-score">
+                <div class="score-status upcoming"><?php echo $matchStatus; ?></div>
+                <div class="score-display"><?php echo $scoreDisplay; ?></div>
+                 <?php if ($scoreDisplay !== ''): ?>
                 <span class="result-badge-small <?php echo ($winningStatus === 'Won') ? 'result-won' : 'result-lost'; ?>">
                     <?php echo $winningStatus; ?>
                 </span>
                 <?php endif; ?>
             </div>
-
-            <!-- Score -->
-            <div class="mc-score">
-                <div class="score-display"><?php echo $scoreDisplay; ?></div>
-                <?php if ($scoreDisplay !== '—'): ?>
-                <div class="score-status"><?php echo $matchStatus; ?></div>
-                <?php else: ?>
-                <div class="score-status upcoming"><?php echo $matchStatus; ?></div>
-                <?php endif; ?>
-            </div>
         </div>
         <?php endforeach; ?>
-
         <?php endif; ?>
     </div>
-
-    <!-- Performance Summary -->
-    <?php
-    if (!empty($predictions)):
-        $won  = 0;
-        $total = 0;
-        foreach ($predictions as $tip) {
-            $hs = $tip['goals_home'] ?? null;
-            $as = $tip['goals_away'] ?? null;
-            if ($hs !== null && $as !== null && $hs !== '' && $as !== '') {
-                $total++;
-                if (DetermineWinningOrLost(get1X2Tip($tip), $hs, $as) === 'Won') $won++;
-            }
-        }
-        if ($total > 0):
-    ?>
-    <div class="perf-summary">
-        <div class="perf-item">
-            <span class="perf-label">Correct Selections</span>
-            <span class="perf-value"><?php echo $won; ?>/<?php echo $total; ?></span>
-        </div>
-        <div class="perf-item">
-            <span class="perf-label">Accuracy</span>
-            <span class="perf-value"><?php echo round(($won / $total) * 100); ?>%</span>
-        </div>
-        <div class="perf-item">
-            <span class="perf-label">Total Games</span>
-            <span class="perf-value"><?php echo $gameCount; ?></span>
-        </div>
-    </div>
-    <?php endif; endif; ?>
 
     <!-- SEO Content -->
     <section class="seo-section mt-4">

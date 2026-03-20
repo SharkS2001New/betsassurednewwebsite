@@ -169,154 +169,7 @@ function getBttsDisplayText($prediction) {
 }
 ?>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-<style>
-.section-title-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 30px 0 15px;
-}
-.section-title-bar h2 {
-    font-size: 24px;
-    font-weight: 700;
-    color: #1a1a1a;
-    margin: 0;
-}
-.today-date-tag {
-    background: #f0f0f0;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 500;
-    color: #333;
-}
-.btts-stats-bar {
-    display: flex;
-    gap: 20px;
-    margin: 15px 0 20px;
-    padding: 15px 20px;
-    background: linear-gradient(135deg, #05384B 0%, #0a4a60 100%);
-    border-radius: 10px;
-    color: white;
-}
-.stat-item { display: flex; flex-direction: column; }
-.stat-value { font-size: 22px; font-weight: 700; line-height: 1.2; }
-.stat-label { font-size: 12px; opacity: 0.9; }
-.preds-table-header {
-    display: grid;
-    grid-template-columns: 8% 30% 10% 15% 12% 18%;
-    gap: 8px;
-    background: #f8f9fa;
-    padding: 12px 15px;
-    border-radius: 8px 8px 0 0;
-    font-weight: 600;
-    color: #495057;
-    border: 1px solid #dee2e6;
-    border-bottom: none;
-    font-size: 14px;
-}
-.preds-wrapper {
-    border: 1px solid #dee2e6;
-    border-top: none;
-    border-radius: 0 0 8px 8px;
-    overflow: hidden;
-    margin-bottom: 30px;
-}
-.match-card {
-    display: grid;
-    grid-template-columns: 8% 30% 10% 15% 12% 18%;
-    gap: 8px;
-    padding: 15px;
-    border-bottom: 1px solid #dee2e6;
-    background: white;
-    align-items: center;
-    font-family: 'DM Sans', sans-serif;
-}
-.match-card:last-child { border-bottom: none; }
-.match-card:hover { background: #f8f9fa; }
-.mc-time { font-weight: 500; color: #333; font-size: 14px; }
-.mc-match { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
-.league-tag {
-    font-size: 11px;
-    font-weight: 500;
-    color: #6c757d;
-    text-transform: uppercase;
-    letter-spacing: 0.3px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.teams-inline { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-.team-crest {
-    width: 28px; height: 28px;
-    background: linear-gradient(135deg, #05384B, #0a4a60);
-    border-radius: 6px;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 600; font-size: 12px; color: white;
-    text-transform: uppercase; flex-shrink: 0;
-}
-.home-crest { background: linear-gradient(135deg, #05384B, #0a4a60); }
-.team-name-text {
-    font-weight: 500; font-size: 14px; color: #212529;
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-    flex: 1; min-width: 0;
-}
-.vs-badge { color: #dc3545; font-weight: 600; font-size: 12px; margin: 0 2px; flex-shrink: 0; }
-.mc-odds { text-align: center; }
-.odds-value {
-    font-weight: 700; font-size: 16px; color: #f59e0b;
-    background: rgba(251,191,36,.08); border: 1px solid rgba(251,191,36,.2);
-    border-radius: 6px; padding: 4px 8px; display: inline-block; line-height: 1;
-}
-.mc-prob { display: flex; align-items: center; justify-content: center; gap: 5px; }
-.prob-item { text-align: center; flex: 1; }
-.prob-ring { position: relative; width: 45px; height: 45px; margin: 0 auto 4px; }
-.prob-ring svg { width: 45px; height: 45px; transform: rotate(-90deg); }
-.prob-ring circle { fill: none; stroke-width: 3; }
-.prob-ring .track { stroke: #e9ecef; }
-.prob-ring .fill-btts-yes { stroke: #8b5cf6; stroke-linecap: round; }
-.prob-ring .fill-btts-no  { stroke: #f59e0b; stroke-linecap: round; }
-.prob-ring-value {
-    position: absolute; top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 11px; font-weight: 700; font-family: 'DM Mono', monospace;
-}
-.mc-prediction { text-align: center; }
-.pred-chip {
-    display: inline-block; padding: 6px 12px; border-radius: 20px;
-    font-weight: 600; font-size: 13px; min-width: 75px; text-align: center;
-}
-.chip-btts    { background: #8b5cf6; color: white; }
-.chip-btts-no { background: #f59e0b; color: white; }
-.mc-score { text-align: center; }
-.score-display { font-weight: 700; font-size: 16px; color: #212529; font-family: 'DM Mono', monospace; }
-.score-status { font-size: 10px; color: #10b981; text-transform: uppercase; font-weight: 600; }
-.score-status.upcoming { color: #f59e0b; }
-.result-won  { color: #10b981; }
-.result-lost { color: #dc3545; }
-.state-msg { text-align: center; padding: 60px 20px; color: #6c757d; border: 1px solid #dee2e6; border-radius: 8px; }
-.perf-summary {
-    display: flex; gap: 30px; padding: 20px;
-    background: #f8f9fa; border-radius: 8px;
-    margin: 20px 0 30px; border: 1px solid #dee2e6;
-}
-.perf-item { display: flex; flex-direction: column; }
-.perf-label { font-size: 13px; color: #6c757d; }
-.perf-value { font-size: 24px; font-weight: 700; color: #05384B; }
-.confidence-high   { color: #10b981; font-weight: 600; }
-.confidence-medium { color: #f59e0b; font-weight: 600; }
-.confidence-low    { color: #6c757d; font-weight: 600; }
-@media (max-width: 992px) {
-    .preds-table-header { display: none; }
-    .match-card { grid-template-columns: 1fr; gap: 10px; border: 1px solid #dee2e6; border-radius: 8px; margin-bottom: 10px; }
-}
-</style>
-
-<main class="container py-1">
+<main class="container">
     <h1 class="page-hero-title">BTTS Predictions Today | Both Teams to Score Tips</h1>
 
     <?php include_once BASE_PATH . "/components/includes/scrollable-nav.inc.php"; ?>
@@ -366,9 +219,9 @@ function getBttsDisplayText($prediction) {
     <div class="preds-table-header">
         <span>Time</span>
         <span>Match</span>
-        <span style="text-align:center">Odds</span>
-        <span style="text-align:center">Confidence</span>
         <span style="text-align:center">Prediction</span>
+        <span style="text-align:center">Confidence</span>
+        <span style="text-align:center">Odds</span>
         <span style="text-align:center">Score</span>
     </div>
 
@@ -402,16 +255,17 @@ function getBttsDisplayText($prediction) {
 
             $bttsConfidence = calculateBttsConfidence($tip, $bttsPrediction, $bttsOdd);
 
-            $homeScore   = $tip['goals_home'] ?? null;
-            $awayScore   = $tip['goals_away'] ?? null;
-            $scoreDisplay = '—';
-            $matchStatus  = 'UPCOMING';
-            $statusClass  = 'upcoming';
+          /* ---- Score ---- */
+             /* ---- Score, match status & result badge ---- */
+            $homeScore     = $tip['goals_home'] ?? null;
+            $awayScore     = $tip['goals_away'] ?? null;
+            $scoreDisplay  = '—';
+            $matchStatus   = $tip['status_short'] ?? null;;
+            $winningStatus = '';
 
             if ($homeScore !== null && $awayScore !== null && $homeScore !== '' && $awayScore !== '') {
-                $scoreDisplay = htmlspecialchars($homeScore . ' – ' . $awayScore);
-                $matchStatus  = 'FT';
-                $statusClass  = '';
+                $scoreDisplay  = htmlspecialchars($homeScore . ' – ' . $awayScore);
+                $winningStatus = DetermineWinningOrLost($predictionValue, $homeScore, $awayScore);
             }
 
             $bttsResult      = '';
@@ -425,19 +279,19 @@ function getBttsDisplayText($prediction) {
                     $bttsResultClass = 'result-lost';
                 }
             }
+            
 
+           /* ---- Time display ---- */
             $formattedTime = '—';
+            $formattedDate = '';
             if (!empty($tip['date'])) {
-                $dateTime = DateTimeToUsersTimezone($tip['date']);
-                if (strpos($dateTime, ' ') !== false) {
-                    $dateTime = explode(' ', $dateTime)[1];
-                }
-                $formattedTime = $dateTime;
+                $formattedTime = DateTimeToUsersTimezone($tip['date']);
             }
 
             $homeInitial = strtoupper(substr(trim($tip['home_team_name'] ?? 'H'), 0, 2));
             $awayInitial = strtoupper(substr(trim($tip['away_team_name'] ?? 'A'), 0, 2));
             $leagueFull  = $tip['league_name'] ?? '';
+            $leagueCountry = $tip['league_country'] ?? '';
 
             $circ      = 119.38;
             $dashValue = round(($bttsConfidence / 100) * $circ, 2);
@@ -448,37 +302,61 @@ function getBttsDisplayText($prediction) {
             $confidenceClass = 'confidence-medium';
             if ($bttsConfidence >= 80)     $confidenceClass = 'confidence-high';
             elseif ($bttsConfidence <= 60) $confidenceClass = 'confidence-low';
+
+            $hasScore = ($homeScore !== null && $awayScore !== null && $homeScore !== '' && $awayScore !== '');
+            $statusShort = htmlspecialchars($tip['status_short'] ?? '');   // e.g. "FT", "HT", "1H", "NS"
         ?>
 
         <div class="match-card">
+             <!-- Time Column (hidden on mobile via CSS) -->
             <div class="mc-time">
-                <span><?php echo htmlspecialchars($formattedTime); ?></span>
+                <span class="time-val"><?php echo htmlspecialchars($formattedTime); ?></span>
+                <?php if ($formattedDate): ?>
+                <span class="date-val"><?php echo htmlspecialchars($formattedDate); ?></span>
+                <?php endif; ?>
             </div>
 
+
+             <!-- Match Column - Desktop shows VS, Mobile shows score -->
             <div class="mc-match">
-                <span class="league-tag"><?php echo htmlspecialchars($leagueFull); ?></span>
+                <span class="league-tag">
+                    <?php echo htmlspecialchars($leagueCountry ? $leagueCountry . ' · ' . $leagueFull : $leagueFull); ?>
+                </span>
                 <div class="teams-inline">
-                    <div class="team-crest home-crest"><?php echo $homeInitial; ?></div>
-                    <span class="team-name-text"><?php echo htmlspecialchars($tip['home_team_name'] ?? ''); ?></span>
-                    <span class="vs-badge">VS</span>
-                    <div class="team-crest"><?php echo $awayInitial; ?></div>
-                    <span class="team-name-text"><?php echo htmlspecialchars($tip['away_team_name'] ?? ''); ?></span>
-                </div>
-            </div>
+                    <!-- Home team section - fixed position on left -->
+                    <div class="team-home">
+                        <div class="team-crest home-crest"><?php echo $homeInitial; ?></div>
+                        <span class="team-name-text home-name"><?php echo htmlspecialchars($tip['home_team_name'] ?? ''); ?></span>
+                    </div>
+                    
+                    <!-- VS badge - centered -->
+                    <div class="vs-container">
+                        <?php if ($hasScore && $statusShort !== '' && $statusShort !== 'NS'): ?>
+                            <!-- Show score on mobile (VS hidden on mobile via CSS) -->    
+                            <div class="score-stack">
+                                <?php if ($winningStatus !== ''): ?>
+                                    <span class="result-badge-small mb-2 <?php echo ($winningStatus === 'Won') ? 'result-won' : 'result-lost'; ?>">
+                                        <?php echo $winningStatus; ?>
+                                    </span>
+                                <?php endif; ?>
 
-            <div class="mc-odds">
-                <div class="odds-value"><?php echo is_numeric($bttsOdd) ? number_format($bttsOdd, 2) : $bttsOdd; ?></div>
-            </div>
-
-            <div class="mc-prob">
-                <div class="prob-item">
-                    <div class="prob-ring">
-                        <svg viewBox="0 0 45 45">
-                            <circle class="track" cx="22.5" cy="22.5" r="19"/>
-                            <circle class="<?php echo $fillClass; ?>" cx="22.5" cy="22.5" r="19"
-                                stroke-dasharray="<?php echo $dashValue; ?> <?php echo $circ; ?>"/>
-                        </svg>
-                        <div class="prob-ring-value <?php echo $confidenceClass; ?>"><?php echo $bttsConfidence; ?>%</div>
+                                <span class="vs-badge vs-badge--score">
+                                    <?php echo htmlspecialchars($homeScore . ' - ' . $awayScore); ?>
+                                </span>
+                            </div>
+                            <!-- VS badge (hidden on mobile via CSS) -->
+                            <span class="vs-badge vs-badge--desktop" style="text-align:center;">VS</span>
+                        <?php else: ?>
+                            <!-- No score yet, show VS and time -->
+                            <span class="vs-badge vs-badge--desktop" style="text-align:center;">VS</span>
+                            <span class="vs-badge vs-badge--score"><?php echo htmlspecialchars($formattedTime); ?></span>
+                        <?php endif; ?>
+                    </div>
+                    
+                    <!-- Away team section - fixed position on right -->
+                     <div class="team-home">
+                        <div class="team-crest home-crest"><?php echo $awayInitial; ?></div>
+                        <span class="team-name-text home-name"><?php echo htmlspecialchars($tip['away_team_name'] ?? ''); ?></span>
                     </div>
                 </div>
             </div>
@@ -489,6 +367,24 @@ function getBttsDisplayText($prediction) {
                 </span>
             </div>
 
+            <div class="mc-prob">
+                <div class="prob-item">
+                    <div class="prob-ring">
+                        <svg viewBox="0 0 40 40">
+                            <circle class="track" cx="20" cy="20" r="17"/>
+                            <circle class="fill-home <?php echo $fillClass; ?>" cx="20" cy="20" r="17"
+                                stroke-dasharray="<?php echo $dashValue; ?> <?php echo $circ; ?>"/>
+                        </svg>
+                        <div class="prob-ring-value <?php echo $confidenceClass; ?>"><?php echo $bttsConfidence; ?>%</div>
+                    </div>
+                </div>
+            </div>         
+
+          
+            <div class="mc-odds">
+                <div class="odds-value"><?php echo is_numeric($bttsOdd) ? number_format($bttsOdd, 2) : $bttsOdd; ?></div>
+            </div>
+
             <div class="mc-score">
                 <div class="score-display"><?php echo $scoreDisplay; ?></div>
                 <?php if ($scoreDisplay !== '—'): ?>
@@ -496,6 +392,12 @@ function getBttsDisplayText($prediction) {
                     <div class="<?php echo $bttsResultClass; ?>" style="font-size:10px;margin-top:2px;"><?php echo $bttsResult; ?></div>
                 <?php else: ?>
                     <div class="score-status upcoming"><?php echo $matchStatus; ?></div>
+                <?php endif; ?>
+
+                   <?php if ($winningStatus !== ''): ?>
+                <span class="result-badge-small <?php echo ($winningStatus === 'Won') ? 'result-won' : 'result-lost'; ?>">
+                    <?php echo $winningStatus; ?>
+                </span>
                 <?php endif; ?>
             </div>
         </div>

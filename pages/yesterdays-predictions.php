@@ -89,7 +89,7 @@ curl_close($ch);
 .result-lost { color: #dc3545; }
 </style>
 
-<main class="container py-4">
+<main class="container">
     <h1 class="page-hero-title">Yesterday's Football Predictions | Results & Tips Review</h1>
 
     <?php include_once BASE_PATH . "/components/includes/scrollable-nav.inc.php"; ?>
@@ -103,9 +103,9 @@ curl_close($ch);
     <div class="preds-table-header">
         <span>Time</span>
         <span>Match</span>
-        <span style="text-align:center">Odds</span>
-        <span style="text-align:center">Probability</span>
         <span style="text-align:center">Prediction</span>
+        <span style="text-align:center">Probability</span>
+        <span style="text-align:center">Odds</span>
         <span style="text-align:center">Score</span>
     </div>
 
@@ -273,6 +273,9 @@ curl_close($ch);
             if (!empty($tip['date'])) {
                 $formattedTime = DateTimeToUsersTimezone($tip['date']);
             }
+
+            $hasScore = ($homeScore !== null && $awayScore !== null && $homeScore !== '' && $awayScore !== '');
+            $statusShort = htmlspecialchars($tip['status_short'] ?? '');   // e.g. "FT", "HT", "1H", "NS"
         ?>
 
         <div class="match-card">
@@ -282,26 +285,57 @@ curl_close($ch);
                 <span class="time-val"><?php echo htmlspecialchars($formattedTime); ?></span>
             </div>
 
-            <!-- Col 2: Match -->
+           <!-- Match Column - Desktop shows VS, Mobile shows score -->
             <div class="mc-match">
                 <span class="league-tag">
                     <?php echo htmlspecialchars($leagueCountry ? $leagueCountry . ' · ' . $leagueFull : $leagueFull); ?>
                 </span>
                 <div class="teams-inline">
-                    <div class="team-crest home-crest"><?php echo $homeInitial; ?></div>
-                    <span class="team-name-text"><?php echo htmlspecialchars($tip['home_team_name'] ?? ''); ?></span>
-                    <span class="vs-badge">VS</span>
-                    <div class="team-crest"><?php echo $awayInitial; ?></div>
-                    <span class="team-name-text"><?php echo htmlspecialchars($tip['away_team_name'] ?? ''); ?></span>
+                    <!-- Home team section - fixed position on left -->
+                    <div class="team-home">
+                        <div class="team-crest home-crest"><?php echo $homeInitial; ?></div>
+                        <span class="team-name-text home-name"><?php echo htmlspecialchars($tip['home_team_name'] ?? ''); ?></span>
+                    </div>                    
+
+                    <!-- VS badge - centered -->
+                    <div class="vs-container">
+                        <?php if ($hasScore && $statusShort !== '' && $statusShort !== 'NS'): ?>
+                            <!-- Show score on mobile (VS hidden on mobile via CSS) -->    
+                            <div class="score-stack">
+                                <?php if ($winningStatus !== ''): ?>
+                                    <span class="result-badge-small mb-2 <?php echo ($winningStatus === 'Won') ? 'result-won' : 'result-lost'; ?>">
+                                        <?php echo $winningStatus; ?>
+                                    </span>
+                                <?php endif; ?>
+
+                                <span class="vs-badge vs-badge--score">
+                                    <?php echo htmlspecialchars($homeScore . ' - ' . $awayScore); ?>
+                                </span>
+                            </div>
+                            <!-- VS badge (hidden on mobile via CSS) -->
+                            <span class="vs-badge vs-badge--desktop" style="text-align:center;">VS</span>
+                        <?php else: ?>
+                            <!-- No score yet, show VS and time -->
+                            <span class="vs-badge vs-badge--desktop" style="text-align:center;">VS</span>
+                            <span class="vs-badge vs-badge--score"><?php echo htmlspecialchars($formattedTime); ?></span>
+                        <?php endif; ?>
+                    </div>
+                    
+                    <!-- Away team section - fixed position on right -->
+                     <div class="team-home">
+                        <div class="team-crest home-crest"><?php echo $awayInitial; ?></div>
+                        <span class="team-name-text home-name"><?php echo htmlspecialchars($tip['away_team_name'] ?? ''); ?></span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Col 3: Odds -->
-            <div class="mc-odds">
-                <div class="odds-value"><?php echo htmlspecialchars($oddsDisplay); ?></div>
-                <div class="odds-label">Odds</div>
+            <!-- Col 5: Prediction chip + won/lost badge -->
+            <div class="mc-prediction">
+                <span class="pred-chip <?php echo $chipClass; ?>">
+                    <?php echo htmlspecialchars($displayPrediction); ?>
+                </span>               
             </div>
-
+            
             <!-- Col 4: Probability rings -->
             <div class="mc-prob">
                 <div class="prob-item">
@@ -341,22 +375,22 @@ curl_close($ch);
                 </div>
             </div>
 
-            <!-- Col 5: Prediction chip + won/lost badge -->
-            <div class="mc-prediction">
-                <span class="pred-chip <?php echo $chipClass; ?>">
-                    <?php echo htmlspecialchars($displayPrediction); ?>
-                </span>
-                <?php if ($winningStatus !== ''): ?>
-                <span class="result-badge-small <?php echo ($winningStatus === 'Won') ? 'result-won' : 'result-lost'; ?>">
-                    <?php echo $winningStatus; ?>
-                </span>
-                <?php endif; ?>
+            
+            <!-- Col 3: Odds -->
+            <div class="mc-odds">
+                <div class="odds-value"><?php echo htmlspecialchars($oddsDisplay); ?></div>
+                <div class="odds-label">Odds</div>
             </div>
 
             <!-- Col 6: Score -->
             <div class="mc-score">
-                <div class="score-display"><?php echo $scoreDisplay; ?></div>
                 <div class="score-status"><?php echo $matchStatus; ?></div>
+                <div class="score-display"><?php echo $scoreDisplay; ?></div>
+                 <?php if ($winningStatus !== ''): ?>
+                <span class="result-badge-small <?php echo ($winningStatus === 'Won') ? 'result-won' : 'result-lost'; ?>">
+                    <?php echo $winningStatus; ?>
+                </span>
+                <?php endif; ?>
             </div>
 
         </div>

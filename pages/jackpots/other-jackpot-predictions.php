@@ -133,245 +133,7 @@ $jackpotArticle = '
 ';
 ?>
 
-<style>
-.section-title-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 30px 0 15px;
-}
-.section-title-bar h2 {
-    font-size: 24px;
-    font-weight: 700;
-    color: #1a1a1a;
-    margin: 0;
-}
-.today-date-tag {
-    background: #f0f0f0;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 500;
-    color: #333;
-}
-.jackpot-stats-bar {
-    display: flex;
-    gap: 20px;
-    margin: 15px 0 20px;
-    padding: 15px 20px;
-    background: linear-gradient(135deg, #05384B 0%, #0a4a60 100%);
-    border-radius: 10px;
-    color: white;
-}
-.stat-item { display: flex; flex-direction: column; }
-.stat-value { font-size: 22px; font-weight: 700; line-height: 1.2; }
-.stat-label { font-size: 12px; opacity: 0.9; }
-
-.preds-table-header {
-    display: grid;
-    grid-template-columns: 10% 30% 10% 22% 12% 10%;
-    gap: 10px;
-    background: #f8f9fa;
-    padding: 12px 15px;
-    border-radius: 8px 8px 0 0;
-    font-weight: 600;
-    color: #495057;
-    border: 1px solid #dee2e6;
-    border-bottom: none;
-    font-size: 14px;
-}
-.preds-wrapper {
-    border: 1px solid #dee2e6;
-    border-top: none;
-    border-radius: 0 0 8px 8px;
-    overflow: hidden;
-    margin-bottom: 30px;
-}
-.match-card {
-    display: grid;
-    grid-template-columns: 10% 30% 10% 22% 12% 10%;
-    gap: 10px;
-    padding: 15px;
-    border-bottom: 1px solid #dee2e6;
-    background: white;
-    align-items: center;
-    font-family: 'DM Sans', sans-serif;
-}
-.match-card:last-child { border-bottom: none; }
-.match-card:hover { background: #f8f9fa; }
-
-.mc-time { font-weight: 500; color: #333; font-size: 14px; }
-.time-val { display: block; }
-.date-val { font-size: 11px; color: #6c757d; display: block; }
-
-.mc-match { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
-.league-tag {
-    font-size: 11px;
-    font-weight: 500;
-    color: #6c757d;
-    text-transform: uppercase;
-    letter-spacing: 0.3px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.teams-inline { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-.team-crest {
-    width: 28px;
-    height: 28px;
-    background: linear-gradient(135deg, #05384B, #0a4a60);
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    font-size: 12px;
-    color: white;
-    text-transform: uppercase;
-    flex-shrink: 0;
-}
-.home-crest { background: linear-gradient(135deg, #05384B, #0a4a60); }
-.team-name-text {
-    font-weight: 500;
-    font-size: 14px;
-    color: #212529;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    flex: 1;
-    min-width: 0;
-}
-.vs-badge {
-    color: #dc3545;
-    font-weight: 600;
-    font-size: 12px;
-    margin: 0 2px;
-    flex-shrink: 0;
-}
-
-.mc-odds { text-align: center; }
-.odds-value {
-    font-weight: 700;
-    font-size: 16px;
-    color: #f59e0b;
-    background: rgba(251,191,36,.08);
-    border: 1px solid rgba(251,191,36,.2);
-    border-radius: 6px;
-    padding: 4px 8px;
-    display: inline-block;
-    line-height: 1;
-}
-.odds-label {
-    font-size: 10px;
-    color: #6c757d;
-    text-transform: uppercase;
-    margin-top: 2px;
-}
-
-.mc-prob { display: flex; align-items: center; justify-content: space-between; gap: 5px; }
-.prob-item { text-align: center; flex: 1; }
-.prob-ring { position: relative; width: 40px; height: 40px; margin: 0 auto 4px; }
-.prob-ring svg { width: 40px; height: 40px; transform: rotate(-90deg); }
-.prob-ring circle { fill: none; stroke-width: 3; }
-.prob-ring .track { stroke: #e9ecef; }
-.prob-ring .fill-home { stroke: #05384B; stroke-linecap: round; }
-.prob-ring .fill-draw { stroke: #6c757d; stroke-linecap: round; }
-.prob-ring .fill-away { stroke: #dc3545; stroke-linecap: round; }
-.prob-ring-value {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 10px;
-    font-weight: 600;
-    font-family: 'DM Mono', monospace;
-}
-.prob-label {
-    font-size: 9px;
-    color: #6c757d;
-    text-transform: uppercase;
-    font-weight: 500;
-}
-.prob-sep { width: 1px; height: 25px; background: #dee2e6; }
-
-.mc-prediction { text-align: center; }
-.pred-chip {
-    display: inline-block;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-weight: 600;
-    font-size: 13px;
-    min-width: 60px;
-    text-align: center;
-}
-.chip-home  { background: #05384B; color: white; }
-.chip-away  { background: #dc3545; color: white; }
-.chip-draw  { background: #6c757d; color: white; }
-
-.result-badge-small {
-    font-size: 10px;
-    font-weight: 600;
-    display: block;
-    margin-top: 4px;
-}
-.result-won  { color: #10b981; }
-.result-lost { color: #dc3545; }
-
-.mc-score { text-align: center; }
-.score-display {
-    font-weight: 700;
-    font-size: 16px;
-    color: #212529;
-    font-family: 'DM Mono', monospace;
-}
-.score-status {
-    font-size: 10px;
-    color: #10b981;
-    text-transform: uppercase;
-    font-weight: 600;
-}
-.score-status.upcoming {
-    color: #f59e0b;
-}
-
-.state-msg {
-    text-align: center;
-    padding: 60px 20px;
-    color: #6c757d;
-    border: 1px solid #dee2e6;
-    border-radius: 8px;
-}
-.perf-summary {
-    display: flex;
-    gap: 30px;
-    padding: 20px;
-    background: #f8f9fa;
-    border-radius: 8px;
-    margin: 20px 0 30px;
-    border: 1px solid #dee2e6;
-}
-.perf-item { display: flex; flex-direction: column; }
-.perf-label { font-size: 13px; color: #6c757d; }
-.perf-value { font-size: 24px; font-weight: 700; color: #05384B; }
-
-@media (max-width: 992px) {
-    .preds-table-header { display: none; }
-    .match-card {
-        grid-template-columns: 1fr;
-        gap: 10px;
-        border: 1px solid #dee2e6;
-        border-radius: 8px;
-        margin-bottom: 10px;
-    }
-    .jackpot-stats-bar,
-    .perf-summary {
-        flex-direction: column;
-        gap: 15px;
-    }
-}
-</style>
-
-<main class="container py-4">
+<main class="container">
     <h1 class="page-hero-title">Free <?= htmlspecialchars($jackpot_name) ?> Predictions</h1>
 
     <?php include_once BASE_PATH . "/components/includes/scrollable-nav.inc.php"; ?>
@@ -403,9 +165,9 @@ $jackpotArticle = '
     <div class="preds-table-header">
         <span>Time</span>
         <span>Match</span>
-        <span style="text-align:center">Odds</span>
-        <span style="text-align:center">Probability</span>
         <span style="text-align:center">Prediction</span>
+        <span style="text-align:center">Probability</span>
+        <span style="text-align:center">Odds</span>
         <span style="text-align:center">Score</span>
     </div>
 
@@ -425,6 +187,15 @@ $jackpotArticle = '
             $scoreDisplay = '—';
             $scoreStatus = 'UPCOMING';
             $scoreStatusClass = 'upcoming';
+
+                        // Score & match status
+            $homeScore    = $tip['goals_home'] ?? null;
+            $awayScore    = $tip['goals_away'] ?? null;
+            $scoreDisplay = ($homeScore !== null && $awayScore !== null && $homeScore !== '' && $awayScore !== '')
+                ? htmlspecialchars($homeScore . ' – ' . $awayScore)
+                : '—';
+            $matchStatus  = ($scoreDisplay !== '—') ? 'FT' : 'UPCOMING';
+
 
             if ($homeScore !== null && $awayScore !== null && $homeScore !== '' && $awayScore !== '') {
                 $scoreDisplay = htmlspecialchars($homeScore . ' – ' . $awayScore);
@@ -453,6 +224,13 @@ $jackpotArticle = '
             $awayInitial = strtoupper(substr(trim($tip['away_team_name'] ?? 'A'), 0, 2));
 
             $leagueCountry = $tip['league_country'] ?? '';
+            /* ---- League: split country / name ---- */
+            $leagueFull = $tip['league_name'] ?? '';
+            $leagueCountry = $tip['league_country'] ?? '';
+            /* Try to detect "Country: League" format */
+            if (strpos($leagueFull, ':') !== false) {
+                [$leagueCountry, $leagueFull] = array_map('trim', explode(':', $leagueFull, 2));
+            }    
 
             $chipClass = 'chip-draw';
             $displayPrediction = $prediction;
@@ -468,6 +246,9 @@ $jackpotArticle = '
             } elseif (!empty($tip['bets_away']) && $prediction === '2') {
                 $oddsDisplay = $tip['bets_away'];
             }
+
+            $hasScore = ($homeScore !== null && $awayScore !== null && $homeScore !== '' && $awayScore !== '');
+            $statusShort = htmlspecialchars($tip['status_short'] ?? '');   // e.g. "FT", "HT", "1H", "NS"
         ?>
 
         <div class="match-card">
@@ -478,20 +259,58 @@ $jackpotArticle = '
                 <?php endif; ?>
             </div>
 
+            <!-- Match Column - Desktop shows VS, Mobile shows score -->
             <div class="mc-match">
-                <span class="league-tag"><?php echo htmlspecialchars(($leagueCountry ?: 'Jackpot') . ' · Match ' . ($index + 1)); ?></span>
+                <span class="league-tag">
+                    <?php echo htmlspecialchars($leagueCountry ? $leagueCountry . ' · ' . $leagueFull : $leagueFull); ?>
+                </span>
                 <div class="teams-inline">
-                    <div class="team-crest home-crest"><?php echo $homeInitial; ?></div>
-                    <span class="team-name-text"><?php echo htmlspecialchars($tip['home_team_name'] ?? ''); ?></span>
-                    <span class="vs-badge">VS</span>
-                    <div class="team-crest"><?php echo $awayInitial; ?></div>
-                    <span class="team-name-text"><?php echo htmlspecialchars($tip['away_team_name'] ?? ''); ?></span>
+                    <!-- Home team section - fixed position on left -->
+                    <div class="team-home">
+                        <div class="team-crest home-crest"><?php echo $homeInitial; ?></div>
+                        <span class="team-name-text home-name"><?php echo htmlspecialchars($tip['home_team_name'] ?? ''); ?></span>
+                    </div>
+                    
+                    <!-- VS badge - centered -->
+                    <div class="vs-container">
+                        <?php if ($hasScore && $statusShort !== '' && $statusShort !== 'NS'): ?>
+                            <!-- Show score on mobile (VS hidden on mobile via CSS) -->    
+                            <div class="score-stack">
+                                <?php if ($winningStatus !== ''): ?>
+                                    <span class="result-badge-small mb-2 <?php echo ($winningStatus === 'Won') ? 'result-won' : 'result-lost'; ?>">
+                                        <?php echo $winningStatus; ?>
+                                    </span>
+                                <?php endif; ?>
+
+                                <span class="vs-badge vs-badge--score">
+                                    <?php echo htmlspecialchars($homeScore . ' - ' . $awayScore); ?>
+                                </span>
+                            </div>
+                            <!-- VS badge (hidden on mobile via CSS) -->
+                            <span class="vs-badge vs-badge--desktop" style="text-align:center;">VS</span>
+                        <?php else: ?>
+                            <!-- No score yet, show VS and time -->
+                            <span class="vs-badge vs-badge--desktop" style="text-align:center;">VS</span>
+                            <span class="vs-badge vs-badge--score"><?php echo htmlspecialchars($formattedTime); ?></span>
+                        <?php endif; ?>
+                    </div>
+                    
+                    <!-- Away team section - fixed position on right -->
+                     <div class="team-home">
+                        <div class="team-crest home-crest"><?php echo $awayInitial; ?></div>
+                        <span class="team-name-text home-name"><?php echo htmlspecialchars($tip['away_team_name'] ?? ''); ?></span>
+                    </div>
                 </div>
             </div>
 
-            <div class="mc-odds">
-                <div class="odds-value"><?php echo htmlspecialchars($oddsDisplay); ?></div>
-                <div class="odds-label">Odds</div>
+            <!-- Prediction + won/lost -->
+            <div class="mc-prediction">
+                <span class="pred-chip <?php echo $chipClass; ?>">
+                    <?php echo htmlspecialchars($displayPrediction); ?>
+                </span>
+                <span class="result-badge-small <?php echo ($winningStatus === 'Won') ? 'result-won' : 'result-lost'; ?>">
+                    <?php echo $winningStatus; ?>
+                </span>
             </div>
 
             <div class="mc-prob">
@@ -532,20 +351,21 @@ $jackpotArticle = '
                 </div>
             </div>
 
-            <div class="mc-prediction">
-                <span class="pred-chip <?php echo $chipClass; ?>">
-                    <?php echo htmlspecialchars($displayPrediction); ?>
-                </span>
-                <?php if ($scoreDisplay !== '—' && $winningStatus): ?>
-                <span class="result-badge-small <?php echo ($winningStatus === 'Won') ? 'result-won' : 'result-lost'; ?>">
-                    <?php echo htmlspecialchars($winningStatus); ?>
-                </span>
-                <?php endif; ?>
+            
+            <div class="mc-odds">
+                <div class="odds-value"><?php echo htmlspecialchars($oddsDisplay); ?></div>
+                <div class="odds-label">Odds</div>
             </div>
 
+            <!-- Col 6: Score -->
             <div class="mc-score">
+                <div class="score-status upcoming"><?php echo $matchStatus; ?></div>
                 <div class="score-display"><?php echo $scoreDisplay; ?></div>
-                <div class="score-status <?php echo $scoreStatusClass; ?>"><?php echo $scoreStatus; ?></div>
+                 <?php if ($scoreDisplay !== ''): ?>
+                <span class="result-badge-small <?php echo ($winningStatus === 'Won') ? 'result-won' : 'result-lost'; ?>">
+                    <?php echo $winningStatus; ?>
+                </span>
+                <?php endif; ?>
             </div>
         </div>
         <?php endforeach; ?>
