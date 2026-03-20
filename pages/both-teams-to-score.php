@@ -24,24 +24,74 @@ include_once BASE_PATH . "/components/includes/header.inc.php";
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
+
     {
-      "@type": "Question",
-      "name": "What are high confidence football predictions?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "High confidence predictions are football tips with statistical probability ratings of 70% or higher, based on comprehensive data analysis including team form, head-to-head records, and tactical matchups."
+      "@type": "WebSite",
+      "name": "Betnumbers",
+      "url": "https://www.betnumbers.com"
+    },
+
+    {
+      "@type": "WebPage",
+      "name": "BTTS Predictions Today | Both Teams to Score Tips & Analysis",
+      "url": "https://www.betnumbers.com/btts-predictions",
+      "description": "Free BTTS predictions today with confidence ratings, odds, and expert analysis. Both teams to score tips updated daily across Premier League, La Liga, Bundesliga and more.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Betnumbers",
+        "url": "https://www.betnumbers.com"
       }
     },
+
     {
-      "@type": "Question",
-      "name": "How accurate are high confidence predictions?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Our high confidence predictions (90%+ probability) achieve approximately 78% accuracy based on verified historical results. However, no prediction is guaranteed and all betting carries risk."
-      }
+      "@type": "CollectionPage",
+      "name": "BTTS Predictions Today",
+      "url": "https://www.betnumbers.com/btts-predictions",
+      "description": "Daily both teams to score predictions with probabilities, odds and expert insights across top football leagues."
+    },
+
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.betnumbers.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "BTTS Predictions",
+          "item": "https://www.betnumbers.com/btts-predictions"
+        }
+      ]
+    },
+
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does BTTS mean in football betting?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "BTTS stands for Both Teams To Score. It means both the home and away teams must score at least one goal during the match."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How accurate are BTTS predictions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "BTTS predictions are based on statistical analysis such as team scoring trends, defensive records, and head-to-head data. While accuracy is high, no prediction is guaranteed."
+          }
+        }
+      ]
     }
+
   ]
 }
 </script>

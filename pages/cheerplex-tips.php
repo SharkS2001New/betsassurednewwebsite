@@ -20,23 +20,67 @@ include_once BASE_PATH . "/components/includes/header.inc.php";
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
     {
-      "@type": "Question",
-      "name": "What are high confidence football predictions?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "High confidence predictions are football tips with statistical probability ratings of 70% or higher, based on comprehensive data analysis including team form, head-to-head records, and tactical matchups."
+      "@type": "WebSite",
+      "name": "Cheerplex",
+      "url": "https://www.cheerplex.com"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Cheerplex: Free Football Predictions & Expert Tips",
+      "url": "https://www.cheerplex.com",
+      "description": "Cheerplex delivers accurate football predictions, free daily tips, and expert insights to boost your betting success.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Cheerplex",
+        "url": "https://www.cheerplex.com"
       }
     },
     {
-      "@type": "Question",
-      "name": "How accurate are high confidence predictions?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Our high confidence predictions (90%+ probability) achieve approximately 78% accuracy based on verified historical results. However, no prediction is guaranteed and all betting carries risk."
-      }
+      "@type": "CollectionPage",
+      "name": "Daily Free Football Predictions",
+      "url": "https://www.cheerplex.com",
+      "description": "Get daily football predictions, free tips, and expert insights across leagues worldwide."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.cheerplex.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Predictions",
+          "item": "https://www.cheerplex.com/predictions"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What types of football predictions does Cheerplex offer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cheerplex offers daily football predictions including match outcomes, BTTS tips, over/under goals, and expert betting insights."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are Cheerplex predictions free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, all Cheerplex predictions and tips are completely free and updated daily."
+          }
+        }
+      ]
     }
   ]
 }

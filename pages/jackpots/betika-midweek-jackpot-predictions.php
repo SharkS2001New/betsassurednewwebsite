@@ -28,18 +28,34 @@ include_once BASE_PATH . "/components/includes/header.inc.php";
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What are high confidence football predictions?",
+      "name": "What is the Betika Midweek Jackpot?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "High confidence predictions are football tips with statistical probability ratings of 70% or higher, based on comprehensive data analysis including team form, head-to-head records, and tactical matchups."
+        "text": "The Betika Midweek Jackpot is a football betting competition where players predict the outcomes of selected games during the week to win cash prizes and bonus brackets."
       }
     },
     {
       "@type": "Question",
-      "name": "How accurate are high confidence predictions?",
+      "name": "How accurate are the Betika Midweek Jackpot predictions?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Our high confidence predictions (90%+ probability) achieve approximately 78% accuracy based on verified historical results. However, no prediction is guaranteed and all betting carries risk."
+        "text": "Our predictions use statistical analysis, team form, and historical performance to generate high probability tips, but no prediction is guaranteed. Always bet responsibly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often are the Betika Midweek Jackpot tips updated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tips and predictions are updated every week before the Midweek Jackpot games, ensuring the latest information and team analysis are included."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use these predictions for accumulators or singles?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, the predictions can be used for both single bets and accumulator bets, depending on your betting strategy."
       }
     }
   ]

@@ -20,23 +20,67 @@ include_once BASE_PATH . "/components/includes/header.inc.php";
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
     {
-      "@type": "Question",
-      "name": "What are high confidence football predictions?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "High confidence predictions are football tips with statistical probability ratings of 70% or higher, based on comprehensive data analysis including team form, head-to-head records, and tactical matchups."
+      "@type": "WebSite",
+      "name": "Cheerplex",
+      "url": "https://www.cheerplex.com"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Cheerplex: Direct Win Football Predictions & Free Tips",
+      "url": "https://www.cheerplex.com/direct-win-predictions",
+      "description": "Get accurate direct win predictions, daily free football tips, and expert insights from Cheerplex to boost your betting success.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Cheerplex",
+        "url": "https://www.cheerplex.com"
       }
     },
     {
-      "@type": "Question",
-      "name": "How accurate are high confidence predictions?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Our high confidence predictions (90%+ probability) achieve approximately 78% accuracy based on verified historical results. However, no prediction is guaranteed and all betting carries risk."
-      }
+      "@type": "CollectionPage",
+      "name": "Direct Win Football Predictions",
+      "url": "https://www.cheerplex.com/direct-win-predictions",
+      "description": "Daily direct win football predictions and free expert tips across multiple leagues."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.cheerplex.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Direct Win Predictions",
+          "item": "https://www.cheerplex.com/direct-win-predictions"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What are direct win predictions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Direct win predictions indicate which team is most likely to win a football match, based on statistical analysis, team form, and expert insights."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are Cheerplex direct win predictions free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, all Cheerplex direct win predictions and tips are free and updated daily."
+          }
+        }
+      ]
     }
   ]
 }

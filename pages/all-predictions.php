@@ -24,24 +24,87 @@ include_once BASE_PATH . "/components/includes/header.inc.php";
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
+
     {
-      "@type": "Question",
-      "name": "What are high confidence football predictions?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "High confidence predictions are football tips with statistical probability ratings of 70% or higher, based on comprehensive data analysis including team form, head-to-head records, and tactical matchups."
+      "@type": "WebSite",
+      "name": "BetAssured",
+      "url": "https://www.betassured.com/",
+      "description": "All football predictions today, free daily soccer tips, and expert betting insights across top leagues worldwide.",
+      "inLanguage": "en",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.betassured.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
       }
     },
+
     {
-      "@type": "Question",
-      "name": "How accurate are high confidence predictions?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Our high confidence predictions (90%+ probability) achieve approximately 78% accuracy based on verified historical results. However, no prediction is guaranteed and all betting carries risk."
+      "@type": "Organization",
+      "name": "BetAssured",
+      "url": "https://www.betassured.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.betassured.com/betsassured.png"
       }
+    },
+
+    {
+      "@type": "WebPage",
+      "name": "All Football Predictions Today",
+      "url": "https://www.betassured.com/all-predictions",
+      "description": "Explore all football predictions today including 1X2 tips, over/under predictions, and expert match analysis with probability insights.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "BetAssured",
+        "url": "https://www.betassured.com/"
+      },
+      "inLanguage": "en"
+    },
+
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+
+        {
+          "@type": "Question",
+          "name": "What are football predictions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Football predictions are expert analyses of matches based on statistics, team form, and historical data to estimate possible outcomes."
+          }
+        },
+
+        {
+          "@type": "Question",
+          "name": "What are high confidence football predictions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "High confidence predictions are tips supported by strong statistical indicators such as team form, head-to-head performance, and probability analysis suggesting a higher likelihood of success."
+          }
+        },
+
+        {
+          "@type": "Question",
+          "name": "Are football predictions guaranteed?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Football predictions are based on probability and analysis, but outcomes are never guaranteed. Betting always involves risk."
+          }
+        },
+
+        {
+          "@type": "Question",
+          "name": "How often are predictions updated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Predictions are updated daily to reflect the latest fixtures, team news, and statistical insights from leagues worldwide."
+          }
+        }
+
+      ]
     }
+
   ]
 }
 </script>

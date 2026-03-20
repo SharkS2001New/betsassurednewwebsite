@@ -1,22 +1,23 @@
 <?php
 $metaTags= <<<HTML
 <!-- Primary Meta Tags -->
-<title>Betsassured: Best Prediction Site - Free Football Tips</title>
-<meta name="title" content="Accurate Football Predictions & Sure Tips">
-<meta name="description" content="Get the edge with reliable predictions, daily free tips, and expert insights tailored for consistent football betting success.">
-<meta name="keywords" content="free prediction site, daily predictions, successful soccer prediction  accurate football predictions, best football prediction site, accurate predictions, daily soccer tips, sure tips, accurate tip">
+<title>SokaFans: Free Football Predictions & Expert Tips</title>
+<meta name="title" content="Accurate Football Predictions & Sure Tips - SokaFans">
+<meta name="description" content="Get the edge with reliable football predictions, daily free tips, and expert insights from SokaFans for consistent betting success.">
+<meta name="keywords" content="sokafans predictions, free football tips, daily soccer tips, accurate football predictions, best football tips site, sure tips, football betting insights">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Betsassured - Accurate Prediction Site">
-<meta property="og:description" content="Betsassured provides free football predictions daily from experienced tipsters.">
+<meta property="og:title" content="SokaFans - Accurate Football Predictions">
+<meta property="og:description" content="SokaFans provides free daily football predictions and expert tips from experienced tipsters.">
 
 <!-- Twitter -->
-<meta property="twitter:title" content="Betsassured - Accurate Prediction Site ">
-<meta property="twitter:description" content="Betsassured provides free football predictions daily from experienced tipsters.">
+<meta property="twitter:title" content="SokaFans - Accurate Football Predictions">
+<meta property="twitter:description" content="SokaFans provides free daily football predictions and expert tips from experienced tipsters.">
 HTML;
 
 include_once BASE_PATH . "/components/includes/header.inc.php";
 ?>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -24,18 +25,34 @@ include_once BASE_PATH . "/components/includes/header.inc.php";
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What are high confidence football predictions?",
+      "name": "What type of football predictions does SokaFans provide?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "High confidence predictions are football tips with statistical probability ratings of 70% or higher, based on comprehensive data analysis including team form, head-to-head records, and tactical matchups."
+        "text": "SokaFans provides daily free football predictions including 1X2, BTTS, double chance, jackpot, home win, and must-win team tips for top leagues worldwide."
       }
     },
     {
       "@type": "Question",
-      "name": "How accurate are high confidence predictions?",
+      "name": "How accurate are SokaFans predictions?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Our high confidence predictions (90%+ probability) achieve approximately 78% accuracy based on verified historical results. However, no prediction is guaranteed and all betting carries risk."
+        "text": "Our predictions are based on statistical analysis, team form, head-to-head results, and expert insight. While we strive for accuracy, no prediction is guaranteed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it free to use SokaFans predictions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, all our football predictions and tips are completely free for users."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use SokaFans predictions for accumulators?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, our tips can be used for both single bets and accumulators depending on your strategy."
       }
     }
   ]

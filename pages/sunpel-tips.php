@@ -1,18 +1,18 @@
 <?php
 $metaTags= <<<HTML
 <!-- Primary Meta Tags -->
-<title>Betsassured: Best Prediction Site - Free Football Tips</title>
+<title>Sunpel: Best Prediction Site - Free Football Tips</title>
 <meta name="title" content="Accurate Football Predictions & Sure Tips">
-<meta name="description" content="Get the edge with reliable predictions, daily free tips, and expert insights tailored for consistent football betting success.">
-<meta name="keywords" content="free prediction site, daily predictions, successful soccer prediction  accurate football predictions, best football prediction site, accurate predictions, daily soccer tips, sure tips, accurate tip">
+<meta name="description" content="Get the edge with reliable football predictions, daily free tips, and expert insights from Sunpel for consistent betting success.">
+<meta name="keywords" content="sunpel predictions, free football tips, daily soccer tips, accurate football predictions, best football tips site, sure tips, football betting insights">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Betsassured - Accurate Prediction Site">
-<meta property="og:description" content="Betsassured provides free football predictions daily from experienced tipsters.">
+<meta property="og:title" content="Sunpel - Accurate Prediction Site">
+<meta property="og:description" content="Sunpel provides free football predictions daily from experienced tipsters.">
 
 <!-- Twitter -->
-<meta property="twitter:title" content="Betsassured - Accurate Prediction Site ">
-<meta property="twitter:description" content="Betsassured provides free football predictions daily from experienced tipsters.">
+<meta property="twitter:title" content="Sunpel - Accurate Prediction Site">
+<meta property="twitter:description" content="Sunpel provides free football predictions daily from experienced tipsters.">
 HTML;
 
 include_once BASE_PATH . "/components/includes/header.inc.php";

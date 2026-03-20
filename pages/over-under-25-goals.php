@@ -24,22 +24,48 @@ include_once BASE_PATH . "/components/includes/header.inc.php";
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Over Under 2.5 Goals Predictions Today | Total Goals Tips",
+  "url": "https://www.betsassured.com/over-under-2-5-goals",
+  "description": "Free Over/Under 2.5 goals predictions today. Expert total goals tips with confidence ratings and odds analysis updated daily across top football leagues worldwide."
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What are high confidence football predictions?",
+      "name": "What are Over/Under 2.5 goals predictions?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "High confidence predictions are football tips with statistical probability ratings of 70% or higher, based on comprehensive data analysis including team form, head-to-head records, and tactical matchups."
+        "text": "Over/Under 2.5 goals predictions indicate whether a football match will have more or less than 2.5 total goals scored, based on statistical analysis and team form."
       }
     },
     {
       "@type": "Question",
-      "name": "How accurate are high confidence predictions?",
+      "name": "How accurate are these predictions?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Our high confidence predictions (90%+ probability) achieve approximately 78% accuracy based on verified historical results. However, no prediction is guaranteed and all betting carries risk."
+        "text": "Our predictions use historical data, team form, and expert insights to provide high-confidence tips. While accuracy is high, no prediction is guaranteed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are Over/Under 2.5 predictions free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, all Over/Under 2.5 goals predictions and total goals tips on Betsassured are completely free."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use these predictions for accumulators?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, these tips can be used for single bets or combined in accumulators depending on your strategy."
       }
     }
   ]

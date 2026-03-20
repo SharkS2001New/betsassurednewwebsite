@@ -24,24 +24,70 @@ include_once BASE_PATH . "/components/includes/header.inc.php";
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
+    
     {
-      "@type": "Question",
-      "name": "What are high confidence football predictions?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "High confidence predictions are football tips with statistical probability ratings of 70% or higher, based on comprehensive data analysis including team form, head-to-head records, and tactical matchups."
+      "@type": "WebSite",
+      "name": "BetAssured",
+      "url": "https://betassured.com/",
+      "description": "Football tips today, expert match predictions, betting insights, and daily analysis for top leagues worldwide.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://betassured.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
       }
     },
+
     {
-      "@type": "Question",
-      "name": "How accurate are high confidence predictions?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Our high confidence predictions (90%+ probability) achieve approximately 78% accuracy based on verified historical results. However, no prediction is guaranteed and all betting carries risk."
-      }
+      "@type": "Organization",
+      "name": "BetAssured",
+      "url": "https://betassured.com/",
+      "logo": "https://betassured.com/betsassured.png"
+    },
+
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        
+        {
+          "@type": "Question",
+          "name": "What are football predictions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Football predictions are expert analyses of upcoming matches based on statistics, team form, head-to-head data, and other factors to estimate likely outcomes."
+          }
+        },
+
+        {
+          "@type": "Question",
+          "name": "What are high confidence football tips?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "High confidence football tips are predictions with strong statistical backing, typically based on team performance, recent form, and probability models indicating a higher likelihood of success."
+          }
+        },
+
+        {
+          "@type": "Question",
+          "name": "Are football predictions guaranteed to win?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Football predictions are based on analysis and probability, but no outcome is guaranteed. Betting always involves risk."
+          }
+        },
+
+        {
+          "@type": "Question",
+          "name": "How often are predictions updated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Predictions are updated daily to reflect the latest fixtures, team news, and statistical data from leagues around the world."
+          }
+        }
+
+      ]
     }
+
   ]
 }
 </script>

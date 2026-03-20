@@ -24,22 +24,48 @@ include_once BASE_PATH . "/components/includes/header.inc.php";
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Football Predictions Today | Free Tips & Expert Picks",
+  "url": "https://betassured.com/today-predictions",
+  "description": "Get today's football predictions from expert tipsters. Free daily tips, match analysis, and betting insights for top leagues worldwide."
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What are high confidence football predictions?",
+      "name": "What kind of football predictions does BetAssured provide today?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "High confidence predictions are football tips with statistical probability ratings of 70% or higher, based on comprehensive data analysis including team form, head-to-head records, and tactical matchups."
+        "text": "BetAssured provides free daily football predictions including 1X2, BTTS, double chance, over/under goals, jackpot, and must-win tips for top leagues worldwide."
       }
     },
     {
       "@type": "Question",
-      "name": "How accurate are high confidence predictions?",
+      "name": "Are these predictions accurate?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Our high confidence predictions (90%+ probability) achieve approximately 78% accuracy based on verified historical results. However, no prediction is guaranteed and all betting carries risk."
+        "text": "Our predictions are based on statistical analysis, team form, head-to-head results, and expert insights. Accuracy is high but not guaranteed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are BetAssured predictions free to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, all football predictions and tips on BetAssured are completely free."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can these predictions be used for accumulators?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, the tips can be used for single bets or accumulators based on your betting strategy."
       }
     }
   ]

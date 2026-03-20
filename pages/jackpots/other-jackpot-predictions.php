@@ -8,11 +8,15 @@ $metaTags = <<<HTML
 <meta name="description" content="Get the latest {$jackpot_name} predictions and free tips. Smart analysis to help you make better betting choices on Betsassured.">
 <meta name="keywords" content="{$jackpot_name}, jackpot predictions, free jackpot tips, betting tips, football jackpot">
 
+<meta property="og:type" content="website">
 <meta property="og:title" content="{$jackpot_name} Predictions & Free Tips">
 <meta property="og:description" content="Get the latest {$jackpot_name} predictions and free tips. Smart analysis to help you make better betting choices on Betsassured.">
+<meta property="og:url" content="https://www.betsassured.com{$_SERVER['REQUEST_URI']}">
+<meta property="og:site_name" content="Betsassured">
 
-<meta property="twitter:title" content="{$jackpot_name} Predictions & Free Tips">
-<meta property="twitter:description" content="Get the latest {$jackpot_name} predictions and free tips. Smart analysis to help you make better betting choices on Betsassured.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{$jackpot_name} Predictions & Free Tips">
+<meta name="twitter:description" content="Get the latest {$jackpot_name} predictions and free tips. Smart analysis to help you make better betting choices on Betsassured.">
 HTML;
 
 include_once BASE_PATH . "/components/includes/header.inc.php";
@@ -21,6 +25,10 @@ include_once BASE_PATH . "/components/includes/header.inc.php";
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "url": "https://www.betsassured.com<?php echo $_SERVER['REQUEST_URI']; ?>"
+  },
   "mainEntity": [
     {
       "@type": "Question",

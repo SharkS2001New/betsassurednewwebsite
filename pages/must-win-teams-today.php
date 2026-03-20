@@ -24,23 +24,67 @@ include_once BASE_PATH . "/components/includes/header.inc.php";
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
     {
-      "@type": "Question",
-      "name": "What are high confidence football predictions?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "High confidence predictions are football tips with statistical probability ratings of 70% or higher, based on comprehensive data analysis including team form, head-to-head records, and tactical matchups."
+      "@type": "WebSite",
+      "name": "Betsassured",
+      "url": "https://www.betsassured.com"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Must Win Teams Today | High Confidence Football Predictions",
+      "url": "https://www.betsassured.com/must-win-teams-today",
+      "description": "Free must win team predictions today. High confidence football tips where one side has a dominant probability advantage — ideal for singles and accumulators.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Betsassured",
+        "url": "https://www.betsassured.com"
       }
     },
     {
-      "@type": "Question",
-      "name": "How accurate are high confidence predictions?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Our high confidence predictions (90%+ probability) achieve approximately 78% accuracy based on verified historical results. However, no prediction is guaranteed and all betting carries risk."
-      }
+      "@type": "CollectionPage",
+      "name": "Must Win Teams Predictions",
+      "url": "https://www.betsassured.com/must-win-teams-today",
+      "description": "Daily must win football predictions highlighting teams with the highest probability of winning, perfect for singles and accumulators."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.betsassured.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Must Win Teams Today",
+          "item": "https://www.betsassured.com/must-win-teams-today"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What are must win team predictions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Must win team predictions highlight football matches where one side has a dominant probability advantage, making them ideal for singles and accumulators."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are Betsassured must win tips free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, all must win team predictions on Betsassured are free and updated daily for high confidence betting."
+          }
+        }
+      ]
     }
   ]
 }

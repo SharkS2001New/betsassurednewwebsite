@@ -24,22 +24,48 @@ include_once BASE_PATH . "/components/includes/header.inc.php";
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Tomorrow's Football Predictions | Free Tips & Expert Picks",
+  "url": "https://www.betsassured.com/tomorrows-predictions",
+  "description": "Free football predictions for tomorrow. Expert tips across 1X2, double chance and over/under markets with probability ratings and odds updated daily."
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What are high confidence football predictions?",
+      "name": "What football predictions does Betsassured provide for tomorrow?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "High confidence predictions are football tips with statistical probability ratings of 70% or higher, based on comprehensive data analysis including team form, head-to-head records, and tactical matchups."
+        "text": "Betsassured provides tomorrow's football predictions including 1X2, double chance, BTTS, over/under goals, and must-win team tips for top leagues worldwide."
       }
     },
     {
       "@type": "Question",
-      "name": "How accurate are high confidence predictions?",
+      "name": "Are these predictions accurate?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Our high confidence predictions (90%+ probability) achieve approximately 78% accuracy based on verified historical results. However, no prediction is guaranteed and all betting carries risk."
+        "text": "Predictions are based on statistical analysis, team form, head-to-head results, and expert insights. Accuracy is high but not guaranteed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are the tomorrow football predictions free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, all tomorrow football predictions and tips are completely free for users."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can tomorrow's predictions be used for accumulators?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, you can use the tips for single bets or accumulators based on your betting strategy."
       }
     }
   ]

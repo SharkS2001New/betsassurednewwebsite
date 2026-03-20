@@ -24,23 +24,67 @@ include_once BASE_PATH . "/components/includes/header.inc.php";
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
     {
-      "@type": "Question",
-      "name": "What are high confidence football predictions?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "High confidence predictions are football tips with statistical probability ratings of 70% or higher, based on comprehensive data analysis including team form, head-to-head records, and tactical matchups."
+      "@type": "WebSite",
+      "name": "Betsassured",
+      "url": "https://www.betsassured.com"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Sportpesa Mega Jackpot Predictions This Week | 17 Games Kenya",
+      "url": "https://www.betsassured.com/sportpesa-mega-jackpot-predictions",
+      "description": "Free Sportpesa Mega Jackpot predictions for all 17 games this week. Expert analysis with probability ratings to help you hit the top prize and bonus brackets. Updated weekly.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Betsassured",
+        "url": "https://www.betsassured.com"
       }
     },
     {
-      "@type": "Question",
-      "name": "How accurate are high confidence predictions?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Our high confidence predictions (90%+ probability) achieve approximately 78% accuracy based on verified historical results. However, no prediction is guaranteed and all betting carries risk."
-      }
+      "@type": "CollectionPage",
+      "name": "Sportpesa Mega Jackpot Predictions",
+      "url": "https://www.betsassured.com/sportpesa-mega-jackpot-predictions",
+      "description": "A weekly collection of Sportpesa Mega Jackpot predictions covering all 17 games with probability ratings and expert analysis."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.betsassured.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Sportpesa Mega Jackpot Predictions",
+          "item": "https://www.betsassured.com/sportpesa-mega-jackpot-predictions"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many games are included in the Sportpesa Mega Jackpot predictions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "All 17 games for the current week's Sportpesa Mega Jackpot are covered with predictions and probability ratings."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are the Sportpesa Mega Jackpot tips free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, all Sportpesa Mega Jackpot predictions on Betsassured are free and updated weekly."
+          }
+        }
+      ]
     }
   ]
 }

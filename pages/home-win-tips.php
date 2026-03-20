@@ -24,23 +24,67 @@ include_once BASE_PATH . "/components/includes/header.inc.php";
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
     {
-      "@type": "Question",
-      "name": "What are high confidence football predictions?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "High confidence predictions are football tips with statistical probability ratings of 70% or higher, based on comprehensive data analysis including team form, head-to-head records, and tactical matchups."
+      "@type": "WebSite",
+      "name": "Betnumbers",
+      "url": "https://www.betnumbers.com"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Home Win Predictions Today | Free 1X2 Football Tips",
+      "url": "https://www.betnumbers.com/home-win-predictions",
+      "description": "Get free home win predictions today. Expert 1X2 football tips with probability ratings and odds analysis updated daily across top leagues worldwide.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Betnumbers",
+        "url": "https://www.betnumbers.com"
       }
     },
     {
-      "@type": "Question",
-      "name": "How accurate are high confidence predictions?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Our high confidence predictions (90%+ probability) achieve approximately 78% accuracy based on verified historical results. However, no prediction is guaranteed and all betting carries risk."
-      }
+      "@type": "CollectionPage",
+      "name": "Home Win Football Predictions",
+      "url": "https://www.betnumbers.com/home-win-predictions",
+      "description": "Daily 1X2 home win football predictions with expert tips and probability ratings."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.betnumbers.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Home Win Predictions",
+          "item": "https://www.betnumbers.com/home-win-predictions"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What are home win predictions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Home win predictions provide tips where the home team is expected to win a football match, based on expert analysis, team form, and match statistics."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are Betnumbers home win tips free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, all home win predictions and 1X2 tips on Betnumbers are free and updated daily."
+          }
+        }
+      ]
     }
   ]
 }

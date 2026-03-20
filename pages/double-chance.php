@@ -24,23 +24,67 @@ include_once BASE_PATH . "/components/includes/header.inc.php";
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
     {
-      "@type": "Question",
-      "name": "What are high confidence football predictions?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "High confidence predictions are football tips with statistical probability ratings of 70% or higher, based on comprehensive data analysis including team form, head-to-head records, and tactical matchups."
+      "@type": "WebSite",
+      "name": "Betsassured",
+      "url": "https://www.betsassured.com"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Double Chance Predictions Today | 1X, X2 & 12 Football Tips",
+      "url": "https://www.betsassured.com/double-chance-predictions",
+      "description": "Free double chance predictions today. Expert 1X, X2 and 12 tips with confidence ratings and odds analysis updated daily across top football leagues worldwide.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Betsassured",
+        "url": "https://www.betsassured.com"
       }
     },
     {
-      "@type": "Question",
-      "name": "How accurate are high confidence predictions?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Our high confidence predictions (90%+ probability) achieve approximately 78% accuracy based on verified historical results. However, no prediction is guaranteed and all betting carries risk."
-      }
+      "@type": "CollectionPage",
+      "name": "Double Chance Football Predictions",
+      "url": "https://www.betsassured.com/double-chance-predictions",
+      "description": "Daily 1X, X2, and 12 double chance football predictions with expert tips and confidence ratings."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.betsassured.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Double Chance Predictions",
+          "item": "https://www.betsassured.com/double-chance-predictions"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What are double chance predictions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Double chance predictions give you two possible outcomes of a football match (1X, X2, or 12) to increase your chances of winning based on expert analysis and match statistics."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are Betsassured double chance tips free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, all double chance predictions and tips on Betsassured are free and updated daily."
+          }
+        }
+      ]
     }
   ]
 }

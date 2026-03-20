@@ -20,22 +20,61 @@ include_once BASE_PATH . "/components/includes/header.inc.php";
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Betsassured",
+  "url": "https://www.betsassured.com",
+  "description": "Get the edge with reliable predictions, daily free tips, and expert insights tailored for consistent football betting success.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.betsassured.com/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What are high confidence football predictions?",
+      "name": "What is Betsassured?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "High confidence predictions are football tips with statistical probability ratings of 70% or higher, based on comprehensive data analysis including team form, head-to-head records, and tactical matchups."
+        "text": "Betsassured is a free football prediction website offering daily tips, expert analysis, and high confidence betting predictions."
       }
     },
     {
       "@type": "Question",
-      "name": "How accurate are high confidence predictions?",
+      "name": "What types of football predictions are available?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Our high confidence predictions (90%+ probability) achieve approximately 78% accuracy based on verified historical results. However, no prediction is guaranteed and all betting carries risk."
+        "text": "We provide predictions for 1X2, BTTS, double chance, jackpot, home win, and must-win team tips across top football leagues worldwide."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are the predictions free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, all predictions and football tips on Betsassured are completely free."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How accurate are Betsassured predictions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Predictions are based on statistical analysis, team form, head-to-head results, and expert insight. While we aim for high accuracy, no prediction is guaranteed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use Betsassured tips for accumulators?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, our tips can be used for single bets as well as accumulators depending on your betting strategy."
       }
     }
   ]

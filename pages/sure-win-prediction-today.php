@@ -24,22 +24,48 @@ include_once BASE_PATH . "/components/includes/header.inc.php";
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Sure Win Prediction Today | Highest Confidence Football Tips",
+  "url": "https://www.betsassured.com/sure-win-prediction-today",
+  "description": "Today's sure win football predictions — high probability tips selected where statistical confidence is strongest. Free daily picks with odds and probability ratings."
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What are high confidence football predictions?",
+      "name": "What is a sure win prediction in football?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "High confidence predictions are football tips with statistical probability ratings of 70% or higher, based on comprehensive data analysis including team form, head-to-head records, and tactical matchups."
+        "text": "A sure win prediction is a football tip with high statistical probability, typically above 70%, based on team form, historical results, and expert analysis."
       }
     },
     {
       "@type": "Question",
-      "name": "How accurate are high confidence predictions?",
+      "name": "How accurate are Betsassured's sure win predictions?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Our high confidence predictions (90%+ probability) achieve approximately 78% accuracy based on verified historical results. However, no prediction is guaranteed and all betting carries risk."
+        "text": "Our sure win predictions use data-driven insights and historical match analysis. While we aim for high accuracy, no prediction can be guaranteed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are these sure win tips free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, all sure win football predictions on Betsassured are completely free for users."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can these predictions be used for accumulators?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, sure win predictions can be used for single bets or combined in accumulators depending on your betting strategy."
       }
     }
   ]
