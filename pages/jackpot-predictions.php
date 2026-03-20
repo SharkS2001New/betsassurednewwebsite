@@ -87,7 +87,7 @@ $totalCountries = count($jackpotCategories);
 .jackpot-hero {
     background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
     color: white;
-    padding: 60px 20px;
+    padding: 20px 20px;
     position: relative;
     overflow: hidden;
 }
@@ -129,7 +129,7 @@ $totalCountries = count($jackpotCategories);
     display: flex;
     justify-content: center;
     gap: 40px;
-    margin-top: 40px;
+    margin-top: 20px;
     flex-wrap: wrap;
 }
 .stat-item { text-align: center; }

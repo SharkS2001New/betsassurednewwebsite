@@ -201,7 +201,7 @@ $hasEnoughMatches = count($uniqueAccumulatorMatches) >= 8;
     background: #fff;
     border: 1px solid #dde3ef;
     border-radius: 12px;
-    padding: 24px;
+    padding: 12px;
     margin-top: 20px;
     margin-bottom: 30px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
@@ -307,13 +307,13 @@ $hasEnoughMatches = count($uniqueAccumulatorMatches) >= 8;
 .accu-home, .accu-away {
     font-weight: 600;
     color: var(--text-1);
-    font-size: 0.9rem;
+    font-size: 12px;
     white-space: nowrap;
 }
 
 .accu-vs {
     color: var(--text-3);
-    font-size: 0.7rem;
+    font-size: 12px;
     font-weight: 500;
     text-transform: uppercase;
     background: var(--surface-2);
@@ -325,7 +325,7 @@ $hasEnoughMatches = count($uniqueAccumulatorMatches) >= 8;
 .accu-market {
     font-weight: 600;
     color: var(--navy-light);
-    font-size: 0.85rem;
+    font-size: 12px;
     white-space: nowrap;
     padding-right: 10px;
 }
@@ -335,7 +335,7 @@ $hasEnoughMatches = count($uniqueAccumulatorMatches) >= 8;
     font-family: var(--font-mono);
     font-weight: 700;
     color: var(--amber);
-    font-size: 1rem;
+    font-size: 12px;
     text-align: right;
     background: rgba(251,191,36,0.1);
     padding: 4px 8px;
@@ -359,14 +359,14 @@ $hasEnoughMatches = count($uniqueAccumulatorMatches) >= 8;
 .accu-total-label {
     grid-column: 2;
     text-align: right;
-    font-size: 0.9rem;
+    font-size: 12px;
     opacity: 0.9;
 }
 
 .accu-total-value {
     text-align: right;
     font-family: var(--font-mono);
-    font-size: 1.1rem;
+    font-size: 12px;
 }
 
 /* Error state */
@@ -387,7 +387,7 @@ $hasEnoughMatches = count($uniqueAccumulatorMatches) >= 8;
 /* Responsive */
 @media (max-width: 900px) {
     .accu-section {
-        padding: 16px;
+        padding: 8px;
     }
     
     .accu-cols {
@@ -422,19 +422,19 @@ $hasEnoughMatches = count($uniqueAccumulatorMatches) >= 8;
     }
     
     .accu-home, .accu-away {
-        font-size: 0.8rem;
+        font-size: 12px;
         max-width: 100px;
         /* overflow: hidden; */
         text-overflow: ellipsis;
     }
     
     .accu-market {
-        font-size: 0.75rem;
+        font-size: 12px;
         padding-right: 5px;
     }
     
     .accu-odd {
-        font-size: 0.9rem;
+        font-size: 12px;
         padding: 3px 6px;
     }
     
@@ -444,11 +444,11 @@ $hasEnoughMatches = count($uniqueAccumulatorMatches) >= 8;
     }
     
     .accu-total-label {
-        font-size: 0.8rem;
+        font-size: 12px;
     }
     
     .accu-total-value {
-        font-size: 1rem;
+        font-size: 12px;
     }
 }
 </style>

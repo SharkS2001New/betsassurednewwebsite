@@ -2,7 +2,7 @@
   <button class="scroll-button" onclick="scrollTabs(-200)">&#x276E;</button>
   
   <div class="scrollable-tabs" id="tabScroll">
-    <a href="/" class="tab-link active">Home</a>
+    <!-- <a href="/" class="tab-link active">Home</a> -->
     <a href="/free-football-betting-tips" class="tab-link">Accumulator Tips</a>
     <a href="/both-teams-to-score" class="tab-link">GG/NO GG</a>
     <a href="/home-win-tips" class="tab-link">Home Win</a>

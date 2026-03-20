@@ -42,23 +42,32 @@
       <div class="footer-social">
         <h3 class="footer-title">Join Us On</h3>
         
-        <div class="social-links">
-          <a href="https://t.me/betsassuredkenya" 
-             target="_blank" 
-             rel="noopener noreferrer" 
-             aria-label="Telegram"
-             class="social-link">
-            <i class="bi bi-telegram"></i>
+          <span class="font-weight-bold footerLinks mb-5">Connect With Us</span>
+          <br><br>
+          <!-- Facebook -->
+          <a class="btn btn-outline-light btn-floating m-1" role="button" aria-label="Facebook"
+              href="https://www.facebook.com/profile.php?id=100094600476269" target="_blank" rel="noopener noreferrer">
+              <i class="bi bi-facebook"></i>
+          </a>
+
+          <!-- Twitter -->
+          <a class="btn btn-outline-light btn-floating m-1" role="button" aria-label="Twitter"
+              href="https://twitter.com/FWT1x2" target="_blank" rel="noopener noreferrer">
+              <i class="bi bi-twitter"></i>
+          </a>
+
+          <!-- Instagram -->
+          <a class="btn btn-outline-light btn-floating m-1" role="button" aria-label="Instagram"
+              href="https://instagram.com/freewinningtips1x2?utm_source=qr&igshid=MzNlNGNkZWQ4Mg%3D%3D" target="_blank" rel="noopener noreferrer">
+              <i class="bi bi-instagram"></i>
+          </a>
+
+            <!-- Instagram -->
+          <a class="btn btn-outline-light btn-floating m-1" role="button" aria-label="Instagram"
+              href="https://t.me/betsassuredkenya" target="_blank" rel="noopener noreferrer">
+              <i class="bi bi-telegram"></i>
           </a>
         </div>
-
-        <p class="telegram-text">
-          Telegram Channel: 
-          <a href="https://t.me/betsassuredkenya" target="_blank" rel="noopener">
-            Join BetAssured on Telegram
-          </a>
-        </p>
-      </div>
     </div>
 
     <div class="footer-divider"></div>
