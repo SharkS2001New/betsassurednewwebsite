@@ -9,6 +9,13 @@ include_once __DIR__ . "/../components/shared/jackpotRoutes.php";
 
 use App\Facades\Router; 
 
+$requestUri = $_SERVER['REQUEST_URI'];
+
+// If request starts with /api, stop PHP routing
+if (strpos($requestUri, '/api') === 0) {
+    return false; // Let server / ingress handle it
+}
+
 // Initialize Routing class
 $router = new Router();
 
