@@ -1,46 +1,118 @@
 <?php
-$metaTags= <<<HTML
+$metaTags = <<<HTML
 <!-- Primary Meta Tags -->
-<title>Sunpel: Best Prediction Site - Free Football Tips</title>
-<meta name="title" content="Accurate Football Predictions & Sure Tips">
-<meta name="description" content="Get the edge with reliable football predictions, daily free tips, and expert insights from Sunpel for consistent betting success.">
-<meta name="keywords" content="sunpel predictions, free football tips, daily soccer tips, accurate football predictions, best football tips site, sure tips, football betting insights">
+<title>Sunpel Football Predictions Today | Free Daily Tips & Expert Analysis</title>
+<meta name="title" content="Sunpel Football Predictions Today | Free Daily Tips & Expert Analysis">
+<meta name="description" content="Sunpel brings you free football predictions today with expert daily tips, 1X2 picks, double chance selections, BTTS, and over/under insights across top leagues worldwide.">
+<meta name="keywords" content="sunpel predictions, sunpel football tips, free football predictions today, daily soccer tips, 1x2 football tips, BTTS predictions, over under football tips, football betting tips today, best prediction site">
 
 <!-- Open Graph -->
-<meta property="og:title" content="Sunpel - Accurate Prediction Site">
-<meta property="og:description" content="Sunpel provides free football predictions daily from experienced tipsters.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sunpel Football Predictions Today | Free Daily Tips & Expert Analysis">
+<meta property="og:description" content="Sunpel brings you free football predictions today with expert daily tips, 1X2 picks, double chance selections, BTTS, and over/under insights across top leagues worldwide.">
+<meta property="og:url" content="https://www.sunpel.com/">
+<meta property="og:site_name" content="Sunpel">
 
 <!-- Twitter -->
-<meta property="twitter:title" content="Sunpel - Accurate Prediction Site">
-<meta property="twitter:description" content="Sunpel provides free football predictions daily from experienced tipsters.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sunpel Football Predictions Today | Free Daily Tips & Expert Analysis">
+<meta name="twitter:description" content="Sunpel brings you free football predictions today with expert daily tips, 1X2 picks, double chance selections, BTTS, and over/under insights across top leagues worldwide.">
 HTML;
 
 include_once BASE_PATH . "/components/includes/header.inc.php";
 ?>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
+
     {
-      "@type": "Question",
-      "name": "What are high confidence football predictions?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "High confidence predictions are football tips with statistical probability ratings of 70% or higher, based on comprehensive data analysis including team form, head-to-head records, and tactical matchups."
+      "@type": "WebSite",
+      "name": "Sunpel",
+      "url": "https://www.sunpel.com/",
+      "description": "Free football predictions today, expert daily tips, 1X2 picks, BTTS, and over/under insights across top leagues worldwide.",
+      "inLanguage": "en",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.sunpel.com/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
       }
     },
+
     {
-      "@type": "Question",
-      "name": "How accurate are high confidence predictions?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Our high confidence predictions (90%+ probability) achieve approximately 78% accuracy based on verified historical results. However, no prediction is guaranteed and all betting carries risk."
+      "@type": "Organization",
+      "name": "Sunpel",
+      "url": "https://www.sunpel.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.sunpel.com/logo.png"
       }
+    },
+
+    {
+      "@type": "WebPage",
+      "name": "Sunpel Football Predictions Today",
+      "url": "https://www.sunpel.com/",
+      "description": "Get free football predictions today from Sunpel including 1X2 tips, double chance picks, BTTS, and over/under selections with probability ratings and match analysis.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Sunpel",
+        "url": "https://www.sunpel.com/"
+      },
+      "inLanguage": "en"
+    },
+
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What football predictions does Sunpel provide today?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sunpel provides free daily football predictions including 1X2, BTTS, double chance, over/under, and jackpot tips across top leagues like the Premier League, La Liga, Serie A, Bundesliga, and more."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How accurate are Sunpel football predictions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sunpel predictions are based on statistical analysis, team form, head-to-head records, and probability ratings. While we aim for high accuracy, no football prediction is ever guaranteed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are high confidence football predictions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "High confidence predictions are tips supported by strong statistical indicators including team form, head-to-head performance, and probability analysis showing a higher likelihood of a specific outcome."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are Sunpel football tips free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. All daily football predictions and tips on Sunpel are completely free to access."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How often are Sunpel predictions updated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Predictions are updated daily to reflect the latest fixtures, team news, injuries, and statistical data from leagues worldwide."
+          }
+        }
+      ]
     }
+
   ]
 }
 </script>
+
 <?php
 include_once BASE_PATH . "/components/shared/preloader.shared.php";
 include_once BASE_PATH . "/components/shared/DateTimeToUsersTimezone.shared.php";
@@ -52,7 +124,7 @@ include_once BASE_PATH . "/components/shared/DetermineWinningOrLost.shared.php";
 include_once BASE_PATH . "/components/includes/navbar.inc.php";
 
 $Parsedown = new Parsedown();
-$markdownContent = file_get_contents(BASE_PATH.'/components/seo-content/sunpel-tips.content.md');
+$markdownContent = file_get_contents(BASE_PATH . '/components/seo-content/sunpel-tips.content.md');
 $htmlContent = $Parsedown->text($markdownContent);
 
 function percentToInt($percent) {
@@ -60,13 +132,13 @@ function percentToInt($percent) {
 }
 
 // API fetch
-$apiUrl = "https://api.pitchpredictions.com/api/fetch_homepage_preds_match_tips";
-$token = "R9TxV3PbOEu7qZnJKgydC5LmX2";
+$apiUrl      = "https://api.pitchpredictions.com/api/fetch_homepage_preds_match_tips";
+$token       = "R9TxV3PbOEu7qZnJKgydC5LmX2";
 $currentDate = date('Y-m-d');
 
 $tipsData = [];
-$error = null;
-$empty = false;
+$error    = null;
+$empty    = false;
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $apiUrl . "?fixture_date=" . $currentDate);
@@ -86,7 +158,7 @@ if (curl_errno($ch)) {
     $data = json_decode($response, true);
     if (isset($data['data']) && is_array($data['data'])) {
         $tipsData = $data['data'];
-        $empty = count($tipsData) === 0;
+        $empty    = count($tipsData) === 0;
     } else {
         $error = 'Invalid data format received';
     }
@@ -95,16 +167,24 @@ curl_close($ch);
 ?>
 
 <main class="container">
-    <h1 class="page-hero-title">Football Tips Today | Expert Match Predictions and Betting Tips</h1>
+
+    <h1 class="page-hero-title">Sunpel Football Predictions Today</h1>
 
     <?php include_once BASE_PATH . "/components/includes/scrollable-nav.inc.php"; ?>
 
     <?php include_once BASE_PATH . "/components/shared/popular-tips.shared.php"; ?>
 
     <div class="section-title-bar">
-        <h2>Today's Predictions</h2>
+        <h2>Today's Football Predictions</h2>
         <span class="today-date-tag"><?php echo date('D, d M Y'); ?></span>
     </div>
+
+    <p style="color: #4b5563; margin-bottom: 20px;">
+        Browse today's free <strong>Sunpel football predictions</strong> covering <strong>1X2 tips</strong>,
+        <strong>double chance picks</strong>, <strong>BTTS</strong>, and <strong>over/under selections</strong>
+        across top leagues worldwide. Every match includes probability ratings and odds to support
+        smarter betting decisions.
+    </p>
 
     <!-- Column headers -->
     <div class="preds-table-header">
@@ -127,7 +207,7 @@ curl_close($ch);
             </div>
         <?php else: ?>
 
-       <?php foreach ($tipsData as $tip):
+        <?php foreach ($tipsData as $tip):
 
             /* ---- Prediction logic ---- */
             $fixturesAverage = ComputeFixtureAverage(
@@ -215,7 +295,7 @@ curl_close($ch);
                         } elseif (in_array($predictionValue, ['1', 'X', '2'])) {
                             foreach ($oddsData as $market) {
                                 if (($market['name'] ?? '') === "Match Winner" && !empty($market['values'])) {
-                                    $map = ["1" => "Home", "X" => "Draw", "2" => "Away"];
+                                    $map   = ["1" => "Home", "X" => "Draw", "2" => "Away"];
                                     $label = $map[$predictionValue] ?? '';
                                     foreach ($market['values'] as $bet) {
                                         if (($bet['value'] ?? '') === $label) {
@@ -228,7 +308,7 @@ curl_close($ch);
                         } elseif (in_array($predictionValue, ['1X', 'X2', '12'])) {
                             foreach ($oddsData as $market) {
                                 if (($market['name'] ?? '') === "Double Chance" && !empty($market['values'])) {
-                                    $map = ["1X" => "Home/Draw", "12" => "Home/Away", "X2" => "Draw/Away"];
+                                    $map   = ["1X" => "Home/Draw", "12" => "Home/Away", "X2" => "Draw/Away"];
                                     $label = $map[$predictionValue] ?? '';
                                     foreach ($market['values'] as $bet) {
                                         if (($bet['value'] ?? '') === $label) {
@@ -247,7 +327,7 @@ curl_close($ch);
             $homeScore     = $tip['goals_home'] ?? null;
             $awayScore     = $tip['goals_away'] ?? null;
             $scoreDisplay  = '—';
-            $matchStatus   = $tip["status_short"] ?? null;
+            $matchStatus   = $tip['status_short'] ?? null;
             $winningStatus = '';
 
             if ($homeScore !== null && $awayScore !== null && $homeScore !== '' && $awayScore !== '') {
@@ -260,7 +340,6 @@ curl_close($ch);
             $drawPercent = percentToInt($tip['percent_pred_draw'] ?? '0');
             $awayPercent = percentToInt($tip['percent_pred_away'] ?? '0');
 
-            /* SVG ring circumference r=17, circ≈106.81 */
             $circ     = 106.81;
             $dashHome = round(($homePercent / 100) * $circ, 2);
             $dashDraw = round(($drawPercent / 100) * $circ, 2);
@@ -279,16 +358,24 @@ curl_close($ch);
             $formattedTime = '—';
             $formattedDate = '';
             if (!empty($tip['date'])) {
-                $formattedTime = DateTimeToUsersTimezone($tip['date']);
+                $dateTime = DateTimeToUsersTimezone($tip['date']);
+                if (strpos($dateTime, ' ') !== false) {
+                    $parts         = explode(' ', $dateTime, 2);
+                    $formattedDate = $parts[0];
+                    $formattedTime = $parts[1];
+                } else {
+                    $formattedTime = $dateTime;
+                }
             }
 
-            $hasScore = ($homeScore !== null && $awayScore !== null && $homeScore !== '' && $awayScore !== '');
-            $statusShort = htmlspecialchars($tip['status_short'] ?? '');   // e.g. "FT", "HT", "1H", "NS"
+            $hasScore    = ($homeScore !== null && $awayScore !== null && $homeScore !== '' && $awayScore !== '');
+            $statusShort = htmlspecialchars($tip['status_short'] ?? '');
         ?>
 
         <!-- SINGLE MATCH CARD FOR BOTH DESKTOP AND MOBILE -->
         <div class="match-card">
-            <!-- Time Column (hidden on mobile via CSS) -->
+
+            <!-- Time Column -->
             <div class="mc-time">
                 <span class="time-val"><?php echo htmlspecialchars($formattedTime); ?></span>
                 <?php if ($formattedDate): ?>
@@ -296,50 +383,48 @@ curl_close($ch);
                 <?php endif; ?>
             </div>
 
-            <!-- Match Column - Desktop shows VS, Mobile shows score -->
+            <!-- Match Column -->
             <div class="mc-match">
                 <span class="league-tag">
                     <?php echo htmlspecialchars($leagueCountry ? $leagueCountry . ' · ' . $leagueFull : $leagueFull); ?>
                 </span>
                 <div class="teams-inline">
-                    <!-- Home team section - fixed position on left -->
+
+                    <!-- Home team -->
                     <div class="team-home">
                         <div class="team-crest home-crest"><?php echo $homeInitial; ?></div>
                         <span class="team-name-text home-name"><?php echo htmlspecialchars($tip['home_team_name'] ?? ''); ?></span>
                     </div>
-                    
-                    <!-- VS badge - centered -->
+
+                    <!-- VS / Score centre -->
                     <div class="vs-container">
                         <?php if ($hasScore && $statusShort !== '' && $statusShort !== 'NS'): ?>
-                            <!-- Show score on mobile (VS hidden on mobile via CSS) -->    
                             <div class="score-stack">
                                 <?php if ($winningStatus !== ''): ?>
                                     <span class="result-badge-small mb-2 <?php echo ($winningStatus === 'Won') ? 'result-won' : 'result-lost'; ?>">
                                         <?php echo $winningStatus; ?>
                                     </span>
                                 <?php endif; ?>
-
                                 <span class="vs-badge vs-badge--score">
                                     <?php echo htmlspecialchars($homeScore . ' - ' . $awayScore); ?>
                                 </span>
                             </div>
-                            <!-- VS badge (hidden on mobile via CSS) -->
                             <span class="vs-badge vs-badge--desktop" style="text-align:center;">VS</span>
                         <?php else: ?>
-                            <!-- No score yet, show VS and time -->
                             <span class="vs-badge vs-badge--desktop" style="text-align:center;">VS</span>
                             <span class="vs-badge vs-badge--score"><?php echo htmlspecialchars($formattedTime); ?></span>
                         <?php endif; ?>
                     </div>
-                    
-                    <!-- Away team section - fixed position on right -->
-                     <div class="team-home">
+
+                    <!-- Away team -->
+                    <div class="team-home">
                         <div class="team-crest home-crest"><?php echo $awayInitial; ?></div>
                         <span class="team-name-text home-name"><?php echo htmlspecialchars($tip['away_team_name'] ?? ''); ?></span>
                     </div>
+
                 </div>
             </div>
-            
+
             <!-- Prediction Column -->
             <div class="mc-prediction">
                 <span class="pred-chip <?php echo $chipClass; ?>">
@@ -392,16 +477,17 @@ curl_close($ch);
                 <div class="odds-label">Odds</div>
             </div>
 
-            <!-- Col 6: Score -->
+            <!-- Score Column -->
             <div class="mc-score">
                 <div class="score-status"><?php echo $matchStatus; ?></div>
                 <div class="score-display"><?php echo $scoreDisplay; ?></div>
-                 <?php if ($winningStatus !== ''): ?>
+                <?php if ($winningStatus !== ''): ?>
                 <span class="result-badge-small <?php echo ($winningStatus === 'Won') ? 'result-won' : 'result-lost'; ?>">
                     <?php echo $winningStatus; ?>
                 </span>
                 <?php endif; ?>
             </div>
+
         </div>
         <?php endforeach; ?>
 
