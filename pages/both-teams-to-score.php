@@ -145,7 +145,7 @@ if (curl_errno($ch)) {
         $error = 'Invalid data format received';
     }
 }
-curl_close($ch);
+
 
 /**
  * Calculate BTTS confidence based on multiple factors including odds

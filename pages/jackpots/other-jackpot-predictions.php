@@ -69,7 +69,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, [
 ]);
 
 $response = curl_exec($ch);
-curl_close($ch);
+
 
 // Initialize variables
 $predictions = [];

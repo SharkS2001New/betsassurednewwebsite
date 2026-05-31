@@ -158,7 +158,7 @@ if (curl_errno($ch)) {
         $error = 'Invalid data format received';
     }
 }
-curl_close($ch);
+
 ?>
 
 <main class="container">

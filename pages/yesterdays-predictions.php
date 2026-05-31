@@ -121,7 +121,7 @@ if (curl_errno($ch)) {
         $error = 'Invalid data format received';
     }
 }
-curl_close($ch);
+
 ?>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">

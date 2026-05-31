@@ -121,7 +121,7 @@ if (curl_errno($ch)) {
         $error = 'Invalid data format received';
     }
 }
-curl_close($ch);
+
 
 /**
  * Get Over/Under 1.5 prediction based on average goals

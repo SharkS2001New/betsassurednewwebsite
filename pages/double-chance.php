@@ -139,7 +139,7 @@ if (curl_errno($ch)) {
         $error = 'Invalid data format received';
     }
 }
-curl_close($ch);
+
 
 /**
  * Get Double Chance prediction based on percentages

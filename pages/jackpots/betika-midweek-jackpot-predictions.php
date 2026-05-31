@@ -86,7 +86,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, [
     "Origin: https://www.betsassured.com"
 ]);
 $response = curl_exec($ch);
-curl_close($ch);
+
 
 $predictions = [];
 // DateTime objects for stats bar (kept as DateTime, not pre-formatted strings)
