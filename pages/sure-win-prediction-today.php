@@ -21,56 +21,9 @@ HTML;
 
 include_once BASE_PATH . "/components/includes/header.inc.php";
 ?>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Sure Win Prediction Today | Highest Confidence Football Tips",
-  "url": "https://www.betsassured.com/sure-win-prediction-today",
-  "description": "Today's sure win football predictions — high probability tips selected where statistical confidence is strongest. Free daily picks with odds and probability ratings."
-}
-</script>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is a sure win prediction in football?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A sure win prediction is a football tip with high statistical probability, typically above 70%, based on team form, historical results, and expert analysis."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How accurate are Betsassured's sure win predictions?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Our sure win predictions use data-driven insights and historical match analysis. While we aim for high accuracy, no prediction can be guaranteed."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Are these sure win tips free?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, all sure win football predictions on Betsassured are completely free for users."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can these predictions be used for accumulators?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, sure win predictions can be used for single bets or combined in accumulators depending on your betting strategy."
-      }
-    }
-  ]
-}
-</script>
+
+
 <?php
 include_once BASE_PATH . "/components/shared/preloader.shared.php";
 include_once BASE_PATH . "/components/shared/DateTimeToUsersTimezone.shared.php";
@@ -115,7 +68,7 @@ if (curl_errno($ch)) {
 } else {
     $data = json_decode($response, true);
     if (isset($data['data']) && is_array($data['data'])) {
-        $tipsData = $data['data'];
+        $tipsData = normalizePitchPredictionsResponse($data['data']);
         $empty    = count($tipsData) === 0;
     } else {
         $error = 'Invalid data format received';

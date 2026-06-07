@@ -21,93 +21,7 @@ HTML;
 
 include_once BASE_PATH . "/components/includes/header.inc.php";
 ?>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
 
-    {
-      "@type": "WebSite",
-      "name": "BetAssured",
-      "url": "https://www.betassured.com/",
-      "description": "Free football betting tips, daily predictions, and expert match analysis to help you make smarter betting decisions.",
-      "inLanguage": "en",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://www.betassured.com/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    },
-
-    {
-      "@type": "Organization",
-      "name": "BetAssured",
-      "url": "https://www.betassured.com/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.betassured.com/betsassured.png"
-      }
-    },
-
-    {
-      "@type": "WebPage",
-      "name": "Free Football Betting Tips Today",
-      "url": "https://www.betassured.com/free-football-betting-tips",
-      "description": "Get free football betting tips today including 1X2 predictions, over/under tips, and expert match analysis with probability insights.",
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": "BetAssured",
-        "url": "https://www.betassured.com/"
-      },
-      "inLanguage": "en"
-    },
-
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-
-        {
-          "@type": "Question",
-          "name": "What are football betting tips?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Football betting tips are expert predictions based on statistics, team form, and historical performance to help users make informed betting decisions."
-          }
-        },
-
-        {
-          "@type": "Question",
-          "name": "What are high confidence football tips?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "High confidence tips are predictions supported by strong statistical indicators such as team form, head-to-head data, and probability analysis suggesting a higher chance of success."
-          }
-        },
-
-        {
-          "@type": "Question",
-          "name": "Are betting tips guaranteed to win?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. Betting tips are based on analysis and probability, but no outcome is guaranteed. Always bet responsibly."
-          }
-        },
-
-        {
-          "@type": "Question",
-          "name": "How often are football predictions updated?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Football predictions are updated daily to reflect the latest fixtures, team news, and statistical insights from leagues worldwide."
-          }
-        }
-
-      ]
-    }
-
-  ]
-}
-</script>
 <?php
 include_once BASE_PATH . "/components/shared/preloader.shared.php";
 include_once BASE_PATH . "/components/shared/DateTimeToUsersTimezone.shared.php";
@@ -152,7 +66,7 @@ if (curl_errno($ch)) {
 } else {
     $data = json_decode($response, true);
     if (isset($data['data']) && is_array($data['data'])) {
-        $tipsData = $data['data'];
+        $tipsData = normalizePitchPredictionsResponse($data['data']);
         $empty = count($tipsData) === 0;
     } else {
         $error = 'Invalid data format received';

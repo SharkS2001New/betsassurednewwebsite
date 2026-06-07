@@ -22,114 +22,7 @@ HTML;
 include_once BASE_PATH . "/components/includes/header.inc.php";
 ?>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
 
-    {
-      "@type": "WebSite",
-      "name": "Cheerplex",
-      "url": "https://www.cheerplex.com/",
-      "description": "Free direct win football predictions today, expert daily tips, 1X2 picks, and over/under insights across top leagues worldwide.",
-      "inLanguage": "en",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://www.cheerplex.com/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    },
-
-    {
-      "@type": "Organization",
-      "name": "Cheerplex",
-      "url": "https://www.cheerplex.com/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.cheerplex.com/logo.png"
-      }
-    },
-
-    {
-      "@type": "WebPage",
-      "name": "Cheerplex Direct Win Predictions Today",
-      "url": "https://www.cheerplex.com/",
-      "description": "Get free direct win football predictions today from Cheerplex including 1X2 tips, home win picks, away win selections, and over/under goals tips with probability ratings and match analysis.",
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": "Cheerplex",
-        "url": "https://www.cheerplex.com/"
-      },
-      "inLanguage": "en"
-    },
-
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.cheerplex.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Direct Win Predictions",
-          "item": "https://www.cheerplex.com/direct-win-predictions"
-        }
-      ]
-    },
-
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What are direct win predictions?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Direct win predictions indicate which team is statistically most likely to win a football match outright, based on team form, head-to-head records, home and away performance, and probability analysis."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What football predictions does Cheerplex provide today?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Cheerplex provides free daily football predictions including direct win tips, 1X2 picks, home win and away win selections, double chance tips, and over/under goals predictions across top leagues like the Premier League, La Liga, Serie A, and Bundesliga."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How accurate are Cheerplex predictions?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Cheerplex predictions are based on statistical analysis, team form, head-to-head records, and probability ratings. While we aim for high accuracy, no football prediction is ever guaranteed."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Are Cheerplex football tips free?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. All direct win predictions and daily football tips on Cheerplex are completely free to access."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How often are Cheerplex predictions updated?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Predictions are updated daily to reflect the latest fixtures, team news, injuries, and statistical data from leagues worldwide."
-          }
-        }
-      ]
-    }
-
-  ]
-}
-</script>
 
 <?php
 include_once BASE_PATH . "/components/shared/preloader.shared.php";
@@ -175,7 +68,7 @@ if (curl_errno($ch)) {
 } else {
     $data = json_decode($response, true);
     if (isset($data['data']) && is_array($data['data'])) {
-        $tipsData = $data['data'];
+        $tipsData = normalizePitchPredictionsResponse($data['data']);
         $empty    = count($tipsData) === 0;
     } else {
         $error = 'Invalid data format received';

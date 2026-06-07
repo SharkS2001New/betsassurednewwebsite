@@ -21,74 +21,7 @@ HTML;
 
 include_once BASE_PATH . "/components/includes/header.inc.php";
 ?>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "name": "Betnumbers",
-      "url": "https://www.betnumbers.com"
-    },
-    {
-      "@type": "WebPage",
-      "name": "Home Win Predictions Today | Free 1X2 Football Tips",
-      "url": "https://www.betnumbers.com/home-win-predictions",
-      "description": "Get free home win predictions today. Expert 1X2 football tips with probability ratings and odds analysis updated daily across top leagues worldwide.",
-      "inLanguage": "en",
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": "Betnumbers",
-        "url": "https://www.betnumbers.com"
-      }
-    },
-    {
-      "@type": "CollectionPage",
-      "name": "Home Win Football Predictions",
-      "url": "https://www.betnumbers.com/home-win-predictions",
-      "description": "Daily 1X2 home win football predictions with expert tips and probability ratings."
-    },
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.betnumbers.com"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Home Win Predictions",
-          "item": "https://www.betnumbers.com/home-win-predictions"
-        }
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What are home win predictions?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Home win predictions provide tips where the home team is expected to win a football match, based on expert analysis, team form, and match statistics."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Are Betnumbers home win tips free?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, all home win predictions and 1X2 tips on Betnumbers are free and updated daily."
-          }
-        }
-      ]
-    }
-  ]
-}
-</script>
+
 <?php
 include_once BASE_PATH . "/components/shared/preloader.shared.php";
 include_once BASE_PATH . "/components/shared/DateTimeToUsersTimezone.shared.php";
@@ -133,7 +66,7 @@ if (curl_errno($ch)) {
 } else {
     $data = json_decode($response, true);
     if (isset($data['data']) && is_array($data['data'])) {
-        $tipsData = $data['data'];
+        $tipsData = normalizePitchPredictionsResponse($data['data']);
         $empty = count($tipsData) === 0;
     } else {
         $error = 'Invalid data format received';

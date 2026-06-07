@@ -21,56 +21,9 @@ HTML;
 
 include_once BASE_PATH . "/components/includes/header.inc.php";
 ?>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Over Under 1.5 Goals Predictions Today | Total Goals Tips",
-  "url": "https://www.betsassured.com/over-under-1-5-goals",
-  "description": "Free Over/Under 1.5 goals predictions today. Get expert total goals tips with confidence ratings and odds analysis updated daily across top football leagues worldwide."
-}
-</script>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What are Over/Under 1.5 goals predictions?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Over/Under 1.5 goals predictions indicate whether a football match will have more or less than 1.5 total goals scored, based on statistical analysis and team form."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How accurate are these predictions?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Our predictions use historical data, team form, and expert insights to provide high-confidence tips. While accuracy is high, no prediction is guaranteed."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Are Over/Under 1.5 predictions free?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, all Over/Under 1.5 goals predictions and total goals tips on Betsassured are completely free."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use these predictions for accumulators?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, these tips can be used for single bets or combined in accumulators depending on your strategy."
-      }
-    }
-  ]
-}
-</script>
+
+
 <?php
 include_once BASE_PATH . "/components/shared/preloader.shared.php";
 include_once BASE_PATH . "/components/shared/DateTimeToUsersTimezone.shared.php";
@@ -115,7 +68,7 @@ if (curl_errno($ch)) {
 } else {
     $data = json_decode($response, true);
     if (isset($data['data']) && is_array($data['data'])) {
-        $tipsData = $data['data'];
+        $tipsData = normalizePitchPredictionsResponse($data['data']);
         $empty = count($tipsData) === 0;
     } else {
         $error = 'Invalid data format received';

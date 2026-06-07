@@ -21,93 +21,7 @@ HTML;
 
 include_once BASE_PATH . "/components/includes/header.inc.php";
 ?>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
 
-    {
-      "@type": "WebSite",
-      "name": "BetAssured",
-      "url": "https://www.betassured.com/",
-      "description": "All football predictions today, free daily soccer tips, and expert betting insights across top leagues worldwide.",
-      "inLanguage": "en",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://www.betassured.com/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    },
-
-    {
-      "@type": "Organization",
-      "name": "BetAssured",
-      "url": "https://www.betassured.com/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.betassured.com/betsassured.png"
-      }
-    },
-
-    {
-      "@type": "WebPage",
-      "name": "All Football Predictions Today",
-      "url": "https://www.betassured.com/all-predictions",
-      "description": "Explore all football predictions today including 1X2 tips, over/under predictions, and expert match analysis with probability insights.",
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": "BetAssured",
-        "url": "https://www.betassured.com/"
-      },
-      "inLanguage": "en"
-    },
-
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-
-        {
-          "@type": "Question",
-          "name": "What are football predictions?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Football predictions are expert analyses of matches based on statistics, team form, and historical data to estimate possible outcomes."
-          }
-        },
-
-        {
-          "@type": "Question",
-          "name": "What are high confidence football predictions?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "High confidence predictions are tips supported by strong statistical indicators such as team form, head-to-head performance, and probability analysis suggesting a higher likelihood of success."
-          }
-        },
-
-        {
-          "@type": "Question",
-          "name": "Are football predictions guaranteed?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. Football predictions are based on probability and analysis, but outcomes are never guaranteed. Betting always involves risk."
-          }
-        },
-
-        {
-          "@type": "Question",
-          "name": "How often are predictions updated?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Predictions are updated daily to reflect the latest fixtures, team news, and statistical insights from leagues worldwide."
-          }
-        }
-
-      ]
-    }
-
-  ]
-}
-</script>
 <?php
 include_once BASE_PATH . "/components/shared/preloader.shared.php";
 include_once BASE_PATH . "/components/shared/DateTimeToUsersTimezone.shared.php";
@@ -152,7 +66,7 @@ if (curl_errno($ch)) {
 } else {
     $data = json_decode($response, true);
     if (isset($data['data']) && is_array($data['data'])) {
-        $tipsData = $data['data'];
+        $tipsData = normalizePitchPredictionsResponse($data['data']);
         $empty = count($tipsData) === 0;
     } else {
         $error = 'Invalid data format received';

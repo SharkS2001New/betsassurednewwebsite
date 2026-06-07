@@ -22,96 +22,7 @@ HTML;
 include_once BASE_PATH . "/components/includes/header.inc.php";
 ?>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
 
-    {
-      "@type": "WebSite",
-      "name": "Cheerplex",
-      "url": "https://www.cheerplex.com/",
-      "description": "Free football predictions today, expert daily tips, 1X2 picks, BTTS, and over/under insights across top leagues worldwide.",
-      "inLanguage": "en",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://www.cheerplex.com/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    },
-
-    {
-      "@type": "Organization",
-      "name": "Cheerplex",
-      "url": "https://www.cheerplex.com/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.cheerplex.com/logo.png"
-      }
-    },
-
-    {
-      "@type": "WebPage",
-      "name": "Cheerplex Football Predictions Today",
-      "url": "https://www.cheerplex.com/",
-      "description": "Get free football predictions today from Cheerplex including 1X2 tips, double chance picks, BTTS, and over/under selections with probability ratings and expert match analysis.",
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": "Cheerplex",
-        "url": "https://www.cheerplex.com/"
-      },
-      "inLanguage": "en"
-    },
-
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What football predictions does Cheerplex provide today?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Cheerplex provides free daily football predictions including 1X2, BTTS, double chance, over/under goals, and home and away win tips across top leagues like the Premier League, La Liga, Serie A, Bundesliga, and more."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How accurate are Cheerplex football predictions?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Cheerplex predictions are based on statistical analysis, team form, head-to-head records, and probability ratings. While we aim for high accuracy, no football prediction is ever guaranteed."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Are Cheerplex football tips free?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. All daily football predictions and tips on Cheerplex are completely free to access."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I use Cheerplex tips for accumulators?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Cheerplex tips can be used for both single bets and accumulators depending on your betting strategy and risk preference."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How often are Cheerplex predictions updated?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Predictions are updated daily to reflect the latest fixtures, team news, injuries, and statistical data from leagues worldwide."
-          }
-        }
-      ]
-    }
-
-  ]
-}
-</script>
 
 <?php
 include_once BASE_PATH . "/components/shared/preloader.shared.php";
@@ -157,7 +68,7 @@ if (curl_errno($ch)) {
 } else {
     $data = json_decode($response, true);
     if (isset($data['data']) && is_array($data['data'])) {
-        $tipsData = $data['data'];
+        $tipsData = normalizePitchPredictionsResponse($data['data']);
         $empty    = count($tipsData) === 0;
     } else {
         $error = 'Invalid data format received';

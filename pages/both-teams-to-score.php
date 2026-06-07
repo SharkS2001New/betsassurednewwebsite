@@ -21,80 +21,7 @@ HTML;
 
 include_once BASE_PATH . "/components/includes/header.inc.php";
 ?>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
 
-    {
-      "@type": "WebSite",
-      "name": "Betnumbers",
-      "url": "https://www.betnumbers.com"
-    },
-
-    {
-      "@type": "WebPage",
-      "name": "BTTS Predictions Today | Both Teams to Score Tips & Analysis",
-      "url": "https://www.betnumbers.com/btts-predictions",
-      "description": "Free BTTS predictions today with confidence ratings, odds, and expert analysis. Both teams to score tips updated daily across Premier League, La Liga, Bundesliga and more.",
-      "inLanguage": "en",
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": "Betnumbers",
-        "url": "https://www.betnumbers.com"
-      }
-    },
-
-    {
-      "@type": "CollectionPage",
-      "name": "BTTS Predictions Today",
-      "url": "https://www.betnumbers.com/btts-predictions",
-      "description": "Daily both teams to score predictions with probabilities, odds and expert insights across top football leagues."
-    },
-
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.betnumbers.com"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "BTTS Predictions",
-          "item": "https://www.betnumbers.com/btts-predictions"
-        }
-      ]
-    },
-
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What does BTTS mean in football betting?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "BTTS stands for Both Teams To Score. It means both the home and away teams must score at least one goal during the match."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How accurate are BTTS predictions?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "BTTS predictions are based on statistical analysis such as team scoring trends, defensive records, and head-to-head data. While accuracy is high, no prediction is guaranteed."
-          }
-        }
-      ]
-    }
-
-  ]
-}
-</script>
 <?php
 include_once BASE_PATH . "/components/shared/preloader.shared.php";
 include_once BASE_PATH . "/components/shared/DateTimeToUsersTimezone.shared.php";
@@ -139,7 +66,7 @@ if (curl_errno($ch)) {
 } else {
     $data = json_decode($response, true);
     if (isset($data['data']) && is_array($data['data'])) {
-        $tipsData = $data['data'];
+        $tipsData = normalizePitchPredictionsResponse($data['data']);
         $empty = count($tipsData) === 0;
     } else {
         $error = 'Invalid data format received';

@@ -21,74 +21,7 @@ HTML;
 
 include_once BASE_PATH . "/components/includes/header.inc.php";
 ?>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "name": "Betsassured",
-      "url": "https://www.betsassured.com"
-    },
-    {
-      "@type": "WebPage",
-      "name": "Must Win Teams Today | High Confidence Football Predictions",
-      "url": "https://www.betsassured.com/must-win-teams-today",
-      "description": "Free must win team predictions today. High confidence football tips where one side has a dominant probability advantage — ideal for singles and accumulators.",
-      "inLanguage": "en",
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": "Betsassured",
-        "url": "https://www.betsassured.com"
-      }
-    },
-    {
-      "@type": "CollectionPage",
-      "name": "Must Win Teams Predictions",
-      "url": "https://www.betsassured.com/must-win-teams-today",
-      "description": "Daily must win football predictions highlighting teams with the highest probability of winning, perfect for singles and accumulators."
-    },
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.betsassured.com"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Must Win Teams Today",
-          "item": "https://www.betsassured.com/must-win-teams-today"
-        }
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What are must win team predictions?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Must win team predictions highlight football matches where one side has a dominant probability advantage, making them ideal for singles and accumulators."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Are Betsassured must win tips free?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, all must win team predictions on Betsassured are free and updated daily for high confidence betting."
-          }
-        }
-      ]
-    }
-  ]
-}
-</script>
+
 <?php
 include_once BASE_PATH . "/components/shared/preloader.shared.php";
 include_once BASE_PATH . "/components/shared/DateTimeToUsersTimezone.shared.php";
@@ -133,7 +66,7 @@ if (curl_errno($ch)) {
 } else {
     $data = json_decode($response, true);
     if (isset($data['data']) && is_array($data['data'])) {
-        $tipsData = $data['data'];
+        $tipsData = normalizePitchPredictionsResponse($data['data']);
         $empty    = count($tipsData) === 0;
     } else {
         $error = 'Invalid data format received';

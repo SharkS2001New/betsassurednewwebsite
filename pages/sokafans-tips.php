@@ -22,88 +22,7 @@ HTML;
 include_once BASE_PATH . "/components/includes/header.inc.php";
 ?>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
 
-    {
-      "@type": "WebSite",
-      "name": "SokaFans",
-      "url": "https://www.sokafans.com/",
-      "description": "Free football predictions today, expert daily tips, 1X2 picks, BTTS, and over/under insights across top leagues worldwide.",
-      "inLanguage": "en",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://www.sokafans.com/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    },
-
-    {
-      "@type": "Organization",
-      "name": "SokaFans",
-      "url": "https://www.sokafans.com/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.sokafans.com/logo.png"
-      }
-    },
-
-    {
-      "@type": "WebPage",
-      "name": "SokaFans Football Predictions Today",
-      "url": "https://www.sokafans.com/",
-      "description": "Get free football predictions today from SokaFans including 1X2 tips, double chance picks, BTTS, and over/under selections with probability ratings and match analysis.",
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": "SokaFans",
-        "url": "https://www.sokafans.com/"
-      },
-      "inLanguage": "en"
-    },
-
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What football predictions does SokaFans provide today?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "SokaFans provides free daily football predictions including 1X2, BTTS, double chance, over/under, and jackpot tips across top leagues like the Premier League, La Liga, Serie A, and more."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How accurate are SokaFans football predictions?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "SokaFans predictions are based on statistical analysis, team form, head-to-head records, and probability ratings. While we aim for high accuracy, no football prediction is ever guaranteed."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Are SokaFans football tips free?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. All daily football predictions and tips on SokaFans are completely free to access."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How often are SokaFans predictions updated?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Predictions are updated daily to reflect the latest fixtures, team news, injuries, and statistical data from leagues worldwide."
-          }
-        }
-      ]
-    }
-
-  ]
-}
-</script>
 
 <?php
 include_once BASE_PATH . "/components/shared/preloader.shared.php";
@@ -149,7 +68,7 @@ if (curl_errno($ch)) {
 } else {
     $data = json_decode($response, true);
     if (isset($data['data']) && is_array($data['data'])) {
-        $tipsData = $data['data'];
+        $tipsData = normalizePitchPredictionsResponse($data['data']);
         $empty    = count($tipsData) === 0;
     } else {
         $error = 'Invalid data format received';

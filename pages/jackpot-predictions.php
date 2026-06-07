@@ -21,74 +21,7 @@ HTML;
 
 include_once BASE_PATH . "/components/includes/header.inc.php";
 ?>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "name": "Betsassured",
-      "url": "https://www.betsassured.com"
-    },
-    {
-      "@type": "WebPage",
-      "name": "Jackpot Predictions Today | Free Tips for 30+ Betting Sites",
-      "url": "https://www.betsassured.com/jackpot-predictions",
-      "description": "Free jackpot predictions for Sportpesa Mega Jackpot, Betika, Betway, Mozzart, Bet9ja and 25+ betting sites across Kenya, Nigeria, Tanzania, Uganda and more.",
-      "inLanguage": "en",
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": "Betsassured",
-        "url": "https://www.betsassured.com"
-      }
-    },
-    {
-      "@type": "CollectionPage",
-      "name": "Jackpot Predictions",
-      "url": "https://www.betsassured.com/jackpot-predictions",
-      "description": "Daily jackpot predictions and tips for Sportpesa, Betika, Betway, Mozzart, Bet9ja, and other top betting sites in Africa."
-    },
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.betsassured.com"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Jackpot Predictions",
-          "item": "https://www.betsassured.com/jackpot-predictions"
-        }
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What are jackpot predictions?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Jackpot predictions provide expert tips for winning multi-match jackpots across top betting sites in Africa, including Sportpesa, Betika, Betway, Mozzart, and Bet9ja."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Are Betsassured jackpot tips free?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, all jackpot predictions and tips on Betsassured are free and updated daily for multiple betting sites."
-          }
-        }
-      ]
-    }
-  ]
-}
-</script>
+
 <?php
 include_once BASE_PATH . "/components/shared/preloader.shared.php";
 include_once BASE_PATH . "/components/includes/navbar.inc.php";

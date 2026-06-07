@@ -21,80 +21,7 @@ HTML;
 
 include_once BASE_PATH . "/components/includes/header.inc.php";
 ?>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
 
-    {
-      "@type": "WebSite",
-      "name": "Betnumbers",
-      "url": "https://www.betnumbers.com"
-    },
-
-    {
-      "@type": "WebPage",
-      "name": "Betnumbers Predictions Today | Free Football Tips & Expert Picks",
-      "url": "https://www.betnumbers.com/predictions-today",
-      "description": "Free Betnumbers football predictions today. Expert tips with probability ratings and odds across 1X2, double chance and over/under markets updated daily.",
-      "inLanguage": "en",
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": "Betnumbers",
-        "url": "https://www.betnumbers.com"
-      }
-    },
-
-    {
-      "@type": "CollectionPage",
-      "name": "Today's Betnumbers Predictions",
-      "url": "https://www.betnumbers.com/predictions-today",
-      "description": "Daily football predictions including 1X2, double chance and over/under betting tips with probabilities and odds."
-    },
-
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.betnumbers.com"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Predictions Today",
-          "item": "https://www.betnumbers.com/predictions-today"
-        }
-      ]
-    },
-
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What are high confidence football predictions?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "High confidence predictions are football tips with statistical probability ratings of 70% or higher, based on comprehensive data analysis including team form, head-to-head records, and tactical matchups."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How accurate are high confidence predictions?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Our high confidence predictions achieve approximately 78% accuracy based on verified historical results. However, no prediction is guaranteed and all betting carries risk."
-          }
-        }
-      ]
-    }
-
-  ]
-}
-</script>
 <?php
 include_once BASE_PATH . "/components/shared/preloader.shared.php";
 include_once BASE_PATH . "/components/shared/DateTimeToUsersTimezone.shared.php";
@@ -139,7 +66,7 @@ if (curl_errno($ch)) {
 } else {
     $data = json_decode($response, true);
     if (isset($data['data']) && is_array($data['data'])) {
-        $tipsData = $data['data'];
+        $tipsData = normalizePitchPredictionsResponse($data['data']);
         $empty    = count($tipsData) === 0;
     } else {
         $error = 'Invalid data format received';

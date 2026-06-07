@@ -21,74 +21,7 @@ HTML;
 
 include_once BASE_PATH . "/components/includes/header.inc.php";
 ?>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "name": "Betsassured",
-      "url": "https://www.betsassured.com"
-    },
-    {
-      "@type": "WebPage",
-      "name": "Double Chance Predictions Today | 1X, X2 & 12 Football Tips",
-      "url": "https://www.betsassured.com/double-chance-predictions",
-      "description": "Free double chance predictions today. Expert 1X, X2 and 12 tips with confidence ratings and odds analysis updated daily across top football leagues worldwide.",
-      "inLanguage": "en",
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": "Betsassured",
-        "url": "https://www.betsassured.com"
-      }
-    },
-    {
-      "@type": "CollectionPage",
-      "name": "Double Chance Football Predictions",
-      "url": "https://www.betsassured.com/double-chance-predictions",
-      "description": "Daily 1X, X2, and 12 double chance football predictions with expert tips and confidence ratings."
-    },
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.betsassured.com"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Double Chance Predictions",
-          "item": "https://www.betsassured.com/double-chance-predictions"
-        }
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What are double chance predictions?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Double chance predictions give you two possible outcomes of a football match (1X, X2, or 12) to increase your chances of winning based on expert analysis and match statistics."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Are Betsassured double chance tips free?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, all double chance predictions and tips on Betsassured are free and updated daily."
-          }
-        }
-      ]
-    }
-  ]
-}
-</script>
+
 <?php
 include_once BASE_PATH . "/components/shared/preloader.shared.php";
 include_once BASE_PATH . "/components/shared/DateTimeToUsersTimezone.shared.php";
@@ -133,7 +66,7 @@ if (curl_errno($ch)) {
 } else {
     $data = json_decode($response, true);
     if (isset($data['data']) && is_array($data['data'])) {
-        $tipsData = $data['data'];
+        $tipsData = normalizePitchPredictionsResponse($data['data']);
         $empty = count($tipsData) === 0;
     } else {
         $error = 'Invalid data format received';

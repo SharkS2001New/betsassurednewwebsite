@@ -21,56 +21,9 @@ HTML;
 
 include_once BASE_PATH . "/components/includes/header.inc.php";
 ?>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Draw Predictions Today | Safe Draw Tips & 1X2 Football Picks",
-  "url": "https://www.betsassured.com/draw-predictions",
-  "description": "Get free draw predictions today. Safe draw tips with probability ratings and odds analysis updated daily across top leagues worldwide. Find the best draw bets for football betting."
-}
-</script>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What are draw predictions in football?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Draw predictions indicate football matches that are likely to end in a tie, based on statistical analysis, team form, and historical match data."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How accurate are draw predictions?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Our draw predictions use data-driven analysis and expert insight. While they aim for high accuracy, no prediction is guaranteed."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Are draw predictions free to use?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, all draw predictions and safe draw tips on Betsassured are completely free for users."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use these predictions for accumulators?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, draw predictions can be used for both single bets and accumulators depending on your betting strategy."
-      }
-    }
-  ]
-}
-</script>
+
+
 <?php
 include_once BASE_PATH . "/components/shared/preloader.shared.php";
 include_once BASE_PATH . "/components/shared/DateTimeToUsersTimezone.shared.php";
@@ -115,7 +68,7 @@ if (curl_errno($ch)) {
 } else {
     $data = json_decode($response, true);
     if (isset($data['data']) && is_array($data['data'])) {
-        $tipsData = $data['data'];
+        $tipsData = normalizePitchPredictionsResponse($data['data']);
         $empty = count($tipsData) === 0;
     } else {
         $error = 'Invalid data format received';

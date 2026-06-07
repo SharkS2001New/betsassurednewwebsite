@@ -21,93 +21,7 @@ HTML;
 
 include_once BASE_PATH . "/components/includes/header.inc.php";
 ?>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
 
-    {
-      "@type": "WebSite",
-      "name": "BetAssured",
-      "url": "https://www.betassured.com/",
-      "description": "Free football predictions, betting tips, and expert match analysis updated daily.",
-      "inLanguage": "en",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://www.betassured.com/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    },
-
-    {
-      "@type": "Organization",
-      "name": "BetAssured",
-      "url": "https://www.betassured.com/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.betassured.com/betsassured.png"
-      }
-    },
-
-    {
-      "@type": "WebPage",
-      "name": "Away Win Predictions Today",
-      "url": "https://www.betassured.com/away-win-predictions",
-      "description": "Get free away win predictions today with expert 1X2 football tips, probability ratings, and odds insights across top leagues.",
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": "BetAssured",
-        "url": "https://www.betassured.com/"
-      },
-      "inLanguage": "en"
-    },
-
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-
-        {
-          "@type": "Question",
-          "name": "What are away win predictions?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Away win predictions are football tips that identify matches where the away team has a higher probability of winning based on statistical analysis, team form, and performance data."
-          }
-        },
-
-        {
-          "@type": "Question",
-          "name": "How are away win predictions calculated?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Away win predictions are calculated using data such as team performance, head-to-head records, recent form, and probability models to determine the likelihood of the away team winning."
-          }
-        },
-
-        {
-          "@type": "Question",
-          "name": "Are away win predictions guaranteed?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. All football predictions are based on analysis and probability. Outcomes are not guaranteed, and betting always carries risk."
-          }
-        },
-
-        {
-          "@type": "Question",
-          "name": "How often are away win tips updated?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Away win tips are updated daily to reflect the latest fixtures, team news, and statistical insights from leagues worldwide."
-          }
-        }
-
-      ]
-    }
-
-  ]
-}
-</script>
 <?php
 include_once BASE_PATH . "/components/shared/preloader.shared.php";
 include_once BASE_PATH . "/components/shared/DateTimeToUsersTimezone.shared.php";
@@ -152,7 +66,7 @@ if (curl_errno($ch)) {
 } else {
     $data = json_decode($response, true);
     if (isset($data['data']) && is_array($data['data'])) {
-        $tipsData = $data['data'];
+        $tipsData = normalizePitchPredictionsResponse($data['data']);
         $empty = count($tipsData) === 0;
     } else {
         $error = 'Invalid data format received';

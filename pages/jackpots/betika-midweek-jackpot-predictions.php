@@ -21,46 +21,7 @@ HTML;
 
 include_once BASE_PATH . "/components/includes/header.inc.php";
 ?>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is the Betika Midweek Jackpot?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The Betika Midweek Jackpot is a football betting competition where players predict the outcomes of selected games during the week to win cash prizes and bonus brackets."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How accurate are the Betika Midweek Jackpot predictions?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Our predictions use statistical analysis, team form, and historical performance to generate high probability tips, but no prediction is guaranteed. Always bet responsibly."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How often are the Betika Midweek Jackpot tips updated?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Tips and predictions are updated every week before the Midweek Jackpot games, ensuring the latest information and team analysis are included."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use these predictions for accumulators or singles?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, the predictions can be used for both single bets and accumulator bets, depending on your betting strategy."
-      }
-    }
-  ]
-}
-</script>
+
 <?php
 include_once BASE_PATH . "/components/shared/preloader.shared.php";
 include_once BASE_PATH . "/components/includes/navbar.inc.php";

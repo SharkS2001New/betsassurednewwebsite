@@ -21,56 +21,9 @@ HTML;
 
 include_once BASE_PATH . "/components/includes/header.inc.php";
 ?>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Yesterday's Football Predictions | Results & Tips Review",
-  "url": "https://www.betsassured.com/yesterdays-predictions",
-  "description": "Check yesterday's football predictions and results. See how our tips performed across 1X2, double chance and over/under markets with full scores and outcomes."
-}
-</script>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Can I see how accurate yesterday's football predictions were?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, you can check all yesterday's football predictions and results, including 1X2, double chance, and over/under markets with full scores and outcomes."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Which markets are covered in yesterday's predictions?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We cover 1X2, double chance, over/under goals, BTTS, and other common football betting markets."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Are these results updated daily?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, the results for yesterday's predictions are updated daily so users can review the accuracy of our tips."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is there any cost to access yesterday's predictions results?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No, all past predictions results and performance reviews are completely free for users."
-      }
-    }
-  ]
-}
-</script>
+
+
 <?php
 include_once BASE_PATH . "/components/shared/preloader.shared.php";
 include_once BASE_PATH . "/components/shared/DateTimeToUsersTimezone.shared.php";
@@ -115,7 +68,7 @@ if (curl_errno($ch)) {
 } else {
     $data = json_decode($response, true);
     if (isset($data['data']) && is_array($data['data'])) {
-        $tipsData = $data['data'];
+        $tipsData = normalizePitchPredictionsResponse($data['data']);
         $empty    = count($tipsData) === 0;
     } else {
         $error = 'Invalid data format received';

@@ -21,56 +21,9 @@ HTML;
 
 include_once BASE_PATH . "/components/includes/header.inc.php";
 ?>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Tomorrow's Football Predictions | Free Tips & Expert Picks",
-  "url": "https://www.betsassured.com/tomorrows-predictions",
-  "description": "Free football predictions for tomorrow. Expert tips across 1X2, double chance and over/under markets with probability ratings and odds updated daily."
-}
-</script>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What football predictions does Betsassured provide for tomorrow?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Betsassured provides tomorrow's football predictions including 1X2, double chance, BTTS, over/under goals, and must-win team tips for top leagues worldwide."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Are these predictions accurate?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Predictions are based on statistical analysis, team form, head-to-head results, and expert insights. Accuracy is high but not guaranteed."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Are the tomorrow football predictions free?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, all tomorrow football predictions and tips are completely free for users."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can tomorrow's predictions be used for accumulators?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, you can use the tips for single bets or accumulators based on your betting strategy."
-      }
-    }
-  ]
-}
-</script>
+
+
 <?php
 include_once BASE_PATH . "/components/shared/preloader.shared.php";
 include_once BASE_PATH . "/components/shared/DateTimeToUsersTimezone.shared.php";
@@ -115,7 +68,7 @@ if (curl_errno($ch)) {
 } else {
     $data = json_decode($response, true);
     if (isset($data['data']) && is_array($data['data'])) {
-        $tipsData = $data['data'];
+        $tipsData = normalizePitchPredictionsResponse($data['data']);
         $empty    = count($tipsData) === 0;
     } else {
         $error = 'Invalid data format received';

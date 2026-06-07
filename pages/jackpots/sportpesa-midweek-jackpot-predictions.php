@@ -17,74 +17,7 @@ HTML;
 
 include_once BASE_PATH . "/components/includes/header.inc.php";
 ?>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "name": "Betsassured",
-      "url": "https://www.betsassured.com"
-    },
-    {
-      "@type": "WebPage",
-      "name": "Sportpesa Midweek Jackpot Predictions This Week - Free 13 Games Tips | Betsassured",
-      "url": "https://www.betsassured.com/sportpesa-midweek-jackpot-predictions",
-      "description": "Free Sportpesa Midweek Jackpot predictions for this week's 13 games. Expert analysis, confidence ratings, winning strategies, and tips to hit bonus brackets. Updated every Wednesday.",
-      "inLanguage": "en",
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": "Betsassured",
-        "url": "https://www.betsassured.com"
-      }
-    },
-    {
-      "@type": "CollectionPage",
-      "name": "Sportpesa Midweek Jackpot Predictions",
-      "url": "https://www.betsassured.com/sportpesa-midweek-jackpot-predictions",
-      "description": "A weekly collection of Sportpesa Midweek Jackpot predictions covering 13 games with probability ratings, tips, and expert analysis."
-    },
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.betsassured.com"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Sportpesa Midweek Jackpot Predictions",
-          "item": "https://www.betsassured.com/sportpesa-midweek-jackpot-predictions"
-        }
-      ]
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How many games are included in the Sportpesa Midweek Jackpot predictions?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "All 13 games for the current week's Sportpesa Midweek Jackpot are covered with predictions, confidence ratings, and expert analysis."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Are the Sportpesa Midweek Jackpot tips free?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, all Sportpesa Midweek Jackpot predictions on Betsassured are free and updated weekly every Wednesday."
-          }
-        }
-      ]
-    }
-  ]
-}
-</script>
+
 <?php
 include_once BASE_PATH . "/components/shared/preloader.shared.php";
 include_once BASE_PATH . "/components/includes/navbar.inc.php";

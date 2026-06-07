@@ -27,7 +27,6 @@ function fetchAccumulatorTips() {
         }
     }
 
-    curl_close($ch);
     return $matches;
 }
 
