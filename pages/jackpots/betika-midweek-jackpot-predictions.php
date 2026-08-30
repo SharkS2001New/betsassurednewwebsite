@@ -19,7 +19,7 @@ $metaTags = <<<HTML
 <meta name="twitter:description" content="Free Betika Midweek Jackpot predictions for all games this week. Expert analysis with probability ratings to help you win more brackets. Updated every week.">
 HTML;
 
-include_once BASE_PATH . "/components/includes/header.inc.php";
+include_once BASE_PATH . "/components/includes/header.inc.php"; 
 ?>
 
 <?php
