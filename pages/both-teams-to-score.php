@@ -42,7 +42,7 @@ function percentToInt($percent) {
 
 // API fetch
 $apiUrl = "https://api.pitchpredictions.com/api/fetch_btts_matches_fixtures";
-$token = "R9TxV3PbOEu7qZnJKgydC5LmX2";
+$token = pitchApiAccessToken();
 $currentDate = date('Y-m-d');
 
 $tipsData = [];
@@ -52,7 +52,7 @@ $empty = false;
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $apiUrl . "?fixture_date=" . $currentDate);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, ['Authorization: ' . $token]);
+curl_setopt($ch, CURLOPT_HTTPHEADER, pitchApiHttpHeaders());
 curl_setopt($ch, CURLOPT_TIMEOUT, 10);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 

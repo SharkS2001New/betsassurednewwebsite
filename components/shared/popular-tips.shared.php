@@ -7,12 +7,12 @@ function fetchPopularTipsSlider() {
     $endDate   = date('Y-m-d', strtotime('+2 days'));
 
     $apiUrl = "https://api.pitchpredictions.com/api/fetch_popular_tips_slider_fixtures?start_date={$startDate}&end_date={$endDate}";
-    $token  = "R9TxV3PbOEu7qZnJKgydC5LmX2";
+    $token = pitchApiAccessToken();
 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $apiUrl);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, ['Authorization: ' . $token]);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, pitchApiHttpHeaders());
     curl_setopt($ch, CURLOPT_TIMEOUT, 10);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 

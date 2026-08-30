@@ -161,3 +161,44 @@ if (!function_exists('normalizePitchPredictionsResponse')) {
         return array_map('normalizePitchPredictionTip', $items);
     }
 }
+
+if (!function_exists('pitchApiAccessToken')) {
+    /**
+     * ACCESS_TOKEN for Pitch Predictions general API (not JACKPOT_API_KEY).
+     */
+    function pitchApiAccessToken(): string
+    {
+        $token = getenv('ACCESS_TOKEN') ?: ($_ENV['ACCESS_TOKEN'] ?? '');
+        $token = trim((string) $token);
+        if ($token !== '') {
+            return $token;
+        }
+
+        // Fallback matches pitchpredictionsbackend ACCESS_TOKEN until env is set in deploy.
+        return 'UJlhuDILIR1Lc2IEwZDIKOln9d';
+    }
+}
+
+if (!function_exists('pitchApiOrigin')) {
+    function pitchApiOrigin(): string
+    {
+        $origin = getenv('APP_URL') ?: ($_ENV['APP_URL'] ?? 'https://www.betsassured.com');
+        $origin = rtrim(trim((string) $origin), '/');
+        return $origin !== '' ? $origin : 'https://www.betsassured.com';
+    }
+}
+
+if (!function_exists('pitchApiHttpHeaders')) {
+    /**
+     * Headers required by backend EnsureApiAllowedOrigin for PHP/server clients.
+     *
+     * @return array<int, string>
+     */
+    function pitchApiHttpHeaders(): array
+    {
+        return [
+            'Origin: ' . pitchApiOrigin(),
+            'Authorization: Bearer ' . pitchApiAccessToken(),
+        ];
+    }
+}
