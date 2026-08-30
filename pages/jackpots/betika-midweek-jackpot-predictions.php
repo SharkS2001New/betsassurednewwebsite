@@ -36,16 +36,12 @@ $htmlContent = $Parsedown->text($markdownContent);
 $jackpotName  = "Betika Midweek Jackpot";
 $encodedName  = urlencode($jackpotName);
 $apiUrl       = "https://api.alljackpotpredictions.com/api/fetch_jackpot_fixtures_by_name?jackpot_name=$encodedName";
-$token        = "q2LsJ9FmT6XvRaCbHuYdK8ZwN4";
 
 $ch = curl_init($apiUrl);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_TIMEOUT, 10);
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    "Partner-Authorization: $token",
-    "Origin: https://www.betsassured.com"
-]);
+curl_setopt($ch, CURLOPT_HTTPHEADER, jackpotApiHttpHeaders());
 $response = curl_exec($ch);
 
 

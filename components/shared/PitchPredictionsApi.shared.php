@@ -164,7 +164,7 @@ if (!function_exists('normalizePitchPredictionsResponse')) {
 
 if (!function_exists('pitchApiAccessToken')) {
     /**
-     * ACCESS_TOKEN for Pitch Predictions general API (not JACKPOT_API_KEY).
+     * ACCESS_TOKEN — optional for partner PHP; prefer PARTNER_ACCESS_TOKEN.
      */
     function pitchApiAccessToken(): string
     {
@@ -174,23 +174,41 @@ if (!function_exists('pitchApiAccessToken')) {
             return $token;
         }
 
-        // Fallback matches pitchpredictionsbackend ACCESS_TOKEN until env is set in deploy.
         return 'UJlhuDILIR1Lc2IEwZDIKOln9d';
+    }
+}
+
+if (!function_exists('pitchPartnerAccessToken')) {
+    /**
+     * PARTNER_ACCESS_TOKEN — required for betsassured / partner PHP → general API.
+     */
+    function pitchPartnerAccessToken(): string
+    {
+        $token = getenv('PARTNER_ACCESS_TOKEN') ?: ($_ENV['PARTNER_ACCESS_TOKEN'] ?? '');
+        $token = trim((string) $token);
+        if ($token !== '') {
+            return $token;
+        }
+
+        // Matches pitchpredictionsbackend PARTNER_ACCESS_TOKEN.
+        return 'q2LsJ9FmT6XvRaCbHuYdK8ZwN4';
     }
 }
 
 if (!function_exists('pitchApiOrigin')) {
     function pitchApiOrigin(): string
     {
-        $origin = getenv('APP_URL') ?: ($_ENV['APP_URL'] ?? 'https://www.betsassured.com');
-        $origin = rtrim(trim((string) $origin), '/');
-        return $origin !== '' ? $origin : 'https://www.betsassured.com';
+        // Always use the public site origin (must be on ALLOWED_API_WEBSITES).
+        return 'https://www.betsassured.com';
     }
 }
 
 if (!function_exists('pitchApiHttpHeaders')) {
     /**
-     * Headers required by backend EnsureApiAllowedOrigin for PHP/server clients.
+     * Headers for api.pitchpredictions.com from PHP curl (games/tips pages).
+     *
+     * Partner PHP sites must send Origin + PARTNER_ACCESS_TOKEN.
+     * ACCESS_TOKEN alone is for Pitch Predictions admin/pages — not required here.
      *
      * @return array<int, string>
      */
@@ -198,7 +216,41 @@ if (!function_exists('pitchApiHttpHeaders')) {
     {
         return [
             'Origin: ' . pitchApiOrigin(),
+            'Partner-Authorization: ' . pitchPartnerAccessToken(),
+            // Also send ACCESS_TOKEN so either secret works if env differs in prod.
             'Authorization: Bearer ' . pitchApiAccessToken(),
+            'User-Agent: BetsassuredPHP/1.0',
+        ];
+    }
+}
+
+if (!function_exists('jackpotApiKey')) {
+    /** Shared commercial JACKPOT_API_KEY (not ACCESS_TOKEN / PARTNER_ACCESS_TOKEN). */
+    function jackpotApiKey(): string
+    {
+        $token = getenv('JACKPOT_API_KEY') ?: ($_ENV['JACKPOT_API_KEY'] ?? '');
+        $token = trim((string) $token);
+        if ($token !== '') {
+            return $token;
+        }
+
+        return 'jp_shared_8KxQm2NvR9pLwT4yHcF6uA1eZbD3sG7j';
+    }
+}
+
+if (!function_exists('jackpotApiHttpHeaders')) {
+    /**
+     * Headers for api.alljackpotpredictions.com from PHP curl.
+     *
+     * @return array<int, string>
+     */
+    function jackpotApiHttpHeaders(): array
+    {
+        return [
+            'Origin: ' . pitchApiOrigin(),
+            'X-Jackpot-Client: server',
+            'X-Jackpot-Key: ' . jackpotApiKey(),
+            'X-Jackpot-Site: ' . pitchApiOrigin(),
         ];
     }
 }
