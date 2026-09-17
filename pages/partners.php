@@ -269,6 +269,8 @@ include_once BASE_PATH . "/components/includes/navbar.inc.php";
                 <div class="partner-item"><a href="https://socapredict.com" target="_blank" class="partner-link">Soca Predict</a></div>
                 <div class="partner-item"><a href="https://www.mwanasoka.co.ke" target="_blank" class="partner-link">Mwanasoka</a></div>
                 <div class="partner-item"><a href="https://www.statarea.co.ke" target="_blank" class="partner-link">Statarea Kenya</a></div>
+                <div class="partner-item"><a href="https://www.alljackpotpredictions.com/" target="_blank" class="partner-link">Accumulator Tips Today</a></div>
+                <div class="partner-item"><a href="https://www.baopredictions.com/" target="_blank" class="partner-link">Must Win Tips Today</a></div>
             </div>
 
             <p style="font-size: 0.95rem; color: var(--gray-600); margin-top: 1.5rem;">

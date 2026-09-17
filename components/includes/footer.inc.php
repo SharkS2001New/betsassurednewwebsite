@@ -23,6 +23,8 @@
           <li><a href="/tomorrows-predictions">Tomorrow's Predictions</a></li>
           <li><a href="/jackpot-predictions">Jackpot Predictions</a></li>
           <li><a href="/blog">Blog</a></li>
+          <li><a href="https://www.alljackpotpredictions.com/" target="_blank">Accumulator Tips Today</a></li>
+          <li><a href="https://www.baopredictions.com/" target="_blank">Must Win Tips Today</a></li>
         </ul>
       </div>
 
