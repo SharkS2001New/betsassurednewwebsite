@@ -13,7 +13,7 @@ body:has(.blog-post-page) .site-footer {
 .blog-back-wrap {
     display: flex;
     justify-content: flex-start;
-    margin: 18px 0 4px;
+    margin: 0 0 1.15rem;
 }
 
 .blog-back-link {
@@ -187,7 +187,7 @@ a.blog-title:hover {
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
-    margin-top: 20px;
+    margin-top: 12px;
 }
 
 .blog-article-inner {

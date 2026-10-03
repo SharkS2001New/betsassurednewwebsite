@@ -125,70 +125,301 @@
     margin-top: 0.35rem;
 }
 
-.dash-card {
+.dash-page {
+    padding: 20px 0 36px;
+    max-width: 1100px;
+}
+
+.dash-hero-card,
+.dash-panel {
     background: #fff;
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
-    padding: 22px;
 }
 
-.dash-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 16px;
-    max-width: 960px;
-    margin: 0 auto;
+.dash-hero-card {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 24px 26px;
+    margin-bottom: 16px;
 }
 
 .dash-kicker {
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     color: var(--text-3);
     font-weight: 700;
+    margin: 0 0 0.4rem;
 }
 
-.dash-name {
-    font-size: 1.35rem;
+.dash-title {
+    margin: 0;
+    font-size: 1.55rem;
     font-weight: 700;
-    margin: 0.35rem 0;
+    color: var(--text-1);
+    letter-spacing: -0.02em;
 }
 
-.dash-meta {
+.dash-subtitle {
+    margin: 0.4rem 0 0.85rem;
     color: var(--text-2);
-    line-height: 1.6;
+    font-size: 0.95rem;
 }
 
-.dash-actions {
+.dash-meta-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 16px;
+    gap: 8px 12px;
+    align-items: center;
 }
 
-.dash-actions a {
+.dash-pill {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    padding: 0.28rem 0.7rem;
+    border-radius: 999px;
+    background: rgba(5, 56, 75, 0.08);
+    color: var(--navy);
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.dash-pill.is-premium {
+    background: rgba(218, 83, 44, 0.12);
+    color: #b23d1a;
+}
+
+.dash-meta-soft {
+    color: var(--text-3);
+    font-size: 0.85rem;
+}
+
+.dash-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.dash-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
     background: var(--navy);
     color: #fff;
     text-decoration: none;
-    border-radius: 999px;
-    padding: 0.55rem 1rem;
     font-weight: 600;
+    font-size: 0.9rem;
+    border: 1px solid var(--navy);
+}
+
+.dash-btn:hover {
+    background: var(--navy-light);
+    border-color: var(--navy-light);
+    color: #fff;
+}
+
+.dash-btn-ghost {
+    background: #fff;
+    color: var(--navy);
+}
+
+.dash-btn-ghost:hover {
+    background: rgba(5, 56, 75, 0.06);
+    color: var(--navy);
+}
+
+.dash-panel {
+    padding: 20px 22px 18px;
+    margin-bottom: 16px;
+}
+
+.dash-panel-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.dash-panel-title {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-1);
+}
+
+.dash-panel-sub {
+    margin: 0.25rem 0 0;
+    color: var(--text-3);
+    font-size: 0.88rem;
+}
+
+.dash-link {
+    color: var(--navy-light);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.dash-link:hover {
+    text-decoration: underline;
+}
+
+.dash-empty {
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+    padding: 22px 18px;
+    color: var(--text-2);
+    background: #fafbfc;
+}
+
+.dash-games-table {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.dash-games-row {
+    display: grid;
+    grid-template-columns: 90px minmax(160px, 1.6fr) minmax(100px, 1fr) 70px 70px 70px;
+    gap: 10px;
+    align-items: center;
+    padding: 12px 14px;
+    border-top: 1px solid var(--border);
     font-size: 0.9rem;
 }
 
-.dash-actions a.secondary {
-    background: #fff;
-    color: var(--navy);
-    border: 1px solid var(--border);
+.dash-games-row:first-child {
+    border-top: none;
 }
 
-@media (max-width: 800px) {
-    .dash-grid {
-        grid-template-columns: 1fr;
+.dash-games-head {
+    background: #f5f7fa;
+    color: var(--text-3);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.dash-match {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 6px;
+    align-items: baseline;
+    color: var(--text-1);
+}
+
+.dash-vs {
+    color: var(--text-3);
+    font-size: 0.8rem;
+}
+
+.dash-league,
+.dash-kick,
+.dash-score {
+    color: var(--text-2);
+}
+
+.dash-odd {
+    font-weight: 700;
+    color: var(--text-1);
+}
+
+.dash-tip {
+    display: inline-flex;
+    min-width: 2.2rem;
+    justify-content: center;
+    padding: 0.2rem 0.5rem;
+    border-radius: 999px;
+    background: rgba(5, 56, 75, 0.1);
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+.dash-tip.is-vip {
+    background: rgba(218, 83, 44, 0.14);
+    color: #b23d1a;
+}
+
+.dash-quick-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.dash-quick-links a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--navy);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.88rem;
+}
+
+.dash-quick-links a:hover {
+    background: rgba(5, 56, 75, 0.06);
+}
+
+@media (max-width: 900px) {
+    .dash-hero-card {
+        flex-direction: column;
+    }
+
+    .dash-games-row {
+        grid-template-columns: 80px 1fr 60px 60px;
+    }
+
+    .dash-games-row > :nth-child(3),
+    .dash-games-row > :nth-child(6) {
+        display: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .dash-games-table {
+        border: none;
+        background: transparent;
+    }
+
+    .dash-games-head {
+        display: none;
+    }
+
+    .dash-games-row {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 6px 10px;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        margin-bottom: 10px;
+        background: #fff;
+        padding: 12px 14px;
+    }
+
+    .dash-match {
+        grid-column: 1 / -1;
+    }
+
+    .dash-kick {
+        order: 2;
+    }
+
+    .dash-tip {
+        justify-self: end;
     }
 
     .auth-card {

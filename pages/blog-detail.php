@@ -48,11 +48,18 @@ include_once BASE_PATH . '/components/includes/header.inc.php';
 include_once BASE_PATH . '/components/shared/preloader.shared.php';
 include_once BASE_PATH . '/components/includes/navbar.inc.php';
 ?>
-<link rel="stylesheet" href="/css/blog.css?v=4">
+<link rel="stylesheet" href="/css/blog.css?v=6">
 
 <main class="container blog-post-page">
     <article class="blog-article-card">
         <div class="blog-article-inner">
+            <div class="blog-back-wrap">
+                <a href="/blog" class="blog-back-link">
+                    <span class="blog-back-icon" aria-hidden="true"><i class="bi bi-arrow-left"></i></span>
+                    <span class="blog-back-text">Back to Blog</span>
+                </a>
+            </div>
+
             <p class="blog-category"><?php echo htmlspecialchars($categoryLabel, ENT_QUOTES, 'UTF-8'); ?></p>
             <h1 class="blog-article-title"><?php echo htmlspecialchars((string) ($blog['title'] ?? $title), ENT_QUOTES, 'UTF-8'); ?></h1>
             <div class="blog-meta">
@@ -73,13 +80,6 @@ include_once BASE_PATH . '/components/includes/navbar.inc.php';
             </div>
         </div>
     </article>
-
-    <div class="blog-back-wrap">
-        <a href="/blog" class="blog-back-link">
-            <span class="blog-back-icon" aria-hidden="true"><i class="bi bi-arrow-left"></i></span>
-            <span class="blog-back-text">Back to Blog</span>
-        </a>
-    </div>
 </main>
 
 <?php include_once BASE_PATH . '/components/includes/footer.inc.php'; ?>
