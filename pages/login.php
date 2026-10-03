@@ -37,11 +37,11 @@ include_once BASE_PATH . '/components/includes/header.inc.php';
 include_once BASE_PATH . '/components/shared/preloader.shared.php';
 include_once BASE_PATH . '/components/includes/navbar.inc.php';
 ?>
-<link rel="stylesheet" href="/css/auth.css?v=1">
+<link rel="stylesheet" href="/css/auth.css?v=2">
 
 <main class="container auth-page">
-    <h1 class="page-hero-title">Login</h1>
     <div class="auth-card">
+        <h1 class="auth-title">Login</h1>
         <p class="auth-lead">Sign in to your BetAssured account to access your dashboard.</p>
 
         <?php if ($error): ?>

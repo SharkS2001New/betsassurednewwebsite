@@ -50,11 +50,11 @@ include_once BASE_PATH . '/components/shared/preloader.shared.php';
 include_once BASE_PATH . '/components/includes/navbar.inc.php';
 $countries = authCountries();
 ?>
-<link rel="stylesheet" href="/css/auth.css?v=1">
+<link rel="stylesheet" href="/css/auth.css?v=2">
 
 <main class="container auth-page">
-    <h1 class="page-hero-title">Create Free Account</h1>
     <div class="auth-card">
+        <h1 class="auth-title">Create free account</h1>
         <?php if ($success): ?>
             <div class="auth-alert auth-alert-success">
                 Registration successful. You can now log in with your email and password.

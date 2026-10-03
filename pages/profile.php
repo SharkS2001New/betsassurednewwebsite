@@ -45,11 +45,12 @@ include_once BASE_PATH . '/components/shared/preloader.shared.php';
 include_once BASE_PATH . '/components/includes/navbar.inc.php';
 $countries = authCountries();
 ?>
-<link rel="stylesheet" href="/css/auth.css?v=1">
+<link rel="stylesheet" href="/css/auth.css?v=2">
 
 <main class="container auth-page">
-    <h1 class="page-hero-title">Edit Profile</h1>
     <div class="auth-card">
+        <h1 class="auth-title">Edit profile</h1>
+        <p class="auth-lead">Update your BetAssured account details.</p>
         <?php if ($success): ?>
             <div class="auth-alert auth-alert-success"><?php echo htmlspecialchars($success, ENT_QUOTES, 'UTF-8'); ?></div>
         <?php endif; ?>

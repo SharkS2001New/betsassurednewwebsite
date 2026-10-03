@@ -32,11 +32,11 @@ include_once BASE_PATH . '/components/includes/header.inc.php';
 include_once BASE_PATH . '/components/shared/preloader.shared.php';
 include_once BASE_PATH . '/components/includes/navbar.inc.php';
 ?>
-<link rel="stylesheet" href="/css/auth.css?v=1">
+<link rel="stylesheet" href="/css/auth.css?v=2">
 
 <main class="container auth-page">
-    <h1 class="page-hero-title">Forgot Password</h1>
     <div class="auth-card">
+        <h1 class="auth-title">Forgot password</h1>
         <p class="auth-lead">Enter your account email and we’ll send a password reset link.</p>
 
         <?php if ($success): ?>

@@ -4,8 +4,6 @@ if (!function_exists('authIsLoggedIn')) {
     authBootstrapSession();
 }
 $navLoggedIn = authIsLoggedIn();
-$navUserName = htmlspecialchars((string) ($_SESSION['user_name'] ?? 'User'), ENT_QUOTES, 'UTF-8');
-$navUserEmail = htmlspecialchars((string) ($_SESSION['user_email'] ?? ''), ENT_QUOTES, 'UTF-8');
 
 // Active nav must use the request path. PHP_SELF is always public/index.php under the router,
 // which incorrectly kept "Home" selected on every page.
@@ -49,32 +47,7 @@ $navIsJackpot = $navPath === '/jackpot-predictions'
             <div class="desktop-user-icon">
                 <div class="user-icon-wrapper">
                     <?php if ($navLoggedIn): ?>
-                        <button class="user-icon-btn" id="desktopUserIconBtn" type="button" aria-label="Account menu">
-                            <i class="bi bi-person-circle"></i>
-                        </button>
-                        <div class="user-dropdown-menu" id="desktopUserDropdown">
-                            <div class="user-info-menu">
-                                <div class="user-avatar">
-                                    <i class="bi bi-person-circle"></i>
-                                </div>
-                                <div class="user-details">
-                                    <div class="user-name"><?php echo $navUserName; ?></div>
-                                    <div class="user-email"><?php echo $navUserEmail; ?></div>
-                                </div>
-                                <a href="/dashboard" class="menu-item">
-                                    <i class="bi bi-speedometer2"></i>
-                                    <span>Dashboard</span>
-                                </a>
-                                <a href="/profile" class="menu-item">
-                                    <i class="bi bi-person"></i>
-                                    <span>Edit Profile</span>
-                                </a>
-                                <a href="/logout" class="menu-item logout">
-                                    <i class="bi bi-box-arrow-right"></i>
-                                    <span>Logout</span>
-                                </a>
-                            </div>
-                        </div>
+                        <a href="/dashboard" class="nav-login-link">Dashboard</a>
                     <?php else: ?>
                         <a href="/login" class="nav-login-link">Login</a>
                     <?php endif; ?>
@@ -104,32 +77,7 @@ $navIsJackpot = $navPath === '/jackpot-predictions'
         <div class="mobile-user-icon">
             <div class="user-icon-wrapper">
                 <?php if ($navLoggedIn): ?>
-                    <button class="user-icon-btn" id="mobileUserIconBtn" type="button" aria-label="Account menu">
-                        <i class="bi bi-person-circle"></i>
-                    </button>
-                    <div class="user-dropdown-menu" id="mobileUserDropdown">
-                        <div class="user-info-menu">
-                            <div class="user-avatar">
-                                <i class="bi bi-person-circle"></i>
-                            </div>
-                            <div class="user-details">
-                                <div class="user-name"><?php echo $navUserName; ?></div>
-                                <div class="user-email"><?php echo $navUserEmail; ?></div>
-                            </div>
-                            <a href="/dashboard" class="menu-item">
-                                <i class="bi bi-speedometer2"></i>
-                                <span>Dashboard</span>
-                            </a>
-                            <a href="/profile" class="menu-item">
-                                <i class="bi bi-person"></i>
-                                <span>Edit Profile</span>
-                            </a>
-                            <a href="/logout" class="menu-item logout">
-                                <i class="bi bi-box-arrow-right"></i>
-                                <span>Logout</span>
-                            </a>
-                        </div>
-                    </div>
+                    <a href="/dashboard" class="nav-login-link">Dashboard</a>
                 <?php else: ?>
                     <a href="/login" class="nav-login-link">Login</a>
                 <?php endif; ?>
@@ -147,43 +95,3 @@ $navIsJackpot = $navPath === '/jackpot-predictions'
         </div>
     </div>
 </div>
-
-<script>
-const desktopBtn = document.getElementById('desktopUserIconBtn');
-const desktopDropdown = document.getElementById('desktopUserDropdown');
-if (desktopBtn) {
-    desktopBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        desktopDropdown.classList.toggle('show');
-    });
-}
-
-const mobileBtn = document.getElementById('mobileUserIconBtn');
-const mobileDropdown = document.getElementById('mobileUserDropdown');
-if (mobileBtn) {
-    mobileBtn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        mobileDropdown.classList.toggle('show');
-    });
-}
-
-document.addEventListener('click', function(event) {
-    if (desktopBtn && desktopDropdown) {
-        if (!desktopBtn.contains(event.target) && !desktopDropdown.contains(event.target)) {
-            desktopDropdown.classList.remove('show');
-        }
-    }
-    if (mobileBtn && mobileDropdown) {
-        if (!mobileBtn.contains(event.target) && !mobileDropdown.contains(event.target)) {
-            mobileDropdown.classList.remove('show');
-        }
-    }
-});
-
-if (desktopDropdown) {
-    desktopDropdown.addEventListener('click', function(e) { e.stopPropagation(); });
-}
-if (mobileDropdown) {
-    mobileDropdown.addEventListener('click', function(e) { e.stopPropagation(); });
-}
-</script>

@@ -25,16 +25,15 @@ include_once BASE_PATH . '/components/includes/header.inc.php';
 include_once BASE_PATH . '/components/shared/preloader.shared.php';
 include_once BASE_PATH . '/components/includes/navbar.inc.php';
 ?>
-<link rel="stylesheet" href="/css/auth.css?v=1">
+<link rel="stylesheet" href="/css/auth.css?v=2">
 
 <main class="container auth-page">
-    <h1 class="page-hero-title">Welcome back, <?php echo htmlspecialchars($firstName !== '' ? $firstName : 'punter', ENT_QUOTES, 'UTF-8'); ?></h1>
-
     <div class="dash-grid">
         <section class="dash-card">
             <p class="dash-kicker">BetAssured · Account</p>
-            <h2 class="dash-name"><?php echo htmlspecialchars((string) ($user['full_name'] ?? 'User'), ENT_QUOTES, 'UTF-8'); ?></h2>
+            <h1 class="dash-name">Welcome back, <?php echo htmlspecialchars($firstName !== '' ? $firstName : 'punter', ENT_QUOTES, 'UTF-8'); ?></h1>
             <p class="dash-meta">
+                <?php echo htmlspecialchars((string) ($user['full_name'] ?? 'User'), ENT_QUOTES, 'UTF-8'); ?><br>
                 <?php echo htmlspecialchars((string) ($user['email'] ?? ''), ENT_QUOTES, 'UTF-8'); ?><br>
                 Joined <?php echo htmlspecialchars($joined, ENT_QUOTES, 'UTF-8'); ?><br>
                 Plan: <strong><?php echo htmlspecialchars($planLabel, ENT_QUOTES, 'UTF-8'); ?></strong>
