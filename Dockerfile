@@ -43,12 +43,18 @@ RUN a2enmod rewrite headers
 # Ensure public directory exists before writing .htaccess
 RUN mkdir -p /var/www/html/public
 
-# Update Apache to listen on port 5500
+# Update Apache to listen on port 5500 (Traefik → container).
 RUN sed -i 's/Listen 80/Listen 5500/' /etc/apache2/ports.conf
 RUN sed -i 's/:80/:5500/' /etc/apache2/sites-available/*.conf
 
-# Add ServerName directive to Apache configuration
-RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+# Prevent redirects/self-URLs from leaking http://host:5500 behind Traefik.
+# Traefik terminates TLS; Apache must not advertise the container listen port.
+RUN printf '%s\n' \
+    'ServerName www.betsassured.com' \
+    'UseCanonicalName On' \
+    'UseCanonicalPhysicalPort Off' \
+    'SetEnvIf X-Forwarded-Proto https HTTPS=on' \
+    >> /etc/apache2/apache2.conf
 
 # Ensure PHP logs are captured by the container
 ENV LOG_CHANNEL=stderr
