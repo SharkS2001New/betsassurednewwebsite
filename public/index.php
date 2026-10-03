@@ -202,6 +202,30 @@ $router->get('/vvip-tips', function() {
     include __DIR__ . '/../pages/vvip-tips.php';
 });
 
+$router->get('/vip-jackpots', function() {
+    include __DIR__ . '/../pages/vip-jackpots.php';
+});
+
+$router->get('/plans', function() {
+    include __DIR__ . '/../pages/plans.php';
+});
+
+$router->get('/pay/mpesa', function() {
+    include __DIR__ . '/../pages/pay-mpesa.php';
+});
+
+$router->post('/api/pay/mpesa/stk-push', function() {
+    include __DIR__ . '/../pages/api-pay-stk.php';
+});
+
+$router->get('/api/pay/mpesa/status', function() {
+    include __DIR__ . '/../pages/api-pay-status.php';
+});
+
+$router->get('/pay/mpesa/complete', function() {
+    include __DIR__ . '/../pages/pay-mpesa-complete.php';
+});
+
 $router->get('/profile', function() {
     include __DIR__ . '/../pages/profile.php';
 });

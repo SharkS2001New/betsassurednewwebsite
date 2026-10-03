@@ -3,19 +3,17 @@ include_once BASE_PATH . '/components/shared/AuthApi.shared.php';
 include_once BASE_PATH . '/components/shared/PitchPredictionsApi.shared.php';
 include_once BASE_PATH . '/components/shared/DashboardGames.shared.php';
 include_once BASE_PATH . '/components/shared/DashboardGamesTable.shared.php';
+include_once BASE_PATH . '/components/shared/PlanEntitlements.shared.php';
 
 authBootstrapSession();
 authRequireLogin('/login');
 
 $user = authCurrentUser() ?? [];
 $token = authCurrentToken() ?? '';
-$plan = strtolower((string) ($user['active_plan'] ?? 'free'));
-$endDate = $user['subscription_end_date'] ?? null;
-$expired = $plan === 'premium' && !empty($endDate) && strtotime((string) $endDate) < strtotime('today');
-$isPremium = $plan === 'premium' && !$expired;
+$isPremium = authUserHasPremiumAccess($user);
 $today = date('Y-m-d');
 $todayLabel = date('l, M j');
-$unlockHref = '/contact-us';
+$unlockHref = '/plans';
 
 $games = $token !== '' ? dashboardFetchMultibetGames($token, $today, 'vip', 30) : [];
 if (!$isPremium) {
@@ -33,14 +31,14 @@ include_once BASE_PATH . '/components/includes/header.inc.php';
 include_once BASE_PATH . '/components/shared/preloader.shared.php';
 include_once BASE_PATH . '/components/includes/navbar.inc.php';
 ?>
-<link rel="stylesheet" href="/css/auth.css?v=5">
+<link rel="stylesheet" href="/css/auth.css?v=6">
 
 <main class="container dash-page">
     <nav class="dash-tip-nav" aria-label="Tip categories">
         <a class="dash-tip-nav-btn is-free" href="/dashboard#free-tips">Free tips</a>
         <a class="dash-tip-nav-btn is-vip is-active" href="/vip-tips">VIP tips</a>
         <a class="dash-tip-nav-btn is-vvip" href="/vvip-tips">VVIP tips</a>
-        <a class="dash-tip-nav-btn is-jackpot" href="/jackpot-predictions">Jackpots</a>
+        <a class="dash-tip-nav-btn is-jackpot" href="/vip-jackpots">VIP Jackpots</a>
     </nav>
 
     <?php

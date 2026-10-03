@@ -473,6 +473,95 @@
     justify-content: center;
 }
 
+.dash-jackpot-picker {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.dash-jackpot-chip {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #fff;
+    text-decoration: none;
+    color: var(--text-1);
+}
+
+.dash-jackpot-chip small {
+    color: var(--text-3);
+    font-weight: 600;
+}
+
+.dash-jackpot-chip.is-active,
+.dash-jackpot-chip:hover {
+    border-color: rgba(161, 98, 7, 0.45);
+    background: rgba(161, 98, 7, 0.08);
+}
+
+.dash-jackpot-chip.is-owned small {
+    color: #389e0d;
+}
+
+.ba-plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+}
+
+.ba-plan-card {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 16px;
+    background: #fff;
+}
+
+.ba-plan-card.is-selected,
+.ba-plan-card.is-owned {
+    border-color: rgba(5, 56, 75, 0.35);
+    box-shadow: var(--shadow-sm);
+}
+
+.ba-plan-badge {
+    display: inline-flex;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    background: rgba(5, 56, 75, 0.1);
+    color: var(--navy);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.ba-plan-badge.is-jackpot {
+    background: rgba(161, 98, 7, 0.14);
+    color: #854d0e;
+}
+
+.ba-plan-card h3 {
+    margin: 0.7rem 0 0.35rem;
+    font-size: 1.05rem;
+    color: var(--text-1);
+}
+
+.ba-plan-copy {
+    margin: 0 0 0.75rem;
+    color: var(--text-2);
+    font-size: 0.9rem;
+    line-height: 1.45;
+}
+
+.ba-plan-price {
+    margin: 0 0 1rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-1);
+}
+
 .dash-quick-links {
     display: flex;
     flex-wrap: wrap;

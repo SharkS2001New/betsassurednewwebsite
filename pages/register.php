@@ -28,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'country' => $country,
             'password' => $password,
             'password_confirmation' => $passwordConfirmation,
+            'site' => authSiteKey(),
         ]);
 
         if ($result['ok']) {

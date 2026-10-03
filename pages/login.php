@@ -14,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $result = authApiRequest('POST', 'login', [
             'email' => $email,
             'password' => $password,
+            'site' => authSiteKey(),
         ]);
 
         if ($result['ok'] && !empty($result['data']['token']) && !empty($result['data']['user'])) {

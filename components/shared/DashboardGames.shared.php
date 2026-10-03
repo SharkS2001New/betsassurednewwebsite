@@ -349,14 +349,55 @@ if (!function_exists('dashboardFetchPublicGames')) {
     }
 }
 
-if (!function_exists('dashboardFetchJackpotGames')) {
+if (!function_exists('dashboardFetchVipJackpotGames')) {
     /**
-     * Preview games for a named jackpot (AllJackpotPredictions API).
+     * VIP jackpot tips from Pitch admin (Sanctum get_jackpot_predictions_by_name).
      *
      * @return list<array<string, mixed>>
      */
-    function dashboardFetchJackpotGames(string $jackpotName = 'Sportpesa Mega Jackpot', int $limit = 8): array
+    function dashboardFetchVipJackpotGames(string $token, string $jackpotName, int $limit = 17): array
     {
+        $path = 'get_jackpot_predictions_by_name?jackpot_name=' . rawurlencode($jackpotName)
+            . '&start_index=0&end_index=' . max(0, $limit - 1);
+        $result = authApiRequest('GET', $path, null, $token);
+        $rows = $result['data']['data'] ?? null;
+        if (!$result['ok'] || !is_array($rows) || $rows === []) {
+            return [];
+        }
+
+        $normalized = [];
+        foreach ($rows as $row) {
+            if (!is_array($row)) {
+                continue;
+            }
+            $item = dashboardNormalizeAuthRow($row);
+            $item['league'] = (string) ($row['jackpot_name'] ?? $jackpotName);
+            $item['source'] = 'vip-jackpot';
+            $normalized[] = $item;
+            if (count($normalized) >= $limit) {
+                break;
+            }
+        }
+
+        return $normalized;
+    }
+}
+
+if (!function_exists('dashboardFetchJackpotGames')) {
+    /**
+     * Prefer VIP admin jackpot when logged in; else public AllJackpot preview.
+     *
+     * @return list<array<string, mixed>>
+     */
+    function dashboardFetchJackpotGames(string $jackpotName = 'Sportpesa Mega Jackpot', int $limit = 8, ?string $token = null): array
+    {
+        if ($token) {
+            $vip = dashboardFetchVipJackpotGames($token, $jackpotName, $limit);
+            if ($vip !== []) {
+                return $vip;
+            }
+        }
+
         if (!function_exists('jackpotApiHttpHeaders')) {
             return [];
         }

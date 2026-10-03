@@ -3,6 +3,7 @@ include_once BASE_PATH . '/components/shared/AuthApi.shared.php';
 include_once BASE_PATH . '/components/shared/PitchPredictionsApi.shared.php';
 include_once BASE_PATH . '/components/shared/DashboardGames.shared.php';
 include_once BASE_PATH . '/components/shared/DashboardGamesTable.shared.php';
+include_once BASE_PATH . '/components/shared/PlanEntitlements.shared.php';
 
 authBootstrapSession();
 authRequireLogin('/login');
@@ -12,18 +13,15 @@ $token = authCurrentToken() ?? '';
 $firstName = trim((string) explode(' ', (string) ($user['full_name'] ?? 'punter'))[0]);
 $fullName = (string) ($user['full_name'] ?? 'User');
 $email = (string) ($user['email'] ?? '');
+$isPremium = authUserHasPremiumAccess($user);
 $plan = strtolower((string) ($user['active_plan'] ?? 'free'));
 $endDate = $user['subscription_end_date'] ?? null;
-$expired = false;
-if ($plan === 'premium' && !empty($endDate)) {
-    $expired = strtotime((string) $endDate) < strtotime('today');
-}
-$isPremium = $plan === 'premium' && !$expired;
-$planLabel = $plan === 'free' ? 'Free' : ($expired ? 'Premium expired' : 'Premium');
+$expired = $plan === 'premium' && !empty($endDate) && strtotime((string) $endDate) < strtotime('today');
+$planLabel = $plan === 'free' ? 'Free' : ($expired ? 'Premium expired' : ($isPremium ? 'Premium' : 'Free'));
 $joined = !empty($user['created_at']) ? date('M j, Y', strtotime((string) $user['created_at'])) : '—';
 $today = date('Y-m-d');
 $todayLabel = date('l, M j');
-$unlockHref = '/contact-us';
+$unlockHref = '/plans';
 
 $freeBundle = dashboardFetchFreeGames($token !== '' ? $token : null, $today, 12);
 $freeGames = $freeBundle['games'];
@@ -31,7 +29,7 @@ $freeSource = $freeBundle['source'];
 
 $vipGames = $token !== '' ? dashboardFetchMultibetGames($token, $today, 'vip', 10) : [];
 $vvipGames = $token !== '' ? dashboardFetchMultibetGames($token, $today, 'vvip', 10) : [];
-$jackpotGames = dashboardFetchJackpotGames('Sportpesa Mega Jackpot', 8);
+$jackpotGames = dashboardFetchJackpotGames('Sportpesa Mega Jackpot', 8, $token !== '' ? $token : null);
 
 if (!$isPremium) {
     $vipGames = dashboardMaskLockedGames($vipGames);
@@ -50,7 +48,7 @@ include_once BASE_PATH . '/components/includes/header.inc.php';
 include_once BASE_PATH . '/components/shared/preloader.shared.php';
 include_once BASE_PATH . '/components/includes/navbar.inc.php';
 ?>
-<link rel="stylesheet" href="/css/auth.css?v=5">
+<link rel="stylesheet" href="/css/auth.css?v=6">
 
 <main class="container dash-page">
     <section class="dash-hero-card">
@@ -82,7 +80,7 @@ include_once BASE_PATH . '/components/includes/navbar.inc.php';
         <a class="dash-tip-nav-btn is-free" href="#free-tips">Free tips</a>
         <a class="dash-tip-nav-btn is-vip" href="/vip-tips">VIP tips</a>
         <a class="dash-tip-nav-btn is-vvip" href="/vvip-tips">VVIP tips</a>
-        <a class="dash-tip-nav-btn is-jackpot" href="/jackpot-predictions">Jackpots</a>
+        <a class="dash-tip-nav-btn is-jackpot" href="/vip-jackpots">VIP Jackpots</a>
     </nav>
 
     <?php
@@ -124,29 +122,16 @@ include_once BASE_PATH . '/components/includes/navbar.inc.php';
 
     dashboardRenderGamesPanel(
         'jackpot-tips',
-        'Jackpot tips',
-        $isPremium ? 'Sportpesa Mega Jackpot preview' : 'Premium required · Sportpesa Mega Jackpot preview locked',
+        'VIP Jackpots',
+        $isPremium ? 'Sportpesa Mega Jackpot · admin VIP ticket' : 'Premium required · admin VIP jackpot locked',
         $jackpotGames,
         !$isPremium,
-        '/jackpot-predictions',
-        'All jackpots',
+        '/vip-jackpots',
+        'Open VIP Jackpots',
         $unlockHref,
         'is-jackpot'
     );
     ?>
-
-    <section class="dash-panel dash-links-panel">
-        <h2 class="dash-panel-title">Quick links</h2>
-        <div class="dash-quick-links">
-            <a href="/todays-predictions">Today's tips</a>
-            <a href="/vip-tips">VIP tips</a>
-            <a href="/vvip-tips">VVIP tips</a>
-            <a href="/jackpot-predictions">Jackpot tips</a>
-            <a href="/tomorrows-predictions">Tomorrow's tips</a>
-            <a href="/blog">Blog</a>
-            <a href="/profile">Edit profile</a>
-        </div>
-    </section>
 </main>
 
 <?php include_once BASE_PATH . '/components/includes/footer.inc.php'; ?>
