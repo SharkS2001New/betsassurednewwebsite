@@ -30,6 +30,80 @@ function fetchAccumulatorTips() {
     return $matches;
 }
 
+function accumulatorPercent($value): int
+{
+    if ($value === null || $value === '') {
+        return 0;
+    }
+
+    if (is_numeric($value)) {
+        return (int) round((float) $value);
+    }
+
+    return (int) str_replace('%', '', (string) $value);
+}
+
+function buildAccumulatorAllBetsOdds(array $match): array
+{
+    if (!empty($match['all_bets_odds'])) {
+        $decoded = is_array($match['all_bets_odds'])
+            ? $match['all_bets_odds']
+            : json_decode((string) $match['all_bets_odds'], true);
+
+        if (is_array($decoded) && $decoded !== []) {
+            return $decoded;
+        }
+    }
+
+    $oddValue = static function ($value): ?string {
+        if ($value === null || $value === '' || $value === '—') {
+            return null;
+        }
+
+        return (string) $value;
+    };
+
+    $markets = [
+        [
+            'name' => 'Match Winner',
+            'values' => array_values(array_filter([
+                ['value' => 'Home', 'odd' => $oddValue($match['bets_home'] ?? $match['odds_home'] ?? null)],
+                ['value' => 'Draw', 'odd' => $oddValue($match['bets_draw'] ?? $match['odds_draw'] ?? null)],
+                ['value' => 'Away', 'odd' => $oddValue($match['bets_away'] ?? $match['odds_away'] ?? null)],
+            ], static fn ($row) => $row['odd'] !== null)),
+        ],
+        [
+            'name' => 'Double Chance',
+            'values' => array_values(array_filter([
+                ['value' => 'Home/Draw', 'odd' => $oddValue($match['double_chance_home_draw'] ?? null)],
+                ['value' => 'Home/Away', 'odd' => $oddValue($match['double_chance_home_away'] ?? null)],
+                ['value' => 'Draw/Away', 'odd' => $oddValue($match['double_chance_draw_away'] ?? null)],
+            ], static fn ($row) => $row['odd'] !== null)),
+        ],
+        [
+            'name' => 'Both Teams Score',
+            'values' => array_values(array_filter([
+                ['value' => 'Yes', 'odd' => $oddValue($match['both_teams_to_score_yes'] ?? null)],
+                ['value' => 'No', 'odd' => $oddValue($match['both_teams_to_score_no'] ?? null)],
+            ], static fn ($row) => $row['odd'] !== null)),
+        ],
+    ];
+
+    $overUnderValues = array_values(array_filter([
+        ['value' => 'Over 2.5', 'odd' => $oddValue($match['over_2_5'] ?? null)],
+        ['value' => 'Under 2.5', 'odd' => $oddValue($match['under_2_5'] ?? null)],
+    ], static fn ($row) => $row['odd'] !== null));
+
+    if ($overUnderValues !== []) {
+        $markets[] = [
+            'name' => 'Goals Over/Under',
+            'values' => $overUnderValues,
+        ];
+    }
+
+    return array_values(array_filter($markets, static fn ($market) => !empty($market['values'])));
+}
+
 function findOddAccumulator($allBets, $marketName, $value) {
     if (empty($allBets)) return null;
     foreach ($allBets as $market) {
@@ -47,19 +121,12 @@ function findOddAccumulator($allBets, $marketName, $value) {
 function getAccumulatorBettingMarket($match) {
     if (!$match) return null;
 
-    $avgGoals = floatval($match['average_goals'] ?? 0);
-    $predHome = intval(str_replace('%', '', $match['percent_pred_home'] ?? '0'));
-    $predDraw = intval(str_replace('%', '', $match['percent_pred_draw'] ?? '0'));
-    $predAway = intval(str_replace('%', '', $match['percent_pred_away'] ?? '0'));
+    $avgGoals = floatval($match['average_goals'] ?? $match['avg_goals'] ?? 0);
+    $predHome = accumulatorPercent($match['percent_pred_home'] ?? 0);
+    $predDraw = accumulatorPercent($match['percent_pred_draw'] ?? 0);
+    $predAway = accumulatorPercent($match['percent_pred_away'] ?? 0);
 
-    $allBets = [];
-    if (!empty($match['all_bets_odds'])) {
-        try {
-            $allBets = json_decode($match['all_bets_odds'], true);
-        } catch (Exception $e) {
-            $allBets = [];
-        }
-    }
+    $allBets = buildAccumulatorAllBetsOdds($match);
 
     $homeOdd = findOddAccumulator($allBets, "Match Winner", "Home");
     if ($predHome >= 60 && $homeOdd >= 1.13 && $homeOdd <= 1.8) {

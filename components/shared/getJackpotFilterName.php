@@ -1,5 +1,9 @@
 <?php
 function returnJackpotNameSavedInDB($current_url) {
+    $path = parse_url((string) $current_url, PHP_URL_PATH);
+    $current_url = is_string($path) && $path !== '' ? $path : (string) $current_url;
+    $current_url = rtrim($current_url, '/') ?: '/';
+
     if ($current_url === '/sportpesa-mega-jackpot-predictions') {
         return "Sportpesa Mega Jackpot";
     } elseif ($current_url === '/sportpesa-midweek-jackpot-predictions') {
@@ -14,7 +18,11 @@ function returnJackpotNameSavedInDB($current_url) {
         return "Odibet Laki Tatu Jackpot";
     } elseif ($current_url === '/mozzart-daily-jackpot-predictions') {
         return "Mozzart Super Daily Jackpot";
-    } elseif ($current_url === '/mozzart-bet-grand-jackpot-predictions') {
+    } elseif (
+        $current_url === '/mozzart-bet-grand-jackpot-predictions'
+        || $current_url === '/mozzart-super-grand-jackpot-predictions'
+    ) {
+        // Sitemap + marketing URL use "super-grand"; API store name is Mozzart Bet Grand Jackpot.
         return "Mozzart Bet Grand Jackpot";
     } elseif ($current_url === '/shabiki-jackpot-predictions') {
         return "Shabiki Midweek Jackpot";

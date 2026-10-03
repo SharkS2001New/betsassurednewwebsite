@@ -150,6 +150,61 @@ $router->get('/our-terms-and-conditions', function() {
     include __DIR__ . '/../pages/terms-and-conditions.php'; 
 });
 
+$router->get('/blog', function() {
+    include __DIR__ . '/../pages/blog.php';
+});
+
+$router->get('/blog/{slug}', function($slug) {
+    include __DIR__ . '/../pages/blog-detail.php';
+});
+
+$router->get('/login', function() {
+    include __DIR__ . '/../pages/login.php';
+});
+
+$router->post('/login', function() {
+    include __DIR__ . '/../pages/login.php';
+});
+
+$router->get('/register', function() {
+    include __DIR__ . '/../pages/register.php';
+});
+
+$router->post('/register', function() {
+    include __DIR__ . '/../pages/register.php';
+});
+
+$router->get('/forgot-password', function() {
+    include __DIR__ . '/../pages/forgot-password.php';
+});
+
+$router->post('/forgot-password', function() {
+    include __DIR__ . '/../pages/forgot-password.php';
+});
+
+$router->get('/reset-password', function() {
+    include __DIR__ . '/../pages/reset-password.php';
+});
+
+$router->post('/reset-password', function() {
+    include __DIR__ . '/../pages/reset-password.php';
+});
+
+$router->get('/dashboard', function() {
+    include __DIR__ . '/../pages/dashboard.php';
+});
+
+$router->get('/profile', function() {
+    include __DIR__ . '/../pages/profile.php';
+});
+
+$router->post('/profile', function() {
+    include __DIR__ . '/../pages/profile.php';
+});
+
+$router->get('/logout', function() {
+    include __DIR__ . '/../pages/logout.php';
+});
 
 // Handle the incoming request
 $router->handleRequest();

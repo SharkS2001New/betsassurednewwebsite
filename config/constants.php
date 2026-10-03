@@ -23,3 +23,8 @@ if (file_exists(BASE_PATH . '/components/shared/PitchPredictionsApi.shared.php')
     include_once BASE_PATH . '/components/shared/PitchPredictionsApi.shared.php';
 }
 
+if (file_exists(BASE_PATH . '/components/shared/AuthApi.shared.php')) {
+    include_once BASE_PATH . '/components/shared/AuthApi.shared.php';
+    authBootstrapSession();
+}
+

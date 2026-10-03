@@ -74,6 +74,31 @@
 
     <div class="footer-divider"></div>
 
+    <?php
+    if (!function_exists('publicVisibleSponsorLinks')) {
+        include_once BASE_PATH . '/components/shared/FooterSponsors.shared.php';
+    }
+    $footerSponsors = publicVisibleSponsorLinks();
+    ?>
+    <?php if (!empty($footerSponsors)): ?>
+      <div class="footer-sponsor-section" id="footer-sponsors">
+        <p class="footer-sponsor-title">Our Partners &amp; Sponsors</p>
+        <div class="footer-sponsor-links">
+          <?php foreach ($footerSponsors as $sponsor):
+              $rel = is_array($sponsor['rel'] ?? null) ? implode(' ', $sponsor['rel']) : 'noopener noreferrer';
+          ?>
+            <a
+              href="<?php echo htmlspecialchars((string) $sponsor['url'], ENT_QUOTES, 'UTF-8'); ?>"
+              target="_blank"
+              rel="<?php echo htmlspecialchars($rel, ENT_QUOTES, 'UTF-8'); ?>"
+              class="footer-sponsor-link"
+            ><?php echo htmlspecialchars((string) $sponsor['label'], ENT_QUOTES, 'UTF-8'); ?></a>
+          <?php endforeach; ?>
+        </div>
+      </div>
+      <div class="footer-divider"></div>
+    <?php endif; ?>
+
     <p class="footer-disclaimer">
       <strong>Disclaimer:</strong> 18+ Only. The predictions and tips on BetAssured.com are for informational and entertainment purposes only.
       Gambling involves risk and you should only bet with money you can afford to lose. We do not guarantee winnings. Please gamble responsibly.
@@ -93,6 +118,41 @@
     </div>
   </div>
 </footer>
+<script>
+(function () {
+  fetch('/api/site-content/footer-sponsors', { cache: 'no-store', headers: { Accept: 'application/json' } })
+    .then(function (res) { return res.ok ? res.json() : null; })
+    .then(function (json) {
+      if (!json || !Array.isArray(json.links) || !json.links.length) return;
+      var section = document.getElementById('footer-sponsors');
+      if (!section) {
+        var disclaimer = document.querySelector('.footer-disclaimer');
+        if (!disclaimer || !disclaimer.parentNode) return;
+        section = document.createElement('div');
+        section.className = 'footer-sponsor-section';
+        section.id = 'footer-sponsors';
+        section.innerHTML = '<p class="footer-sponsor-title">Our Partners &amp; Sponsors</p><div class="footer-sponsor-links"></div>';
+        var divider = document.createElement('div');
+        divider.className = 'footer-divider';
+        disclaimer.parentNode.insertBefore(section, disclaimer);
+        disclaimer.parentNode.insertBefore(divider, disclaimer);
+      }
+      var wrap = section.querySelector('.footer-sponsor-links');
+      if (!wrap) return;
+      wrap.innerHTML = '';
+      json.links.forEach(function (sponsor) {
+        var a = document.createElement('a');
+        a.href = sponsor.url;
+        a.target = '_blank';
+        a.rel = Array.isArray(sponsor.rel) && sponsor.rel.length ? sponsor.rel.join(' ') : 'noopener noreferrer';
+        a.className = 'footer-sponsor-link';
+        a.textContent = sponsor.label;
+        wrap.appendChild(a);
+      });
+    })
+    .catch(function () {});
+})();
+</script>
 <!-- Scripts -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5665711413000284"

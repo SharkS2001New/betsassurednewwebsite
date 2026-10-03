@@ -27,6 +27,13 @@ class Router {
     public function handleRequest() {
         $method = $_SERVER['REQUEST_METHOD'];
         $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        if (!is_string($requestUri) || $requestUri === '') {
+            $requestUri = '/';
+        }
+        // Normalize /blog/ → /blog so trailing-slash URLs still match routes.
+        if ($requestUri !== '/') {
+            $requestUri = rtrim($requestUri, '/') ?: '/';
+        }
 
         foreach ($this->routes as $route) {
             // Match exact paths and paths with dynamic segments like {date}
