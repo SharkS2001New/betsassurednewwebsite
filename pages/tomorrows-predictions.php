@@ -86,6 +86,8 @@ if (curl_errno($ch)) {
 
     <?php include_once BASE_PATH . "/components/includes/scrollable-nav.inc.php"; ?>
 
+    <?php include_once BASE_PATH . "/components/shared/popular-tips.shared.php"; ?>
+
     <div class="section-title-bar">
         <h2>Tomorrow's Football Predictions</h2>
         <span class="today-date-tag"><?php echo date('D, d M Y', strtotime('+1 day')); ?></span>

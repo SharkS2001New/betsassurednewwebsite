@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $metaTags = <<<HTML
 <title>Create Account | BetAssured</title>
 <meta name="title" content="Create Account | BetAssured">
-<meta name="description" content="Create a free BetAssured account. Same login works with Pitch Predictions partner websites.">
+<meta name="description" content="Create a free BetAssured account to access your dashboard and betting tips.">
 <meta name="robots" content="noindex, follow">
 HTML;
 
@@ -65,7 +65,7 @@ $countries = authCountries();
             </div>
         <?php else: ?>
             <p class="auth-lead">
-                Create one account for BetAssured. It uses the same shared login database as Pitch Predictions.
+                Create a free BetAssured account to access your dashboard and tips.
             </p>
 
             <?php if ($error): ?>

@@ -240,7 +240,7 @@ function renderAccumulatorRows($matches, $startIndex, $count) {
     return implode('', $rows);
 }
 
-// Fetch & deduplicate
+// Fetch & deduplicate, then mix so tips aren't always the same API order / slider overlap.
 $accumulatorMatches = fetchAccumulatorTips();
 $accumulatorError = empty($accumulatorMatches);
 
@@ -249,13 +249,73 @@ $seenKeys = [];
 
 if (!empty($accumulatorMatches)) {
     foreach ($accumulatorMatches as $match) {
-        $key = ($match['home_team_name'] ?? '') . '-' . ($match['away_team_name'] ?? '');
-        if (!isset($seenKeys[$key])) {
-            $seenKeys[$key] = true;
-            $uniqueAccumulatorMatches[] = $match;
+        $home = (string) ($match['home_team_name'] ?? '');
+        $away = (string) ($match['away_team_name'] ?? '');
+        if ($home === '' && is_array($match['home_team'] ?? null)) {
+            $home = (string) ($match['home_team']['name'] ?? '');
+            $match['home_team_name'] = $home;
         }
-        if (count($uniqueAccumulatorMatches) >= 9) break;
+        if ($away === '' && is_array($match['away_team'] ?? null)) {
+            $away = (string) ($match['away_team']['name'] ?? '');
+            $match['away_team_name'] = $away;
+        }
+
+        $key = strtolower(trim($home)) . '|' . strtolower(trim($away));
+        if ($key === '|' || isset($seenKeys[$key])) {
+            continue;
+        }
+
+        // Only keep matches that can actually produce a tip market.
+        if (!getAccumulatorBettingMarket($match)) {
+            continue;
+        }
+
+        $seenKeys[$key] = true;
+        $uniqueAccumulatorMatches[] = $match;
     }
+
+    if (!function_exists('shuffleTipsWithSeed')) {
+        function shuffleTipsWithSeed(array $items, string $seed): array
+        {
+            $items = array_values($items);
+            $n = count($items);
+            if ($n < 2) {
+                return $items;
+            }
+
+            $hash = hash('sha256', $seed);
+            for ($i = $n - 1; $i > 0; $i--) {
+                $hash = hash('sha256', $hash . $i);
+                $j = (int) (hexdec(substr($hash, 0, 8)) % ($i + 1));
+                $tmp = $items[$i];
+                $items[$i] = $items[$j];
+                $items[$j] = $tmp;
+            }
+
+            return $items;
+        }
+    }
+
+    $sliderKeys = $GLOBALS['betsassured_slider_match_keys'] ?? [];
+    $preferFresh = [];
+    $alsoInSlider = [];
+
+    foreach ($uniqueAccumulatorMatches as $match) {
+        $key = strtolower(trim((string) ($match['home_team_name'] ?? '')))
+            . '|'
+            . strtolower(trim((string) ($match['away_team_name'] ?? '')));
+
+        if (isset($sliderKeys[$key])) {
+            $alsoInSlider[] = $match;
+        } else {
+            $preferFresh[] = $match;
+        }
+    }
+
+    $day = date('Y-m-d');
+    $preferFresh = shuffleTipsWithSeed($preferFresh, 'accumulator-fresh-' . $day);
+    $alsoInSlider = shuffleTipsWithSeed($alsoInSlider, 'accumulator-overlap-' . $day);
+    $uniqueAccumulatorMatches = array_slice(array_merge($preferFresh, $alsoInSlider), 0, 9);
 }
 
 $hasEnoughMatches = count($uniqueAccumulatorMatches) >= 8;

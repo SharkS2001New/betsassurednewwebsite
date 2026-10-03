@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $metaTags = <<<HTML
 <title>Login | BetAssured</title>
 <meta name="title" content="Login | BetAssured">
-<meta name="description" content="Sign in to your BetAssured account. Same account works across Pitch Predictions partner sites.">
+<meta name="description" content="Sign in to your BetAssured account to access your dashboard and saved tips.">
 <meta name="robots" content="noindex, follow">
 HTML;
 
@@ -42,7 +42,7 @@ include_once BASE_PATH . '/components/includes/navbar.inc.php';
 <main class="container auth-page">
     <h1 class="page-hero-title">Login</h1>
     <div class="auth-card">
-        <p class="auth-lead">Sign in with your BetAssured / Pitch Predictions account to access your dashboard.</p>
+        <p class="auth-lead">Sign in to your BetAssured account to access your dashboard.</p>
 
         <?php if ($error): ?>
             <div class="auth-alert auth-alert-error"><?php echo htmlspecialchars($error, ENT_QUOTES, 'UTF-8'); ?></div>

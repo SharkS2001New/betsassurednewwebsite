@@ -6,6 +6,19 @@ if (!function_exists('authIsLoggedIn')) {
 $navLoggedIn = authIsLoggedIn();
 $navUserName = htmlspecialchars((string) ($_SESSION['user_name'] ?? 'User'), ENT_QUOTES, 'UTF-8');
 $navUserEmail = htmlspecialchars((string) ($_SESSION['user_email'] ?? ''), ENT_QUOTES, 'UTF-8');
+
+// Active nav must use the request path. PHP_SELF is always public/index.php under the router,
+// which incorrectly kept "Home" selected on every page.
+$navPath = parse_url((string) ($_SERVER['REQUEST_URI'] ?? '/'), PHP_URL_PATH);
+$navPath = is_string($navPath) && $navPath !== '' ? $navPath : '/';
+$navPath = rtrim($navPath, '/') ?: '/';
+
+$navIsHome = $navPath === '/' || $navPath === '/index.php';
+$navIsToday = $navPath === '/todays-predictions';
+$navIsTomorrow = $navPath === '/tomorrows-predictions';
+$navIsYesterday = $navPath === '/yesterdays-predictions';
+$navIsJackpot = $navPath === '/jackpot-predictions'
+    || str_contains($navPath, '-jackpot-predictions');
 ?>
 <!-- Top Bar (Desktop only) -->
 <div class="top-bar">
@@ -35,11 +48,11 @@ $navUserEmail = htmlspecialchars((string) ($_SESSION['user_email'] ?? ''), ENT_Q
 
             <div class="desktop-user-icon">
                 <div class="user-icon-wrapper">
-                    <button class="user-icon-btn" id="desktopUserIconBtn" type="button" aria-label="Account menu">
-                        <i class="bi bi-person-circle"></i>
-                    </button>
-                    <div class="user-dropdown-menu" id="desktopUserDropdown">
-                        <?php if ($navLoggedIn): ?>
+                    <?php if ($navLoggedIn): ?>
+                        <button class="user-icon-btn" id="desktopUserIconBtn" type="button" aria-label="Account menu">
+                            <i class="bi bi-person-circle"></i>
+                        </button>
+                        <div class="user-dropdown-menu" id="desktopUserDropdown">
                             <div class="user-info-menu">
                                 <div class="user-avatar">
                                     <i class="bi bi-person-circle"></i>
@@ -61,32 +74,10 @@ $navUserEmail = htmlspecialchars((string) ($_SESSION['user_email'] ?? ''), ENT_Q
                                     <span>Logout</span>
                                 </a>
                             </div>
-                        <?php else: ?>
-                            <div class="login-form-container">
-                                <div class="login-header">
-                                    <h3>Welcome Back!</h3>
-                                    <p>Sign in to your shared Pitch Predictions account</p>
-                                </div>
-                                <form action="/login" method="POST">
-                                    <div class="form-group">
-                                        <label>Email</label>
-                                        <input type="email" name="email" required placeholder="Enter your email">
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Password</label>
-                                        <input type="password" name="password" required placeholder="Enter your password">
-                                    </div>
-                                    <button type="submit" class="signin-btn">
-                                        <i class="bi bi-box-arrow-in-right"></i> Sign In
-                                    </button>
-                                </form>
-                                <div class="login-footer">
-                                    <a href="/register">+ Create new free account</a>
-                                    <a href="/forgot-password">Forgot my password</a>
-                                </div>
-                            </div>
-                        <?php endif; ?>
-                    </div>
+                        </div>
+                    <?php else: ?>
+                        <a href="/login" class="nav-login-link">Login</a>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -103,20 +94,20 @@ $navUserEmail = htmlspecialchars((string) ($_SESSION['user_email'] ?? ''), ENT_Q
         </div>
 
         <ul class="navbar-menu">
-            <li><a href="/" class="<?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>">Home</a></li>
-            <li><a href="/todays-predictions" class="<?php echo strpos($_SERVER['REQUEST_URI'], 'todays-predictions') !== false ? 'active' : ''; ?>">Today's Tips</a></li>
-            <li><a href="/tomorrows-predictions" class="<?php echo strpos($_SERVER['REQUEST_URI'], 'tomorrows-predictions') !== false ? 'active' : ''; ?>">Tomorrow's Tips</a></li>
-            <li><a href="/yesterdays-predictions" class="<?php echo strpos($_SERVER['REQUEST_URI'], 'yesterdays-predictions') !== false ? 'active' : ''; ?>">Yesterday's Tips</a></li>
-            <li><a href="/jackpot-predictions" class="hot-badge <?php echo strpos($_SERVER['REQUEST_URI'], 'jackpot-predictions') !== false ? 'active' : ''; ?>">Jackpot Tips</a></li>
+            <li><a href="/" class="<?php echo $navIsHome ? 'active' : ''; ?>">Home</a></li>
+            <li><a href="/todays-predictions" class="<?php echo $navIsToday ? 'active' : ''; ?>">Today's Tips</a></li>
+            <li><a href="/tomorrows-predictions" class="<?php echo $navIsTomorrow ? 'active' : ''; ?>">Tomorrow's Tips</a></li>
+            <li><a href="/yesterdays-predictions" class="<?php echo $navIsYesterday ? 'active' : ''; ?>">Yesterday's Tips</a></li>
+            <li><a href="/jackpot-predictions" class="hot-badge <?php echo $navIsJackpot ? 'active' : ''; ?>">Jackpot Tips</a></li>
         </ul>
 
         <div class="mobile-user-icon">
             <div class="user-icon-wrapper">
-                <button class="user-icon-btn" id="mobileUserIconBtn" type="button" aria-label="Account menu">
-                    <i class="bi bi-person-circle"></i>
-                </button>
-                <div class="user-dropdown-menu" id="mobileUserDropdown">
-                    <?php if ($navLoggedIn): ?>
+                <?php if ($navLoggedIn): ?>
+                    <button class="user-icon-btn" id="mobileUserIconBtn" type="button" aria-label="Account menu">
+                        <i class="bi bi-person-circle"></i>
+                    </button>
+                    <div class="user-dropdown-menu" id="mobileUserDropdown">
                         <div class="user-info-menu">
                             <div class="user-avatar">
                                 <i class="bi bi-person-circle"></i>
@@ -138,43 +129,21 @@ $navUserEmail = htmlspecialchars((string) ($_SESSION['user_email'] ?? ''), ENT_Q
                                 <span>Logout</span>
                             </a>
                         </div>
-                    <?php else: ?>
-                        <div class="login-form-container">
-                            <div class="login-header">
-                                <h3>Welcome Back!</h3>
-                                <p>Sign in to your account</p>
-                            </div>
-                            <form action="/login" method="POST">
-                                <div class="form-group">
-                                    <label>Email</label>
-                                    <input type="email" name="email" required placeholder="Enter your email">
-                                </div>
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input type="password" name="password" required placeholder="Enter your password">
-                                </div>
-                                <button type="submit" class="signin-btn">
-                                    <i class="bi bi-box-arrow-in-right"></i> Sign In
-                                </button>
-                            </form>
-                            <div class="login-footer">
-                                <a href="/register">+ Create new free account</a>
-                                <a href="/forgot-password">Forgot my password</a>
-                            </div>
-                        </div>
-                    <?php endif; ?>
-                </div>
+                    </div>
+                <?php else: ?>
+                    <a href="/login" class="nav-login-link">Login</a>
+                <?php endif; ?>
             </div>
         </div>
     </div>
 
     <div class="mobile-nav">
         <div class="mobile-nav-items">
-            <a href="/" class="<?php echo strpos($_SERVER['REQUEST_URI'], 'index.php') !== false ? 'active' : ''; ?>">Home</a>
-            <a href="/todays-predictions" class="<?php echo strpos($_SERVER['REQUEST_URI'], 'todays-predictions') !== false ? 'active' : ''; ?>">Today's Tips</a>
-            <a href="/tomorrows-predictions" class="<?php echo strpos($_SERVER['REQUEST_URI'], 'tomorrows-predictions') !== false ? 'active' : ''; ?>">Tomorrow's Tips</a>
-            <a href="/yesterdays-predictions" class="<?php echo strpos($_SERVER['REQUEST_URI'], 'yesterdays-predictions') !== false ? 'active' : ''; ?>">Yesterday's Tips</a>
-            <a href="/jackpot-predictions" class="<?php echo strpos($_SERVER['REQUEST_URI'], 'jackpot-predictions') !== false ? 'active' : ''; ?>">Jackpot Tips 🔥</a>
+            <a href="/" class="<?php echo $navIsHome ? 'active' : ''; ?>">Home</a>
+            <a href="/todays-predictions" class="<?php echo $navIsToday ? 'active' : ''; ?>">Today's Tips</a>
+            <a href="/tomorrows-predictions" class="<?php echo $navIsTomorrow ? 'active' : ''; ?>">Tomorrow's Tips</a>
+            <a href="/yesterdays-predictions" class="<?php echo $navIsYesterday ? 'active' : ''; ?>">Yesterday's Tips</a>
+            <a href="/jackpot-predictions" class="<?php echo $navIsJackpot ? 'active' : ''; ?>">Jackpot Tips 🔥</a>
         </div>
     </div>
 </div>

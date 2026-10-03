@@ -57,7 +57,7 @@ include_once BASE_PATH . '/components/includes/navbar.inc.php';
                 <a class="secondary" href="/free-football-betting-tips">Accumulator tips</a>
             </div>
             <p class="dash-meta" style="margin-top:16px;">
-                Your login is shared with Pitch Predictions partner sites. Same email and password work everywhere.
+                Welcome to your BetAssured dashboard. Use the same email and password whenever you sign in.
             </p>
         </section>
     </div>

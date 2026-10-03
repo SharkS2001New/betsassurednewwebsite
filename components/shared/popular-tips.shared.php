@@ -1,52 +1,164 @@
-
 <?php
-// ── Data fetching & helpers (unchanged logic) ────────────────────────────────
+// ── Data fetching & helpers ──────────────────────────────────────────────────
 
-function fetchPopularTipsSlider() {
-    $startDate = date('Y-m-d');
-    $endDate   = date('Y-m-d', strtotime('+2 days'));
+if (!function_exists('fetchPopularTipsSlider')) {
+    function fetchPopularTipsSlider() {
+        $startDate = date('Y-m-d');
+        $endDate   = date('Y-m-d', strtotime('+2 days'));
 
-    $apiUrl = "https://api.pitchpredictions.com/api/fetch_popular_tips_slider_fixtures?start_date={$startDate}&end_date={$endDate}";
-    $token = pitchApiAccessToken();
+        $apiUrl = "https://api.pitchpredictions.com/api/fetch_popular_tips_slider_fixtures?start_date={$startDate}&end_date={$endDate}";
 
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $apiUrl);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, pitchApiHttpHeaders());
-    curl_setopt($ch, CURLOPT_TIMEOUT, 10);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $apiUrl);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, pitchApiHttpHeaders());
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
-    $response = curl_exec($ch);
-    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-    $matches  = [];
+        $response = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $matches  = [];
 
-    if (!curl_errno($ch) && $httpCode === 200) {
-        $data = json_decode($response, true);
-        if (isset($data['data']) && is_array($data['data'])) {
-            $matches = $data['data'];
+        if (!curl_errno($ch) && $httpCode === 200) {
+            $data = json_decode($response, true);
+            if (isset($data['data']) && is_array($data['data'])) {
+                $matches = $data['data'];
+            }
         }
+
+        return $matches;
+    }
+}
+
+if (!function_exists('normalizePopularTipMatch')) {
+    /**
+     * Support both flat rows and FixtureResource nested payloads.
+     */
+    function normalizePopularTipMatch(array $match): array
+    {
+        $homeTeam = is_array($match['home_team'] ?? null) ? $match['home_team'] : [];
+        $awayTeam = is_array($match['away_team'] ?? null) ? $match['away_team'] : [];
+        $league = is_array($match['league'] ?? null) ? $match['league'] : [];
+        $game = is_array($match['match'] ?? null) ? $match['match'] : [];
+        $predictions = is_array($match['predictions']['1x2'] ?? null) ? $match['predictions']['1x2'] : [];
+
+        $homePercent = $match['percent_pred_home']
+            ?? $predictions['home']
+            ?? 0;
+        $drawPercent = $match['percent_pred_draw']
+            ?? $predictions['draw']
+            ?? 0;
+        $awayPercent = $match['percent_pred_away']
+            ?? $predictions['away']
+            ?? 0;
+
+        if (function_exists('formatPitchPredictionPercent')) {
+            $homePercent = formatPitchPredictionPercent($homePercent);
+            $drawPercent = formatPitchPredictionPercent($drawPercent);
+            $awayPercent = formatPitchPredictionPercent($awayPercent);
+        } else {
+            $homePercent = is_numeric($homePercent) ? ((float) $homePercent <= 1 ? round($homePercent * 100) . '%' : round($homePercent) . '%') : (string) $homePercent;
+            $drawPercent = is_numeric($drawPercent) ? ((float) $drawPercent <= 1 ? round($drawPercent * 100) . '%' : round($drawPercent) . '%') : (string) $drawPercent;
+            $awayPercent = is_numeric($awayPercent) ? ((float) $awayPercent <= 1 ? round($awayPercent * 100) . '%' : round($awayPercent) . '%') : (string) $awayPercent;
+        }
+
+        $date = $match['date']
+            ?? ($game['datetime'] ?? null)
+            ?? ($game['unformatted_date'] ?? null)
+            ?? date('Y-m-d H:i:s');
+
+        return [
+            'home_team_name' => $match['home_team_name'] ?? ($homeTeam['name'] ?? 'Home'),
+            'away_team_name' => $match['away_team_name'] ?? ($awayTeam['name'] ?? 'Away'),
+            'home_team_logo' => $match['home_team_logo'] ?? ($homeTeam['logo'] ?? ''),
+            'away_team_logo' => $match['away_team_logo'] ?? ($awayTeam['logo'] ?? ''),
+            'league_name' => $match['league_name'] ?? ($league['name'] ?? ''),
+            'date' => $date,
+            'percent_pred_home' => $homePercent,
+            'percent_pred_draw' => $drawPercent,
+            'percent_pred_away' => $awayPercent,
+        ];
+    }
+}
+
+if (!function_exists('getPopularTipPrediction')) {
+    function getPopularTipPrediction($match) {
+        $h = intval(str_replace('%', '', $match['percent_pred_home'] ?? '0'));
+        $d = intval(str_replace('%', '', $match['percent_pred_draw'] ?? '0'));
+        $a = intval(str_replace('%', '', $match['percent_pred_away'] ?? '0'));
+
+        if ($h > $d && $h > $a) return "1, {$h}% Win Probability";
+        if ($d > $h && $d > $a) return "X, {$d}% Win Probability";
+        return "2, {$a}% Win Probability";
+    }
+}
+
+if (!function_exists('formatSliderDateTime')) {
+    function formatSliderDateTime($date) {
+        $ts = strtotime((string) $date);
+        if ($ts === false) {
+            return date('M d, H:i');
+        }
+        return date('M d, H:i', $ts);
+    }
+}
+
+if (!function_exists('shuffleTipsWithSeed')) {
+    /**
+     * Deterministic Fisher–Yates shuffle so order varies by day/section
+     * without changing on every page refresh.
+     */
+    function shuffleTipsWithSeed(array $items, string $seed): array
+    {
+        $items = array_values($items);
+        $n = count($items);
+        if ($n < 2) {
+            return $items;
+        }
+
+        $hash = hash('sha256', $seed);
+        for ($i = $n - 1; $i > 0; $i--) {
+            $hash = hash('sha256', $hash . $i);
+            $j = (int) (hexdec(substr($hash, 0, 8)) % ($i + 1));
+            $tmp = $items[$i];
+            $items[$i] = $items[$j];
+            $items[$j] = $tmp;
+        }
+
+        return $items;
+    }
+}
+
+if (!function_exists('tipMatchKey')) {
+    function tipMatchKey(array $match): string
+    {
+        $home = strtolower(trim((string) ($match['home_team_name'] ?? '')));
+        $away = strtolower(trim((string) ($match['away_team_name'] ?? '')));
+
+        return $home . '|' . $away;
+    }
+}
+
+$popularMatchesRaw = fetchPopularTipsSlider();
+$popularMatches = array_map('normalizePopularTipMatch', $popularMatchesRaw);
+$popularError   = empty($popularMatchesRaw);
+
+if (!$popularError && $popularMatches !== []) {
+    $popularMatches = shuffleTipsWithSeed($popularMatches, 'popular-tips-' . date('Y-m-d'));
+    // Keep the carousel readable; pull a mixed subset when the API returns many.
+    if (count($popularMatches) > 16) {
+        $popularMatches = array_slice($popularMatches, 0, 16);
     }
 
-    curl_close($ch);
-    return $matches;
+    $sliderKeys = [];
+    foreach ($popularMatches as $match) {
+        $key = tipMatchKey($match);
+        if ($key !== '|') {
+            $sliderKeys[$key] = true;
+        }
+    }
+    $GLOBALS['betsassured_slider_match_keys'] = $sliderKeys;
 }
-
-function getPopularTipPrediction($match) {
-    $h = intval(str_replace('%', '', $match['percent_pred_home'] ?? '0'));
-    $d = intval(str_replace('%', '', $match['percent_pred_draw'] ?? '0'));
-    $a = intval(str_replace('%', '', $match['percent_pred_away'] ?? '0'));
-
-    if ($h > $d && $h > $a) return "1, {$h}% Win Probability";
-    if ($d > $h && $d > $a) return "X, {$d}% Win Probability";
-    return "2, {$a}% Win Probability";
-}
-
-function formatSliderDateTime($date) {
-    return date('M d, H:i', strtotime($date));
-}
-
-$popularMatches = fetchPopularTipsSlider();
-$popularError   = empty($popularMatches);
 
 // Default logo SVG (inline data URI)
 $defaultLogo = "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%3E%3Crect%20width%3D%2240%22%20height%3D%2240%22%20fill%3D%22%23e8eaf0%22%2F%3E%3Ctext%20x%3D%2220%22%20y%3D%2226%22%20font-size%3D%2218%22%20text-anchor%3D%22middle%22%20fill%3D%22%23aaa%22%3E%3F%3C%2Ftext%3E%3C%2Fsvg%3E";
@@ -78,69 +190,76 @@ $defaultLogo = "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2
 /* Arrow buttons */
 .pts-arrow {
     flex-shrink: 0;
-    width: 28px;
-    height: 28px;
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
-    border: none;
-    background: #dde3ef;
-    color: #444;
-    font-size: 18px;
+    border: 1px solid #dde3ef;
+    background: #fff;
+    color: #1a1a2e;
+    font-size: 1.4rem;
     line-height: 1;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 2;
-    transition: background 0.15s;
+    transition: background 0.15s, box-shadow 0.15s;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
 }
-.pts-arrow:hover { background: #bcc5d8; }
-.pts-arrow-left  { margin-right: 4px; }
-.pts-arrow-right { margin-left:  4px; }
+
+.pts-arrow:hover {
+    background: #f0f4ff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.pts-arrow-left  { margin-right: 6px; }
+.pts-arrow-right { margin-left: 6px; }
 
 /* Scrollable strip */
 .pts-strip {
     display: flex;
+    gap: 12px;
     overflow-x: auto;
     scroll-behavior: smooth;
-    gap: 8px;
-    padding: 4px 2px 6px;
+    padding: 4px 2px 10px;
     flex: 1;
-    scrollbar-width: none;        /* Firefox */
-    -ms-overflow-style: none;     /* IE */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
+
 .pts-strip::-webkit-scrollbar { display: none; }
 
-/* ── Individual card ──────────────────────────────────────────────────────── */
+/* Individual card */
 .pts-card {
-    flex: 0 0 auto;
-    width: 210px;
+    flex: 0 0 210px;
     background: #fff;
-    border: 1px solid #dde3ef;
-    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.07);
     display: flex;
     flex-direction: column;
-    font-family: inherit;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    transition: box-shadow 0.15s, transform 0.15s;
 }
 
-/* Date bar */
+.pts-card:hover {
+    box-shadow: 0 4px 14px rgba(0,0,0,0.10);
+    transform: translateY(-2px);
+}
+
 .pts-date {
-    text-align: center;
-    font-size: 0.78rem;
+    font-size: 0.72rem;
     font-weight: 600;
-    color: #2c3e50;
-    padding: 8px 6px 6px;
-    border-bottom: 1px solid #edf0f7;
-    background: #f7f9fc;
+    color: #64748b;
+    padding: 8px 10px 0;
+    text-align: center;
 }
 
-/* Teams row */
 .pts-teams {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 8px 8px;
+    padding: 10px 12px 8px;
     gap: 4px;
 }
 
@@ -148,55 +267,51 @@ $defaultLogo = "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 5px;
     flex: 1;
     min-width: 0;
-    gap: 5px;
 }
 
 .pts-logo-wrap {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    overflow: hidden;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f0f2f8;
-    flex-shrink: 0;
+    overflow: hidden;
 }
 
 .pts-logo {
-    width: 100%;
-    height: 100%;
+    width: 32px;
+    height: 32px;
     object-fit: contain;
 }
 
 .pts-team-name {
     font-size: 0.72rem;
-    font-weight: 700;
-    color: #1a1a2e;
+    font-weight: 600;
+    color: #0f172a;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 80px;
-    line-height: 1.2;
 }
 
 .pts-vs {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 700;
-    color: #1a2e8a;
+    color: #94a3b8;
     flex-shrink: 0;
     padding: 0 2px;
-    padding-top: 0;   /* align with logos */
-    align-self: center;
 }
 
-/* Tip bar */
 .pts-tip {
-    background: #334155;
-    color: #fff;
+    background: #0d1b2a;
+    color: #c8f135;
     font-size: 0.76rem;
     font-weight: 700;
     text-align: center;
@@ -223,7 +338,7 @@ $defaultLogo = "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2
     <div class="pts-heading">Popular Tips For Today</div>
 
     <div class="pts-wrapper">
-        <button class="pts-arrow pts-arrow-left" onclick="ptsScroll(-240)" aria-label="Scroll left">&#8249;</button>
+        <button class="pts-arrow pts-arrow-left" onclick="ptsScroll(-240)" aria-label="Scroll left" type="button">&#8249;</button>
 
         <div class="pts-strip" id="pts-slider">
             <?php if ($popularError): ?>
@@ -273,7 +388,7 @@ $defaultLogo = "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2
             <?php endif; ?>
         </div>
 
-        <button class="pts-arrow pts-arrow-right" onclick="ptsScroll(240)" aria-label="Scroll right">&#8250;</button>
+        <button class="pts-arrow pts-arrow-right" onclick="ptsScroll(240)" aria-label="Scroll right" type="button">&#8250;</button>
     </div>
 </div>
 
@@ -281,7 +396,9 @@ $defaultLogo = "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2
 (function () {
     const strip = document.getElementById('pts-slider');
     window.ptsScroll = function (amount) {
-        strip.scrollBy({ left: amount, behavior: 'smooth' });
+        if (strip) {
+            strip.scrollBy({ left: amount, behavior: 'smooth' });
+        }
     };
 })();
 </script>

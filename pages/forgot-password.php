@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $metaTags = <<<HTML
 <title>Forgot Password | BetAssured</title>
 <meta name="title" content="Forgot Password | BetAssured">
-<meta name="description" content="Reset your BetAssured account password. Same shared account as Pitch Predictions.">
+<meta name="description" content="Reset your BetAssured account password.">
 <meta name="robots" content="noindex, follow">
 HTML;
 
