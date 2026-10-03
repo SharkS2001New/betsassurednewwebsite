@@ -30,7 +30,7 @@ include_once BASE_PATH . '/components/includes/header.inc.php';
 include_once BASE_PATH . '/components/shared/preloader.shared.php';
 include_once BASE_PATH . '/components/includes/navbar.inc.php';
 ?>
-<link rel="stylesheet" href="/css/blog.css?v=3">
+<link rel="stylesheet" href="/css/blog.css?v=4">
 
 <main class="container blogs-page">
     <h1 class="page-hero-title">BetAssured Blog</h1>
