@@ -1,8 +1,9 @@
 <?php
 
 /**
- * Dashboard game rows from Pitch admin-backed tip APIs.
- * Prefer Sanctum auth tip endpoints; fall back to public free tips.
+ * Dashboard game rows from Pitch Predictions admin-backed tip APIs.
+ * Free tips prefer admin Upcoming (pp_fixtures_selections category=free).
+ * VIP / VVIP use Sanctum multibet endpoint. Jackpots use AllJackpot API.
  */
 
 if (!function_exists('dashboardFormatKickoff')) {
@@ -12,6 +13,10 @@ if (!function_exists('dashboardFormatKickoff')) {
             return '—';
         }
         $ts = strtotime((string) $value);
+        if ($ts === false) {
+            // Admin often returns m/d/Y H:i
+            $ts = strtotime(str_replace('/', '-', (string) $value));
+        }
         if ($ts === false) {
             return (string) $value;
         }
@@ -72,7 +77,7 @@ if (!function_exists('dashboardNormalizeAuthRow')) {
             'league' => (string) ($row['league_name'] ?? $row['league_short_name'] ?? 'League'),
             'kickoff' => dashboardFormatKickoff($kickoff),
             'pick' => dashboardPickLabel($row),
-            'odd' => $odd !== null && $odd !== '' ? number_format((float) $odd, 2) : '—',
+            'odd' => $odd !== null && $odd !== '' && $odd !== '—' ? number_format((float) $odd, 2) : '—',
             'score' => (
                 isset($row['goals_home'], $row['goals_away'])
                 && $row['goals_home'] !== null
@@ -106,6 +111,10 @@ if (!function_exists('dashboardNormalizePublicTip')) {
             $odd = $tip['bets_away'] ?? $tip['odds_away'] ?? null;
         }
 
+        if (!empty($tip['tip'])) {
+            $pick = strtoupper((string) $tip['tip']);
+        }
+
         return [
             'fixture_id' => $tip['fixture_id'] ?? null,
             'home' => (string) ($tip['home_team_name'] ?? 'Home'),
@@ -123,6 +132,90 @@ if (!function_exists('dashboardNormalizePublicTip')) {
             ) ? ((string) $tip['goals_home'] . ' - ' . (string) $tip['goals_away']) : '—',
             'source' => 'public',
         ];
+    }
+}
+
+if (!function_exists('dashboardMaskLockedGames')) {
+    /**
+     * Hide tip/odds for unpaid users while keeping match context visible.
+     *
+     * @param  list<array<string, mixed>>  $games
+     * @return list<array<string, mixed>>
+     */
+    function dashboardMaskLockedGames(array $games): array
+    {
+        $masked = [];
+        foreach ($games as $game) {
+            if (!is_array($game)) {
+                continue;
+            }
+            $game['pick'] = '•••';
+            $game['odd'] = '•••';
+            $game['locked'] = true;
+            $masked[] = $game;
+        }
+        return $masked;
+    }
+}
+
+if (!function_exists('dashboardFetchAdminFreeGames')) {
+    /**
+     * Free tips curated in Pitch admin Upcoming (category=free).
+     *
+     * @return list<array<string, mixed>>
+     */
+    function dashboardFetchAdminFreeGames(string $date, int $limit = 12): array
+    {
+        $sites = ['bets', 'pitch', ''];
+        foreach ($sites as $site) {
+            $payload = ['fixture_date' => $date];
+            if ($site !== '') {
+                $payload['website'] = $site;
+            }
+
+            $ch = curl_init('https://admin.pitchpredictions.com/api/fetch-today-fixtures');
+            curl_setopt_array($ch, [
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_POST => true,
+                CURLOPT_HTTPHEADER => [
+                    'Accept: application/json',
+                    'Content-Type: application/json',
+                    'Origin: https://www.betsassured.com',
+                ],
+                CURLOPT_POSTFIELDS => json_encode($payload),
+                CURLOPT_TIMEOUT => 12,
+                CURLOPT_SSL_VERIFYPEER => false,
+            ]);
+            $raw = curl_exec($ch);
+            $code = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            if ($code < 200 || $code >= 300 || !is_string($raw)) {
+                continue;
+            }
+
+            $decoded = json_decode($raw, true);
+            $rows = is_array($decoded['data'] ?? null) ? $decoded['data'] : [];
+            if ($rows === []) {
+                continue;
+            }
+
+            $normalized = [];
+            foreach ($rows as $row) {
+                if (!is_array($row)) {
+                    continue;
+                }
+                $item = dashboardNormalizePublicTip($row);
+                $item['source'] = 'admin-free';
+                $normalized[] = $item;
+                if (count($normalized) >= $limit) {
+                    break;
+                }
+            }
+            if ($normalized !== []) {
+                return $normalized;
+            }
+        }
+
+        return [];
     }
 }
 
@@ -164,13 +257,16 @@ if (!function_exists('dashboardFetchAuthGames')) {
     }
 }
 
-if (!function_exists('dashboardFetchVipGames')) {
+if (!function_exists('dashboardFetchMultibetGames')) {
     /**
+     * VIP / VVIP selections from Pitch admin (pp_fixtures_selections).
+     *
      * @return list<array<string, mixed>>
      */
-    function dashboardFetchVipGames(string $token, string $date, int $limit = 8): array
+    function dashboardFetchMultibetGames(string $token, string $date, string $category = 'vip', int $limit = 10): array
     {
-        $path = "fetch_daily_multibet_games?fixture_date={$date}&category=vip&start_index=0&end_index=" . max(0, $limit - 1);
+        $category = strtolower($category) === 'vvip' ? 'vvip' : 'vip';
+        $path = "fetch_daily_multibet_games?fixture_date={$date}&category={$category}&start_index=0&end_index=" . max(0, $limit - 1);
         $result = authApiRequest('GET', $path, null, $token);
         $rows = $result['data']['data'] ?? null;
         if (!$result['ok'] || !is_array($rows) || $rows === []) {
@@ -183,7 +279,7 @@ if (!function_exists('dashboardFetchVipGames')) {
                 continue;
             }
             $item = dashboardNormalizeAuthRow($row);
-            $item['source'] = 'vip';
+            $item['source'] = $category;
             $normalized[] = $item;
             if (count($normalized) >= $limit) {
                 break;
@@ -191,6 +287,16 @@ if (!function_exists('dashboardFetchVipGames')) {
         }
 
         return $normalized;
+    }
+}
+
+if (!function_exists('dashboardFetchVipGames')) {
+    /**
+     * @return list<array<string, mixed>>
+     */
+    function dashboardFetchVipGames(string $token, string $date, int $limit = 8): array
+    {
+        return dashboardFetchMultibetGames($token, $date, 'vip', $limit);
     }
 }
 
@@ -240,5 +346,87 @@ if (!function_exists('dashboardFetchPublicGames')) {
         }
 
         return $normalized;
+    }
+}
+
+if (!function_exists('dashboardFetchJackpotGames')) {
+    /**
+     * Preview games for a named jackpot (AllJackpotPredictions API).
+     *
+     * @return list<array<string, mixed>>
+     */
+    function dashboardFetchJackpotGames(string $jackpotName = 'Sportpesa Mega Jackpot', int $limit = 8): array
+    {
+        if (!function_exists('jackpotApiHttpHeaders')) {
+            return [];
+        }
+
+        $url = 'https://api.alljackpotpredictions.com/api/fetch_jackpot_fixtures_by_name?jackpot_name=' . rawurlencode($jackpotName);
+        $ch = curl_init($url);
+        curl_setopt_array($ch, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_HTTPHEADER => jackpotApiHttpHeaders(),
+            CURLOPT_TIMEOUT => 12,
+            CURLOPT_SSL_VERIFYPEER => false,
+        ]);
+        $raw = curl_exec($ch);
+        $code = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        if ($code < 200 || $code >= 300 || !is_string($raw)) {
+            return [];
+        }
+
+        $decoded = json_decode($raw, true);
+        $rows = is_array($decoded['data'] ?? null) ? $decoded['data'] : [];
+        if ($rows === []) {
+            return [];
+        }
+
+        if (function_exists('normalizePitchPredictionsResponse')) {
+            $rows = normalizePitchPredictionsResponse($rows);
+        }
+
+        $normalized = [];
+        foreach ($rows as $row) {
+            if (!is_array($row)) {
+                continue;
+            }
+            $item = dashboardNormalizePublicTip($row);
+            $item['source'] = 'jackpot';
+            $normalized[] = $item;
+            if (count($normalized) >= $limit) {
+                break;
+            }
+        }
+
+        return $normalized;
+    }
+}
+
+if (!function_exists('dashboardFetchFreeGames')) {
+    /**
+     * Prefer admin Upcoming free tips, then auth tips, then public free tips.
+     *
+     * @return array{games: list<array<string, mixed>>, source: string}
+     */
+    function dashboardFetchFreeGames(?string $token, string $date, int $limit = 12): array
+    {
+        $games = dashboardFetchAdminFreeGames($date, $limit);
+        if ($games !== []) {
+            return ['games' => $games, 'source' => 'Admin Upcoming free tips'];
+        }
+
+        if ($token) {
+            $games = dashboardFetchAuthGames($token, $date, $limit);
+            if ($games !== []) {
+                return ['games' => $games, 'source' => 'Member tips'];
+            }
+        }
+
+        $games = dashboardFetchPublicGames($date, $limit);
+        if ($games !== []) {
+            return ['games' => $games, 'source' => "Today's free tips"];
+        }
+
+        return ['games' => [], 'source' => ''];
     }
 }

@@ -194,6 +194,14 @@ $router->get('/dashboard', function() {
     include __DIR__ . '/../pages/dashboard.php';
 });
 
+$router->get('/vip-tips', function() {
+    include __DIR__ . '/../pages/vip-tips.php';
+});
+
+$router->get('/vvip-tips', function() {
+    include __DIR__ . '/../pages/vvip-tips.php';
+});
+
 $router->get('/profile', function() {
     include __DIR__ . '/../pages/profile.php';
 });
