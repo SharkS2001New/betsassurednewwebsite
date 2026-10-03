@@ -35,8 +35,6 @@ include_once BASE_PATH . '/components/includes/navbar.inc.php';
 <main class="container blogs-page">
     <h1 class="page-hero-title">BetAssured Blog</h1>
 
-    <?php include_once BASE_PATH . '/components/includes/scrollable-nav.inc.php'; ?>
-
     <div class="section-title-bar">
         <h2>Latest Articles</h2>
         <span class="today-date-tag"><?php echo (int) $total; ?> posts</span>
