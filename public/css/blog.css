@@ -1,6 +1,13 @@
 .blogs-page,
 .blog-post-page {
-    padding-bottom: 40px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+/* Tighten space between blog content and site footer */
+body:has(.blogs-page) .site-footer,
+body:has(.blog-post-page) .site-footer {
+    margin-top: 1rem;
 }
 
 .blog-layout {
@@ -212,7 +219,7 @@ a.blog-title:hover {
 }
 
 .blog-article-inner {
-    padding: 28px 24px 36px;
+    padding: 28px 24px 20px;
 }
 
 .blog-article-title {

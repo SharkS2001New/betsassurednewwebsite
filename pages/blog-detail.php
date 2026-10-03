@@ -48,7 +48,7 @@ include_once BASE_PATH . '/components/includes/header.inc.php';
 include_once BASE_PATH . '/components/shared/preloader.shared.php';
 include_once BASE_PATH . '/components/includes/navbar.inc.php';
 ?>
-<link rel="stylesheet" href="/css/blog.css?v=2">
+<link rel="stylesheet" href="/css/blog.css?v=3">
 
 <main class="container blog-post-page">
     <a href="/blog" class="blog-back-link">← Back to Blog</a>
