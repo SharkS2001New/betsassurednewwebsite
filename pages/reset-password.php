@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'email' => $email,
             'password' => $password,
             'password_confirmation' => $passwordConfirmation,
+            'site' => authSiteKey(),
         ]);
 
         if ($result['ok']) {
@@ -45,44 +46,60 @@ include_once BASE_PATH . '/components/includes/header.inc.php';
 include_once BASE_PATH . '/components/shared/preloader.shared.php';
 include_once BASE_PATH . '/components/includes/navbar.inc.php';
 ?>
-<link rel="stylesheet" href="/css/auth.css?v=4">
+<link rel="stylesheet" href="/css/auth.css?v=7">
 
-<main class="container auth-page">
-    <div class="auth-card">
-        <h1 class="auth-title">Reset password</h1>
-        <?php if ($success): ?>
-            <div class="auth-alert auth-alert-success"><?php echo htmlspecialchars($success, ENT_QUOTES, 'UTF-8'); ?></div>
-            <div class="auth-actions">
-                <a class="auth-btn" href="/login">Go to Login</a>
+<main class="auth-page">
+    <div class="auth-shell">
+        <section class="auth-card" aria-labelledby="auth-title">
+            <div class="auth-brand">
+                <img src="/betsassured.png" alt="BetAssured" width="44" height="44">
+                <div>
+                    <p class="auth-brand-name">BetAssured</p>
+                    <p class="auth-brand-tag">Smart football predictions</p>
+                </div>
             </div>
-        <?php else: ?>
-            <p class="auth-lead">Choose a new password for <?php echo htmlspecialchars($email !== '' ? $email : 'your account', ENT_QUOTES, 'UTF-8'); ?>.</p>
 
-            <?php if ($error): ?>
-                <div class="auth-alert auth-alert-error"><?php echo htmlspecialchars($error, ENT_QUOTES, 'UTF-8'); ?></div>
-            <?php endif; ?>
+            <h1 id="auth-title" class="auth-title">Set a new password</h1>
 
-            <?php if ($token === '' || $email === ''): ?>
-                <div class="auth-alert auth-alert-error">This reset link is missing a token or email. Please request a new one.</div>
+            <?php if ($success): ?>
+                <p class="auth-lead">Your password was updated. You can sign in with the new one.</p>
+                <div class="auth-alert auth-alert-success" role="status"><?php echo htmlspecialchars($success, ENT_QUOTES, 'UTF-8'); ?></div>
                 <div class="auth-actions">
-                    <a class="auth-btn" href="/forgot-password">Request new reset link</a>
+                    <a class="auth-btn" href="/login">Go to login</a>
                 </div>
             <?php else: ?>
-                <form method="POST" action="/reset-password" class="auth-form">
-                    <input type="hidden" name="token" value="<?php echo htmlspecialchars($token, ENT_QUOTES, 'UTF-8'); ?>">
-                    <input type="hidden" name="email" value="<?php echo htmlspecialchars($email, ENT_QUOTES, 'UTF-8'); ?>">
-                    <div class="form-group">
-                        <label for="password">New password</label>
-                        <input id="password" type="password" name="password" required minlength="6">
+                <p class="auth-lead">Choose a new password for <?php echo htmlspecialchars($email !== '' ? $email : 'your account', ENT_QUOTES, 'UTF-8'); ?>.</p>
+
+                <?php if ($error): ?>
+                    <div class="auth-alert auth-alert-error" role="alert"><?php echo htmlspecialchars($error, ENT_QUOTES, 'UTF-8'); ?></div>
+                <?php endif; ?>
+
+                <?php if ($token === '' || $email === ''): ?>
+                    <div class="auth-alert auth-alert-error">This reset link is missing a token or email. Please request a new one.</div>
+                    <div class="auth-actions">
+                        <a class="auth-btn" href="/forgot-password">Request new reset link</a>
                     </div>
-                    <div class="form-group">
-                        <label for="password_confirmation">Confirm new password</label>
-                        <input id="password_confirmation" type="password" name="password_confirmation" required minlength="6">
-                    </div>
-                    <button type="submit" class="auth-btn">Update password</button>
-                </form>
+                <?php else: ?>
+                    <form method="POST" action="/reset-password" class="auth-form">
+                        <input type="hidden" name="token" value="<?php echo htmlspecialchars($token, ENT_QUOTES, 'UTF-8'); ?>">
+                        <input type="hidden" name="email" value="<?php echo htmlspecialchars($email, ENT_QUOTES, 'UTF-8'); ?>">
+                        <div class="form-group">
+                            <label for="password">New password</label>
+                            <input id="password" type="password" name="password" required minlength="6" autocomplete="new-password" placeholder="At least 6 characters">
+                        </div>
+                        <div class="form-group">
+                            <label for="password_confirmation">Confirm new password</label>
+                            <input id="password_confirmation" type="password" name="password_confirmation" required minlength="6" autocomplete="new-password" placeholder="Repeat password">
+                        </div>
+                        <button type="submit" class="auth-btn">Update password</button>
+                    </form>
+                <?php endif; ?>
+
+                <p class="auth-switch">
+                    <a href="/login">Back to sign in</a>
+                </p>
             <?php endif; ?>
-        <?php endif; ?>
+        </section>
     </div>
 </main>
 

@@ -51,67 +51,79 @@ include_once BASE_PATH . '/components/shared/preloader.shared.php';
 include_once BASE_PATH . '/components/includes/navbar.inc.php';
 $countries = authCountries();
 ?>
-<link rel="stylesheet" href="/css/auth.css?v=4">
+<link rel="stylesheet" href="/css/auth.css?v=7">
 
-<main class="container auth-page">
-    <div class="auth-card">
-        <h1 class="auth-title">Create free account</h1>
-        <?php if ($success): ?>
-            <div class="auth-alert auth-alert-success">
-                Registration successful. You can now log in with your email and password.
+<main class="auth-page">
+    <div class="auth-shell auth-shell-wide">
+        <section class="auth-card" aria-labelledby="auth-title">
+            <div class="auth-brand">
+                <img src="/betsassured.png" alt="BetAssured" width="44" height="44">
+                <div>
+                    <p class="auth-brand-name">BetAssured</p>
+                    <p class="auth-brand-tag">Smart football predictions</p>
+                </div>
             </div>
-            <div class="auth-actions">
-                <a class="auth-btn" href="/login">Go to Login</a>
-                <a class="auth-btn auth-btn-secondary" href="/todays-predictions">Browse free tips</a>
-            </div>
-        <?php else: ?>
-            <p class="auth-lead">
-                Create a free BetAssured account to access your dashboard and tips.
-            </p>
 
-            <?php if ($error): ?>
-                <div class="auth-alert auth-alert-error"><?php echo htmlspecialchars($error, ENT_QUOTES, 'UTF-8'); ?></div>
+            <?php if ($success): ?>
+                <h1 id="auth-title" class="auth-title">You're in</h1>
+                <p class="auth-lead">Your BetAssured account is ready. Sign in to open your dashboard.</p>
+                <div class="auth-alert auth-alert-success" role="status">
+                    Registration successful. You can now log in with your email and password.
+                </div>
+                <div class="auth-actions">
+                    <a class="auth-btn" href="/login">Go to login</a>
+                    <a class="auth-btn auth-btn-secondary" href="/todays-predictions">Browse free tips</a>
+                </div>
+            <?php else: ?>
+                <h1 id="auth-title" class="auth-title">Create your account</h1>
+                <p class="auth-lead">Join free — then unlock VIP tips and jackpots when you’re ready.</p>
+
+                <?php if ($error): ?>
+                    <div class="auth-alert auth-alert-error" role="alert"><?php echo htmlspecialchars($error, ENT_QUOTES, 'UTF-8'); ?></div>
+                <?php endif; ?>
+
+                <form method="POST" action="/register" class="auth-form">
+                    <div class="auth-form-grid">
+                        <div class="form-group">
+                            <label for="full_name">Full name</label>
+                            <input id="full_name" type="text" name="full_name" required autocomplete="name" value="<?php echo htmlspecialchars($fullName, ENT_QUOTES, 'UTF-8'); ?>" placeholder="Your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input id="email" type="email" name="email" required autocomplete="email" value="<?php echo htmlspecialchars($email, ENT_QUOTES, 'UTF-8'); ?>" placeholder="you@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone_number">Phone number</label>
+                            <input id="phone_number" type="tel" name="phone_number" required autocomplete="tel" value="<?php echo htmlspecialchars($phone, ENT_QUOTES, 'UTF-8'); ?>" placeholder="2547…">
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Country</label>
+                            <select id="country" name="country" required>
+                                <?php foreach ($countries as $item): ?>
+                                    <option value="<?php echo htmlspecialchars($item, ENT_QUOTES, 'UTF-8'); ?>" <?php echo $country === $item ? 'selected' : ''; ?>>
+                                        <?php echo htmlspecialchars($item, ENT_QUOTES, 'UTF-8'); ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input id="password" type="password" name="password" required minlength="6" autocomplete="new-password" placeholder="At least 6 characters">
+                        </div>
+                        <div class="form-group">
+                            <label for="password_confirmation">Confirm password</label>
+                            <input id="password_confirmation" type="password" name="password_confirmation" required minlength="6" autocomplete="new-password" placeholder="Repeat password">
+                        </div>
+                    </div>
+                    <button type="submit" class="auth-btn">Create free account</button>
+                </form>
+
+                <p class="auth-switch">
+                    Already have an account?
+                    <a href="/login">Sign in</a>
+                </p>
             <?php endif; ?>
-
-            <form method="POST" action="/register" class="auth-form">
-                <div class="form-group">
-                    <label for="full_name">Full name</label>
-                    <input id="full_name" type="text" name="full_name" required value="<?php echo htmlspecialchars($fullName, ENT_QUOTES, 'UTF-8'); ?>">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input id="email" type="email" name="email" required value="<?php echo htmlspecialchars($email, ENT_QUOTES, 'UTF-8'); ?>">
-                </div>
-                <div class="form-group">
-                    <label for="phone_number">Phone number</label>
-                    <input id="phone_number" type="text" name="phone_number" required value="<?php echo htmlspecialchars($phone, ENT_QUOTES, 'UTF-8'); ?>" placeholder="2547...">
-                </div>
-                <div class="form-group">
-                    <label for="country">Country</label>
-                    <select id="country" name="country" required>
-                        <?php foreach ($countries as $item): ?>
-                            <option value="<?php echo htmlspecialchars($item, ENT_QUOTES, 'UTF-8'); ?>" <?php echo $country === $item ? 'selected' : ''; ?>>
-                                <?php echo htmlspecialchars($item, ENT_QUOTES, 'UTF-8'); ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input id="password" type="password" name="password" required minlength="6">
-                </div>
-                <div class="form-group">
-                    <label for="password_confirmation">Confirm password</label>
-                    <input id="password_confirmation" type="password" name="password_confirmation" required minlength="6">
-                </div>
-                <button type="submit" class="auth-btn">Create account</button>
-            </form>
-
-            <div class="auth-links">
-                <a href="/login">Already have an account? Login</a>
-                <a href="/todays-predictions">Skip to free tips</a>
-            </div>
-        <?php endif; ?>
+        </section>
     </div>
 </main>
 

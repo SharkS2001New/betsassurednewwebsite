@@ -53,6 +53,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="/css/global.css?v=213">
   <link rel="stylesheet" href="/css/blog.css?v=6">
-  <link rel="stylesheet" href="/css/auth.css?v=6">
+  <link rel="stylesheet" href="/css/auth.css?v=7">
   <!-- <link rel="stylesheet" href="/css/populartips.css?v=213"> -->
 </head>
