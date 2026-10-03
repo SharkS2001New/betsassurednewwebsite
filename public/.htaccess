@@ -1,8 +1,8 @@
 # BetAssured — Apache behind Traefik
 #
-# Blog is served by this app at /blog (not the old external blog service).
-# Traefik terminates TLS on :443 and proxies HTTP to Apache :5500.
-# Never emit relative [R] redirects — Apache would leak http://host:5500.
+# /blog is a normal app route (same front controller as other pages).
+# Traefik terminates TLS; Apache listens on :5500 — never emit relative
+# redirects that would leak http://host:5500 (or local :5000).
 
 Options -Indexes
 Options -MultiViews
@@ -15,7 +15,7 @@ Options -MultiViews
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
-    # Apex → www (absolute https — never relative)
+    # Apex → www only (absolute https, no container/local port)
     RewriteCond %{HTTP_HOST} ^betsassured\.com$ [NC]
     RewriteRule ^ https://www.betsassured.com%{REQUEST_URI} [R=301,L]
 
@@ -24,11 +24,7 @@ Options -MultiViews
     RewriteRule ^api/clear-blog-cache/?$ api/clear-blog-cache.php [QSA,L]
     RewriteRule ^api/clear-blog-cache/([a-z0-9][a-z0-9\-]{0,190})/?$ api/clear-blog-cache.php?slug=$1 [QSA,L]
 
-    # In-app blog: internal rewrite only (no redirect, no :5500 leak)
-    RewriteRule ^blog/?$ index.php [QSA,L]
-    RewriteRule ^blog/([a-z0-9][a-z0-9\-]{0,190})/?$ index.php [QSA,L]
-
-    # Strip trailing slash with absolute canonical URL
+    # Strip trailing slash with absolute canonical host (no :5000 / :5500)
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.+)/$ https://www.betsassured.com/$1 [R=301,L]
 
@@ -37,7 +33,7 @@ Options -MultiViews
     RewriteCond %{REQUEST_FILENAME}\.php -f
     RewriteRule ^(.+)$ $1.php [NC,L]
 
-    # Front controller
+    # Front controller — /blog and /blog/{slug} use the same path as other pages
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^ index.php [QSA,L]

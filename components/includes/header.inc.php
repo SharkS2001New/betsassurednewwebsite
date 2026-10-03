@@ -16,15 +16,21 @@
   <!-- Load Dynamic Meta Tags -->
   <?php if (isset($metaTags)) echo $metaTags; ?>
 
+<?php
+  // Never leak local/container ports (:5000 / :5500) into canonical/social URLs.
+  $canonicalPath = parse_url((string) ($_SERVER['REQUEST_URI'] ?? '/'), PHP_URL_PATH);
+  $canonicalPath = is_string($canonicalPath) && $canonicalPath !== '' ? $canonicalPath : '/';
+  $canonicalUrl = 'https://www.betsassured.com' . $canonicalPath;
+?>
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.betsassured.com<?= $_SERVER['REQUEST_URI'] ?>">
+  <meta property="og:url" content="<?php echo htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8'); ?>">
   <meta property="og:image" content="https://www.betsassured.com/betsassured.png">
   <meta property="og:image:alt" content="BetAssured - Football Predictions & Betting Tips" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://www.betsassured.com<?= $_SERVER['REQUEST_URI'] ?>">
+  <meta name="twitter:url" content="<?php echo htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8'); ?>">
   <meta name="twitter:image" content="https://www.betsassured.com/betsassured.png">
   <meta name="twitter:image:alt" content="BetAssured - Football Predictions & Betting Tips">
   <meta name="ai-content-declaration" content="human-written, data-driven">
@@ -39,7 +45,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/betsassured.png">
 
   <!-- Canonical URL -->
-  <link rel="canonical" href="https://www.betsassured.com<?= $_SERVER['REQUEST_URI'] ?>" />
+  <link rel="canonical" href="<?php echo htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8'); ?>" />
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous">
