@@ -37,7 +37,7 @@ include_once BASE_PATH . '/components/includes/header.inc.php';
 include_once BASE_PATH . '/components/shared/preloader.shared.php';
 include_once BASE_PATH . '/components/includes/navbar.inc.php';
 ?>
-<link rel="stylesheet" href="/css/auth.css?v=2">
+<link rel="stylesheet" href="/css/auth.css?v=4">
 
 <main class="container auth-page">
     <div class="auth-card">

@@ -46,7 +46,7 @@ include_once BASE_PATH . '/components/includes/header.inc.php';
 include_once BASE_PATH . '/components/shared/preloader.shared.php';
 include_once BASE_PATH . '/components/includes/navbar.inc.php';
 ?>
-<link rel="stylesheet" href="/css/auth.css?v=3">
+<link rel="stylesheet" href="/css/auth.css?v=4">
 
 <main class="container dash-page">
     <section class="dash-hero-card">
