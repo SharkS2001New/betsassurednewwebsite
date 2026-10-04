@@ -150,6 +150,15 @@ $router->get('/our-terms-and-conditions', function() {
     include __DIR__ . '/../pages/terms-and-conditions.php'; 
 });
 
+$router->get('/sitemaps', function() {
+    include __DIR__ . '/../pages/sitemaps.php';
+});
+
+$router->get('/sitemaps/', function() {
+    header('Location: /sitemaps', true, 301);
+    exit;
+});
+
 $router->get('/blog', function() {
     include __DIR__ . '/../pages/blog.php';
 });

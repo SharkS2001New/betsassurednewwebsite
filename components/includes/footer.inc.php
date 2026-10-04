@@ -37,6 +37,7 @@
           <li><a href="/about-us">About Us</a></li>
           <li><a href="/contact-us">Contact Us</a></li>
           <li><a href="/partners">Partners</a></li>
+          <li><a href="/sitemaps">Sitemaps</a></li>
         </ul>
       </div>
 

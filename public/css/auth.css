@@ -59,44 +59,45 @@
 
 .auth-brand {
     display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 1.35rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.45rem;
+    margin-bottom: 1.45rem;
+    width: 100%;
 }
 
 .auth-brand img {
-    width: 44px;
-    height: 44px;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: 56px;
     object-fit: contain;
-    border-radius: 12px;
-    background: #fff;
-    border: 1px solid var(--border);
-    padding: 4px;
-}
-
-.auth-brand-name {
-    margin: 0;
-    font-size: 1.15rem;
-    font-weight: 760;
-    letter-spacing: -0.03em;
-    color: var(--navy);
-    line-height: 1.15;
+    object-position: left center;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    padding: 0;
 }
 
 .auth-brand-tag {
-    margin: 0.15rem 0 0;
-    font-size: 0.78rem;
-    color: var(--text-3);
+    display: block;
+    margin: 0;
+    width: 100%;
+    font-size: 0.95rem;
+    color: var(--text-2);
     font-weight: 600;
+    line-height: 1.45;
 }
 
 .auth-title {
-    margin: 0 0 0.4rem;
+    margin: 0 0 0.45rem;
     font-size: clamp(1.55rem, 2.4vw, 1.85rem);
     font-weight: 760;
     color: var(--text-1);
     letter-spacing: -0.035em;
     line-height: 1.15;
+    width: 100%;
 }
 
 .auth-lead {
@@ -104,7 +105,8 @@
     line-height: 1.55;
     margin: 0 0 1.35rem;
     font-size: 0.98rem;
-    max-width: 36ch;
+    width: 100%;
+    max-width: none;
 }
 
 .auth-form .form-group {
@@ -247,17 +249,27 @@
 }
 
 .auth-switch {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem 0.5rem;
+    width: 100%;
     margin: 1.25rem 0 0;
+    padding: 0.9rem 1rem;
     text-align: center;
     color: var(--text-2);
-    font-size: 0.92rem;
+    font-size: 0.94rem;
+    line-height: 1.45;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
 }
 
 .auth-switch a {
     color: var(--navy);
     font-weight: 750;
     text-decoration: none;
-    margin-left: 0.25rem;
 }
 
 .auth-switch a:hover {

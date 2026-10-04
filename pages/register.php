@@ -51,17 +51,14 @@ include_once BASE_PATH . '/components/shared/preloader.shared.php';
 include_once BASE_PATH . '/components/includes/navbar.inc.php';
 $countries = authCountries();
 ?>
-<link rel="stylesheet" href="/css/auth.css?v=7">
+<link rel="stylesheet" href="/css/auth.css?v=9">
 
 <main class="auth-page">
     <div class="auth-shell auth-shell-wide">
         <section class="auth-card" aria-labelledby="auth-title">
             <div class="auth-brand">
-                <img src="/betsassured.png" alt="BetAssured" width="44" height="44">
-                <div>
-                    <p class="auth-brand-name">BetAssured</p>
-                    <p class="auth-brand-tag">Smart football predictions</p>
-                </div>
+                <img src="/betsassured.png" alt="BetAssured">
+                <p class="auth-brand-tag">Smart football predictions</p>
             </div>
 
             <?php if ($success): ?>
