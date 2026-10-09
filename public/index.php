@@ -100,6 +100,18 @@ $router->get('/sunpel-tips', function() {
     include __DIR__ . '/../pages/sunpel-tips.php'; 
 });
 
+$router->get('/vitibet-tips', function() {
+    include __DIR__ . '/../pages/vitibet-tips.php';
+});
+
+$router->get('/adibet-tips', function() {
+    include __DIR__ . '/../pages/adibet-tips.php';
+});
+
+$router->get('/soccervista-tips', function() {
+    include __DIR__ . '/../pages/soccervista-tips.php';
+});
+
 $router->get('/sure-win-prediction-today', function() {
     include __DIR__ . '/../pages/sure-win-prediction-today.php'; 
 });

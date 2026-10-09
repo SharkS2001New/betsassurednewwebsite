@@ -84,6 +84,9 @@ $sections = [
             ['label' => 'Mwanasoka Tips', 'href' => '/mwanasoka-tips'],
             ['label' => 'SokaFans Tips', 'href' => '/sokafans-tips'],
             ['label' => 'Sunpel Tips', 'href' => '/sunpel-tips'],
+            ['label' => 'Vitibet Predictions', 'href' => '/vitibet-tips'],
+            ['label' => 'Adibet Predictions', 'href' => '/adibet-tips'],
+            ['label' => 'SoccerVista Predictions', 'href' => '/soccervista-tips'],
         ],
     ],
     [
