@@ -128,6 +128,22 @@ $router->get('/primatips-tips', function() {
     include __DIR__ . '/../pages/primatips-tips.php';
 });
 
+$router->get('/betpera-tips', function() {
+    include __DIR__ . '/../pages/betpera-tips.php';
+});
+
+$router->get('/supatips-tips', function() {
+    include __DIR__ . '/../pages/supatips-tips.php';
+});
+
+$router->get('/venasbet-tips', function() {
+    include __DIR__ . '/../pages/venasbet-tips.php';
+});
+
+$router->get('/zulubet-tips', function() {
+    include __DIR__ . '/../pages/zulubet-tips.php';
+});
+
 $router->get('/sure-win-prediction-today', function() {
     include __DIR__ . '/../pages/sure-win-prediction-today.php'; 
 });

@@ -91,6 +91,10 @@ $sections = [
             ['label' => 'Liobet Predictions', 'href' => '/liobet-tips'],
             ['label' => 'Zakabet Predictions', 'href' => '/zakabet-tips'],
             ['label' => 'Primatips', 'href' => '/primatips-tips'],
+            ['label' => 'Betpera Predictions', 'href' => '/betpera-tips'],
+            ['label' => 'Supatips Predictions', 'href' => '/supatips-tips'],
+            ['label' => 'Venasbet Predictions', 'href' => '/venasbet-tips'],
+            ['label' => 'Zulubet Predictions', 'href' => '/zulubet-tips'],
         ],
     ],
     [
