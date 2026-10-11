@@ -112,6 +112,22 @@ $router->get('/soccervista-tips', function() {
     include __DIR__ . '/../pages/soccervista-tips.php';
 });
 
+$router->get('/1960-tips', function() {
+    include __DIR__ . '/../pages/1960-tips.php';
+});
+
+$router->get('/liobet-tips', function() {
+    include __DIR__ . '/../pages/liobet-tips.php';
+});
+
+$router->get('/zakabet-tips', function() {
+    include __DIR__ . '/../pages/zakabet-tips.php';
+});
+
+$router->get('/primatips-tips', function() {
+    include __DIR__ . '/../pages/primatips-tips.php';
+});
+
 $router->get('/sure-win-prediction-today', function() {
     include __DIR__ . '/../pages/sure-win-prediction-today.php'; 
 });

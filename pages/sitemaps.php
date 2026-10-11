@@ -87,6 +87,10 @@ $sections = [
             ['label' => 'Vitibet Predictions', 'href' => '/vitibet-tips'],
             ['label' => 'Adibet Predictions', 'href' => '/adibet-tips'],
             ['label' => 'SoccerVista Predictions', 'href' => '/soccervista-tips'],
+            ['label' => '1960 Tips', 'href' => '/1960-tips'],
+            ['label' => 'Liobet Predictions', 'href' => '/liobet-tips'],
+            ['label' => 'Zakabet Predictions', 'href' => '/zakabet-tips'],
+            ['label' => 'Primatips', 'href' => '/primatips-tips'],
         ],
     ],
     [
