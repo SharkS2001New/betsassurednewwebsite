@@ -144,6 +144,34 @@ $router->get('/zulubet-tips', function() {
     include __DIR__ . '/../pages/zulubet-tips.php';
 });
 
+$router->get('/betclan-predictions', function() {
+    include __DIR__ . '/../pages/betclan-predictions.php';
+});
+
+$router->get('/betensured-predictions', function() {
+    include __DIR__ . '/../pages/betensured-predictions.php';
+});
+
+$router->get('/betgenuine-predictions', function() {
+    include __DIR__ . '/../pages/betgenuine-predictions.php';
+});
+
+$router->get('/solopredict-tips', function() {
+    include __DIR__ . '/../pages/solopredict-tips.php';
+});
+
+$router->get('/solopredictions-tips', function() {
+    include __DIR__ . '/../pages/solopredictions-tips.php';
+});
+
+$router->get('/tips180-predictions', function() {
+    include __DIR__ . '/../pages/tips180-predictions.php';
+});
+
+$router->get('/victorspredict-tips', function() {
+    include __DIR__ . '/../pages/victorspredict-tips.php';
+});
+
 $router->get('/sure-win-prediction-today', function() {
     include __DIR__ . '/../pages/sure-win-prediction-today.php'; 
 });

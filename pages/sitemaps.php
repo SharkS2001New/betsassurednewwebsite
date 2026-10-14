@@ -95,6 +95,13 @@ $sections = [
             ['label' => 'Supatips Predictions', 'href' => '/supatips-tips'],
             ['label' => 'Venasbet Predictions', 'href' => '/venasbet-tips'],
             ['label' => 'Zulubet Predictions', 'href' => '/zulubet-tips'],
+            ['label' => 'Betclan Predictions', 'href' => '/betclan-predictions'],
+            ['label' => 'Betensured Predictions', 'href' => '/betensured-predictions'],
+            ['label' => 'BetGenuine Predictions', 'href' => '/betgenuine-predictions'],
+            ['label' => 'Solo Predict', 'href' => '/solopredict-tips'],
+            ['label' => 'Solo Predictions', 'href' => '/solopredictions-tips'],
+            ['label' => 'Tips180 Predictions', 'href' => '/tips180-predictions'],
+            ['label' => 'Victorspredict Tips', 'href' => '/victorspredict-tips'],
         ],
     ],
     [
