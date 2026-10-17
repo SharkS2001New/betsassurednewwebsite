@@ -87,7 +87,7 @@ Liobet Weekend predictions include several matches from the Premier League, La L
 
 Reviewing fixtures ahead of time allows football fans to compare team form, league positions and recent scoring records before kick-off. Our predictions reflect the latest available data.
 
-Check our [tomorrow's football predictions](https://www.betsassured.com/tomorrows-predictions) for upcoming fixtures and our [results ](https://www.betsassured.com/results) for completed matches.
+Check our [tomorrow's football predictions](https://www.betsassured.com/tomorrows-predictions) for upcoming fixtures and our [results ](https://www.betsassured.com/yesterdays-predictions) for completed matches.
 
 ## Liobet Predictions FAQ
 

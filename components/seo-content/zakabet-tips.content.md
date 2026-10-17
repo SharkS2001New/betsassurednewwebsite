@@ -161,7 +161,7 @@ Visit our [football predictions](https://www.betsassured.com/all-predictions) to
 
 Zakabet results cover completed football matches and their final scores. Results help show how matches ended and allow previous predictions to be compared with actual outcomes.
 
-BetsAssured provides a [results](https://www.betsassured.com/results) for reviewing completed matches and previous predictions. Fans can use match results alongside current tips to follow team performance over time.
+BetsAssured provides a [results](https://www.betsassured.com/yesterdays-predictions) for reviewing completed matches and previous predictions. Fans can use match results alongside current tips to follow team performance over time.
 
 Zaka bet Live scores provide updates while matches are in progress. Our predictions help fans follow ongoing fixtures before the final results are available.
 

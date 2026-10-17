@@ -114,7 +114,7 @@ The 1X2 match result shows one of three outcomes:
 
 For example, a 2-0 home victory produces a 1X2 result of **1**. A 1-1 draw produces **X**. A 0-2 away victory produces **2**. Betsloaded match results show the actual outcome, while 1X2 predictions show the forecast made before kickoff. 
 
-Visit our [football match results](https://www.betsassured.com/results) to check available results.
+Visit our [football match results](https://www.betsassured.com/yesterdays-predictions) to check available results.
 
 ## Frequently Asked Questions About Betsloaded Predictions
 

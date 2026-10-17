@@ -4,7 +4,7 @@ WinDrawWin is a free online football statistics and sports prediction website. W
 
 Win draw win predictions include the three main match outcomes: home win, draw and away win. We also analyze other markets, including both teams to score, over/under goals and correct scores, to provide a wider view of each fixture.
 
-Our daily football tips bring these markets together with match information to help you find suitable picks. Explore our [football predictions](https://betsassured.com/) for today's fixtures and upcoming games.
+Our daily football tips bring these markets together with match information to help you find suitable picks. Explore our [football predictions](https://www.betsassured.com/) for today's fixtures and upcoming games.
 
 ## WinDrawWin Predictions Today and Football Tips
 
@@ -14,7 +14,7 @@ Our WinDrawWin today analysis considers home advantage, away form, goals scored 
 
 For today's football tips, we analyze the main result first, then consider whether another market better reflects the match. A fixture with two closely matched teams, for example, needs a different approach from one involving a strong home side against a team with poor away form.
 
-Visit our [daily football predictions](https://betsassured.com/) to check the available match tips and analysis.
+Visit our [daily football predictions](https://www.betsassured.com/) to check the available match tips and analysis.
 
 ## Win Draw Win Predictions and 1X2 Tips
 
@@ -30,7 +30,7 @@ Our prediction win draw win analysis considers recent results, home and away rec
 
 A win and draw prediction may also involve double chance. The 1X option covers a home win or draw, while X2 covers an away win or draw. The 12 option covers either team winning, with no draw.
 
-We use these markets to analyze the match from different ways rather than relying only on the most obvious winner. Explore our [1X2 predictions](https://betsassured.com/1x2-predictions/) for more match-result tips.
+We use these markets to analyze the match from different ways rather than relying only on the most obvious winner. Explore our [1X2 predictions](https://www.betsassured.com/all-predictions) for more match-result tips.
 
 ## WinDrawWin Correct Score Predictions
 
@@ -55,7 +55,7 @@ Our analysis covers common goal lines:
 
 We compare the teams' recent scoring records, defensive performance and home or away results before choosing a likely goal pattern. A team that scores regularly at home may face a different challenge against an opponent with a strong away defence.
 
-These statistics help us decide whether the match is better suited to a result prediction or a goals market. See our [over/under predictions](https://betsassured.com/over-under-predictions/) for more tips.
+These statistics help us decide whether the match is better suited to a result prediction or a goals market. See our [over/under predictions](https://www.betsassured.com/over-under-25-goals) for more tips.
 
 ## WinDrawWin BTTS and Both Teams to Score(GG) Tips
 
@@ -65,7 +65,7 @@ We analyze recent scoring records, clean sheets and defensive weaknesses before 
 
 Our draw win draw prediction analysis also considers how closely matched teams approach their games. When both sides create chances but struggle to finish, the final result may differ from their recent scoring averages.
 
-Review our [BTTS predictions](https://betsassured.com/btts-predictions/) for more match tips in this market.
+Review our [BTTS predictions](https://www.betsassured.com/both-teams-to-score) for more match tips in this market.
 
 ## WinDrawWin Predictions Tomorrow
 
@@ -75,7 +75,7 @@ Our WinDrawWin predictions tomorrow consider recent form, home and away performa
 
 For major competitions, we use official sources such as the [Premier League](https://www.premierleague.com/en) and [UEFA](https://www.uefa.com/) to check competition information, fixtures and results.
 
-We then compare the available statistics and prepare predictions for the matches that have enough information for a meaningful analyzement. Visit our [football predictions for tomorrow](https://betsassured.com/football-predictions-tomorrow/) to see upcoming tips.
+We then compare the available statistics and prepare predictions for the matches that have enough information for a meaningful analyzement. Visit our [football predictions for tomorrow](https://www.betsassured.com/tomorrows-predictions) to see upcoming tips.
 
 ## WinDrawWin Predictions Today and Tonight
 
@@ -118,7 +118,7 @@ Our review separates match-result accuracy from correct-score and goal-market pe
 
 We also review whether both teams scored and whether the match ended in a draw. This gives us a clearer view of the performance of different prediction types.
 
-You can check completed matches and results through our [football results](https://betsassured.com/results/).
+You can check completed matches and results through our [football results](https://www.betsassured.com/yesterdays-predictions).
 
 ## Frequently Asked Questions About WinDrawWin Predictions
 
@@ -128,7 +128,7 @@ WinDrawWin predictions today are football tips for matches scheduled on the curr
 
 ### Where Can I Find WinDrawWin Predictions Tomorrow?
 
-WinDrawWin predictions tomorrow are tips for fixtures  scheduled for the next day. We analyze upcoming matches using recent form, scoring records, home and away performance and available team news. Our [tomorrow football predictions](https://betsassured.com/football-predictions-tomorrow/) provide more upcoming tips.
+WinDrawWin predictions tomorrow are tips for fixtures  scheduled for the next day. We analyze upcoming matches using recent form, scoring records, home and away performance and available team news. Our [tomorrow football predictions](https://www.betsassured.com/tomorrows-predictions) provide more upcoming tips.
 
 ### What Is a Win Draw Win Prediction?
 
@@ -147,4 +147,4 @@ A Win Draw Win prediction (often called a 1X2 prediction or Match Result market)
 
 WinDrawWin predictions today cover match results, correct scores, goal markets and other football tips. Our analysis focuses on recent team performance, available statistics and the likely outcome of each fixture.
 
-We provide football predictions for today's matches, tomorrow's fixtures and selected upcoming games. Visit our [football predictions](https://betsassured.com/) to review available tips and match analysis.
+We provide football predictions for today's matches, tomorrow's fixtures and selected upcoming games. Visit our [football predictions](https://www.betsassured.com/) to review available tips and match analysis.

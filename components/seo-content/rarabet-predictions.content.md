@@ -88,7 +88,7 @@ Visit our [free football betting tips](https://www.betsassured.com/free-football
 
 Rarabet predictions can be reviewed against completed match results to see how individual picks performed. Comparing a published tip with the final score shows whether the predicted outcome was correct.
 
-BetsAssured provides access to football results for completed fixtures. Visit our [football results](https://www.betsassured.com/results) to check completed matches and their outcomes.
+BetsAssured provides access to football results for completed fixtures. Visit our [football results](https://www.betsassured.com/yesterdays-predictions) to check completed matches and their outcomes.
 
 ##  Rarabet Predictions Frequently Asked Questions 
 

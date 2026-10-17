@@ -76,7 +76,7 @@ Betensured football coverage also connects match predictions with football score
 
 Following football results helps fans review completed fixtures and compare actual match outcomes with previous predictions. Match dates and final scores are important when checking the results of specific games.
 
-Visit our [football results](https://www.betsassured.com/results) to check recorded scores.
+Visit our [football results](https://www.betsassured.com/yesterdays-predictions) to check recorded scores.
 
 ## Frequently Asked Questions About Betensured Predictions
 

@@ -103,7 +103,7 @@ Explore our [football predictions](https://www.betsassured.com/all-predictions) 
 
 Primatips yesterday are previous day's football predictions and completed matches. Reviewing past results provides context around earlier tips and the outcomes of those fixtures.
 
-A prediction result should be checked against the final score and the market originally covered.  Past results also help distinguish completed fixtures from upcoming matches. Visit our [results](https://www.betsassured.com/results) to review available football results and prediction records.
+A prediction result should be checked against the final score and the market originally covered.  Past results also help distinguish completed fixtures from upcoming matches. Visit our [results](https://www.betsassured.com/yesterdays-predictions) to review available football results and prediction records.
 
 
 ## Primatips Jackpot Predictions
@@ -134,7 +134,7 @@ Prima tip predict are football match predictions and betting tips. At BetsAssure
 
 ### What are primatips yesterday?
 
-Primatips yesterday are previous football predictions for completed matches. Check our [football results](https://www.betsassured.com/results)  to compare final scores with past tips.
+Primatips yesterday are previous football predictions for completed matches. Check our [football results](https://www.betsassured.com/yesterdays-predictions)  to compare final scores with past tips.
 
 ### Where do I find primatips weekend predictions?
 
@@ -144,4 +144,4 @@ Find primatips weekend on our [football predictions](https://www.betsassured.com
 
 Find primatips, primatips today, primatips tomorrow and primatips weekend coverage at BetsAssured. Our football tips cover match results, correct scores, Over/Under goals, BTTS, Double Chance and jackpot predictions.
 
-Visit [BetsAssured](https://www.betsassured.com/) for our latest football tips. You can also explore [daily football predictions](https://www.betsassured.com/all-predictions), [tomorrow's predictions](https://www.betsassured.com/tomorrows-predictions), [jackpot predictions](https://www.betsassured.com/jackpot-predictions) and [football results](https://www.betsassured.com/results).
+Visit [BetsAssured](https://www.betsassured.com/) for our latest football tips. You can also explore [daily football predictions](https://www.betsassured.com/all-predictions), [tomorrow's predictions](https://www.betsassured.com/tomorrows-predictions), [jackpot predictions](https://www.betsassured.com/jackpot-predictions) and [football results](https://www.betsassured.com/yesterdays-predictions).

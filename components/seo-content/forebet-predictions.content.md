@@ -4,7 +4,7 @@ Forebet predictions today help football fans review expected match results, pred
 
 Forebet football predictions cover different match markets, including home wins, draws, away wins, double chance, correct scores, both teams to score and over/under goals. Looking at more than one market gives you a wider view of each fixture.
 
-BetsAssured provides daily football tips and match analysis for selected fixtures across different competitions. Visit our [football predictions](https://betsassured.com/) to review available matches and tips.
+BetsAssured provides daily football tips and match analysis for selected fixtures across different competitions. Visit our [football predictions](https://www.betsassured.com/) to review available matches and tips.
 
 ## Forebet Predictions Today and Daily Football Tips
 
@@ -24,7 +24,7 @@ The three possible outcomes are:
 - **X:** The match ends in a draw.
 - **2:** The away team wins.
 
-Explore our [1X2 football predictions](https://betsassured.com/1x2-predictions/) for more match-result tips.
+Explore our [1X2 football predictions](https://www.betsassured.com/all-predictions) for more match-result tips.
 
 ## Forebet Double Chance Predictions
 
@@ -62,7 +62,7 @@ The main options work as follows:
 
 Forebet goal predictions are easier to assess when you compare both teams' attacking and defensive records. A side that scores regularly may still struggle against an organised defence.
 
-For more match tips, explore our [over/under predictions](https://betsassured.com/over-under-predictions/).
+For more match tips, explore our [over/under predictions](https://www.betsassured.com/over-under-25-goals).
 
 ## Forebet BTTS and GG Predictions
 
@@ -72,7 +72,7 @@ Forebet football tips for BTTS Yes are worth reviewing when both teams score reg
 
 Check recent scoring records instead of relying only on team names or league positions. A team's overall goal average may hide differences between its home and away performances.
 
-Explore our [BTTS predictions](https://betsassured.com/btts-predictions/) for more tips on this market.
+Explore our [BTTS predictions](https://www.betsassured.com/both-teams-to-score) for more tips on this market.
 
 ## Forebet Tomorrow Predictions
 
@@ -80,7 +80,7 @@ Forebet tomorrow predictions help football fans review upcoming fixtures before 
 
 Forebet predictions for tomorrow cover league matches, cup games and international fixtures. Compare recent results, home and away records, goals scored and goals conceded before choosing a tip.
 
-BetsAssured provides upcoming match tips. Visit our [football predictions for tomorrow](https://betsassured.com/football-predictions-tomorrow/) to review available fixtures and predictions.
+BetsAssured provides upcoming match tips. Visit our [football predictions for tomorrow](https://www.betsassured.com/tomorrows-predictions) to review available fixtures and predictions.
 
 ## Forebet Weekend Predictions
 
@@ -98,7 +98,7 @@ Forebet yesterday results should be assessed according to the original market. A
 
 When reviewing past football tips, check whether the predicted winner was correct, whether both teams scored and whether the total goals finished over or under the selected line.
 
-You can also check completed fixtures through our [football results](https://betsassured.com/results/).
+You can also check completed fixtures through our [football results](https://www.betsassured.com/yesterdays-predictions).
 
 ## Forebet Mega Jackpot Prediction
 
@@ -108,7 +108,7 @@ Forebet jackpot predictions are easier to assess when you compare the home team'
 
 Get Forebet Mega Jackpot Predictions for this weekend. We offer expert jackpot tips every week to help you win grand prizes and bonuses for the mega jackpot. This includes the sportpesa, betika, betlion, betpawa and more.
 
-BetsAssured provides [jackpot predictions](https://betsassured.com/jackpot-predictions/) to help you review available fixtures and match tips.
+BetsAssured provides [jackpot predictions](https://www.betsassured.com/jackpot-predictions) to help you review available fixtures and match tips.
 
 ## Forebet Midweek Jackpot Predictions
 
@@ -176,4 +176,4 @@ Forebet midweek jackpot predictions are jackpot fixtures scheduled during the we
 
 Forebet predictions today provide a way to review match outcomes, score estimates and team statistics. Comparing these details with recent form, home and away records and goal trends gives you more information before choosing a tip.
 
-BetsAssured publishes football predictions for today, tomorrow and selected upcoming fixtures. Visit our [football predictions](https://betsassured.com/) to explore available tips and match analysis.
+BetsAssured publishes football predictions for today, tomorrow and selected upcoming fixtures. Visit our [football predictions](https://www.betsassured.com/) to explore available tips and match analysis.

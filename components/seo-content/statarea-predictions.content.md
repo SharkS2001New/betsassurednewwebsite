@@ -1,7 +1,7 @@
 # Statarea Predictions Today, Old Statarea Tips and Football Predictions
 Statarea is a popular online football and soccer statistics and match prediction platform. Statarea predictions today provide football forecasts, match statistics and betting tips. Statarea predictions cover markets such as 1X2, double chance, correct score, Both Teams to Score (BTTS), over and under goals, and half-time/full-time results.
 
-We cover daily football tips, upcoming fixtures and jackpot predictions. You can also compare forecasts with team form and previous results. Check the latest [football predictions today](https://betsassured.com/) for available match tips.
+We cover daily football tips, upcoming fixtures and jackpot predictions. You can also compare forecasts with team form and previous results. Check the latest [football predictions today](https://www.betsassured.com/) for available match tips.
 
 ## Statarea Prediction Today and Statarea Today
 
@@ -17,7 +17,7 @@ Old Statarea prediction today are football tips from old Statare platform. Old S
 
 Our tips cover a home win, draw or away win. Goal predictions can also be compared with the final score. Get soccer and football statistics, predictions, bet tips, results and team informationall from  Statarea.
 
-You can review [football results](https://betsassured.com/results/) to compare completed matches with earlier forecasts.
+You can review [football results](https://www.betsassured.com/yesterdays-predictions) to compare completed matches with earlier forecasts.
 
 ## Statarea Prediction Today 1X2 and Statera Bet Prediction Today
 
@@ -29,7 +29,7 @@ Statarea prediction today 1X2 focuses on the three main football outcomes. State
 
 A team's current form, home advantage, scoring record and defensive strength help assess the likely result. Draws deserve attention when teams have similar records or struggle to score consistently.
 
-Explore more [1X2 football predictions](https://betsassured.com/1x2-predictions/) and compare the tips with recent match statistics.
+Explore more [1X2 football predictions](https://www.betsassured.com/all-predictions) and compare the tips with recent match statistics.
 
 ## Statarea Double Chance and Statarea Soccer Predictions
 
@@ -58,7 +58,7 @@ Statarea BTTS predictions assess whether both teams will score at least one goal
 
 Recent scoring records and defensive weaknesses help assess this market. Matches involving two teams that score regularly may be suitable for further BTTS analysis.
 
-Check the available [BTTS predictions](https://betsassured.com/btts-predictions/) and compare them with recent results.
+Check the available [BTTS predictions](https://www.betsassured.com/both-teams-to-score) and compare them with recent results.
 
 ## Statarea Over and Under Goals Predictions
 
@@ -74,7 +74,7 @@ Common markets include:
 
 Over 2.5 goals requires at least three goals in total. Under 2.5 goals requires two goals or fewer.
 
-Team scoring records, defensive form and recent match totals help assess the likely goal range. See the available [over and under predictions](https://betsassured.com/over-under-predictions/) for more tips.
+Team scoring records, defensive form and recent match totals help assess the likely goal range. See the available [over and under predictions](https://www.betsassured.com/over-under-25-goals) for more tips.
 
 ## Statarea HT/FT Predictions and Statarea Match Tips
 
@@ -95,7 +95,7 @@ Statarea midweek jackpot prediction covers football fixtures included in midweek
 
 Consider recent form, home advantage, goals scored and the strength of the opposition. The tips cover jackpots such as Sportpesa, Betika, Odibet, Betpawa and Betlion.
 
-Check the latest [jackpot predictions](https://betsassured.com/jackpot-predictions/) for additional match tips. 
+Check the latest [jackpot predictions](https://www.betsassured.com/jackpot-predictions) for additional match tips. 
 
 ## Statarea Mega Jackpot Prediction and Statarea Jackpot Tips
 
@@ -110,7 +110,7 @@ Statarea prediction tomorrow covers fixtures scheduled for the following day. St
 
 Predictions can change when line-ups, injuries or other team news become available. Confirm the fixture and kick-off time before using a tip.
 
-View the latest [football predictions for tomorrow](https://betsassured.com/football-predictions-tomorrow/) to compare upcoming matches.
+View the latest [football predictions for tomorrow](https://www.betsassured.com/tomorrows-predictions) to compare upcoming matches.
 
 ## Statarea Results, Old Statarea Predictions and Football Statistics
 

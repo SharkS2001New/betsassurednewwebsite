@@ -60,7 +60,7 @@ Solo predictions livescore content focuses on football scores and match progress
 
 A live soccer score helps track goals and score changes as games progress. Football results provide a record of completed fixtures, making it easier to review past matches alongside their predictions.
 
-For completed games, visit our [football results](https://www.betsassured.com/results) to check recorded scores.
+For completed games, visit our [football results](https://www.betsassured.com/yesterdays-predictions) to check recorded scores.
 
 ## Solo Bet Prediction of the Day
 

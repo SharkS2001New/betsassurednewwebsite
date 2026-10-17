@@ -4,7 +4,7 @@ FootyStats predictions combine football statistics, team performance and match a
 
 FootyStats football statistics also help analyze head-to-head records, scoring trends, home and away performance, and league form. These details provide useful information when comparing football tips and upcoming fixtures.
 
-BetsAssured provides football predictions and match analysis for daily fixtures, selected leagues and jackpot competitions. Check the latest [football predictions today](https://betsassured.com/) for available tips and match assessments.
+BetsAssured provides football predictions and match analysis for daily fixtures, selected leagues and jackpot competitions. Check the latest [football predictions today](https://www.betsassured.com/) for available tips and match assessments.
 
 ## FootyStats Prediction Today and FootyStats Today
 
@@ -48,7 +48,7 @@ Footystats football prediction analysis covers the three main 1X2 outcomes. Thes
 
 Recent form, home advantage, head-to-head records and defensive strength help assess these outcomes. A draw deserves consideration when the teams have similar records or struggle to convert chances.
 
-Explore more [1X2 football predictions](https://betsassured.com/1x2-predictions/) and compare the available tips with recent team performance.
+Explore more [1X2 football predictions](https://www.betsassured.com/all-predictions) and compare the available tips with recent team performance.
 
 ## Footystats Double Chance Tips
 
@@ -73,7 +73,7 @@ FootyStats football prediction analysis can assess this market using recent scor
 
 Goal predictions also cover over and under markets. Over 2.5 goals requires at least three goals in total, while under 2.5 goals requires no more than two.
 
-Check the available [BTTS predictions](https://betsassured.com/btts-predictions/) and [over and under predictions](https://betsassured.com/over-under-predictions/) for additional match tips.
+Check the available [BTTS predictions](https://www.betsassured.com/both-teams-to-score) and [over and under predictions](https://www.betsassured.com/over-under-25-goals) for additional match tips.
 
 ## FootyStats Corners Prediction and Corner Statistics
 
@@ -119,7 +119,7 @@ A well-analyzed jackpot should consider:
 - Team news where confirmed
 - The strength of each opponent
 
-BetsAssured provides [football jackpot predictions](https://betsassured.com/jackpot-predictions/) for available competitions. Review every fixture instead of selecting favourites automatically.
+BetsAssured provides [football jackpot predictions](https://www.betsassured.com/jackpot-predictions) for available competitions. Review every fixture instead of selecting favourites automatically.
 
 ## FootyStats Sure Win Predictions and Football Tips
 
@@ -133,7 +133,7 @@ FootyStats predictions tomorrow cover upcoming matches for the next day. Early a
 
 Check the fixture schedule, recent team form, home and away records, and head-to-head results. Update your assessment when confirmed team news becomes available.
 
-Visit [football predictions for tomorrow](https://betsassured.com/football-predictions-tomorrow/) to review upcoming fixtures and available match tips.
+Visit [football predictions for tomorrow](https://www.betsassured.com/tomorrows-predictions) to review upcoming fixtures and available match tips.
 
 ## Footy Stats Live, Results and Football Statistics
 

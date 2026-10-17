@@ -78,7 +78,7 @@ Betpera yesterday prediction are football tips for matches played the previous d
 
 Checking previous predictions alongside actual results provides a record of how the tips performed for the listed fixtures. Match results also help fans identify which predictions were correct and which outcomes differed from our tips.
 
-You can check the [football results](https://www.betsassured.com/results) to review completed matches and their scores.
+You can check the [football results](https://www.betsassured.com/yesterdays-predictions) to review completed matches and their scores.
 
 ## Betpera 360 Predictions and Football Tips
 
@@ -116,7 +116,7 @@ The Betpera 1X2 market covers three outcomes: 1 represents a home win, X represe
 
 ### 7. Where can I check Betpera yesterday prediction results?
 
-You can review completed match scores on our [results](https://www.betsassured.com/results). Compare the final scores with the corresponding tips to see how the predictions performed.
+You can review completed match scores on our [results](https://www.betsassured.com/yesterdays-predictions). Compare the final scores with the corresponding tips to see how the predictions performed.
 
 
 Explore the latest football tips for today's matches, tomorrow's fixtures, and upcoming weekend games. Check the available match outcomes, correct score tips, and goal markets to find predictions which are well analyzed and reliable.

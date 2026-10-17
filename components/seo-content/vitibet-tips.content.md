@@ -153,7 +153,7 @@ Vitibet predictions results show how previous football picks performed after the
 
 BetsAssured keeps track of the results so you can review previous predictions and compare them with the actual outcomes.
 
-[View Football Results](https://www.betsassured.com/results)
+[View Football Results](https://www.betsassured.com/yesterdays-predictions)
 
 ## How We Make Vitibet Predictions
 

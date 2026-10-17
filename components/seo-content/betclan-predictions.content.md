@@ -66,7 +66,7 @@ Betclan today prediction are football tips for fixtures scheduled on the current
 
 Live scores show how matches develop, while completed results provide the final scores. Match dates and kickoff times are important when checking a particular fixture and Betclan tips.
 
-Visit our [football results](https://www.betsassured.com/results) to check recorded scores and review completed matches.
+Visit our [football results](https://www.betsassured.com/yesterdays-predictions) to check recorded scores and review completed matches.
 
 ## Frequently Asked Questions About Betclan Predictions
 

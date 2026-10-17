@@ -4,7 +4,7 @@ Predictz predictions today help football fans review upcoming matches, possible 
 
 Predictz football prediction coverage focuses on assessing fixtures and identifying possible match outcomes. Football fans also compare soccer predict tips across different leagues, using team statistics to understand which results look more likely.
 
-BetsAssured provides football predictions and match analysis for selected fixtures. You can review 1X2 results, double chance, correct scores, both teams to score and over/under goals through our [football predictions](https://betsassured.com/).
+BetsAssured provides football predictions and match analysis for selected fixtures. You can review 1X2 results, double chance, correct scores, both teams to score and over/under goals through our [football predictions](https://www.betsassured.com/).
 
 ## Predictz Predictions Today and Daily Football Tips
 
@@ -30,7 +30,7 @@ Predictz football tips are worth comparing with double chance options when a mat
 
 When analyzing matches predict results, consider recent form, home advantage and the number of goals each side scores. Similar team records may also make a draw more likely than an outright win.
 
-Explore our [1X2 football predictions](https://betsassured.com/1x2-predictions/) for more match-result tips.
+Explore our [1X2 football predictions](https://www.betsassured.com/all-predictions) for more match-result tips.
 
 ## Predictz Correct Score Predictions
 
@@ -53,7 +53,7 @@ The main goal lines mean:
 
 Predictz football prediction analysis becomes more useful when you compare each team's attacking strength with its opponent's defence. A side that scores regularly may still struggle against a team that allows few chances.
 
-For more goal-market tips, visit our [over/under predictions](https://betsassured.com/over-under-predictions/).
+For more goal-market tips, visit our [over/under predictions](https://www.betsassured.com/over-under-25-goals).
 
 ## Predictz BTTS and Both Teams to Score Tips
 
@@ -63,7 +63,7 @@ A BTTS Yes prediction is worth considering when both teams score regularly and c
 
 Soccerpredictz-style match analysis should consider recent scoring records rather than relying only on league positions. Check how often each team scores against similar opponents and whether its defensive record changes between home and away matches.
 
-You can find more tips through our [BTTS predictions](https://betsassured.com/btts-predictions/).
+You can find more tips through our [BTTS predictions](https://www.betsassured.com/both-teams-to-score).
 
 ## Predictz Tomorrow and Upcoming Football Matches
 
@@ -73,7 +73,7 @@ Predictz prediction tomorrow analysis should consider recent results, goals scor
 
 When checking prediction z tomorrow results, we focus on the matches with enough information to support a clear assessment. We avoid choosing a team based only on its reputation or position in the league.
 
-BetsAssured also provides upcoming match tips. Visit our [football predictions for tomorrow](https://betsassured.com/football-predictions-tomorrow/) to review available fixtures.
+BetsAssured also provides upcoming match tips. Visit our [football predictions for tomorrow](https://www.betsassured.com/tomorrows-predictions) to review available fixtures.
 
 ## Predictz Football Predictions for Weekend Matches
 
@@ -91,7 +91,7 @@ Predictz prediction results are analyzed according to the original market. If a 
 
 When reviewing completed matches, we check the final score, whether both teams scored and whether the total goals finished above or below the selected line.
 
-You can also review completed fixtures through our [football results](https://betsassured.com/results/).
+You can also review completed fixtures through our [football results](https://www.betsassured.com/yesterdays-predictions).
 
 ## Best Predictz Site for Football Tips and Analysis
 
@@ -145,4 +145,4 @@ Predictz soccer prediction tips relate to football match analysis and possible o
 
 Predictz predictions today provide a starting point for reviewing match outcomes, score estimates and team statistics. Comparing these details with recent form and home or away performance gives you a clearer view of each fixture.
 
-BetsAssured provides football predictions for today's matches and selected upcoming fixtures. Explore our [football predictions](https://betsassured.com/) to review available tips and match analysis.
+BetsAssured provides football predictions for today's matches and selected upcoming fixtures. Explore our [football predictions](https://www.betsassured.com/) to review available tips and match analysis.

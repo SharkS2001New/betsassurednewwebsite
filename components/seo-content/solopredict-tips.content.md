@@ -103,7 +103,7 @@ Visit our [jackpot predictions](https://www.betsassured.com/jackpot-predictions)
 
 Solo prediction results help football fans compare published tips with the final scores of completed matches. Reviewing results alongside solo prediction tips today provides a record of how predictions performed.
 
-BetsAssured provides access to football results so fans can check completed fixtures.  Visit our [football results](https://www.betsassured.com/results)  to check completed matches.
+BetsAssured provides access to football results so fans can check completed fixtures.  Visit our [football results](https://www.betsassured.com/yesterdays-predictions)  to check completed matches.
 
 
 ## Solo Predict Frequently Asked Questions

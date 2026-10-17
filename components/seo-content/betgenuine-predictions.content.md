@@ -97,7 +97,7 @@ BetGenuine prediction results allow football fans to compare published match tip
 
 BetsAssured provides access to football results for completed fixtures. Previous results do not guarantee that future predictions will be correct.
 
-Visit our [football results](https://www.betsassured.com/results) page to check completed matches.
+Visit our [football results](https://www.betsassured.com/yesterdays-predictions) page to check completed matches.
 
 ## Frequently Asked Questions About BetGenuine Prediction
 

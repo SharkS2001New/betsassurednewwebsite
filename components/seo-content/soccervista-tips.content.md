@@ -65,7 +65,7 @@ A team that has won 75% of its recent home matches may be a strong candidate. It
 SoccerVista livescore helps fans follow matches as they happen. Soccer Vista Live scores differ from pre-match predictions. A team leading 1-0 at half-time may still concede after the break. Red cards, substitutions and changes in momentum can affect the final score.
 For European competition fixtures and results, check the [official UEFA Champions League website](https://www.uefa.com/uefachampionsleague/fixtures-results/).
 
-For completed fixtures, visit our [football results page](https://www.betsassured.com/results).
+For completed fixtures, visit our [football results page](https://www.betsassured.com/yesterdays-predictions).
 
 ## Old SoccerVista vs New SoccerVista
 
