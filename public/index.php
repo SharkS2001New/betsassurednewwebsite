@@ -172,6 +172,42 @@ $router->get('/victorspredict-tips', function() {
     include __DIR__ . '/../pages/victorspredict-tips.php';
 });
 
+$router->get('/betmines-predictions', function() {
+    include __DIR__ . '/../pages/betmines-predictions.php';
+});
+
+$router->get('/betsloaded-predictions', function() {
+    include __DIR__ . '/../pages/betsloaded-predictions.php';
+});
+
+$router->get('/footystats-predictions', function() {
+    include __DIR__ . '/../pages/footystats-predictions.php';
+});
+
+$router->get('/forebet-predictions', function() {
+    include __DIR__ . '/../pages/forebet-predictions.php';
+});
+
+$router->get('/freesupertips-predictions', function() {
+    include __DIR__ . '/../pages/freesupertips-predictions.php';
+});
+
+$router->get('/predictz-predictions', function() {
+    include __DIR__ . '/../pages/predictz-predictions.php';
+});
+
+$router->get('/rarabet-predictions', function() {
+    include __DIR__ . '/../pages/rarabet-predictions.php';
+});
+
+$router->get('/statarea-predictions', function() {
+    include __DIR__ . '/../pages/statarea-predictions.php';
+});
+
+$router->get('/windrawwin-predictions', function() {
+    include __DIR__ . '/../pages/windrawwin-predictions.php';
+});
+
 $router->get('/sure-win-prediction-today', function() {
     include __DIR__ . '/../pages/sure-win-prediction-today.php'; 
 });
