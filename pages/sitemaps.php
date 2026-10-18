@@ -111,6 +111,12 @@ $sections = [
             ['label' => 'Rarabet Predictions', 'href' => '/rarabet-predictions'],
             ['label' => 'Statarea Predictions', 'href' => '/statarea-predictions'],
             ['label' => 'WinDrawWin Predictions', 'href' => '/windrawwin-predictions'],
+            ['label' => 'Braga Tips', 'href' => '/braga-tips'],
+            ['label' => 'Feedinco Predictions', 'href' => '/feedinco-predictions'],
+            ['label' => 'SafeDraws Predictions', 'href' => '/safedraws-predictions'],
+            ['label' => 'SoccerVital Predictions', 'href' => '/soccervital-predictions'],
+            ['label' => 'SportyTrader Predictions', 'href' => '/sportytrader-predictions'],
+            ['label' => 'SuperBet Predictions', 'href' => '/superbet-predictions'],
         ],
     ],
     [

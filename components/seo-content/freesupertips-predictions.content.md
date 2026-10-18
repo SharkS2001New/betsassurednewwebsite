@@ -26,7 +26,7 @@ The 1X2 market uses three symbols:
 
 We compare recent results, home and away records, goals scored and goals conceded before forming our predictions. We also analyze performances against similar opponents to determine whether a team's recent form is likely to continue.
 
-When teams appear evenly matched, we consider double chance options. The 1X option covers a home win or draw, X2 covers an away win or draw, and 12 covers either team winning. Our [1X2 predictions](https://www.betsassured.com/all-predictions) provide more match-result tips.
+When teams appear evenly matched, we consider double chance options. The 1X option covers a home win or draw, X2 covers an away win or draw, and 12 covers either team winning. Our 1X2 predictions provide more match-result tips.
 
 ## Free Super Tips Football Prediction and Free Super Tips Prediction Today
 
@@ -57,7 +57,7 @@ Common goal lines for freesupertips include:
 
 We examine how often each team reaches these totals and whether its home or away performances show a consistent pattern. We also consider whether both sides create enough scoring opportunities to support a high total. These factors help us decide whether a goals market fits the match better than a winner prediction.
 
-Explore our free super tips [over/under predictions](https://www.betsassured.com/over-under-25-goals) for more goal-market analysis.
+Explore our free super tips [over/under predictions](https://www.betsassured.com/over-under-15-goals) for more goal-market analysis.
 
 ## Soccer Free Super Tips Both Teams to Score Predictions
 
@@ -65,7 +65,7 @@ Soccer free super tips cover several football markets, including Both Teams to S
 
 BTTS Yes requires both teams to score at least once, while BTTS No means at least one team finishes without scoring. We compare each side's attacking performance with the opponent's defensive record rather than assuming that two high-scoring teams will automatically produce goals.
 
-Our free super tips analysis also separates the likelihood of both teams scoring from the likelihood of a particular team winning. A 1-1 draw satisfies BTTS Yes, while a 2-0 result does not. See our [BTTS predictions](https://www.betsassured.com/both-teams-to-score) for more match tips.
+Our free super tips analysis also separates the likelihood of both teams scoring from the likelihood of a particular team winning. A 1-1 draw satisfies BTTS Yes, while a 2-0 result does not. See our BTTS predictions for more match tips.
 
 ## FreeSuperTips Bet of the Day
 
@@ -83,7 +83,7 @@ We also use official sources such as the [Premier League](https://www.premierlea
 
 ## Freesupertip Predictions
 
-We also review draws and double chance outcomes to understand how different prediction markets performed. Check our [football results](https://www.betsassured.com/yesterdays-predictions) for completed matches and final scores.
+We also review draws and double chance outcomes to understand how different prediction markets performed. Check our football results for completed matches and final scores.
 
 ## Frequently Asked Questions About FreeSuperTips
 
@@ -115,4 +115,4 @@ A FreeSuperTips football accumulator often called an "acca" is a combined sports
 
 FreeSuperTips predictions today cover match results, correct scores, goal markets and other football tips. At BetsAssured, we assess recent team performances, scoring patterns and relevant match conditions to prepare clear forecasts for today's fixtures and upcoming games.
 
-Explore our [football predictions](https://www.betsassured.com/), review [completed football results](https://www.betsassured.com/yesterdays-predictions) and check our [jackpot predictions](https://www.betsassured.com/jackpot-predictions) for more match analysis.
+Explore our [football predictions](https://www.betsassured.com/), review completed football results and check our [jackpot predictions](https://www.betsassured.com/jackpot-predictions) for more match analysis.

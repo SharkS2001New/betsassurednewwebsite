@@ -208,6 +208,30 @@ $router->get('/windrawwin-predictions', function() {
     include __DIR__ . '/../pages/windrawwin-predictions.php';
 });
 
+$router->get('/braga-tips', function() {
+    include __DIR__ . '/../pages/braga-tips.php';
+});
+
+$router->get('/feedinco-predictions', function() {
+    include __DIR__ . '/../pages/feedinco-predictions.php';
+});
+
+$router->get('/safedraws-predictions', function() {
+    include __DIR__ . '/../pages/safedraws-predictions.php';
+});
+
+$router->get('/soccervital-predictions', function() {
+    include __DIR__ . '/../pages/soccervital-predictions.php';
+});
+
+$router->get('/sportytrader-predictions', function() {
+    include __DIR__ . '/../pages/sportytrader-predictions.php';
+});
+
+$router->get('/superbet-predictions', function() {
+    include __DIR__ . '/../pages/superbet-predictions.php';
+});
+
 $router->get('/sure-win-prediction-today', function() {
     include __DIR__ . '/../pages/sure-win-prediction-today.php'; 
 });
