@@ -232,6 +232,46 @@ $router->get('/superbet-predictions', function() {
     include __DIR__ . '/../pages/superbet-predictions.php';
 });
 
+$router->get('/100percent-tips', function() {
+    include __DIR__ . '/../pages/100percent-tips.php';
+});
+
+$router->get('/betimate-predictions', function() {
+    include __DIR__ . '/../pages/betimate-predictions.php';
+});
+
+$router->get('/betin-sure-predictions', function() {
+    include __DIR__ . '/../pages/betin-sure-predictions.php';
+});
+
+$router->get('/betpro360-predictions', function() {
+    include __DIR__ . '/../pages/betpro360-predictions.php';
+});
+
+$router->get('/betwinner360-predictions', function() {
+    include __DIR__ . '/../pages/betwinner360-predictions.php';
+});
+
+$router->get('/foretips-predictions', function() {
+    include __DIR__ . '/../pages/foretips-predictions.php';
+});
+
+$router->get('/meritpredict-predictions', function() {
+    include __DIR__ . '/../pages/meritpredict-predictions.php';
+});
+
+$router->get('/onemillion-predictions', function() {
+    include __DIR__ . '/../pages/onemillion-predictions.php';
+});
+
+$router->get('/protipster-predictions', function() {
+    include __DIR__ . '/../pages/protipster-predictions.php';
+});
+
+$router->get('/taifatips-predictions', function() {
+    include __DIR__ . '/../pages/taifatips-predictions.php';
+});
+
 $router->get('/sure-win-prediction-today', function() {
     include __DIR__ . '/../pages/sure-win-prediction-today.php'; 
 });
